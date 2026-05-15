@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  author: string;
+  jsonLd?: object | object[];
+}
+const {
+  title,
+  description,
+  h1,
+  pubDate,
+  updatedDate,
+  heroImage,
+  author,
+  jsonLd,
+} = Astro.props;
+const pubFmt = pubDate.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const updFmt = updatedDate
+  ? updatedDate.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : undefined;
+---
+<BaseLayout {title} {description} ogImage={heroImage} ogType="article" {jsonLd}>
+  <article class="post">
+    <header class="post-header">
+      <h1>{h1}</h1>
+      <p class="byline">
+        By {author} ·{' '}
+        <time datetime={pubDate.toISOString()}>{pubFmt}</time>
+        {updFmt && (
+          <>
+            {' '}· Updated{' '}
+            <time datetime={updatedDate!.toISOString()}>{updFmt}</time>
+          </>
+        )}
+      </p>
+      {heroImage && (
+        <img class="hero-image" src={heroImage} alt="" loading="eager" />
+      )}
+    </header>
+
+    <div class="post-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

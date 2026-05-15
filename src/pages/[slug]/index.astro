@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { article, breadcrumbList } from '../../lib/schema';
+
+// Root-level blog posts (CLAUDE.md §2): /<slug>/, NOT /blog/<slug>/.
+// Static .astro routes (e.g. /our-shutters/, /about/) take precedence over this
+// dynamic route, so collisions are caught by Astro at build time.
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const url = `https://shutter-envy.co.uk/${post.id}/`;
+const jsonLd = [
+  article({
+    url,
+    headline: post.data.h1 ?? post.data.title,
+    description: post.data.description,
+    datePublished: post.data.pubDate,
+    dateModified: post.data.updatedDate,
+    image: post.data.heroImage,
+    author: post.data.author,
+  }),
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'News', url: '/news/' },
+    { name: post.data.h1 ?? post.data.title, url: `/${post.id}/` },
+  ]),
+];
+---
+<ArticleLayout
+  title={post.data.title}
+  description={post.data.description}
+  h1={post.data.h1}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  heroImage={post.data.heroImage}
+  author={post.data.author}
+  jsonLd={jsonLd}
+>
+  <Content />
+</ArticleLayout>

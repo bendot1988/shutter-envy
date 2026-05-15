@@ -1,0 +1,45 @@
+---
+import { primaryNav, business } from '../data/site';
+const path = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href !== '#' && (path === href || (href !== '/' && path.startsWith(href)));
+---
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand" aria-label="Shutter Envy — home">Shutter Envy</a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        {primaryNav.map((item) => (
+          <li class={item.children ? 'has-submenu' : ''}>
+            <a
+              href={item.href}
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+              aria-haspopup={item.children ? 'true' : undefined}
+            >
+              {item.label}
+            </a>
+            {item.children && (
+              <ul class="submenu">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      aria-current={isCurrent(child.href) ? 'page' : undefined}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a class="header-cta" href={`tel:${business.phoneTel}`}>
+      {business.phoneDisplay}
+    </a>
+  </div>
+</header>

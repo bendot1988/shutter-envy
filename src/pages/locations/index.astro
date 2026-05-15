@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const locations = await getCollection('locations');
+locations.sort((a, b) => a.data.area.localeCompare(b.data.area));
+---
+<PageLayout
+  title="Locations"
+  description="Areas we serve across Leicester and Leicestershire."
+  h1="Locations we serve"
+>
+  <ul>
+    {locations.map((loc) => (
+      <li>
+        <a href={`/locations/${loc.id}/`}>{loc.data.area}</a>
+      </li>
+    ))}
+  </ul>
+</PageLayout>

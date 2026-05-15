@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { breadcrumbList } from '../../lib/schema';
+
+// Pagination: produces /news/ (page 1), /news/2/, /news/3/, …
+// Matches the live WordPress pagination URL structure exactly.
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const posts = await getCollection('blog');
+  posts.sort(
+    (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate),
+  );
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+const isFirst = page.currentPage === 1;
+const pageLabel = isFirst ? '' : ` — Page ${page.currentPage}`;
+
+const jsonLd = [
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'News', url: '/news/' },
+    ...(isFirst ? [] : [{ name: `Page ${page.currentPage}`, url: page.url.current }]),
+  ]),
+];
+---
+<BaseLayout
+  title={`News${pageLabel} | Shutter Envy`}
+  description="Shutter installation projects, advice and updates from Shutter Envy across Leicestershire."
+  jsonLd={jsonLd}
+>
+  <header class="news-header">
+    <h1>News{pageLabel}</h1>
+    <p>Recent projects, advice and updates from across Leicestershire.</p>
+  </header>
+
+  <ul class="post-list">
+    {page.data.map((post: any) => (
+      <li class="post-card">
+        {post.data.heroImage && (
+          <a href={`/${post.id}/`} class="post-card-image">
+            <img src={post.data.heroImage} alt="" loading="lazy" />
+          </a>
+        )}
+        <div class="post-card-text">
+          <h2><a href={`/${post.id}/`}>{post.data.h1 ?? post.data.title}</a></h2>
+          <p class="byline">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </time>
+          </p>
+          {post.data.excerpt && <p>{post.data.excerpt}</p>}
+          <a href={`/${post.id}/`} class="read-more">Read more →</a>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <nav class="pagination" aria-label="News pagination">
+    {page.url.prev && <a rel="prev" href={page.url.prev}>← Newer posts</a>}
+    <span class="page-of">Page {page.currentPage} of {page.lastPage}</span>
+    {page.url.next && <a rel="next" href={page.url.next}>Older posts →</a>}
+  </nav>
+</BaseLayout>

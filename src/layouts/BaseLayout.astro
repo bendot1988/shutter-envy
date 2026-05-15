@@ -1,0 +1,50 @@
+---
+import SEO from '../components/SEO.astro';
+import Analytics from '../components/Analytics.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localBusiness } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: object | object[];
+  // Opt out of the automatic LocalBusiness schema if a page wants to provide
+  // its own scoped version (e.g. an area-specific LocalBusiness on Location pages).
+  includeLocalBusiness?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  ogType,
+  jsonLd,
+  includeLocalBusiness = true,
+} = Astro.props;
+
+const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+// LocalBusiness must appear on every page (CLAUDE.md §4). Page-level schema is
+// appended after it so the site-wide identity is always first in source order.
+const allJsonLd = includeLocalBusiness
+  ? [localBusiness(), ...pageJsonLd]
+  : pageJsonLd;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO {title} {description} {ogImage} {ogType} jsonLd={allJsonLd} />
+    <Analytics />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

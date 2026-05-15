@@ -1,0 +1,68 @@
+---
+import { business, social, footerNav } from '../data/site';
+const year = new Date().getFullYear();
+const addr = business.address;
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="brand">Shutter Envy</p>
+      <address>
+        {addr.streetAddress}<br />
+        {addr.addressLocality}<br />
+        {addr.postalCode}<br />
+        United Kingdom
+      </address>
+      <p>
+        <a href={`tel:${business.phoneTel}`}>{business.phoneDisplay}</a><br />
+        <a href={`tel:${business.phoneAltTel}`}>{business.phoneAltDisplay}</a><br />
+        <a href={`mailto:${business.email}`}>{business.email}</a>
+      </p>
+    </div>
+
+    <nav aria-label="Company">
+      <h2>Company</h2>
+      <ul>
+        {footerNav.company.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Products">
+      <h2>Products</h2>
+      <ul>
+        {footerNav.products.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Legal">
+      <h2>Information</h2>
+      <ul>
+        {footerNav.legal.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+      <ul class="social">
+        <li>
+          <a href={social.facebook} rel="noopener" target="_blank">Facebook</a>
+        </li>
+        <li>
+          <a href={social.instagram} rel="noopener" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a href={social.googleMaps} rel="noopener" target="_blank">Google</a>
+        </li>
+        <li>
+          <a href={social.trustpilot} rel="noopener" target="_blank">Trustpilot</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container footer-base">
+    <p>© {year} {business.legalName}. All rights reserved.</p>
+  </div>
+</footer>

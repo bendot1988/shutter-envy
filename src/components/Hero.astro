@@ -1,0 +1,23 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  subheading?: string;
+  image?: string;
+  cta?: { label: string; href: string };
+  // When true, the heading renders as <h1>. When a separate <h1> is rendered
+  // elsewhere in the page, set this to false to avoid duplicate H1s (CLAUDE.md §4).
+  asH1?: boolean;
+}
+const { eyebrow, heading, subheading, image, cta, asH1 = false } = Astro.props;
+const Heading = asH1 ? 'h1' : 'p';
+---
+<section class="hero">
+  {image && <img class="hero-image" src={image} alt="" />}
+  <div class="hero-text">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <Heading class={asH1 ? '' : 'hero-heading'}>{heading}</Heading>
+    {subheading && <p class="subheading">{subheading}</p>}
+    {cta && <a class="button" href={cta.href}>{cta.label}</a>}
+  </div>
+</section>

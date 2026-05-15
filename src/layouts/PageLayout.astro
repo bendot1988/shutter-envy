@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  hero?: {
+    eyebrow?: string;
+    heading: string;
+    subheading?: string;
+    image?: string;
+    cta?: { label: string; href: string };
+  };
+  gallery?: { src: string; alt: string }[];
+  faqs?: { question: string; answer: string }[];
+  cta?: { heading: string; body?: string; button: { label: string; href: string } };
+  ogImage?: string;
+  jsonLd?: object | object[];
+}
+
+const {
+  title,
+  description,
+  h1,
+  hero,
+  gallery = [],
+  faqs = [],
+  cta,
+  ogImage,
+  jsonLd,
+} = Astro.props;
+---
+<BaseLayout {title} {description} {ogImage} {jsonLd}>
+  <article>
+    {/* The page's single H1. Hero, if present, renders its heading as a non-H1
+       eyebrow/subheading combo — the structural H1 always lives here. */}
+    <h1>{h1}</h1>
+
+    {hero && <Hero {...hero} />}
+
+    {/* Body slot: markdown content with auto-generated heading IDs.
+       Anchor links like #shutter-materials, #roller, #Puma work out of the box
+       (Astro slugifies h2-h6 by default). For non-slugifiable anchors, the
+       content can use raw HTML, e.g. <h2 id="Puma">Puma Shutters</h2>. */}
+    <div class="page-body">
+      <slot />
+    </div>
+
+    {gallery.length > 0 && <Gallery images={gallery} />}
+
+    {faqs.length > 0 && <FAQ items={faqs} />}
+
+    {cta && <CTA {...cta} />}
+  </article>
+</BaseLayout>

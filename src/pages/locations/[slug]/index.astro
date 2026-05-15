@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import LocationLayout from '../../../layouts/LocationLayout.astro';
+import { localBusiness, faqPage, breadcrumbList } from '../../../lib/schema';
+
+export async function getStaticPaths() {
+  const locations = await getCollection('locations');
+  return locations.map((loc) => ({
+    params: { slug: loc.id },
+    props: { loc },
+  }));
+}
+
+const { loc } = Astro.props;
+const { Content } = await render(loc);
+
+const url = `https://shutter-envy.co.uk/locations/${loc.id}/`;
+const jsonLd: object[] = [
+  // Area-scoped LocalBusiness for this location
+  localBusiness({
+    url,
+    areaServed: loc.data.area,
+    name: `Shutter Envy — ${loc.data.area}`,
+  }),
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Locations', url: '/locations/' },
+    { name: loc.data.area, url: `/locations/${loc.id}/` },
+  ]),
+];
+if (loc.data.faqs.length) jsonLd.push(faqPage(loc.data.faqs));
+---
+<LocationLayout
+  title={loc.data.title}
+  description={loc.data.description}
+  h1={loc.data.h1}
+  area={loc.data.area}
+  hero={loc.data.hero}
+  gallery={loc.data.gallery}
+  serviceBlurbs={loc.data.serviceBlurbs}
+  mapEmbedUrl={loc.data.mapEmbedUrl}
+  faqs={loc.data.faqs}
+  cta={loc.data.cta}
+  ogImage={loc.data.ogImage}
+  jsonLd={jsonLd}
+  includeLocalBusiness={false}
+>
+  <Content />
+</LocationLayout>

@@ -1,0 +1,46 @@
+---
+// Single source of truth for per-page SEO (CLAUDE.md §4).
+// Renders: title, meta description, self-referencing canonical with trailing slash,
+// Open Graph, Twitter, and optional JSON-LD blocks.
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: object | object[];
+}
+
+const { title, description, ogImage, ogType = 'website', jsonLd } = Astro.props;
+
+const site = Astro.site!.toString().replace(/\/$/, '');
+// Canonical: absolute URL, trailing slash preserved.
+const pathname = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : Astro.url.pathname + '/';
+const canonical = `${site}${pathname}`;
+const ogImageAbs = ogImage
+  ? ogImage.startsWith('http')
+    ? ogImage
+    : `${site}${ogImage}`
+  : undefined;
+const jsonLdArr = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content={ogType} />
+<meta property="og:locale" content="en_GB" />
+{ogImageAbs && <meta property="og:image" content={ogImageAbs} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImageAbs && <meta name="twitter:image" content={ogImageAbs} />}
+
+{jsonLdArr.map((block) => (
+  <script type="application/ld+json" set:html={JSON.stringify(block)} />
+))}

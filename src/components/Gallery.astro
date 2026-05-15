@@ -1,0 +1,20 @@
+---
+interface Props {
+  images: { src: string; alt: string }[];
+  id?: string;
+  heading?: string;
+}
+const { images, id, heading } = Astro.props;
+---
+{images.length > 0 && (
+  <section id={id} class="gallery">
+    {heading && <h2>{heading}</h2>}
+    <ul class="gallery-grid">
+      {images.map((img) => (
+        <li>
+          <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
