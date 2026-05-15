@@ -1,0 +1,23 @@
+---
+interface Props {
+  message: string;
+}
+const { message } = Astro.props;
+---
+<div class="announcement-bar">
+  <p>{message}</p>
+</div>
+
+<style>
+  .announcement-bar {
+    background: var(--color-gold-400);
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .announcement-bar p { margin: 0; }
+</style>

@@ -38,74 +38,125 @@ export const social = {
   trustpilot: 'https://uk.trustpilot.com/review/shutter-envy.co.uk',
 } as const;
 
-// Primary navigation, with the two submenus the live site uses.
-// "Our Products" is a dropdown only (the parent itself isn't a page — href '#').
-export type NavItem = {
-  label: string;
-  href: string;
-  children?: { label: string; href: string }[];
-};
+// Primary navigation. The live WordPress had two overlapping menus ("Shutters"
+// submenu + "Our Products" dropdown). We collapse them into one mega-menu
+// "Products" with three categorised columns + a featured panel.
+export type SimpleLink = { label: string; href: string; description?: string };
+export type NavItem =
+  | { label: string; href: string; type?: 'link' }
+  | {
+      label: string;
+      href: string;
+      type: 'mega';
+      columns: { heading: string; href?: string; items: SimpleLink[] }[];
+      featured?: { image: string; heading: string; body: string; cta: { label: string; href: string } };
+    }
+  | {
+      label: string;
+      href: string;
+      type: 'simple';
+      items: SimpleLink[];
+    };
 
 export const primaryNav: NavItem[] = [
   { label: 'Home', href: '/' },
   {
-    label: 'Shutters',
-    href: '/our-shutters/',
-    children: [
-      { label: 'Our Shutters', href: '/our-shutters/' },
-      { label: 'Colour Swatches', href: '/our-shutters/colour-swatches/' },
+    label: 'Products',
+    href: '#',
+    type: 'mega',
+    columns: [
       {
-        label: 'Portchester® Aluminium Shutters',
-        href: '/portchester-aluminium-shutters-leicester/',
+        heading: 'Shutters',
+        href: '/our-shutters/',
+        items: [
+          { label: 'Our Shutters', href: '/our-shutters/', description: 'Made-to-measure plantation shutters' },
+          { label: 'Colour Swatches', href: '/our-shutters/colour-swatches/', description: 'Browse our full range' },
+          { label: 'Portchester® Aluminium', href: '/portchester-aluminium-shutters-leicester/', description: 'Security shutters' },
+          { label: 'British Made Shutters', href: '/british-made-shutters/', description: 'Materials & craftsmanship' },
+        ],
+      },
+      {
+        heading: 'Blinds',
+        href: '/our-blinds/',
+        items: [
+          { label: 'Our Blinds', href: '/our-blinds/', description: 'Roller, Venetian, Roman & more' },
+          { label: 'Motorised Blinds', href: '/blind-motorisation/', description: 'Smart, automated control' },
+        ],
+      },
+      {
+        heading: 'Awnings',
+        href: '/awnings/',
+        items: [
+          { label: 'Awnings', href: '/awnings/', description: 'Bobcat, Puma & Tiger ranges' },
+        ],
       },
     ],
+    featured: {
+      image: '/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-650x492.jpg',
+      heading: 'Free home survey',
+      body: 'No-obligation quote in your living room, anywhere in Leicestershire.',
+      cta: { label: 'Arrange a visit', href: '/contact/' },
+    },
   },
   {
-    label: 'Our Products',
-    href: '#',
-    children: [
-      { label: 'Shutters', href: '/our-shutters/' },
-      {
-        label: 'Portchester® Aluminium Shutters',
-        href: '/portchester-aluminium-shutters-leicester/',
-      },
-      { label: 'Motorised Blinds', href: '/blind-motorisation/' },
-      { label: 'Awnings', href: '/awnings/' },
-      { label: 'Blinds', href: '/our-blinds/' },
+    label: 'Locations',
+    href: '/locations/',
+    type: 'simple',
+    items: [
+      { label: 'Leicester', href: '/locations/shutters-in-leicester/' },
+      { label: 'Loughborough', href: '/locations/shutters-in-loughborough/' },
+      { label: 'Market Harborough', href: '/locations/shutters-market-harborough/' },
+      { label: 'Melton Mowbray', href: '/locations/shutters-melton-mowbray/' },
+      { label: 'Charnwood', href: '/locations/shutters-in-charnwood/' },
+      { label: 'Quorn', href: '/locations/shutters-in-quorn/' },
+      { label: 'Rothley', href: '/locations/shutters-in-rothley/' },
+      { label: 'Syston', href: '/locations/shutters-in-syston/' },
+      { label: 'Birstall', href: '/locations/shutters-birstall/' },
+      { label: 'Groby', href: '/locations/shutters-groby/' },
+      { label: 'Sileby', href: '/locations/shutters-sileby/' },
+      { label: 'Barrow upon Soar', href: '/locations/shutters-in-barrow-upon-soar/' },
     ],
   },
-  { label: 'Blinds', href: '/our-blinds/' },
-  { label: 'Blind Motorisation', href: '/blind-motorisation/' },
-  { label: 'Awnings', href: '/awnings/' },
+  { label: 'Recent Work', href: '/recent-work/' },
   { label: 'News', href: '/news/' },
   { label: 'About', href: '/about/' },
   { label: 'Contact', href: '/contact/' },
-  { label: 'Reviews', href: '/reviews/' },
 ];
 
-// Footer columns. Mirrors the live site's footer link sets.
+// Footer columns. Mirrors the live site's 5-column footer (Menu / Shutters /
+// Awnings / Blinds / Get in touch) verbatim.
 export const footerNav = {
-  company: [
+  menu: [
+    { label: 'Home', href: '/' },
     { label: 'About', href: '/about/' },
-    { label: 'Recent Work', href: '/recent-work/' },
-    { label: 'Reviews', href: '/reviews/' },
-    { label: 'News', href: '/news/' },
     { label: 'Contact', href: '/contact/' },
+    { label: 'Locations', href: '/locations/' },
+    { label: 'Latest News', href: '/news/' },
+    { label: 'Reviews', href: '/reviews/' },
   ],
-  products: [
-    { label: 'Our Shutters', href: '/our-shutters/' },
-    { label: 'Colour Swatches', href: '/our-shutters/colour-swatches/' },
-    {
-      label: 'Portchester® Aluminium Shutters',
-      href: '/portchester-aluminium-shutters-leicester/',
-    },
-    { label: 'Blinds', href: '/our-blinds/' },
-    { label: 'Blind Motorisation', href: '/blind-motorisation/' },
+  shutters: [
+    { label: 'Award Winning Window Shutters', href: '/our-shutters/' },
+    { label: 'Shutter Materials', href: '/british-made-shutters/' },
+    { label: 'Portchester Aluminium Shutters', href: '/portchester-aluminium-shutters-leicester/' },
+  ],
+  awnings: [
     { label: 'Awnings', href: '/awnings/' },
+    { label: 'Puma Awnings', href: '/awnings/' },
+    { label: 'Tiger Awnings', href: '/awnings/' },
+    { label: 'Bobcat Awnings', href: '/awnings/' },
   ],
-  legal: [
-    { label: 'Privacy', href: '/privacy/' },
-    { label: 'Terms', href: '/terms/' },
-    { label: 'Site map', href: '/site-map/' },
+  blinds: [
+    { label: 'Smart automatic Blinds', href: '/blind-motorisation/' },
+    { label: 'Roller Blinds', href: '/our-blinds/' },
+    { label: 'Venetian Blinds', href: '/our-blinds/' },
+    { label: 'Honeycomb Blinds', href: '/our-blinds/' },
+    { label: 'Duo Roller Blinds', href: '/our-blinds/' },
+    { label: 'Vertical Blinds', href: '/our-blinds/' },
   ],
 } as const;
+
+export const legalNav = [
+  { label: 'Privacy', href: '/privacy/' },
+  { label: 'Terms', href: '/terms/' },
+  { label: 'Site Map', href: '/site-map/' },
+];

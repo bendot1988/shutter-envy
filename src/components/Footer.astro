@@ -1,68 +1,208 @@
 ---
-import { business, social, footerNav } from '../data/site';
+import { business, social, footerNav, legalNav } from '../data/site';
 const year = new Date().getFullYear();
-const addr = business.address;
 ---
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <p class="brand">Shutter Envy</p>
-      <address>
-        {addr.streetAddress}<br />
-        {addr.addressLocality}<br />
-        {addr.postalCode}<br />
-        United Kingdom
-      </address>
-      <p>
-        <a href={`tel:${business.phoneTel}`}>{business.phoneDisplay}</a><br />
-        <a href={`tel:${business.phoneAltTel}`}>{business.phoneAltDisplay}</a><br />
-        <a href={`mailto:${business.email}`}>{business.email}</a>
-      </p>
+  <div class="container site-footer__grid">
+    <nav aria-label="Menu">
+      <h2>Menu</h2>
+      <ul>
+        {footerNav.menu.map((l) => (
+          <li><a href={l.href}>› {l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Shutters">
+      <h2>Shutters</h2>
+      <ul>
+        {footerNav.shutters.map((l) => (
+          <li><a href={l.href}>› {l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Awnings">
+      <h2>Awnings</h2>
+      <ul>
+        {footerNav.awnings.map((l) => (
+          <li><a href={l.href}>› {l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Blinds">
+      <h2>Blinds</h2>
+      <ul>
+        {footerNav.blinds.map((l) => (
+          <li><a href={l.href}>› {l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="site-footer__contact">
+      <h2>Get in touch</h2>
+      <ul>
+        <li>
+          <a href={`tel:${business.phoneTel}`}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.98.98 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            Call {business.phoneDisplay}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${business.email}`}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email us
+          </a>
+        </li>
+        <li>
+          <a href={social.facebook} target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+            SE on Facebook
+          </a>
+        </li>
+        <li>
+          <a href={social.instagram} target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.86 5.86 0 0 0-2.13 1.39A5.86 5.86 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13a5.86 5.86 0 0 0 2.13 1.39c.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.62c-.76-.29-1.63-.49-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.41 4.15a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            SE on Instagram
+          </a>
+        </li>
+        <li>
+          <a href={social.googleMaps} target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23zM5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.07H2.18A11 11 0 0 0 1 12c0 1.78.43 3.46 1.18 4.93l3.66-2.83zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 12 1a11 11 0 0 0-9.82 6.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+            SE on Google
+          </a>
+        </li>
+        <li>
+          <a href="/site-map/">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+            Site Map
+          </a>
+        </li>
+      </ul>
     </div>
-
-    <nav aria-label="Company">
-      <h2>Company</h2>
-      <ul>
-        {footerNav.company.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
-    </nav>
-
-    <nav aria-label="Products">
-      <h2>Products</h2>
-      <ul>
-        {footerNav.products.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
-    </nav>
-
-    <nav aria-label="Legal">
-      <h2>Information</h2>
-      <ul>
-        {footerNav.legal.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
-      <ul class="social">
-        <li>
-          <a href={social.facebook} rel="noopener" target="_blank">Facebook</a>
-        </li>
-        <li>
-          <a href={social.instagram} rel="noopener" target="_blank">Instagram</a>
-        </li>
-        <li>
-          <a href={social.googleMaps} rel="noopener" target="_blank">Google</a>
-        </li>
-        <li>
-          <a href={social.trustpilot} rel="noopener" target="_blank">Trustpilot</a>
-        </li>
-      </ul>
-    </nav>
   </div>
 
-  <div class="container footer-base">
-    <p>© {year} {business.legalName}. All rights reserved.</p>
+  <div class="site-footer__badge">
+    <img src="/wp-content/uploads/2024/08/Portchester-Certified-Partner-300x300.png" alt="Portchester Certified Partner" />
+    <ul class="site-footer__socials">
+      <li><a href={social.facebook} aria-label="Facebook" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+      </a></li>
+      <li><a href={social.instagram} aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.86 5.86 0 0 0-2.13 1.39A5.86 5.86 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13a5.86 5.86 0 0 0 2.13 1.39c.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.62c-.76-.29-1.63-.49-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.41 4.15a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      </a></li>
+    </ul>
+    <a href="/contact/" class="site-footer__cta">Arrange a Home Visit</a>
+  </div>
+
+  <div class="site-footer__base">
+    <div class="container">
+      <p>© {year} {business.legalName}. All rights reserved.</p>
+      <nav aria-label="Legal">
+        {legalNav.map((l, i) => (
+          <><a href={l.href}>{l.label}</a>{i < legalNav.length - 1 && <span aria-hidden="true">·</span>}</>
+        ))}
+      </nav>
+    </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    background: #fff;
+    border-top: 1px solid var(--color-line);
+    margin-top: 0;
+    padding: 4rem 0 0;
+    color: var(--color-ink);
+  }
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .site-footer__grid { grid-template-columns: repeat(5, 1fr); gap: 2rem; }
+  }
+  .site-footer h2 {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+  }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; }
+  .site-footer li { margin-block: 0.5rem; font-size: 0.9375rem; }
+  .site-footer a {
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .site-footer a:hover { color: var(--color-gold-600); }
+  .site-footer__contact a svg { color: var(--color-gold-600); flex-shrink: 0; }
+
+  .site-footer__badge {
+    background: var(--color-cream);
+    padding: 3rem 1.25rem;
+    margin-top: 4rem;
+    text-align: center;
+  }
+  .site-footer__badge img {
+    width: 120px;
+    height: auto;
+    margin: 0 auto 1.25rem;
+    display: block;
+  }
+  .site-footer__socials {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .site-footer__socials li { margin: 0; }
+  .site-footer__socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-gold-400);
+    color: #fff;
+  }
+  .site-footer__socials a:hover { background: var(--color-gold-600); color: #fff; }
+  .site-footer__cta {
+    display: inline-block;
+    background: var(--color-gold-400);
+    color: #fff !important;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+  .site-footer__cta:hover { background: var(--color-gold-600); color: #fff !important; }
+
+  .site-footer__base {
+    background: var(--color-ink);
+    color: #888;
+    padding: 1.25rem 0;
+    font-size: 0.8125rem;
+  }
+  .site-footer__base .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .site-footer__base p { margin: 0; }
+  .site-footer__base nav { display: flex; gap: 0.75rem; align-items: center; }
+  .site-footer__base a { color: #aaa; font-size: 0.8125rem; }
+  .site-footer__base a:hover { color: var(--color-gold-400); }
+  .site-footer__base span { color: #555; }
+</style>

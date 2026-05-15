@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  limit?: number;
+}
+const { limit = 3 } = Astro.props;
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate))
+  .slice(0, limit);
+---
+<section class="latest-news">
+  <div class="container">
+    <header class="latest-news__header">
+      <h2>Latest News</h2>
+    </header>
+    <ul class="latest-news__grid">
+      {posts.map((p) => (
+        <li class="latest-news__card">
+          {p.data.heroImage && (
+            <a href={`/${p.id}/`} class="latest-news__image">
+              <img src={p.data.heroImage} alt={p.data.h1 ?? p.data.title} loading="lazy" />
+            </a>
+          )}
+          <div class="latest-news__body">
+            <h3><a href={`/${p.id}/`}>{p.data.h1 ?? p.data.title}</a></h3>
+            {p.data.excerpt && <p>{p.data.excerpt}</p>}
+            <a href={`/${p.id}/`} class="latest-news__read">Read More »</a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .latest-news {
+    margin: 6rem calc(50% - 50vw) 0;
+    padding: 5rem 1.25rem 6rem;
+    background:
+      linear-gradient(180deg, rgba(58,46,12,0.92), rgba(58,46,12,0.95)),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="200" viewBox="0 0 60 200"><line x1="10" y1="0" x2="10" y2="200" stroke="white" stroke-width="0.5" opacity="0.08"/><line x1="30" y1="0" x2="30" y2="200" stroke="white" stroke-width="0.5" opacity="0.08"/><line x1="50" y1="0" x2="50" y2="200" stroke="white" stroke-width="0.5" opacity="0.08"/></svg>');
+    color: #fff;
+    position: relative;
+  }
+  .latest-news__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .latest-news__header h2 {
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin: 0;
+  }
+  .latest-news__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 70rem;
+    margin-inline: auto;
+  }
+  @media (min-width: 768px) {
+    .latest-news__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  }
+  .latest-news__card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    color: var(--color-ink);
+    transition: transform 200ms, box-shadow 200ms;
+    margin: 0;
+  }
+  .latest-news__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -20px rgba(0,0,0,0.4);
+  }
+  .latest-news__image { display: block; }
+  .latest-news__image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .latest-news__body { padding: 1.25rem 1.5rem 1.5rem; }
+  .latest-news__body h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+  }
+  .latest-news__body h3 a { color: var(--color-ink); text-decoration: none; }
+  .latest-news__body h3 a:hover { color: var(--color-gold-600); }
+  .latest-news__body p {
+    font-size: 0.875rem;
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .latest-news__read {
+    color: var(--color-gold-600);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .latest-news__read:hover { color: var(--color-gold-400); }
+</style>

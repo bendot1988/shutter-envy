@@ -1,0 +1,28 @@
+---
+// Astro's 404.astro generates dist/404.html. Netlify automatically serves it
+// with a real 404 status code (no _redirects entry needed). The page still
+// emits LocalBusiness + WebSite + WebPage schema from BaseLayout, but is
+// marked noindex so search engines don't index error pages.
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Page not found | Shutter Envy"
+  description="Sorry, the page you were looking for can't be found."
+  noindex
+>
+  <section class="error-page">
+    <h1>Page not found</h1>
+    <p>Sorry, we couldn't find the page you were looking for.</p>
+    <p>
+      It might have moved, or the link you followed might be wrong.
+      Try one of these instead:
+    </p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/our-shutters/">Our Shutters</a></li>
+      <li><a href="/locations/">Locations we serve</a></li>
+      <li><a href="/news/">News</a></li>
+      <li><a href="/contact/">Contact us</a></li>
+    </ul>
+  </section>
+</BaseLayout>

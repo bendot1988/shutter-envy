@@ -3,7 +3,9 @@ import SEO from '../components/SEO.astro';
 import Analytics from '../components/Analytics.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { localBusiness } from '../lib/schema';
+import AnnouncementBar from '../components/home/AnnouncementBar.astro';
+import { localBusiness, webSite, webPage } from '../lib/schema';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -11,9 +13,16 @@ interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   jsonLd?: object | object[];
-  // Opt out of the automatic LocalBusiness schema if a page wants to provide
-  // its own scoped version (e.g. an area-specific LocalBusiness on Location pages).
+  // Location pages provide their own area-scoped LocalBusiness; set this
+  // false to suppress the global one so the page doesn't ship two.
   includeLocalBusiness?: boolean;
+  // Homepage gets WebPage + CollectionPage compound type.
+  isHome?: boolean;
+  // Optional gold announcement strip above the header. Set to a string to render.
+  announcement?: string;
+  // Per-page opt-in to noindex (e.g. 404). Combined with the site-wide
+  // PUBLIC_NOINDEX env switch — either being true disables indexing.
+  noindex?: boolean;
 }
 
 const {
@@ -23,26 +32,51 @@ const {
   ogType,
   jsonLd,
   includeLocalBusiness = true,
+  isHome = false,
+  announcement,
+  noindex = false,
 } = Astro.props;
 
+// Single switch for staging: PUBLIC_NOINDEX=true blocks all indexing site-wide.
+const siteNoindex = import.meta.env.PUBLIC_NOINDEX === 'true';
+const robotsMeta = noindex || siteNoindex ? 'noindex,nofollow' : 'index,follow';
+
+const site = Astro.site!.toString().replace(/\/$/, '');
+const pathname = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : Astro.url.pathname + '/';
+const canonical = `${site}${pathname}`;
+
+// Site-wide schema, in source order: Organization-identity (LocalBusiness),
+// site identity (WebSite), page identity (WebPage). Page-specific schema
+// (BlogPosting, BreadcrumbList, FAQPage) is appended by the calling route.
 const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
-// LocalBusiness must appear on every page (CLAUDE.md §4). Page-level schema is
-// appended after it so the site-wide identity is always first in source order.
-const allJsonLd = includeLocalBusiness
-  ? [localBusiness(), ...pageJsonLd]
-  : pageJsonLd;
+const allJsonLd: object[] = [
+  ...(includeLocalBusiness ? [localBusiness()] : []),
+  webSite(),
+  webPage({ url: canonical, name: title, description, isHome }),
+  ...pageJsonLd,
+];
 ---
 <!doctype html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content={robotsMeta} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Spectral:wght@400;500;600;700&display=swap"
+    />
     <SEO {title} {description} {ogImage} {ogType} jsonLd={allJsonLd} />
     <Analytics />
   </head>
   <body>
+    {announcement && <AnnouncementBar message={announcement} />}
     <Header />
-    <main>
+    <main class={isHome ? '' : 'container'}>
       <slot />
     </main>
     <Footer />

@@ -1,0 +1,30 @@
+---
+import { getEntry, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import { faqPage, breadcrumbList } from '../../lib/schema';
+
+const entry = await getEntry('pages', 'reviews');
+if (!entry) throw new Error('Missing pages/reviews content entry');
+const { Content } = await render(entry);
+
+const jsonLd: object[] = [
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Reviews', url: '/reviews/' },
+  ]),
+];
+if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+---
+<PageLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  h1={entry.data.h1}
+  hero={entry.data.hero}
+  gallery={entry.data.gallery}
+  faqs={entry.data.faqs}
+  cta={entry.data.cta}
+  ogImage={entry.data.ogImage}
+  jsonLd={jsonLd}
+>
+  <Content />
+</PageLayout>

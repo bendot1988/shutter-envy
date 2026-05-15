@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//shutter-envy.co.uk/main-sitemap.xsl"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://shutter-envy.co.uk/post-sitemap.xml</loc>
+		<lastmod>2026-04-16T11:07:57+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://shutter-envy.co.uk/page-sitemap.xml</loc>
+		<lastmod>2026-04-16T18:12:55+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://shutter-envy.co.uk/locations-sitemap.xml</loc>
+		<lastmod>2026-04-07T20:29:23+00:00</lastmod>
+	</sitemap>
+</sitemapindex>

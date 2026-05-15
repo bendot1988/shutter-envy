@@ -17,6 +17,14 @@ These 301s already exist on shutter-envy.co.uk and were detected during the craw
 
 - `/privacy-2/` → `/privacy/`  (301, orphan duplicate stub — `/privacy/` is the canonical privacy page with full nav and 18 internal links; `/privacy-2/` has only 1 internal link and was effectively unreachable. Approved by Ben, 2026-05-15)
 
+## Sitemap URL preservation
+
+- `/sitemap_index.xml` → `/sitemap-index.xml`  (301, Astro's @astrojs/sitemap emits with a hyphen rather than the underscore Rank Math used. Preserves Search Console submissions. 2026-05-15)
+
+## Host canonicalisation
+
+- `https://www.shutter-envy.co.uk/*` → `https://shutter-envy.co.uk/:splat`  (301, www → apex)
+
 ## WP image-attachment pages (to be 301'd to parent post)
 
 WordPress renders an attachment page at `/<post-slug>/<image-slug>/` for some media. These have no SEO value and shouldn't exist in the rebuild. The crawl found 7. The redirect target is the parent post.

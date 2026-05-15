@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import customHeaderId from 'remark-custom-header-id';
 
 // Site config notes:
@@ -12,6 +13,9 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     // Lets content authors write `## Puma Shutters {#Puma}` in markdown to
     // preserve the live site's existing anchor URLs verbatim (CLAUDE.md §1).
@@ -21,8 +25,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Mirror what WordPress serves: include every page, every location,
-      // every blog post. Pagination pages (/news/2/ etc.) are excluded.
-      filter: (page) => !/\/news\/\d+\/?$/.test(page),
+      // every blog post. Pagination pages (/news/page/N/) are excluded —
+      // they're crawl entry points, not indexable destinations.
+      filter: (page) => !/\/news\/page\/\d+\/?$/.test(page),
     }),
   ],
 });

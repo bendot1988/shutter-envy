@@ -8,6 +8,10 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: string;
+  // Optional explicit alt for the hero image. If not provided, falls back to
+  // the post's h1 — descriptive and accessible, even if not byte-equal to
+  // WordPress's original WP-media-library alt attribute.
+  heroImageAlt?: string;
   author: string;
   jsonLd?: object | object[];
 }
@@ -18,6 +22,7 @@ const {
   pubDate,
   updatedDate,
   heroImage,
+  heroImageAlt,
   author,
   jsonLd,
 } = Astro.props;
@@ -49,7 +54,7 @@ const updFmt = updatedDate
         )}
       </p>
       {heroImage && (
-        <img class="hero-image" src={heroImage} alt="" loading="eager" />
+        <img class="hero-image" src={heroImage} alt={heroImageAlt ?? h1} loading="eager" />
       )}
     </header>
 

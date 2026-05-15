@@ -13,7 +13,7 @@ const { eyebrow, heading, subheading, image, cta, asH1 = false } = Astro.props;
 const Heading = asH1 ? 'h1' : 'p';
 ---
 <section class="hero">
-  {image && <img class="hero-image" src={image} alt="" />}
+  {image && <img class="hero-image" src={image} alt={heading} loading="eager" />}
   <div class="hero-text">
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <Heading class={asH1 ? '' : 'hero-heading'}>{heading}</Heading>

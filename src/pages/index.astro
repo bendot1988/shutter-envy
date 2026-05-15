@@ -1,26 +1,86 @@
 ---
 import { getEntry, render } from 'astro:content';
-import PageLayout from '../layouts/PageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/home/HomeHero.astro';
+import TrustStrip from '../components/home/TrustStrip.astro';
+import FeatureChecklist from '../components/home/FeatureChecklist.astro';
+import StatsRow from '../components/home/StatsRow.astro';
+import ReviewsRow from '../components/home/ReviewsRow.astro';
+import ProductShowcase from '../components/home/ProductShowcase.astro';
+import ProcessTimeline from '../components/home/ProcessTimeline.astro';
+import AwardsCTABox from '../components/home/AwardsCTABox.astro';
+import InlineCTA from '../components/home/InlineCTA.astro';
+import TeamCards from '../components/home/TeamCards.astro';
+import LatestNewsBand from '../components/home/LatestNewsBand.astro';
+import TransformCTA from '../components/home/TransformCTA.astro';
+import StickyMobileCTA from '../components/home/StickyMobileCTA.astro';
+import Gallery from '../components/Gallery.astro';
+import FAQ from '../components/FAQ.astro';
 import { faqPage } from '../lib/schema';
 
 const entry = await getEntry('pages', 'home');
 if (!entry) throw new Error('Missing pages/home content entry');
-const { Content } = await render(entry);
 
-// Homepage: omit BreadcrumbList per Google guidance.
 const jsonLd: object[] = [];
 if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
 ---
-<PageLayout
+<BaseLayout
   title={entry.data.title}
   description={entry.data.description}
-  h1={entry.data.h1}
-  hero={entry.data.hero}
-  gallery={entry.data.gallery}
-  faqs={entry.data.faqs}
-  cta={entry.data.cta}
   ogImage={entry.data.ogImage}
   jsonLd={jsonLd}
+  isHome
+  announcement={entry.data.announcement}
 >
-  <Content />
-</PageLayout>
+  <HomeHero
+    backgroundImage={entry.data.heroBackgroundImage}
+    eyebrow={entry.data.heroEyebrow ?? ''}
+    heading={entry.data.h1}
+    location={entry.data.heroLocation}
+    cta={entry.data.heroPrimaryCta}
+    awardImages={entry.data.heroAwardImages}
+  />
+
+  {entry.data.trustStrip.length > 0 && <TrustStrip items={entry.data.trustStrip} />}
+
+  {entry.data.featureChecklist && (
+    <FeatureChecklist {...entry.data.featureChecklist} />
+  )}
+
+  {entry.data.stats.length > 0 && <StatsRow items={entry.data.stats} />}
+
+  {entry.data.reviewsRow && <ReviewsRow {...entry.data.reviewsRow} />}
+
+  {entry.data.gallery.length > 0 && (
+    <div class="container"><Gallery images={entry.data.gallery} /></div>
+  )}
+
+  {entry.data.productShowcase && <ProductShowcase {...entry.data.productShowcase} />}
+
+  {entry.data.processSteps.length > 0 && <ProcessTimeline steps={entry.data.processSteps} />}
+
+  {entry.data.midPageCta && <InlineCTA {...entry.data.midPageCta} />}
+
+  {entry.data.awardsCTA && <AwardsCTABox {...entry.data.awardsCTA} />}
+
+  {entry.data.team && <TeamCards {...entry.data.team} />}
+
+  {entry.data.faqs.length > 0 && (
+    <FAQ
+      items={entry.data.faqs}
+      heading="Your questions answered"
+      intro={entry.data.faqsIntro}
+      closingCta={{
+        label: 'Talk to Mark directly',
+        href: '/contact/',
+        prompt: 'Still have questions?',
+      }}
+    />
+  )}
+
+  <LatestNewsBand />
+
+  {entry.data.transformCTA && <TransformCTA {...entry.data.transformCTA} />}
+
+  <StickyMobileCTA />
+</BaseLayout>

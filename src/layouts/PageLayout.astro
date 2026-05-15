@@ -21,6 +21,7 @@ interface Props {
   cta?: { heading: string; body?: string; button: { label: string; href: string } };
   ogImage?: string;
   jsonLd?: object | object[];
+  isHome?: boolean;
 }
 
 const {
@@ -33,9 +34,10 @@ const {
   cta,
   ogImage,
   jsonLd,
+  isHome,
 } = Astro.props;
 ---
-<BaseLayout {title} {description} {ogImage} {jsonLd}>
+<BaseLayout {title} {description} {ogImage} {jsonLd} {isHome}>
   <article>
     {/* The page's single H1. Hero, if present, renders its heading as a non-H1
        eyebrow/subheading combo — the structural H1 always lives here. */}

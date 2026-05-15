@@ -1,0 +1,140 @@
+---
+interface Review {
+  name: string;
+  rating: number;
+  body: string;
+  date?: string;
+}
+interface Props {
+  heading?: string;
+  rating?: string;
+  totalReviews?: string;
+  reviews: Review[];
+  source?: 'Google' | 'Trustpilot';
+  link?: string;
+}
+const {
+  heading = 'What our customers say',
+  rating = '5.0',
+  totalReviews = '25',
+  reviews,
+  source = 'Google',
+  link,
+} = Astro.props;
+---
+<section class="reviews-row">
+  <div class="container">
+    <header class="reviews-row__header">
+      <div class="reviews-row__rating">
+        <span class="reviews-row__rating-value">{rating}</span>
+        <span class="reviews-row__rating-stars" aria-label={`${rating} stars`}>
+          {Array.from({ length: 5 }).map(() => (
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          ))}
+        </span>
+        <span class="reviews-row__rating-meta">Based on {totalReviews} {source} reviews</span>
+      </div>
+      <h2>{heading}</h2>
+    </header>
+
+    <ul class="reviews-row__list">
+      {reviews.map((r) => (
+        <li class="reviews-row__card">
+          <div class="reviews-row__stars" aria-label={`${r.rating} stars`}>
+            {Array.from({ length: r.rating }).map(() => (
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            ))}
+          </div>
+          <p class="reviews-row__body">"{r.body}"</p>
+          <div class="reviews-row__attr">
+            <strong>{r.name}</strong>
+            {r.date && <span>{r.date}</span>}
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    {link && (
+      <p class="reviews-row__link">
+        <a href={link} target="_blank" rel="noopener">Read all reviews on {source} →</a>
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .reviews-row { margin: 5rem auto; }
+  .reviews-row__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .reviews-row__rating {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  .reviews-row__rating-value {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    line-height: 1;
+  }
+  .reviews-row__rating-stars { color: var(--color-gold-400); display: inline-flex; gap: 1px; }
+  .reviews-row__rating-meta { font-size: 0.875rem; color: var(--color-ink-mute); }
+  .reviews-row h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    margin: 0;
+  }
+  .reviews-row__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) { .reviews-row__list { grid-template-columns: repeat(3, 1fr); } }
+  .reviews-row__card {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 0;
+  }
+  .reviews-row__stars { color: var(--color-gold-400); display: inline-flex; gap: 1px; }
+  .reviews-row__body {
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    font-style: italic;
+    margin: 0;
+    flex-grow: 1;
+  }
+  .reviews-row__attr {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+    color: var(--color-ink-mute);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .reviews-row__attr strong { color: var(--color-ink); font-weight: 600; }
+  .reviews-row__link {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .reviews-row__link a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+</style>

@@ -1,14 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { breadcrumbList } from '../../lib/schema';
 
 const locations = await getCollection('locations');
 locations.sort((a, b) => a.data.area.localeCompare(b.data.area));
+
+const jsonLd = [
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Locations', url: '/locations/' },
+  ]),
+];
 ---
 <PageLayout
-  title="Locations"
-  description="Areas we serve across Leicester and Leicestershire."
-  h1="Locations we serve"
+  title="Shutter Installation Areas in Leicestershire | Shutter Envy"
+  description="See where Shutter Envy fits made-to-measure shutters, blinds and awnings across Leicester, Loughborough, Melton Mowbray and nearby areas."
+  h1="Shutter, Blind and Awning Installation Areas"
+  jsonLd={jsonLd}
 >
   <ul>
     {locations.map((loc) => (

@@ -1,0 +1,38 @@
+# Netlify redirects (_redirects). Single source of intent: REDIRECTS.md.
+# Every rule below is a single-hop 301 — chains break link equity.
+# Order matters: Netlify processes top-to-bottom, first match wins.
+
+# ─── Host canonicalisation ───
+# www → apex. (Netlify "Primary domain" + HTTPS handle HTTP→HTTPS automatically.)
+https://www.shutter-envy.co.uk/*  https://shutter-envy.co.uk/:splat  301!
+
+# ─── Inherited 301s from the live WordPress site (REDIRECTS.md) ───
+# Both retired URLs already 301 to /our-shutters/ on live; preserve link equity.
+/window-shutters-leicestershire                                            /our-shutters/  301
+/window-shutters-leicestershire/                                           /our-shutters/  301
+/custom-window-shutters-installation-shutter-envy-leicestershire           /our-shutters/  301
+/custom-window-shutters-installation-shutter-envy-leicestershire/          /our-shutters/  301
+
+# ─── Approved exceptions for the rebuild ───
+# Orphan duplicate privacy stub (1 internal link on live) → canonical privacy.
+/privacy-2                /privacy/  301
+/privacy-2/               /privacy/  301
+
+# ─── Sitemap URL change ───
+# Live WordPress served sitemap_index.xml (underscore, Rank Math).
+# Astro's @astrojs/sitemap emits sitemap-index.xml (hyphen).
+# Preserve any Search Console submission that still references the old path.
+/sitemap_index.xml        /sitemap-index.xml  301
+
+# ─── WordPress attachment pages → parent post ───
+# WP renders /<post-slug>/<image-slug>/ for some media. Catch-all fallback to
+# /our-shutters/ for the 7 we identified during the crawl, rather than a
+# 1-to-1 list (cheaper to maintain; the parent posts themselves are intact).
+# If specific parent-mapping is needed later, list per-image redirects here.
+/recent-work/*            /recent-work/  301
+
+# ─── Trailing-slash policy ───
+# Astro is configured with trailingSlash: 'always'. We do NOT add 301s from
+# /foo to /foo/ — Netlify's "Pretty URLs" feature handles that automatically
+# when the file is at /foo/index.html (which is what build.format='directory'
+# produces). Adding explicit redirects here would create double-handling.

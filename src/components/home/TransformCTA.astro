@@ -1,0 +1,89 @@
+---
+interface Props {
+  image: string;
+  heading: string;
+  body: string;
+  cta: { label: string; href: string };
+}
+const { image, heading, body, cta } = Astro.props;
+---
+<section class="transform-cta">
+  <div class="transform-cta__image">
+    <img src={image} alt="" loading="lazy" />
+  </div>
+  <div class="transform-cta__content">
+    <div class="transform-cta__icon" aria-hidden="true">
+      <svg viewBox="0 0 60 60" fill="none">
+        <line x1="0" y1="25" x2="20" y2="25" stroke="currentColor" stroke-width="1"/>
+        <line x1="40" y1="25" x2="60" y2="25" stroke="currentColor" stroke-width="1"/>
+        <rect x="20" y="10" width="20" height="40" stroke="currentColor" stroke-width="1.5" rx="1"/>
+        <path d="M30 10 Q30 18 22 18 M30 10 Q30 18 38 18" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <line x1="22" y1="24" x2="38" y2="24" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="22" y1="30" x2="38" y2="30" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="22" y1="36" x2="38" y2="36" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="22" y1="42" x2="38" y2="42" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <h2>{heading}</h2>
+    <p>{body}</p>
+    <a href={cta.href} class="button-pill">{cta.label}</a>
+  </div>
+</section>
+
+<style>
+  .transform-cta {
+    margin: 5rem calc(50% - 50vw) 0;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 1024px) { .transform-cta { grid-template-columns: 1fr 1fr; } }
+  .transform-cta__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 300px;
+    aspect-ratio: 4/3;
+  }
+  .transform-cta__content {
+    background: var(--color-cream);
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .transform-cta__content { padding: 5rem 3rem; }
+  }
+  .transform-cta__icon {
+    color: var(--color-gold-400);
+    margin-bottom: 1.5rem;
+  }
+  .transform-cta__icon svg { width: 96px; height: 96px; }
+  .transform-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    margin: 0 0 1rem;
+    color: var(--color-ink);
+  }
+  .transform-cta p {
+    color: var(--color-ink-soft);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 32rem;
+    margin: 0 0 2rem;
+  }
+  .button-pill {
+    display: inline-flex;
+    background: var(--color-gold-400);
+    color: #fff;
+    padding: 0.875rem 2rem;
+    border-radius: 999px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 200ms;
+  }
+  .button-pill:hover { background: var(--color-gold-600); color: #fff; }
+</style>

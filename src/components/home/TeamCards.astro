@@ -1,0 +1,90 @@
+---
+interface Props {
+  heading: string;
+  body?: string;
+  members: { name: string; role: string; image: string }[];
+}
+const { heading, body, members } = Astro.props;
+---
+<section class="team-cards">
+  <div class="container">
+    <header>
+      <h2>{heading}</h2>
+      {body && <p set:html={body} />}
+    </header>
+
+    <ul>
+      {members.map((m) => (
+        <li>
+          <div class="team-cards__image">
+            <img src={m.image} alt={m.name} loading="lazy" />
+          </div>
+          <h3>{m.name}</h3>
+          <p>{m.role}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .team-cards {
+    margin: 5rem calc(50% - 50vw);
+    padding: 5rem 1.25rem;
+    background:
+      radial-gradient(ellipse at top, rgba(199,154,8,0.06), transparent 60%),
+      var(--color-cream);
+  }
+  .team-cards header { text-align: center; margin-bottom: 3rem; max-width: 48rem; margin-inline: auto; }
+  .team-cards h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 400;
+    margin: 0 0 1rem;
+  }
+  .team-cards header p { color: var(--color-ink-soft); margin: 0; font-size: 1rem; line-height: 1.65; }
+  .team-cards header p :global(strong) { color: var(--color-ink); }
+  .team-cards ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+  @media (min-width: 768px) { .team-cards ul { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+  .team-cards li {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    text-align: center;
+    transition: transform 200ms, box-shadow 200ms;
+    margin: 0;
+  }
+  .team-cards li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px -24px rgba(199,154,8,0.18);
+  }
+  .team-cards__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: var(--color-cream);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .team-cards__image img { width: 100%; height: 100%; object-fit: cover; }
+  .team-cards h3 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+  }
+  .team-cards p {
+    color: var(--color-ink-mute);
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+</style>

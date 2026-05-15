@@ -48,6 +48,115 @@ const pages = defineCollection({
     gallery,
     faqs,
     cta,
+    // Optional homepage-only structured sections. They render when present
+    // and are silently ignored on non-home pages.
+    announcement: z.string().optional(),
+    heroBackgroundImage: z.string().optional(),
+    heroEyebrow: z.string().optional(),
+    heroPrimaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
+    heroLocation: z.string().optional(),
+    stats: z
+      .array(z.object({ value: z.string(), label: z.string() }))
+      .default([]),
+    processSteps: z
+      .array(
+        z.object({
+          title: z.string(),
+          body: z.string(),
+          image: z.string().optional(),
+        }),
+      )
+      .default([]),
+    heroAwardImages: z.array(z.string()).default([]),
+    featureChecklist: z
+      .object({
+        heading: z.string(),
+        body: z.string().optional(),
+        items: z.array(z.object({ heading: z.string(), body: z.string() })),
+        cta: z.object({ label: z.string(), href: z.string() }).optional(),
+      })
+      .optional(),
+    productShowcase: z
+      .object({
+        heading: z.string(),
+        body: z.string().optional(),
+        cta: z.object({ label: z.string(), href: z.string() }).optional(),
+        cta_note: z.string().optional(),
+        products: z.array(
+          z.object({
+            title: z.string(),
+            body: z.string(),
+            image: z.string(),
+            href: z.string(),
+          }),
+        ),
+      })
+      .optional(),
+    awardsCTA: z
+      .object({
+        backgroundImage: z.string().optional(),
+        iconImage: z.string().optional(),
+        eyebrow: z.string().optional(),
+        heading: z.string(),
+        body: z.string().optional(),
+        awardImages: z.array(z.string()).default([]),
+        awardsCaption: z.string().optional(),
+        ctaNote: z.string().optional(),
+        cta: z.object({ label: z.string(), href: z.string() }),
+      })
+      .optional(),
+    team: z
+      .object({
+        heading: z.string(),
+        body: z.string().optional(),
+        members: z.array(
+          z.object({ name: z.string(), role: z.string(), image: z.string() }),
+        ),
+      })
+      .optional(),
+    transformCTA: z
+      .object({
+        image: z.string(),
+        heading: z.string(),
+        body: z.string(),
+        cta: z.object({ label: z.string(), href: z.string() }),
+      })
+      .optional(),
+    faqsIntro: z.string().optional(),
+    trustStrip: z
+      .array(
+        z.object({
+          icon: z.enum(['star', 'award', 'home', 'check']).optional(),
+          label: z.string(),
+        }),
+      )
+      .default([]),
+    reviewsRow: z
+      .object({
+        rating: z.string(),
+        totalReviews: z.string(),
+        source: z.enum(['Google', 'Trustpilot']),
+        link: z.string().optional(),
+        reviews: z.array(
+          z.object({
+            name: z.string(),
+            rating: z.number(),
+            body: z.string(),
+            date: z.string().optional(),
+          }),
+        ),
+      })
+      .optional(),
+    midPageCta: z
+      .object({
+        eyebrow: z.string().optional(),
+        heading: z.string(),
+        body: z.string().optional(),
+        cta: z.object({ label: z.string(), href: z.string() }),
+        secondaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
+        tone: z.enum(['cream', 'gold', 'dark']).optional(),
+      })
+      .optional(),
   }),
 });
 
@@ -85,6 +194,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
     excerpt: z.string().optional(),
     author: z.string().default('Shutter Envy'),
   }),

@@ -1,0 +1,137 @@
+---
+interface Props {
+  heading: string;
+  body?: string;
+  cta?: { label: string; href: string };
+  cta_note?: string;
+  products: { title: string; body: string; image: string; href: string }[];
+}
+const { heading, body, cta, cta_note, products } = Astro.props;
+const parts = heading.split(/\s+and\s+/i);
+---
+<section class="product-showcase container">
+  <div class="product-showcase__grid">
+    <aside class="product-showcase__intro">
+      <h2>
+        {parts.length === 2 ? (
+          <><span class="gold">{parts[0]}</span> <span class="muted">and</span><br/><span class="gold">{parts[1]}</span></>
+        ) : heading}
+      </h2>
+      {body && <p>{body}</p>}
+      <hr />
+      {cta && <a href={cta.href} class="button-pill">{cta.label} <span aria-hidden="true">→</span></a>}
+      {cta_note && <p class="product-showcase__note">{cta_note}</p>}
+    </aside>
+
+    <div class="product-showcase__cards">
+      {products.map((p) => (
+        <article class="product-showcase__card">
+          <a href={p.href} class="product-showcase__image">
+            <img src={p.image} alt={p.title} loading="lazy" />
+          </a>
+          <div class="product-showcase__body">
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+            <a href={p.href} class="product-showcase__link">Learn more about our {p.title.toLowerCase()} →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-showcase { margin: 6rem auto; }
+  .product-showcase__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 1024px) {
+    .product-showcase__grid { grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+  }
+  .product-showcase__intro { position: sticky; top: 6rem; }
+  .product-showcase__intro h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400;
+    margin: 0 0 1.5rem;
+    line-height: 1.1;
+  }
+  .product-showcase__intro h2 .gold { color: var(--color-gold-600); }
+  .product-showcase__intro h2 .muted { color: var(--color-ink); font-style: italic; font-weight: 300; }
+  .product-showcase__intro p {
+    color: var(--color-ink-soft);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+  }
+  .product-showcase__intro hr {
+    border: 0;
+    height: 1px;
+    background: var(--color-line);
+    margin: 1.5rem 0;
+  }
+  .product-showcase__note {
+    font-size: 0.875rem;
+    color: var(--color-ink-mute);
+    margin-top: 1.25rem;
+  }
+
+  .product-showcase__cards {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .product-showcase__card {
+    background: var(--color-cream);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .product-showcase__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px -24px rgba(7,7,7,0.18);
+  }
+  .product-showcase__image { display: block; }
+  .product-showcase__image img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .product-showcase__body { padding: 1.5rem 1.75rem 1.75rem; }
+  .product-showcase__body h3 {
+    font-family: var(--font-display);
+    color: var(--color-gold-600);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 0.625rem;
+  }
+  .product-showcase__body p {
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin: 0 0 1rem;
+  }
+  .product-showcase__link {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .button-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    padding: 0.875rem 2rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: background 200ms;
+  }
+  .button-pill:hover { background: var(--color-gold-600); color: #fff; }
+</style>

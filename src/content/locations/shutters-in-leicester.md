@@ -1,44 +1,24 @@
 ---
 title: "Plantation Shutters in Leicester | Shutter Envy"
-description: "Made-to-measure plantation shutters fitted across Leicester. Free home survey, lifetime guarantee. Shutter Envy serves LE1–LE19 and surrounding areas."
-h1: "Plantation Shutters in Leicester"
+description: "Looking for shutters in Leicester? Shutter Envy supplies and fits made-to-measure plantation shutters across Leicester and nearby areas."
+h1: "Made-to-Measure Shutters in Leicester"
 area: "Leicester"
-postcodePrefixes: ["LE1", "LE2", "LE3", "LE4", "LE5", "LE6", "LE7", "LE8", "LE9"]
-hero:
-  eyebrow: "Leicester"
-  heading: "Made-to-measure shutters for Leicester homes"
-  subheading: "Surveyed, fitted and guaranteed across the city and surrounding villages."
-  cta:
-    label: "Get a free quote"
-    href: "#enquire"
-gallery:
-  - { src: "/wp-content/uploads/placeholder-leics-1.jpg", alt: "Bay window shutters in a Leicester townhouse" }
-  - { src: "/wp-content/uploads/placeholder-leics-2.jpg", alt: "Tier-on-tier shutters in a Leicester semi" }
-serviceBlurbs:
-  - heading: "Free home survey"
-    body: "A no-pressure measure-up at your home, anywhere in Leicester."
-  - heading: "Lifetime guarantee"
-    body: "Every installation is backed by our lifetime shutter guarantee."
-  - heading: "Trusted locally"
-    body: "Hundreds of installations across Leicestershire — see our reviews."
-mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77373.3!2d-1.18!3d52.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDM4JzAwLjAiTiAxwrAxMScwMC4wIlc!5e0!3m2!1sen!2suk!4v0"
-faqs:
-  - question: "Do you cover all Leicester postcodes?"
-    answer: "Yes — we cover LE1 through LE19 and the villages immediately around Leicester."
-  - question: "How long until installation after the survey?"
-    answer: "Most plantation shutters are made and installed within 6–8 weeks of your survey."
-cta:
-  heading: "Booking a survey in Leicester?"
-  body: "We're typically out for surveys within a few days."
-  button:
-    label: "Book now"
-    href: "#enquire"
+postcodePrefixes: []
+ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
+mapEmbedUrl: "https://maps.google.com/maps?q=Leicester&t=m&z=12&output=embed&iwloc=near"
 ---
+## Award winning Shutters & Blinds - 3 Years Running!
 
-Shutter Envy has been fitting made-to-measure plantation shutters across
-Leicester since 2024. From the city centre to the surrounding villages, we
-survey, build and install — and back every job with a lifetime guarantee.
+We supply and fit plantation shutters in Leicester for homeowners who want a cleaner finish, stronger privacy and better light control in busy city homes. Shutters are especially well suited to Leicester properties with bay windows, front-facing rooms and spaces where curtains or standard blinds do not quite give the right balance of style and practicality.
 
-We cover hardwood, faux wood, waterproof ABS and Portchester® aluminium
-shutters. If you're looking at curtains, blinds or shutters for a Leicester
-home, book a free survey and we'll talk you through which works best.
+Made-to-measure shutters can help soften glare, improve daytime privacy and create a more fitted, premium look throughout the home. They work just as well in traditional terraces and semis as they do in larger detached homes and newer developments, and they give you a flexible solution that looks tidy year round.
+
+At Shutter Envy, we carry out a home visit to assess the windows properly, explain the style options and recommend a shutter layout that suits the room. From first consultation to final fitting, we focus on a result that feels tailored to your Leicester home rather than generic.
+
+## Shutter fitting in Leicester and nearby areas
+
+We cover Leicester and nearby areas, providing home consultations, precise measuring and professional shutter fitting for local homeowners. If you are based in Leicester and want a made-to-measure solution for bay windows, bedrooms, living rooms or wider openings, we can arrange a visit and guide you through the best options for your property.
+
+## Why homeowners in Leicester choose Shutter Envy
+
+Homeowners in Leicester choose Shutter Envy because they want expert guidance and a proper fitted finish, not a rushed sales process. We are a family-run, award-winning business with years of hands-on shutter experience, and we focus on products that suit the room, accurate measuring and fitting that gives the shutters the clean, built-in look people want.

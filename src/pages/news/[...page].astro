@@ -3,51 +3,95 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { breadcrumbList } from '../../lib/schema';
 
-// Pagination: produces /news/ (page 1), /news/2/, /news/3/, …
-// Matches the live WordPress pagination URL structure exactly.
-export async function getStaticPaths({ paginate }: { paginate: any }) {
-  const posts = await getCollection('blog');
-  posts.sort(
+// WordPress pagination convention: page 1 lives at /news/ (no number),
+// subsequent pages at /news/page/2/, /news/page/3/, etc.
+// We match this exactly — CLAUDE.md §1 says URLs are sacred.
+//
+// Implementation: a rest-param route `[...page]` is generated with two
+// shapes:
+//   - undefined   → /news/
+//   - "page/N"    → /news/page/N/
+// Pagination is built manually rather than via paginate() so we control
+// the URL structure.
+
+export async function getStaticPaths() {
+  const PAGE_SIZE = 10;
+  const posts = (await getCollection('blog')).sort(
     (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate),
   );
-  return paginate(posts, { pageSize: 10 });
+  const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+  const paths = [];
+  for (let i = 1; i <= totalPages; i++) {
+    const start = (i - 1) * PAGE_SIZE;
+    paths.push({
+      params: { page: i === 1 ? undefined : `page/${i}` },
+      props: {
+        posts: posts.slice(start, start + PAGE_SIZE),
+        currentPage: i,
+        totalPages,
+      },
+    });
+  }
+  return paths;
 }
 
-const { page } = Astro.props;
-const isFirst = page.currentPage === 1;
-const pageLabel = isFirst ? '' : ` — Page ${page.currentPage}`;
+const { posts, currentPage, totalPages } = Astro.props;
+const isFirst = currentPage === 1;
+const pageLabel = isFirst ? '' : ` — Page ${currentPage}`;
+
+const prevUrl =
+  currentPage === 1
+    ? null
+    : currentPage === 2
+      ? '/news/'
+      : `/news/page/${currentPage - 1}/`;
+const nextUrl =
+  currentPage < totalPages ? `/news/page/${currentPage + 1}/` : null;
 
 const jsonLd = [
   breadcrumbList([
     { name: 'Home', url: '/' },
     { name: 'News', url: '/news/' },
-    ...(isFirst ? [] : [{ name: `Page ${page.currentPage}`, url: page.url.current }]),
+    ...(isFirst
+      ? []
+      : [{ name: `Page ${currentPage}`, url: `/news/page/${currentPage}/` }]),
   ]),
 ];
 ---
 <BaseLayout
-  title={`News${pageLabel} | Shutter Envy`}
-  description="Shutter installation projects, advice and updates from Shutter Envy across Leicestershire."
+  title={
+    isFirst
+      ? 'News – Latest on Blinds and Wooden Shutters UK'
+      : `News – Page ${currentPage} | Shutter Envy`
+  }
+  description="Stay updated with the latest news on bespoke blinds, wooden shutters, and home design trends from Shutter Envy. Tips, updates, and inspiration."
   jsonLd={jsonLd}
 >
   <header class="news-header">
-    <h1>News{pageLabel}</h1>
-    <p>Recent projects, advice and updates from across Leicestershire.</p>
+    <h1>Shutter Envy News{pageLabel}</h1>
   </header>
 
   <ul class="post-list">
-    {page.data.map((post: any) => (
+    {posts.map((post: any) => (
       <li class="post-card">
         {post.data.heroImage && (
           <a href={`/${post.id}/`} class="post-card-image">
-            <img src={post.data.heroImage} alt="" loading="lazy" />
+            <img
+              src={post.data.heroImage}
+              alt={post.data.h1 ?? post.data.title}
+              loading="lazy"
+            />
           </a>
         )}
         <div class="post-card-text">
           <h2><a href={`/${post.id}/`}>{post.data.h1 ?? post.data.title}</a></h2>
           <p class="byline">
             <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+              {post.data.pubDate.toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
             </time>
           </p>
           {post.data.excerpt && <p>{post.data.excerpt}</p>}
@@ -58,8 +102,8 @@ const jsonLd = [
   </ul>
 
   <nav class="pagination" aria-label="News pagination">
-    {page.url.prev && <a rel="prev" href={page.url.prev}>← Newer posts</a>}
-    <span class="page-of">Page {page.currentPage} of {page.lastPage}</span>
-    {page.url.next && <a rel="next" href={page.url.next}>Older posts →</a>}
+    {prevUrl && <a rel="prev" href={prevUrl}>← Newer posts</a>}
+    <span class="page-of">Page {currentPage} of {totalPages}</span>
+    {nextUrl && <a rel="next" href={nextUrl}>Older posts →</a>}
   </nav>
 </BaseLayout>

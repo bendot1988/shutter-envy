@@ -6,12 +6,22 @@ interface Props {
   items: { question: string; answer: string }[];
   id?: string;
   heading?: string;
+  intro?: string;
+  layout?: 'stacked' | 'two-column';
+  closingCta?: { label: string; href: string; prompt?: string };
 }
-const { items, id = 'faqs', heading = 'Frequently asked questions' } = Astro.props;
+const { items, id = 'faqs', heading = 'Your questions answered', intro, layout = 'two-column', closingCta } = Astro.props;
+// Split heading on last word to gold it (e.g. "Your questions answered" → "Your questions" + "answered.")
+const words = heading.split(' ');
+const lead = words.slice(0, -1).join(' ');
+const last = words[words.length - 1];
 ---
 {items.length > 0 && (
-  <section id={id} class="faq">
-    <h2>{heading}</h2>
+  <section id={id} class:list={['faq', `faq--${layout}`]}>
+    <header class="faq__header">
+      <h2>{lead} <span class="gold">{last}.</span></h2>
+      {intro && <p>{intro}</p>}
+    </header>
     <dl>
       {items.map((f) => (
         <details>
@@ -20,5 +30,103 @@ const { items, id = 'faqs', heading = 'Frequently asked questions' } = Astro.pro
         </details>
       ))}
     </dl>
+    {closingCta && (
+      <p class="faq__closing">
+        {closingCta.prompt ?? 'Still have questions?'}
+        <a href={closingCta.href}>{closingCta.label} →</a>
+      </p>
+    )}
   </section>
 )}
+
+<style>
+  .faq { margin: 5rem auto; max-width: 64rem; padding-inline: 1.25rem; }
+  .faq--two-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .faq--two-column { grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+    .faq--two-column dl { grid-column: 1 / -1; margin-top: 1.5rem; }
+  }
+  .faq__header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+  .faq__header .gold {
+    color: var(--color-gold-600);
+    font-style: italic;
+  }
+  .faq__header p {
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .faq dl {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .faq details {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-line);
+    background: transparent;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    transition: none;
+  }
+  .faq details[open] { border-color: var(--color-line); }
+  .faq summary {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-ink);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    font-size: 1.25rem;
+    color: var(--color-gold-600);
+    transition: transform 200ms;
+    font-family: var(--font-sans);
+    line-height: 1;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq summary dt { display: inline; font-weight: inherit; }
+  .faq dd {
+    margin: 0.875rem 0 0;
+    padding: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+  .faq__closing {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    color: var(--color-ink-mute);
+    font-size: 0.9375rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) { .faq--two-column .faq__closing { grid-column: 1 / -1; } }
+  .faq__closing a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 0.5rem;
+  }
+  .faq__closing a:hover { color: var(--color-gold-400); text-decoration: underline; }
+</style>

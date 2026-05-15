@@ -2,44 +2,649 @@
 import { primaryNav, business } from '../data/site';
 const path = Astro.url.pathname;
 const isCurrent = (href: string) =>
-  href !== '#' && (path === href || (href !== '/' && path.startsWith(href)));
+  href !== '#' && href !== '/' ? path.startsWith(href) : path === href;
 ---
 <header class="site-header">
   <div class="container">
-    <a href="/" class="brand" aria-label="Shutter Envy — home">Shutter Envy</a>
+    <a href="/" class="brand" aria-label="Shutter Envy — home">
+      <img
+        src="/wp-content/uploads/2024/08/shutter-envy-horizontal-300x73.png"
+        srcset="/wp-content/uploads/2024/08/shutter-envy-horizontal-300x73.png 300w, /wp-content/uploads/2024/08/shutter-envy-horizontal-650x159.png 650w"
+        sizes="(max-width: 768px) 160px, 200px"
+        width="200"
+        height="49"
+        alt="Shutter Envy"
+        decoding="async"
+      />
+    </a>
 
     <nav class="primary-nav" aria-label="Primary">
       <ul>
-        {primaryNav.map((item) => (
-          <li class={item.children ? 'has-submenu' : ''}>
-            <a
-              href={item.href}
-              aria-current={isCurrent(item.href) ? 'page' : undefined}
-              aria-haspopup={item.children ? 'true' : undefined}
+        {primaryNav.map((item) => {
+          const isMega = 'type' in item && item.type === 'mega';
+          const isSimple = 'type' in item && item.type === 'simple';
+          const hasDrop = isMega || isSimple;
+          return (
+            <li
+              class:list={['nav-item', hasDrop ? 'has-drop' : '']}
+              data-has-drop={hasDrop ? '' : undefined}
             >
-              {item.label}
-            </a>
-            {item.children && (
-              <ul class="submenu">
-                {item.children.map((child) => (
-                  <li>
-                    <a
-                      href={child.href}
-                      aria-current={isCurrent(child.href) ? 'page' : undefined}
-                    >
-                      {child.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                aria-haspopup={hasDrop ? 'true' : undefined}
+                aria-expanded={hasDrop ? 'false' : undefined}
+              >
+                {item.label}
+                {hasDrop && (
+                  <svg class="caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                )}
+              </a>
+
+              {isMega && 'columns' in item && (
+                <div class="mega-panel" role="region" aria-label={`${item.label} menu`}>
+                  <div class="mega-panel__inner">
+                    <div class="mega-panel__cols">
+                      {item.columns.map((col) => (
+                        <div class="mega-col">
+                          <h3>
+                            {col.href ? <a href={col.href}>{col.heading}</a> : col.heading}
+                          </h3>
+                          <ul>
+                            {col.items.map((it) => (
+                              <li>
+                                <a href={it.href}>
+                                  <span class="mega-col__label">{it.label}</span>
+                                  {it.description && <span class="mega-col__desc">{it.description}</span>}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    {item.featured && (
+                      <a class="mega-feature" href={item.featured.cta.href}>
+                        <img src={item.featured.image} alt="" loading="lazy" />
+                        <div class="mega-feature__body">
+                          <h4>{item.featured.heading}</h4>
+                          <p>{item.featured.body}</p>
+                          <span class="mega-feature__cta">{item.featured.cta.label} →</span>
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {isSimple && 'items' in item && (
+                <div class="simple-drop" role="region" aria-label={`${item.label} menu`}>
+                  <a class="simple-drop__heading" href={item.href}>View all {item.label.toLowerCase()} →</a>
+                  <ul>
+                    {item.items.map((it) => (
+                      <li><a href={it.href}>{it.label}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </nav>
 
-    <a class="header-cta" href={`tel:${business.phoneTel}`}>
+    <a class="header-phone" href={`tel:${business.phoneTel}`} aria-label={`Call ${business.phoneDisplay}`}>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
       {business.phoneDisplay}
     </a>
+    <a class="header-cta" href="/contact/">
+      Arrange a Home Visit
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" type="button" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      {primaryNav.map((item) => {
+        const hasDrop = 'type' in item && (item.type === 'mega' || item.type === 'simple');
+        return (
+          <li class:list={['mobile-nav__item', hasDrop ? 'has-children' : '']}>
+            {hasDrop ? (
+              <details>
+                <summary>{item.label}</summary>
+                <div class="mobile-nav__children">
+                  <a class="mobile-nav__parent" href={item.href}>View all →</a>
+                  {item.type === 'mega' && 'columns' in item && item.columns.map((col) => (
+                    <div class="mobile-nav__group">
+                      <h4>{col.heading}</h4>
+                      <ul>
+                        {col.items.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+                      </ul>
+                    </div>
+                  ))}
+                  {item.type === 'simple' && 'items' in item && (
+                    <ul>
+                      {item.items.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+                    </ul>
+                  )}
+                </div>
+              </details>
+            ) : (
+              <a href={item.href}>{item.label}</a>
+            )}
+          </li>
+        );
+      })}
+      <li><a class="mobile-cta" href="/contact/">Arrange a Home Visit</a></li>
+      <li class="mobile-contact">
+        <a href={`tel:${business.phoneTel}`}>📞 {business.phoneDisplay}</a>
+      </li>
+    </ul>
+  </nav>
 </header>
+
+<script>
+  // Mega-menu + simple dropdown interactions.
+  // Behaviour: hover (with small delay) on desktop, click on touch/keyboard.
+  const navItems = document.querySelectorAll<HTMLElement>('.site-header .nav-item.has-drop');
+  let hoverCloseTimers = new WeakMap<HTMLElement, number>();
+  const HOVER_OPEN_MS = 80;
+  const HOVER_CLOSE_MS = 180;
+
+  const closeAll = (except?: HTMLElement) => {
+    navItems.forEach((li) => {
+      if (li === except) return;
+      const trigger = li.querySelector<HTMLAnchorElement>(':scope > a');
+      trigger?.setAttribute('aria-expanded', 'false');
+      li.classList.remove('is-open');
+    });
+  };
+
+  navItems.forEach((li) => {
+    const trigger = li.querySelector<HTMLAnchorElement>(':scope > a');
+    if (!trigger) return;
+
+    let openTimer: number | undefined;
+
+    const open = () => {
+      window.clearTimeout(hoverCloseTimers.get(li));
+      closeAll(li);
+      trigger.setAttribute('aria-expanded', 'true');
+      li.classList.add('is-open');
+    };
+    const close = () => {
+      trigger.setAttribute('aria-expanded', 'false');
+      li.classList.remove('is-open');
+    };
+
+    // Hover (with delay so quick mouse-sweeps don't pop everything open)
+    li.addEventListener('mouseenter', () => {
+      window.clearTimeout(hoverCloseTimers.get(li));
+      openTimer = window.setTimeout(open, HOVER_OPEN_MS);
+    });
+    li.addEventListener('mouseleave', () => {
+      window.clearTimeout(openTimer);
+      hoverCloseTimers.set(li, window.setTimeout(close, HOVER_CLOSE_MS));
+    });
+
+    // Click on the trigger toggles (for touch + when JS-driven feels better)
+    trigger.addEventListener('click', (e) => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      // Only intercept when the link is a placeholder (#) — real links navigate
+      if (trigger.getAttribute('href') === '#') {
+        e.preventDefault();
+        isOpen ? close() : open();
+      }
+    });
+
+    // Keyboard: open on Enter/Space when focused
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        open();
+        li.querySelector<HTMLAnchorElement>('.mega-panel a, .simple-drop a')?.focus();
+      }
+    });
+  });
+
+  // Esc closes everything
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+  // Click outside closes
+  document.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('.site-header .nav-item.has-drop')) closeAll();
+  });
+
+  // Mobile hamburger
+  const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle');
+  const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
+  const header = document.querySelector<HTMLElement>('.site-header');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    mobileNav?.classList.toggle('mobile-nav--open', !open);
+    header?.classList.toggle('site-header--menu-open', !open);
+    document.body.style.overflow = !open ? 'hidden' : '';
+  });
+</script>
+
+<style>
+  /* ─── Base header ────────────────────────────────────────────── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid rgba(207, 207, 207, 0.6);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.875rem;
+  }
+  .site-header .brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+  .site-header .brand img {
+    height: 44px;
+    width: auto;
+    display: block;
+    transition: opacity 200ms;
+  }
+  @media (max-width: 767px) {
+    .site-header .brand img { height: 38px; }
+  }
+  .site-header .brand:hover img { opacity: 0.8; }
+
+  /* ─── Primary nav (desktop) ──────────────────────────────────── */
+  .primary-nav { display: none; }
+  @media (min-width: 1024px) { .primary-nav { display: block; } }
+
+  .primary-nav > ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .primary-nav .nav-item { position: static; }
+
+  .primary-nav > ul > li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.625rem 0.875rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: 6px;
+    position: relative;
+    transition: color 150ms, background 150ms;
+  }
+  .primary-nav > ul > li > a:hover { background: rgba(199, 154, 8, 0.08); color: var(--color-gold-600); }
+  .primary-nav .caret {
+    opacity: 0.5;
+    transition: transform 200ms, opacity 200ms;
+  }
+  .primary-nav > ul > li > a:hover .caret { opacity: 1; }
+  .primary-nav .is-open > a .caret { transform: rotate(180deg); opacity: 1; }
+  .primary-nav .is-open > a { background: rgba(199, 154, 8, 0.08); color: var(--color-gold-600); }
+  .primary-nav > ul > li > a[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0.875rem; right: 0.875rem;
+    bottom: 0.25rem;
+    height: 2px;
+    background: var(--color-gold-400);
+    border-radius: 2px;
+  }
+
+  /* ─── Mega panel ─────────────────────────────────────────────── */
+  .mega-panel {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: #fff;
+    border-top: 1px solid rgba(207,207,207,0.6);
+    box-shadow: 0 24px 64px -24px rgba(7,7,7,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 200ms, transform 200ms;
+    z-index: 10;
+  }
+  .nav-item.is-open .mega-panel,
+  .nav-item:focus-within .mega-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mega-panel__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 2.75rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3rem;
+  }
+  .mega-panel__cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .mega-col h3 {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold-600);
+    margin: 0 0 1rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .mega-col h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .mega-col h3 a:hover { color: var(--color-gold-400); }
+  .mega-col ul { list-style: none; padding: 0; margin: 0; }
+  .mega-col li { margin: 0; }
+  .mega-col li a {
+    display: block;
+    padding: 0.625rem 0;
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: transform 150ms, color 150ms;
+  }
+  .mega-col li a:hover {
+    color: var(--color-gold-600);
+    transform: translateX(3px);
+  }
+  .mega-col__label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .mega-col__desc {
+    display: block;
+    color: var(--color-ink-mute);
+    font-size: 0.8125rem;
+    margin-top: 0.125rem;
+  }
+
+  /* Featured panel */
+  .mega-feature {
+    display: block;
+    background: var(--color-cream);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .mega-feature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -16px rgba(199,154,8,0.25);
+  }
+  .mega-feature img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .mega-feature__body { padding: 1rem 1.125rem 1.25rem; }
+  .mega-feature__body h4 {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    margin: 0 0 0.375rem;
+    color: var(--color-ink);
+  }
+  .mega-feature__body p {
+    color: var(--color-ink-soft);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+  }
+  .mega-feature__cta {
+    color: var(--color-gold-600);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  /* ─── Simple dropdown ────────────────────────────────────────── */
+  .simple-drop {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -8px);
+    min-width: 26rem;
+    background: #fff;
+    border: 1px solid rgba(207,207,207,0.6);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms, transform 200ms;
+    box-shadow: 0 24px 64px -24px rgba(7,7,7,0.18);
+    z-index: 10;
+  }
+  .nav-item.is-open .simple-drop,
+  .nav-item:focus-within .simple-drop {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+  .simple-drop__heading {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    color: var(--color-gold-600);
+    text-decoration: none;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .simple-drop__heading:hover { color: var(--color-gold-400); }
+  .simple-drop ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.125rem 1.5rem;
+  }
+  .simple-drop li { margin: 0; }
+  .simple-drop li a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: color 150ms, transform 150ms;
+  }
+  .simple-drop li a::before {
+    content: "→";
+    color: var(--color-gold-400);
+    opacity: 0;
+    margin-right: 0.375rem;
+    transition: opacity 150ms;
+  }
+  .simple-drop li a:hover {
+    color: var(--color-gold-600);
+    transform: translateX(3px);
+  }
+  .simple-drop li a:hover::before { opacity: 1; }
+
+  /* ─── Header phone ───────────────────────────────────────────── */
+  .site-header .header-phone {
+    display: none;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    transition: background 150ms, color 150ms;
+    flex-shrink: 0;
+  }
+  @media (min-width: 1024px) { .site-header .header-phone { display: inline-flex; } }
+  .site-header .header-phone svg { color: var(--color-gold-600); }
+  .site-header .header-phone:hover { background: rgba(199,154,8,0.08); color: var(--color-gold-600); }
+
+  /* ─── Header CTA ─────────────────────────────────────────────── */
+  .site-header .header-cta {
+    display: none;
+    align-items: center;
+    gap: 0.375rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.625rem 1rem 0.625rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background 200ms, transform 200ms;
+    flex-shrink: 0;
+  }
+  @media (min-width: 1024px) { .site-header .header-cta { display: inline-flex; } }
+  .site-header .header-cta:hover {
+    background: var(--color-gold-600);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  /* ─── Mobile hamburger ───────────────────────────────────────── */
+  .mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+  }
+  .mobile-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: transform 200ms, opacity 200ms;
+  }
+  .site-header--menu-open .mobile-toggle span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .site-header--menu-open .mobile-toggle span:nth-child(2) { opacity: 0; }
+  .site-header--menu-open .mobile-toggle span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  @media (min-width: 1024px) { .mobile-toggle { display: none; } }
+
+  /* ─── Mobile drawer ──────────────────────────────────────────── */
+  .mobile-nav {
+    display: none;
+    background: #fff;
+    border-top: 1px solid var(--color-line);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  .mobile-nav.mobile-nav--open { display: block; }
+  .mobile-nav > ul { list-style: none; padding: 0.75rem 1.25rem 1.5rem; margin: 0; }
+  .mobile-nav__item { border-bottom: 1px solid var(--color-line); }
+  .mobile-nav__item > a, .mobile-nav summary {
+    display: block;
+    padding: 1rem 0;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+  }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    color: var(--color-gold-600);
+    font-size: 1.25rem;
+    transition: transform 200ms;
+  }
+  .mobile-nav details[open] summary::after { transform: rotate(45deg); }
+  .mobile-nav__children { padding-bottom: 1rem; }
+  .mobile-nav__parent {
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--color-gold-600);
+    font-size: 0.875rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .mobile-nav__group { margin-top: 0.75rem; }
+  .mobile-nav__group h4 {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold-600);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+  .mobile-nav__group ul, .mobile-nav__children > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+  }
+  .mobile-nav__group li, .mobile-nav__children > ul li { margin: 0; }
+  .mobile-nav__group a, .mobile-nav__children > ul a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .mobile-nav__group a:hover, .mobile-nav__children > ul a:hover {
+    color: var(--color-gold-600);
+  }
+  .mobile-cta {
+    display: block;
+    background: var(--color-gold-400);
+    color: #fff !important;
+    border-radius: 999px;
+    text-align: center;
+    margin-top: 1.5rem !important;
+    padding: 0.875rem 1.5rem !important;
+    font-weight: 600 !important;
+    border: 0 !important;
+  }
+  .mobile-cta + .mobile-contact { border: 0 !important; text-align: center; margin-top: 0.75rem; }
+  .mobile-contact a {
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+  }
+</style>

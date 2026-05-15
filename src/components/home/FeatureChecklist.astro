@@ -1,0 +1,121 @@
+---
+interface Props {
+  heading: string;
+  body?: string;
+  items: { heading: string; body: string }[];
+  cta?: { label: string; href: string };
+}
+const { heading, body, items, cta } = Astro.props;
+// Split heading on " and " so we can emphasise the outer words in gold
+const parts = heading.split(/\s+and\s+/i);
+---
+<section class="feature-checklist container-narrow">
+  <header>
+    <h2>
+      {parts.length === 2 ? (
+        <><span class="gold">{parts[0]}</span> <span class="muted">and</span> <span class="gold">{parts[1]}</span></>
+      ) : heading}
+    </h2>
+    {body && <p>{body}</p>}
+  </header>
+
+  <ul class="feature-checklist__list">
+    {items.map((it) => (
+      <li>
+        <span class="feature-checklist__check" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div>
+          <h3>{it.heading}</h3>
+          <p>{it.body}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  {cta && (
+    <div class="feature-checklist__cta">
+      <a href={cta.href} class="button-pill">{cta.label} <span aria-hidden="true">→</span></a>
+    </div>
+  )}
+</section>
+
+<style>
+  .feature-checklist { margin: 5rem auto; }
+  .feature-checklist header { text-align: center; margin-bottom: 2.5rem; }
+  .feature-checklist h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400;
+    margin: 0 0 1rem;
+  }
+  .feature-checklist h2 .gold { color: var(--color-gold-600); }
+  .feature-checklist h2 .muted { color: var(--color-ink); font-style: italic; font-weight: 300; }
+  .feature-checklist header p {
+    color: var(--color-ink-soft);
+    max-width: 44rem;
+    margin: 0 auto;
+    font-size: 1.0625rem;
+  }
+  .feature-checklist__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+  .feature-checklist__list li {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    padding: 1.125rem 1.25rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin: 0;
+    transition: border-color 200ms, transform 200ms;
+  }
+  .feature-checklist__list li:hover {
+    border-color: var(--color-gold-400);
+    transform: translateX(2px);
+  }
+  .feature-checklist__check {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  .feature-checklist__list h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+    color: var(--color-ink);
+  }
+  .feature-checklist__list p {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .feature-checklist__cta { text-align: center; margin-top: 2rem; }
+  .button-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    padding: 0.875rem 2rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: background 200ms, transform 200ms;
+  }
+  .button-pill:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-1px); }
+</style>

@@ -1,0 +1,147 @@
+---
+interface Props {
+  steps: { title: string; body: string; image?: string }[];
+  heading?: string;
+  subheading?: string;
+}
+const { steps, heading = 'Super Simple order process', subheading = 'Transform your home with ease — our simple and stress-free shutter installation process' } = Astro.props;
+---
+{steps.length > 0 && (
+  <section class="process-timeline">
+    <div class="container-narrow">
+      <header class="process-timeline__header">
+        <h2>{heading.split(' ').map((w, i, arr) => (
+          i === 1 ? <><span class="text-gold">{w}</span> </> : <>{w}{i < arr.length - 1 ? ' ' : ''}</>
+        ))}</h2>
+        <p>{subheading}</p>
+      </header>
+
+      <ol class="process-timeline__list">
+        {steps.map((step, i) => (
+          <li class:list={['process-step', i % 2 === 0 ? 'process-step--left' : 'process-step--right']}>
+            <div class="process-step__card">
+              {step.image && <img src={step.image} alt="" loading="lazy" />}
+              <div class="process-step__body">
+                <h3>{i + 1}. {step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            </div>
+            <span class="process-step__node" aria-hidden="true">{i + 1}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+)}
+
+<style>
+  .process-timeline {
+    position: relative;
+    margin: 6rem calc(50% - 50vw) 6rem;
+    padding: 5rem 1.25rem;
+    background: linear-gradient(180deg, #fff 0%, var(--color-cream) 30%, var(--color-cream) 70%, #fff 100%);
+    overflow: hidden;
+  }
+  .process-timeline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="200" viewBox="0 0 60 200" fill="none"><rect x="0" y="0" width="60" height="200" fill="none"/><line x1="10" y1="0" x2="10" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/><line x1="30" y1="0" x2="30" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/><line x1="50" y1="0" x2="50" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/></svg>');
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .process-timeline__header { text-align: center; margin-bottom: 4rem; position: relative; }
+  .process-timeline__header h2 { font-size: clamp(2rem, 4vw, 2.75rem); margin: 0; }
+  .text-gold { color: var(--color-gold-600); font-style: italic; }
+  .process-timeline__header p { color: var(--color-ink-mute); max-width: 36rem; margin: 0.75rem auto 0; }
+
+  .process-timeline__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  /* Central spine */
+  .process-timeline__list::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--color-gold-400) 8%, var(--color-gold-400) 92%, transparent);
+    transform: translateX(-0.5px);
+  }
+  @media (max-width: 767px) {
+    .process-timeline__list::before { left: 1.25rem; }
+  }
+
+  .process-step {
+    position: relative;
+    margin: 0 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .process-step { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .process-step--left .process-step__card { grid-column: 1; }
+    .process-step--right .process-step__card { grid-column: 2; }
+  }
+
+  .process-step__card {
+    background: #fff;
+    border: 1px solid rgba(199,154,8,0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px -16px rgba(7,7,7,0.12);
+    margin-left: 2.5rem; /* leave room for spine on mobile */
+  }
+  @media (min-width: 768px) {
+    .process-step__card { margin-left: 0; max-width: 22rem; }
+    .process-step--right .process-step__card { margin-left: auto; }
+  }
+
+  .process-step__card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .process-step__body { padding: 1.25rem 1.5rem 1.5rem; }
+  .process-step__body h3 {
+    font-family: var(--font-display);
+    color: var(--color-gold-600);
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+  }
+  .process-step__body p {
+    color: var(--color-ink-soft);
+    font-size: 0.9375rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .process-step__node {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-gold-400);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px var(--color-cream), 0 4px 12px rgba(199,154,8,0.3);
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.25rem;
+    margin-left: -1rem;
+  }
+  @media (min-width: 768px) {
+    .process-step__node { left: 50%; margin-left: -1rem; }
+  }
+</style>
