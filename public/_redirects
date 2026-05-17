@@ -6,6 +6,10 @@
 # www → apex. (Netlify "Primary domain" + HTTPS handle HTTP→HTTPS automatically.)
 https://www.shutter-envy.co.uk/*  https://shutter-envy.co.uk/:splat  301!
 
+# ─── News pagination removed in favour of client-side filter+search ───
+# Old paginated routes /news/page/N/ now 301 to /news/ (single grid page).
+/news/page/*  /news/  301!
+
 # ─── Inherited 301s from the live WordPress site (REDIRECTS.md) ───
 # Both retired URLs already 301 to /our-shutters/ on live; preserve link equity.
 /window-shutters-leicestershire                                            /our-shutters/  301

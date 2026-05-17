@@ -16,17 +16,14 @@ Our premium awnings are designed not just for looks, but for real performance to
 
 Our awnings do more than just look good. They’re a smart investment in comfort and energy efficiency. Each installation is:
 
-- [<div class="ui-e-content"> Custom-sized to fit your space perfectly to fit your space perfectly </div> <div class="ui-e-icon"> </div>](/awnings/)
+- [Custom-sized to fit your space perfectly 
 
-- <div class="ui-e-wrap"> <div class="ui-e-content"> Available in a wide range of fabrics and colours </div> <div class="ui-e-icon"> </div> </div>
-
-- <div class="ui-e-wrap"> <div class="ui-e-content"> Motorised for ease of use, with remote and voice control options </div> <div class="ui-e-icon"> </div> </div>
-
-- <div class="ui-e-wrap"> <div class="ui-e-content"> Equipped with optional sun and wind sensors for automatic adjustment </div> <div class="ui-e-icon"> </div> </div>
-
-- <div class="ui-e-wrap"> <div class="ui-e-content"> UV-protective, shielding you and your furniture from harmful rays </div> <div class="ui-e-icon"> </div> </div>
-
-- <div class="ui-e-wrap"> <div class="ui-e-content"> Energy efficient, helping reduce heat indoors by shading windows </div> <div class="ui-e-icon"> </div> </div>
+  to fit your space perfectly](https://shutter-envy.co.uk/awnings/)
+- Available in a wide range of fabrics and colours
+- Motorised for ease of use, with remote and voice control options
+- Equipped with optional sun and wind sensors for automatic adjustment
+- UV-protective, shielding you and your furniture from harmful rays
+- Energy efficient, helping reduce heat indoors by shading windows
 
 And of course, they come with full expert installation from our trusted, highly rated team.
 
@@ -34,9 +31,15 @@ And of course, they come with full expert installation from our trusted, highly 
 
 ### Bobcat Awning
 
+The Bobcat combines strength and elegance with a streamlined, aerodynamic design. Its mechanical elements are hidden, giving a clean, modern finish that complements even the most stylish homes. With corrosion-resistant, powder-coated aluminium and stainless steel parts, it's built to last. Features include adjustable pitch (15°–66°), the ART 250 invisible arm tensioning system for durability, and the option of manual or RTS Somfy motor operation. Wind Class 2 rated for confidence even on breezy days.
+
 ### Puma Awning
 
+Compact and sleek, the Puma is ideal for more exposed settings. The fully enclosed cassette protects both fabric and mechanics, extending the life of the awning. It offers a high-performance finish, guaranteed for at least 25,000 movements thanks to its reinforced steel cables. With a projection of up to 2000mm (wind class 3), it delivers top performance and stunning looks. Available with a gearbox or motorised setup, with pitch settings from 15° to 75°.
+
 ### Tiger Awning
+
+The Tiger model is your go-to for all-weather protection. With a compact design and strong structure, it handles even tough conditions with ease. Its SPLENDOR arm tensioning system ensures reliable, long-lasting use, while its modern design is enhanced with an anthracite powder-coated finish. Pitch settings range from 6° to 60°, and there’s the option to include built-in lighting for atmospheric evening use.
 
 ### Book Your Free Consultation
 
@@ -46,4 +49,4 @@ Make the most of your garden this summer. Shade, comfort, and style are just one
 
 Have you experienced Shutter Envy?
 
-**[Book your FREE no-obligation quote today](/contact/)**.
+**[Book your FREE no-obligation quote today](https://shutter-envy.co.uk/contact/)**.

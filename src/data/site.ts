@@ -125,7 +125,7 @@ export const primaryNav: NavItem[] = [
       { label: 'Barrow upon Soar',   sublabel: 'Shutters in Barrow upon Soar',   href: '/locations/shutters-in-barrow-upon-soar/',   image: '/wp-content/uploads/2026/02/cafe-Style-Shutters-Shutter-Envy-in-Loughborough.jpg' },
     ],
   },
-  { label: 'Recent Work', href: '/recent-work/' },
+  { label: 'News/Work', href: '/news/' },
   // News, About, Contact deliberately removed from primary nav (2026-05-16).
   // The header focuses on money-making pages only. About/News/Contact live
   // in the footer + the persistent "Arrange a Home Visit" CTA pill covers

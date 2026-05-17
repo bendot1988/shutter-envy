@@ -8,7 +8,7 @@ heroImage: "/wp-content/uploads/2025/04/Blind-and-Shutter-Specialists-of-The-Yea
 excerpt: "We’re proud to share that Shutter Envy Ltd has once again been recognised on the global stage. For the third consecutive year, we’ve won the prestigious IE100 Awards for Blind &amp; Shutter Specialists of the Year – Leicestershire, UK."
 author: "Shutter Envy"
 ---
-We’re proud to share that *Shutter Envy Ltd* has once again been recognised on the global stage. For the third consecutive year, we’ve won the prestigious *IE100 Awards* for *Blind &amp; Shutter Specialists of the Year – Leicestershire, UK*.
+We’re proud to share that *Shutter Envy Ltd* has once again been recognised on the global stage. For the third consecutive year, we’ve won the prestigious *IE100 Awards* for *Blind & Shutter Specialists of the Year – Leicestershire, UK*.
 
 ### That’s not just one, not two—but *three* straight years: **2023, 2024 and now 2025**.
 
@@ -22,6 +22,15 @@ If you’ve not yet experienced the award-winning Shutter Envy service, now’s 
 
 **Contact us today and be part of our award-winning journey.**
 
-📞 [0116 210 6241](tel:+44:0116 210 6241)<br data-start="1388" data-end="1391" />📧 [sales@shutter-envy.co.uk](mailto:sales@shutter-envy.co.uk)
+📞 [0116 210 6241](tel:+44:0116 210 6241)  
+📧 [sales@shutter-envy.co.uk](mailto:sales@shutter-envy.co.uk)
+
+![Blind and Shutter Specialists of The Year](https://shutter-envy.co.uk/wp-content/uploads/2025/04/Blind-and-Shutter-Specialists-of-The-Year.png "Shutter Envy Named Blind & Shutter Specialists of the Year for Third Year Running 1")
 
 ## Transform Your Home with Timeless Shutters
+
+**Add style, security and value to your home with our classic plantation shutters.**  
+✔ Enhanced Security with patented Italian lock system  
+✔ Designed for durability – perfect for indoor or outdoor spaces  
+✔ 4 standard colours + full bespoke options  
+✔ Timeless style and custom fit for every window[Contact Us](https://shutter-envy.co.uk/contact/)

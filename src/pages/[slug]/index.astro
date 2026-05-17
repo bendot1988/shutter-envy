@@ -17,6 +17,16 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+// Show the featured image at the bottom of the body when the body either
+// doesn't reference any image, or doesn't reference the hero image itself.
+// Stops bare-looking posts (often the ones where the hero is the only photo)
+// from ending in a wall of text.
+const body = (post as any).body ?? '';
+const heroImg = post.data.heroImage ?? '';
+const bodyHasAnyImage = /!\[.*?\]\(|<img/i.test(body);
+const bodyHasHero = heroImg && body.includes(heroImg);
+const showHeroAtEnd = !!heroImg && (!bodyHasAnyImage || !bodyHasHero);
+
 const url = `https://shutter-envy.co.uk/${post.id}/`;
 const jsonLd = [
   blogPosting({
@@ -45,6 +55,7 @@ const jsonLd = [
   heroImageAlt={post.data.heroImageAlt}
   author={post.data.author}
   jsonLd={jsonLd}
+  showHeroAtEnd={showHeroAtEnd}
 >
   <Content />
 </ArticleLayout>
