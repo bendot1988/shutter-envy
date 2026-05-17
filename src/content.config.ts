@@ -56,7 +56,13 @@ const pages = defineCollection({
     heroPrimaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
     heroLocation: z.string().optional(),
     stats: z
-      .array(z.object({ value: z.string(), label: z.string() }))
+      .array(
+        z.object({
+          value: z.string(),
+          label: z.string(),
+          emoji: z.string().optional(),
+        }),
+      )
       .default([]),
     processSteps: z
       .array(
@@ -145,6 +151,21 @@ const pages = defineCollection({
             date: z.string().optional(),
           }),
         ),
+      })
+      .optional(),
+    bayWindows: z
+      .object({
+        heading: z.string(),
+        body: z.array(z.string()),
+        cta: z.object({ label: z.string(), href: z.string() }),
+        ctaNote: z.string().optional(),
+        cardTitle: z.string(),
+        cardBody: z.string(),
+        cardImage: z.string(),
+        cardLink: z.object({ label: z.string(), href: z.string() }).optional(),
+        faqs: z
+          .array(z.object({ question: z.string(), answer: z.string().optional() }))
+          .default([]),
       })
       .optional(),
     midPageCta: z

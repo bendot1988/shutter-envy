@@ -1,0 +1,345 @@
+---
+// Horizontal auto-scrolling image marquee with hover-pause + lightbox.
+// Each tile is clickable and opens a full-screen image viewer.
+// Self-contained — no dependencies beyond the brand tokens in global.css.
+interface Props {
+  images: { src: string; alt: string }[];
+  speed?: number;     // seconds for one full loop (default 50)
+  tileWidth?: number; // px width per tile on desktop (default 320)
+}
+const { images, speed = 50, tileWidth = 320 } = Astro.props;
+
+// We duplicate the image list so the track can loop seamlessly.
+const looped = [...images, ...images];
+---
+{images.length > 0 && (
+  <section class="marquee" aria-label="Featured installations">
+    <div
+      class="marquee__viewport"
+      style={`--marquee-duration: ${speed}s; --tile-w: ${tileWidth}px;`}
+      data-marquee-lightbox
+    >
+      <ul class="marquee__track">
+        {looped.map((img, i) => (
+          <li>
+            <button
+              type="button"
+              class="marquee__tile"
+              data-marquee-index={i % images.length}
+              aria-label={`View image: ${img.alt}`}
+            >
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+              <span class="marquee__zoom" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7"/>
+                  <line x1="16.5" y1="16.5" x2="21" y2="21"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/>
+                  <line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Lightbox modal (one per section) */}
+    <div class="marquee-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button class="marquee-lightbox__close" type="button" aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <button class="marquee-lightbox__nav marquee-lightbox__nav--prev" type="button" aria-label="Previous">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="marquee-lightbox__nav marquee-lightbox__nav--next" type="button" aria-label="Next">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <figure class="marquee-lightbox__figure">
+        <img class="marquee-lightbox__image" alt="" />
+        <figcaption class="marquee-lightbox__caption"></figcaption>
+      </figure>
+      <p class="marquee-lightbox__counter" aria-live="polite"></p>
+      <script type="application/json" class="marquee-lightbox__data" set:html={JSON.stringify(images)} />
+    </div>
+  </section>
+)}
+
+<script>
+  // Marquee lightbox — mirrors the Gallery lightbox pattern but scoped per section.
+  document.querySelectorAll<HTMLElement>('[data-marquee-lightbox]').forEach((viewport) => {
+    const section = viewport.closest('section');
+    if (!section) return;
+    const lb = section.querySelector<HTMLElement>('.marquee-lightbox');
+    if (!lb) return;
+
+    const dataNode = lb.querySelector<HTMLScriptElement>('.marquee-lightbox__data');
+    let images: { src: string; alt: string }[] = [];
+    try { images = JSON.parse(dataNode?.textContent ?? '[]'); } catch { return; }
+    if (!images.length) return;
+
+    const img = lb.querySelector<HTMLImageElement>('.marquee-lightbox__image')!;
+    const cap = lb.querySelector<HTMLElement>('.marquee-lightbox__caption')!;
+    const counter = lb.querySelector<HTMLElement>('.marquee-lightbox__counter')!;
+    const btnClose = lb.querySelector<HTMLButtonElement>('.marquee-lightbox__close')!;
+    const btnPrev  = lb.querySelector<HTMLButtonElement>('.marquee-lightbox__nav--prev')!;
+    const btnNext  = lb.querySelector<HTMLButtonElement>('.marquee-lightbox__nav--next')!;
+
+    let current = 0;
+    let lastTrigger: HTMLElement | null = null;
+
+    const render = (i: number) => {
+      current = (i + images.length) % images.length;
+      img.src = images[current].src;
+      img.alt = images[current].alt;
+      cap.textContent = images[current].alt;
+      counter.textContent = `${current + 1} of ${images.length}`;
+    };
+
+    const open = (i: number, trigger: HTMLElement) => {
+      lastTrigger = trigger;
+      render(i);
+      lb.hidden = false;
+      requestAnimationFrame(() => lb.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+      btnClose.focus();
+    };
+    const close = () => {
+      lb.classList.remove('is-open');
+      setTimeout(() => { lb.hidden = true; }, 200);
+      document.body.style.overflow = '';
+      lastTrigger?.focus();
+    };
+
+    viewport.querySelectorAll<HTMLButtonElement>('[data-marquee-index]').forEach((tile) => {
+      tile.addEventListener('click', () => {
+        open(parseInt(tile.dataset.marqueeIndex ?? '0', 10), tile);
+      });
+    });
+
+    btnClose.addEventListener('click', close);
+    btnNext.addEventListener('click', () => render(current + 1));
+    btnPrev.addEventListener('click', () => render(current - 1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') render(current + 1);
+      else if (e.key === 'ArrowLeft') render(current - 1);
+    });
+  });
+</script>
+
+<style>
+  /* ─── Marquee ─────────────────────────────────────────── */
+  .marquee {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 2.5rem 0;
+    background: #fff;
+    overflow: hidden;
+  }
+  /* Soft edge-fade so tiles slip in/out of view smoothly */
+  .marquee::before,
+  .marquee::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 12vw;
+    max-width: 180px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee::before { left: 0;  background: linear-gradient(90deg, #fff, transparent); }
+  .marquee::after  { right: 0; background: linear-gradient(270deg, #fff, transparent); }
+
+  .marquee__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .marquee__track {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 50s) linear infinite;
+    will-change: transform;
+  }
+  .marquee__track li { margin: 0; }
+
+  /* Hover anywhere over the marquee — pause animation */
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+    /* When motion is reduced, switch to a native scroll so users can still browse */
+    .marquee__viewport { overflow-x: auto; scroll-snap-type: x mandatory; }
+    .marquee__track li { scroll-snap-align: start; }
+  }
+
+  /* ─── Tile ───────────────────────────────────────────── */
+  .marquee__tile {
+    position: relative;
+    display: block;
+    width: var(--tile-w, 320px);
+    aspect-ratio: 4/3;
+    padding: 0;
+    border: 0;
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: zoom-in;
+    box-shadow: var(--shadow-sm);
+    transition: transform 280ms cubic-bezier(0.16,1,0.3,1), box-shadow 280ms;
+  }
+  @media (max-width: 640px) {
+    .marquee__tile { width: 240px; }
+  }
+  .marquee__tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.16,1,0.3,1), filter 280ms ease;
+  }
+  /* Subtle gold-tint overlay that fades in on hover */
+  .marquee__tile::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(139,105,0,0.55) 100%);
+    opacity: 0;
+    transition: opacity 280ms ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .marquee__tile:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    z-index: 5;
+  }
+  .marquee__tile:hover img { transform: scale(1.06); }
+  .marquee__tile:hover::before { opacity: 1; }
+  .marquee__tile:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-gold-400), var(--shadow-md);
+  }
+
+  /* Enlarge icon */
+  .marquee__zoom {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: var(--color-gold-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(-6px) scale(0.92);
+    transition: opacity 220ms ease, transform 220ms cubic-bezier(0.16,1,0.3,1);
+    z-index: 2;
+  }
+  .marquee__tile:hover .marquee__zoom,
+  .marquee__tile:focus-visible .marquee__zoom {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ─── Lightbox ─────────────────────────────────────────── */
+  .marquee-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(7,7,7,0.92);
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .marquee-lightbox.is-open { opacity: 1; }
+  .marquee-lightbox[hidden] { display: none; }
+  .marquee-lightbox__figure {
+    margin: 0;
+    max-width: min(96vw, 1280px);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .marquee-lightbox__image {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 24px 64px -16px rgba(0,0,0,0.6);
+    animation: marquee-lb-pop 280ms cubic-bezier(0.16,1,0.3,1);
+  }
+  @keyframes marquee-lb-pop {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .marquee-lightbox__caption {
+    color: rgba(255,255,255,0.85);
+    font-size: var(--text-small-body-15-400);
+    text-align: center;
+    max-width: 60ch;
+    margin: 0;
+  }
+  .marquee-lightbox__counter {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    color: rgba(255,255,255,0.7);
+    font-size: var(--text-link-12-700);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .marquee-lightbox__close,
+  .marquee-lightbox__nav {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 180ms ease, transform 180ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .marquee-lightbox__close { top: 1.25rem; right: 1.25rem; width: 2.75rem; height: 2.75rem; }
+  .marquee-lightbox__nav { top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; }
+  .marquee-lightbox__nav--prev { left: 1.25rem; }
+  .marquee-lightbox__nav--next { right: 1.25rem; }
+  .marquee-lightbox__close:hover,
+  .marquee-lightbox__nav:hover {
+    background: var(--color-gold-400);
+    border-color: var(--color-gold-400);
+  }
+  .marquee-lightbox__nav:hover { transform: translateY(-50%) scale(1.08); }
+  .marquee-lightbox__close:focus-visible,
+  .marquee-lightbox__nav:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-gold-400);
+  }
+</style>

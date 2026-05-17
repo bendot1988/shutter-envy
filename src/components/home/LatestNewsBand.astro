@@ -12,10 +12,10 @@ const posts = (await getCollection('blog'))
 ---
 <section class="latest-news">
   <div class="container">
-    <header class="latest-news__header">
+    <header class="latest-news__header" data-reveal>
       <h2>Latest News</h2>
     </header>
-    <ul class="latest-news__grid">
+    <ul class="latest-news__grid" data-reveal-children>
       {posts.map((p) => (
         <li class="latest-news__card">
           {p.data.heroImage && (
@@ -36,7 +36,7 @@ const posts = (await getCollection('blog'))
 
 <style>
   .latest-news {
-    margin: 6rem calc(50% - 50vw) 0;
+    margin: 0 calc(50% - 50vw);
     padding: 5rem 1.25rem 6rem;
     background:
       linear-gradient(180deg, rgba(58,46,12,0.92), rgba(58,46,12,0.95)),
@@ -49,9 +49,13 @@ const posts = (await getCollection('blog'))
     margin-bottom: 3rem;
   }
   .latest-news__header h2 {
+    /* h2-60-500 */
     color: #fff;
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
     margin: 0;
   }
   .latest-news__grid {
@@ -69,15 +73,16 @@ const posts = (await getCollection('blog'))
   }
   .latest-news__card {
     background: #fff;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     color: var(--color-ink);
     transition: transform 200ms, box-shadow 200ms;
     margin: 0;
+    box-shadow: 0 12px 32px -12px rgba(0,0,0,0.5);
   }
   .latest-news__card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px -20px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px -16px rgba(0,0,0,0.6);
   }
   .latest-news__image { display: block; }
   .latest-news__image img {
@@ -87,18 +92,20 @@ const posts = (await getCollection('blog'))
   }
   .latest-news__body { padding: 1.25rem 1.5rem 1.5rem; }
   .latest-news__body h3 {
+    /* h3-21-500 */
     font-family: var(--font-display);
-    font-size: 1.125rem;
+    font-size: var(--text-h3-21-500);
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.2;
+    letter-spacing: -0.027em;
     margin: 0 0 0.5rem;
   }
   .latest-news__body h3 a { color: var(--color-ink); text-decoration: none; }
   .latest-news__body h3 a:hover { color: var(--color-gold-600); }
   .latest-news__body p {
-    font-size: 0.875rem;
+    font-size: var(--text-small-body-15-400);
     color: var(--color-ink-soft);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0 0 1rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -107,8 +114,10 @@ const posts = (await getCollection('blog'))
   }
   .latest-news__read {
     color: var(--color-gold-600);
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     text-decoration: none;
   }
   .latest-news__read:hover { color: var(--color-gold-400); }

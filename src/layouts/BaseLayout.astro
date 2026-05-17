@@ -80,5 +80,32 @@ const allJsonLd: object[] = [
       <slot />
     </main>
     <Footer />
+
+    {/* Global reveal-on-scroll. Activates any element with
+        [data-reveal] or [data-reveal-children] as it enters the viewport.
+        Respects prefers-reduced-motion. */}
+    <script>
+      (() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          // CSS already handles the reduced-motion case
+          return;
+        }
+        if (!('IntersectionObserver' in window)) {
+          document.querySelectorAll('[data-reveal], [data-reveal-children]')
+            .forEach((el) => el.classList.add('is-revealed'));
+          return;
+        }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('[data-reveal], [data-reveal-children]')
+          .forEach((el) => io.observe(el));
+      })();
+    </script>
   </body>
 </html>

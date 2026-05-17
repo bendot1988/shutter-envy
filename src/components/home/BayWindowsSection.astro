@@ -1,0 +1,260 @@
+---
+interface FAQ { question: string; answer?: string }
+
+interface Props {
+  heading: string;
+  body: string[];
+  cta: { label: string; href: string };
+  ctaNote?: string;
+  cardTitle: string;
+  cardBody: string;
+  cardImage: string;
+  cardLink?: { label: string; href: string };
+  faqs?: FAQ[];
+}
+const {
+  heading,
+  body,
+  cta,
+  ctaNote,
+  cardTitle,
+  cardBody,
+  cardImage,
+  cardLink,
+  faqs = [],
+} = Astro.props;
+---
+<section class="bay-section">
+  <div class="container bay-section__grid">
+    {/* ─── LEFT: heading + body + CTA ─────────────────────── */}
+    <div class="bay-section__intro" data-reveal="left">
+      <span class="bay-section__eyebrow">Featured speciality</span>
+      <h2>{heading}</h2>
+      {body.map((p) => <p>{p}</p>)}
+      <a href={cta.href} class="bay-section__btn">
+        {cta.label}
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      {ctaNote && <p class="bay-section__note">{ctaNote}</p>}
+    </div>
+
+    {/* ─── RIGHT: image card + FAQs ───────────────────────── */}
+    <div class="bay-section__detail" data-reveal="right">
+      <article class="bay-card">
+        <div class="bay-card__image">
+          <img src={cardImage} alt={cardTitle} loading="lazy" />
+        </div>
+        <div class="bay-card__body">
+          <h3>{cardTitle}</h3>
+          <p>{cardBody}</p>
+          {cardLink && (
+            <a href={cardLink.href} class="bay-card__link">
+              {cardLink.label}
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          )}
+        </div>
+      </article>
+
+      {faqs.length > 0 && (
+        <ul class="bay-faqs">
+          {faqs.map((f) => (
+            <li>
+              <details>
+                <summary>{f.question}</summary>
+                {f.answer && <p set:html={f.answer} />}
+              </details>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bay-section {
+    margin: 0 calc(50% - 50vw);
+    padding: 6rem 1.25rem;
+    background: var(--color-cream);
+  }
+
+  .bay-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 960px) {
+    .bay-section__grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  }
+
+  /* ─── LEFT intro ─────────────────────────────────────────── */
+  .bay-section__intro { position: sticky; top: 6rem; }
+  .bay-section__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.3125rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .bay-section__intro h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+    color: var(--color-ink);
+  }
+  .bay-section__intro p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
+    margin: 0 0 1rem;
+  }
+  .bay-section__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.875rem 1.875rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: background 200ms, transform 200ms, box-shadow 200ms;
+  }
+  .bay-section__btn:hover {
+    background: var(--color-gold-600);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .bay-section__btn svg { transition: transform 200ms; }
+  .bay-section__btn:hover svg { transform: translateX(3px); }
+  .bay-section__note {
+    color: var(--color-ink-mute);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.6;
+    margin: 1.25rem 0 0;
+  }
+
+  /* ─── RIGHT card + FAQs ──────────────────────────────────── */
+  .bay-section__detail { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .bay-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 250ms cubic-bezier(0.16,1,0.3,1), box-shadow 250ms;
+  }
+  .bay-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  .bay-card__image { display: block; overflow: hidden; }
+  .bay-card__image img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .bay-card:hover .bay-card__image img { transform: scale(1.04); }
+
+  .bay-card__body { padding: 1.5rem 1.75rem 1.75rem; }
+  .bay-card__body h3 {
+    font-family: var(--font-display);
+    color: var(--color-gold-600);
+    font-size: var(--text-h3-24-500);
+    line-height: 1.2;
+    letter-spacing: -0.027em;
+    font-weight: 500;
+    margin: 0 0 0.625rem;
+  }
+  .bay-card__body p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+  .bay-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-gold-600);
+    font-weight: 700;
+    font-size: var(--text-link-12-700);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .bay-card__link:hover { color: var(--color-gold-400); }
+  .bay-card__link svg { transition: transform 200ms; }
+  .bay-card__link:hover svg { transform: translateX(2px); }
+
+  /* FAQ list — small accordions, sit nicely below the card */
+  .bay-faqs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .bay-faqs li { margin: 0; }
+  .bay-faqs details {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: border-color 200ms, box-shadow 200ms;
+  }
+  .bay-faqs details:hover { border-color: var(--color-gold-400); box-shadow: var(--shadow-md); }
+  .bay-faqs details[open] { border-color: var(--color-gold-400); box-shadow: var(--shadow-md); }
+  .bay-faqs summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.125rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-small-body-15-400);
+    color: var(--color-ink);
+    cursor: pointer;
+    list-style: none;
+  }
+  .bay-faqs summary::-webkit-details-marker { display: none; }
+  .bay-faqs summary::after {
+    content: "+";
+    color: var(--color-gold-600);
+    font-size: 1.125rem;
+    line-height: 1;
+    transition: transform 220ms;
+    flex-shrink: 0;
+  }
+  .bay-faqs details[open] summary::after { transform: rotate(45deg); }
+  .bay-faqs p {
+    margin: 0;
+    padding: 0 1.125rem 1rem;
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.65;
+  }
+</style>

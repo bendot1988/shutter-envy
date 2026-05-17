@@ -1,6 +1,9 @@
 ---
 import { getEntry, render } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TeamCards from '../../components/home/TeamCards.astro';
+import StatsRow from '../../components/home/StatsRow.astro';
+import InlineCTA from '../../components/home/InlineCTA.astro';
 import { faqPage, breadcrumbList } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'about');
@@ -14,17 +17,173 @@ const jsonLd: object[] = [
   ]),
 ];
 if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+
+// Reuse the same team + stats data shape as the homepage
+const teamMembers = [
+  { name: 'Laura Sanders', role: 'Office Maestro',     image: '/wp-content/uploads/2024/09/Laura-Sanders-542x650.jpg' },
+  { name: 'Mark Sanders',  role: 'Chief Shutter Guru', image: '/wp-content/uploads/2024/09/Mark-Sanders-542x650.jpg' },
+  { name: 'Chris Sanders', role: 'Installation Ninja', image: '/wp-content/uploads/2024/09/Chris-Sanders-542x650.jpg' },
+];
+const stats = [
+  { value: '600+', label: 'Happy Customers',               emoji: '👥' },
+  { value: '25',   label: '5-Star Reviews',                emoji: '⭐' },
+  { value: '15',   label: 'Years in the Shutter Industry', emoji: '📅' },
+];
 ---
-<PageLayout
+<BaseLayout
   title={entry.data.title}
   description={entry.data.description}
-  h1={entry.data.h1}
-  hero={entry.data.hero}
-  gallery={entry.data.gallery}
-  faqs={entry.data.faqs}
-  cta={entry.data.cta}
   ogImage={entry.data.ogImage}
   jsonLd={jsonLd}
 >
-  <Content />
-</PageLayout>
+  {/* ─── Hero ───────────────────────────────────────────── */}
+  <section class="about-hero" data-reveal>
+    <div class="about-hero__inner">
+      <span class="about-hero__eyebrow">About Shutter Envy</span>
+      <h1>{entry.data.h1}</h1>
+      <p>{entry.data.description}</p>
+    </div>
+    <div class="about-hero__image" data-reveal="fade" data-reveal-delay="100">
+      <img src="/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg" alt="Mark Sanders by the Shutter Envy van" loading="eager" fetchpriority="high" />
+    </div>
+  </section>
+
+  {/* ─── Stats band ─────────────────────────────────────── */}
+  <StatsRow items={stats} />
+
+  {/* ─── Story body ─────────────────────────────────────── */}
+  <section class="about-body" data-reveal>
+    <div class="about-body__inner">
+      <Content />
+    </div>
+  </section>
+
+  {/* ─── Team cards ─────────────────────────────────────── */}
+  <TeamCards
+    heading="Meet the Family Behind Shutter Envy"
+    body="A small, hardworking, <strong>family-run team</strong> — efficient, honest and obsessed with getting the finish right."
+    members={teamMembers}
+  />
+
+  {/* ─── End CTA ────────────────────────────────────────── */}
+  <InlineCTA
+    eyebrow="Ready to Start?"
+    heading="Let's Bring Your Vision to Life"
+    body="Book a free, no-obligation home survey. Mark visits with samples and gives you a quote on the day."
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    secondaryCta={{ label: 'Call 07729 572277', href: 'tel:+447729572277' }}
+    tone="gold"
+  />
+</BaseLayout>
+
+<style>
+  /* ─── Hero ─────────────────────────────────────────────── */
+  .about-hero {
+    background: var(--color-cream);
+    margin: 0 calc(50% - 50vw);
+    padding: 4rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    .about-hero {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 5rem 3rem;
+      max-width: 84rem;
+      margin: 0 auto;
+    }
+  }
+  .about-hero__inner { max-width: 36rem; }
+  @media (max-width: 1023px) { .about-hero__inner { margin: 0 auto; text-align: center; } }
+
+  .about-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .about-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+  }
+  .about-hero p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .about-hero__image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* ─── Body ─────────────────────────────────────────────── */
+  .about-body {
+    padding: 5rem 1.25rem;
+  }
+  .about-body__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
+    color: var(--color-ink);
+  }
+  .about-body__inner :global(h2) {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-30-500);
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
+    margin: 3rem 0 1rem;
+  }
+  .about-body__inner :global(h3) {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.027em;
+    margin: 2.25rem 0 0.75rem;
+    color: var(--color-gold-600);
+  }
+  .about-body__inner :global(p) { margin: 0 0 1.5rem; }
+  .about-body__inner :global(a) {
+    color: var(--color-gold-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(199,154,8,0.4);
+    transition: color 200ms, text-decoration-color 200ms;
+  }
+  .about-body__inner :global(a:hover) {
+    color: var(--color-gold-400);
+    text-decoration-color: currentColor;
+  }
+  .about-body__inner :global(strong) { color: var(--color-ink); font-weight: 700; }
+  .about-body__inner :global(ul), .about-body__inner :global(ol) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .about-body__inner :global(li) { margin: 0.5rem 0; line-height: 1.7; }
+  .about-body__inner :global(img) {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+  }
+</style>

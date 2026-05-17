@@ -2,11 +2,13 @@
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeHero from '../components/home/HomeHero.astro';
-import TrustStrip from '../components/home/TrustStrip.astro';
+import AwardsBand from '../components/home/AwardsBand.astro';
 import FeatureChecklist from '../components/home/FeatureChecklist.astro';
 import StatsRow from '../components/home/StatsRow.astro';
 import ReviewsRow from '../components/home/ReviewsRow.astro';
 import ProductShowcase from '../components/home/ProductShowcase.astro';
+import BayWindowsSection from '../components/home/BayWindowsSection.astro';
+import PortchesterCallout from '../components/PortchesterCallout.astro';
 import ProcessTimeline from '../components/home/ProcessTimeline.astro';
 import AwardsCTABox from '../components/home/AwardsCTABox.astro';
 import InlineCTA from '../components/home/InlineCTA.astro';
@@ -23,6 +25,9 @@ if (!entry) throw new Error('Missing pages/home content entry');
 
 const jsonLd: object[] = [];
 if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+
+// Section background image — used for FeatureChecklist + FAQ overlay
+const sectionBg = '/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg';
 ---
 <BaseLayout
   title={entry.data.title}
@@ -32,54 +37,83 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
   isHome
   announcement={entry.data.announcement}
 >
+  {/* HERO — image bg + form + dropdown "How can we help?" + animated trust badges */}
   <HomeHero
     backgroundImage={entry.data.heroBackgroundImage}
     eyebrow={entry.data.heroEyebrow ?? ''}
     heading={entry.data.h1}
     location={entry.data.heroLocation}
-    cta={entry.data.heroPrimaryCta}
-    awardImages={entry.data.heroAwardImages}
+    badges={entry.data.trustStrip}
   />
 
-  {entry.data.trustStrip.length > 0 && <TrustStrip items={entry.data.trustStrip} />}
-
-  {entry.data.featureChecklist && (
-    <FeatureChecklist {...entry.data.featureChecklist} />
+  {/* AWARDS BAND — white, replaces awards-in-hero */}
+  {entry.data.heroAwardImages.length > 0 && (
+    <AwardsBand images={entry.data.heroAwardImages} />
   )}
 
+  {/* FEATURE CHECKLIST — shutter image bg with cream overlay */}
+  {entry.data.featureChecklist && (
+    <FeatureChecklist {...entry.data.featureChecklist} backgroundImage={sectionBg} />
+  )}
+
+  {/* STATS — clean white */}
   {entry.data.stats.length > 0 && <StatsRow items={entry.data.stats} />}
 
+  {/* REVIEWS — cream */}
   {entry.data.reviewsRow && <ReviewsRow {...entry.data.reviewsRow} />}
 
+  {/* GALLERY — white container */}
   {entry.data.gallery.length > 0 && (
-    <div class="container"><Gallery images={entry.data.gallery} /></div>
+    <div class="container" style="padding-block: 4rem;">
+      <Gallery images={entry.data.gallery} />
+    </div>
   )}
 
-  {entry.data.productShowcase && <ProductShowcase {...entry.data.productShowcase} />}
+  {/* PRODUCT SHOWCASE — DARK with image bg, white cards stand out */}
+  {entry.data.productShowcase && (
+    <ProductShowcase
+      {...entry.data.productShowcase}
+      backgroundImage="/wp-content/uploads/2024/09/hero-1024x576.jpg"
+    />
+  )}
 
+  {/* BAY WINDOWS — speciality service spotlight (cream band) */}
+  {entry.data.bayWindows && <BayWindowsSection {...entry.data.bayWindows} />}
+
+  {/* PORTCHESTER® — premium aluminium upsell (dark image band) */}
+  <PortchesterCallout />
+
+  {/* PROCESS TIMELINE — cream gradient with subtle shutter pattern */}
   {entry.data.processSteps.length > 0 && <ProcessTimeline steps={entry.data.processSteps} />}
 
+  {/* MID-PAGE CTA — gold band */}
   {entry.data.midPageCta && <InlineCTA {...entry.data.midPageCta} />}
 
+  {/* AWARDS CTA — dark box on white */}
   {entry.data.awardsCTA && <AwardsCTABox {...entry.data.awardsCTA} />}
 
+  {/* TEAM — cream radial */}
   {entry.data.team && <TeamCards {...entry.data.team} />}
 
+  {/* FAQ — shutter image bg with light overlay */}
   {entry.data.faqs.length > 0 && (
     <FAQ
       items={entry.data.faqs}
-      heading="Your questions answered"
+      heading="Your Questions Answered"
       intro={entry.data.faqsIntro}
+      backgroundImage={sectionBg}
       closingCta={{
-        label: 'Talk to Mark directly',
+        label: 'Talk to Mark Directly',
         href: '/contact/',
         prompt: 'Still have questions?',
       }}
     />
   )}
 
+  {/* LATEST NEWS — dark olive band */}
   <LatestNewsBand />
 
+  {/* TRANSFORM CTA — half image / half cream */}
   {entry.data.transformCTA && <TransformCTA {...entry.data.transformCTA} />}
 
   <StickyMobileCTA />

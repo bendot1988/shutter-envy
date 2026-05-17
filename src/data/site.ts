@@ -56,6 +56,13 @@ export type NavItem =
       href: string;
       type: 'simple';
       items: SimpleLink[];
+    }
+  | {
+      label: string;
+      href: string;
+      type: 'locations';
+      items: { label: string; href: string; image: string; sublabel?: string }[];
+      footerCta?: { label: string; href: string };
     };
 
 export const primaryNav: NavItem[] = [
@@ -101,26 +108,28 @@ export const primaryNav: NavItem[] = [
   {
     label: 'Locations',
     href: '/locations/',
-    type: 'simple',
+    type: 'locations',
+    footerCta: { label: 'View all locations', href: '/locations/' },
     items: [
-      { label: 'Leicester', href: '/locations/shutters-in-leicester/' },
-      { label: 'Loughborough', href: '/locations/shutters-in-loughborough/' },
-      { label: 'Market Harborough', href: '/locations/shutters-market-harborough/' },
-      { label: 'Melton Mowbray', href: '/locations/shutters-melton-mowbray/' },
-      { label: 'Charnwood', href: '/locations/shutters-in-charnwood/' },
-      { label: 'Quorn', href: '/locations/shutters-in-quorn/' },
-      { label: 'Rothley', href: '/locations/shutters-in-rothley/' },
-      { label: 'Syston', href: '/locations/shutters-in-syston/' },
-      { label: 'Birstall', href: '/locations/shutters-birstall/' },
-      { label: 'Groby', href: '/locations/shutters-groby/' },
-      { label: 'Sileby', href: '/locations/shutters-sileby/' },
-      { label: 'Barrow upon Soar', href: '/locations/shutters-in-barrow-upon-soar/' },
+      { label: 'Leicester',          sublabel: 'Shutters in Leicester',          href: '/locations/shutters-in-leicester/',          image: '/wp-content/uploads/2026/02/Castile-shutters-in-Leicester.jpg' },
+      { label: 'Loughborough',       sublabel: 'Shutters in Loughborough',       href: '/locations/shutters-in-loughborough/',       image: '/wp-content/uploads/2026/04/Bay-window-shutters-in-Loughborough.jpeg' },
+      { label: 'Market Harborough',  sublabel: 'Shutters in Market Harborough',  href: '/locations/shutters-market-harborough/',     image: '/wp-content/uploads/2026/04/01-Shutter-Envy-shutters-in-Loughbray-and-Leicester-.jpeg' },
+      { label: 'Melton Mowbray',     sublabel: 'Shutters in Melton Mowbray',     href: '/locations/shutters-melton-mowbray/',        image: '/wp-content/uploads/2026/04/02-Shutter-Envy-shutters-in-Loughbray-and-Leicester-.jpeg' },
+      { label: 'Charnwood',          sublabel: 'Shutters in Charnwood',          href: '/locations/shutters-in-charnwood/',          image: '/wp-content/uploads/2026/04/03-Shutter-Envy-shutters-in-Loughbray-and-Leicester-.jpeg' },
+      { label: 'Quorn',              sublabel: 'Shutters in Quorn',              href: '/locations/shutters-in-quorn/',              image: '/wp-content/uploads/2026/04/04-Shutter-Envy-shutters-in-Loughbray-and-Leicester-.jpeg' },
+      { label: 'Rothley',            sublabel: 'Shutters in Rothley',            href: '/locations/shutters-in-rothley/',            image: '/wp-content/uploads/2026/04/05-Shutter-Envy-shutters-in-Loughbray-and-Leicester-.jpeg' },
+      { label: 'Syston',             sublabel: 'Shutters in Syston',             href: '/locations/shutters-in-syston/',             image: '/wp-content/uploads/2026/05/01-shutter-envy.jpeg' },
+      { label: 'Birstall',           sublabel: 'Shutters in Birstall',           href: '/locations/shutters-birstall/',              image: '/wp-content/uploads/2026/05/02-shutter-envy.jpeg' },
+      { label: 'Groby',              sublabel: 'Shutters in Groby',              href: '/locations/shutters-groby/',                 image: '/wp-content/uploads/2026/05/03-shutter-envy.jpeg' },
+      { label: 'Sileby',             sublabel: 'Shutters in Sileby',             href: '/locations/shutters-sileby/',                image: '/wp-content/uploads/2026/04/faux-wood-shutters-kitchen-window-uk.jpeg' },
+      { label: 'Barrow upon Soar',   sublabel: 'Shutters in Barrow upon Soar',   href: '/locations/shutters-in-barrow-upon-soar/',   image: '/wp-content/uploads/2026/02/cafe-Style-Shutters-Shutter-Envy-in-Loughborough.jpg' },
     ],
   },
   { label: 'Recent Work', href: '/recent-work/' },
-  { label: 'News', href: '/news/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Contact', href: '/contact/' },
+  // News, About, Contact deliberately removed from primary nav (2026-05-16).
+  // The header focuses on money-making pages only. About/News/Contact live
+  // in the footer + the persistent "Arrange a Home Visit" CTA pill covers
+  // the contact path.
 ];
 
 // Footer columns. Mirrors the live site's 5-column footer (Menu / Shutters /

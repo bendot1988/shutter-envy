@@ -1,31 +1,268 @@
 ---
-import { getEntry, render } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
-import { faqPage, breadcrumbList } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SwatchTable from '../../components/SwatchTable.astro';
+import InlineCTA from '../../components/home/InlineCTA.astro';
+import { breadcrumbList } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'colour-swatches');
 if (!entry) throw new Error('Missing pages/colour-swatches content entry');
-const { Content } = await render(entry);
 
-const jsonLd: object[] = [
+const jsonLd = [
   breadcrumbList([
     { name: 'Home', url: '/' },
     { name: 'Our Shutters', url: '/our-shutters/' },
     { name: 'Colour Swatches', url: '/our-shutters/colour-swatches/' },
   ]),
 ];
-if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+
+// Shared "optional hinge" list — applies to Pure White row across all ranges
+const optionalHinges = [
+  'Antique Brass', 'Bisque', 'Black', 'Bright Brass', 'Brown Grey',
+  'Brushed Nickel-Plated', 'Crisp Linen', 'Nickel-Plated', 'Pearl',
+  'Pure White', 'Sea Mist', 'Stainless Steel', 'Stone Grey',
+  'String', 'Taupe Grey', 'White',
+];
+
+// Approximate hex values for each colour — close enough to read in-browser.
+// Swap to manufacturer-exact hexes if/when supplied.
+const seattle = [
+  { id: '001', name: 'Pure White',         hex: '#f4f4f1', hinge: 'Pure White' },
+  { id: '002', name: 'Extra White',        hex: '#e9e1d4', hinge: 'White' },
+  { id: '003', name: 'Silk White',         hex: '#ede8df', hinge: 'White' },
+  { id: '006', name: 'Pearl',              hex: '#ebe5d8', hinge: 'Pearl' },
+  { id: '032', name: 'Sea Mist',           hex: '#b5b3a8', hinge: 'Sea Mist' },
+  { id: '063', name: "Decorator's White",  hex: '#ede6dc', hinge: 'White' },
+];
+
+const georgia = [
+  { id: '001', name: 'Pure White',         hex: '#f4f4f1', hinge: 'Pure White' },
+  { id: '002', name: 'Extra White',        hex: '#e9e1d4', hinge: 'White' },
+  { id: '003', name: 'Silk White',         hex: '#ede8df', hinge: 'White' },
+  { id: '004', name: 'Bright White',       hex: '#f5f5f3', hinge: 'White' },
+  { id: '006', name: 'Pearl',              hex: '#ebe5d8', hinge: 'Pearl' },
+  { id: '009', name: 'Creamy',             hex: '#f4e8d2', hinge: 'Pearl' },
+  { id: '032', name: 'Sea Mist',           hex: '#b5b3a8', hinge: 'Sea Mist' },
+  { id: '049', name: 'Stone Grey',         hex: '#909089', hinge: 'Stone Grey' },
+  { id: '053', name: 'Clay',               hex: '#b89c80', hinge: 'Nickel Plated' },
+  { id: '063', name: "Decorator's White",  hex: '#ede6dc', hinge: 'White' },
+  { id: '076', name: 'Aura White',         hex: '#ece4d3', hinge: 'White' },
+  { id: '080', name: 'Taupe Grey',         hex: '#8c7c6c', hinge: 'Taupe Grey' },
+];
+
+const montana = [
+  { id: '001', name: 'Pure White',           hex: '#f4f4f1', hinge: 'Pure White' },
+  { id: '002', name: 'Extra White',          hex: '#e9e1d4', hinge: 'White' },
+  { id: '003', name: 'Silk White',           hex: '#ede8df', hinge: 'White' },
+  { id: '004', name: 'Bright White',         hex: '#f5f5f3', hinge: 'White' },
+  { id: '006', name: 'Pearl',                hex: '#ebe5d8', hinge: 'Pearl' },
+  { id: '007', name: 'Ivory Lace',           hex: '#efe6d4', hinge: 'Pearl' },
+  { id: '009', name: 'Creamy',               hex: '#f4e8d2', hinge: 'Pearl' },
+  { id: '012', name: 'Crisp Linen',          hex: '#e9e2d2', hinge: 'Crisp Linen' },
+  { id: '017', name: 'Anthracite *',         hex: '#2f3033', hinge: 'Black' },
+  { id: '019', name: 'String',               hex: '#c5b8a2', hinge: 'String' },
+  { id: '032', name: 'Sea Mist',             hex: '#b5b3a8', hinge: 'Sea Mist' },
+  { id: '049', name: 'Stone Grey',           hex: '#909089', hinge: 'Stone Grey' },
+  { id: '053', name: 'Clay',                 hex: '#b89c80', hinge: 'Nickel Plated' },
+  { id: '063', name: "Decorator's White",    hex: '#ede6dc', hinge: 'White' },
+  { id: '066', name: 'Winchester White 2010',hex: '#e7ddc6', hinge: 'Pearl' },
+  { id: '076', name: 'Aura White',           hex: '#ece4d3', hinge: 'White' },
+  { id: '080', name: 'Taupe Grey',           hex: '#8c7c6c', hinge: 'Taupe Grey' },
+  { id: '600', name: 'Polaris',              hex: '#ebe8df', hinge: 'White' },
+  { id: '601', name: 'Chalk White',          hex: '#f0e9dc', hinge: 'White' },
+  { id: '602', name: 'Cotswold White',       hex: '#efe5cd', hinge: 'White' },
+  { id: '606', name: 'Magma *',              hex: '#8a3a30', hinge: 'Nickel Plated' },
+  { id: '607', name: 'Coltrane *',           hex: '#2a2826', hinge: 'Nickel Plated' },
+  { id: '610', name: 'Officer *',            hex: '#25344b', hinge: 'Nickel Plated' },
+  { id: '611', name: 'Dover White',          hex: '#f4ecd9', hinge: 'White' },
+  { id: '612', name: 'Summer Haze',          hex: '#efdec1', hinge: 'White' },
+  { id: '613', name: 'Steam',                hex: '#d4d2c8', hinge: 'White' },
+  { id: '614', name: 'Harris',               hex: '#9b8e7e', hinge: 'Taupe Grey' },
+  { id: '615', name: 'Calico',               hex: '#d6c5a8', hinge: 'Taupe Grey' },
+  { id: '617', name: 'Platter',              hex: '#cbcfc3', hinge: 'Sea Mist' },
+  { id: '836', name: 'Classic Black *',      hex: '#1d1d1d', hinge: 'Black' },
+];
 ---
-<PageLayout
+<BaseLayout
   title={entry.data.title}
   description={entry.data.description}
-  h1={entry.data.h1}
-  hero={entry.data.hero}
-  gallery={entry.data.gallery}
-  faqs={entry.data.faqs}
-  cta={entry.data.cta}
   ogImage={entry.data.ogImage}
   jsonLd={jsonLd}
 >
-  <Content />
-</PageLayout>
+  {/* ─── HERO ────────────────────────────────────────────── */}
+  <section class="cs-hero" data-reveal>
+    <div class="cs-hero__inner">
+      <a href="/our-shutters/" class="cs-hero__back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M11 7H3m0 0l4-4m-4 4l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Our Shutters
+      </a>
+      <span class="cs-hero__eyebrow">Colour Swatches</span>
+      <h1>{entry.data.h1}</h1>
+      <p>Choose from dozens of paint pathways across our Seattle, Georgia and Montana shutter ranges — plus a matching hinge finish. Browse the colour options below.</p>
+    </div>
+  </section>
+
+  {/* ─── INTRO STRIP ─────────────────────────────────────── */}
+  <section class="cs-intro container" data-reveal>
+    <div class="cs-intro__card">
+      <div class="cs-intro__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.38 0 2.5-1.12 2.5-2.5 0-.61-.23-1.2-.64-1.67-.08-.1-.13-.21-.13-.33 0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9zm5.5 11c-.83 0-1.5-.67-1.5-1.5S16.67 10 17.5 10s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-3-4C13.67 9 13 8.33 13 7.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9zM5 11.5C5 10.67 5.67 10 6.5 10s1.5.67 1.5 1.5S7.33 13 6.5 13 5 12.33 5 11.5zm6-4C11 6.67 10.33 6 9.5 6S8 6.67 8 7.5 8.67 9 9.5 9s1.5-.67 1.5-1.5z"/></svg>
+      </div>
+      <div>
+        <h2>Browse Paint &amp; Hinge Options</h2>
+        <p>The hexes shown below are <strong>approximate</strong> — we always bring physical samples to your home survey so you can compare against your existing décor, lighting and furnishings.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── SWATCH TABLES ──────────────────────────────────── */}
+  <div class="cs-tables container">
+    <SwatchTable
+      title="Seattle Paint Options"
+      subtitle="6 colours"
+      swatches={seattle}
+      optionalHinges={optionalHinges}
+    />
+
+    <SwatchTable
+      title="Georgia Paint Options"
+      subtitle="12 colours + custom (surcharge applies)"
+      swatches={georgia}
+      optionalHinges={optionalHinges}
+    />
+
+    <SwatchTable
+      title="Montana Paint Options"
+      subtitle={`${montana.length} colours · ★ marked colours may carry a premium surcharge`}
+      swatches={montana}
+      optionalHinges={optionalHinges}
+    />
+
+    <p class="cs-tables__note">
+      <strong>*</strong> Premium colours may carry a surcharge — please confirm when ordering.
+      Looking for a specific finish or a custom colour? <a href="/contact/">Get in touch</a> and we'll bring physical swatches to your home visit.
+    </p>
+  </div>
+
+  {/* ─── END CTA ────────────────────────────────────────── */}
+  <InlineCTA
+    eyebrow="Found a Colour You Love?"
+    heading="Book Your Free Home Survey"
+    body="We'll bring physical swatches to your home so you can match them against your existing décor and lighting before you commit."
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    secondaryCta={{ label: 'Call 07729 572277', href: 'tel:+447729572277' }}
+    tone="gold"
+  />
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────── */
+  .cs-hero {
+    background: var(--color-cream);
+    margin: 0 calc(50% - 50vw);
+    padding: 4rem 1.25rem 3.5rem;
+    text-align: center;
+  }
+  .cs-hero__inner { max-width: 48rem; margin: 0 auto; }
+  .cs-hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold-600);
+    font-weight: 700;
+    font-size: var(--text-link-12-700);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 200ms, transform 200ms;
+  }
+  .cs-hero__back:hover { color: var(--color-gold-400); transform: translateX(-3px); }
+  .cs-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .cs-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+  }
+  .cs-hero p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── INTRO STRIP ──────────────────────────────────────── */
+  .cs-intro { padding: 3rem 1.25rem 1rem; max-width: 64rem; }
+  .cs-intro__card {
+    background: #fff;
+    border: 1px solid rgba(199,154,8,0.18);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+  }
+  .cs-intro__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+  }
+  .cs-intro__card h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-21-500);
+    font-weight: 500;
+    letter-spacing: -0.027em;
+    margin: 0 0 0.375rem;
+    line-height: 1.2;
+  }
+  .cs-intro__card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .cs-intro__card strong { color: var(--color-gold-600); }
+
+  /* ─── TABLES WRAPPER ──────────────────────────────────── */
+  .cs-tables { padding: 2rem 1.25rem 4rem; max-width: 76rem; }
+  .cs-tables__note {
+    margin: 2.5rem 0 0;
+    padding: 1rem 1.25rem;
+    background: var(--color-cream);
+    border-radius: var(--radius-md);
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.65;
+  }
+  .cs-tables__note strong { color: var(--color-gold-600); }
+  .cs-tables__note a {
+    color: var(--color-gold-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .cs-tables__note a:hover { color: var(--color-gold-400); }
+</style>

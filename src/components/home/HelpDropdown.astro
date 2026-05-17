@@ -1,0 +1,279 @@
+---
+interface Option {
+  label: string;
+  description?: string;
+  href: string;
+  icon: 'quote' | 'shutter' | 'products' | 'pin';
+}
+interface Props {
+  trigger?: string;
+  options?: Option[];
+}
+const {
+  trigger = 'How can we help?',
+  options = [
+    { label: 'Get a quote',     description: 'Free home survey + quote on the day', href: '/contact/',     icon: 'quote' },
+    { label: 'Our shutters',    description: 'Made-to-measure plantation shutters', href: '/our-shutters/', icon: 'shutter' },
+    { label: 'Our products',    description: 'Shutters, blinds & awnings',          href: '#products',      icon: 'products' },
+    { label: 'Where we work',   description: '12 areas across Leicestershire',      href: '/locations/',    icon: 'pin' },
+  ],
+} = Astro.props;
+---
+<div class="help-dropdown" data-help-dropdown>
+  <button
+    class="help-dropdown__trigger"
+    type="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="help-dropdown-menu"
+  >
+    {trigger}
+    <svg class="help-dropdown__caret" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+      <path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="help-dropdown__panel" id="help-dropdown-menu" role="menu">
+    <ul>
+      {options.map((opt) => (
+        <li>
+          <a href={opt.href} role="menuitem">
+            <span class="help-dropdown__icon" aria-hidden="true">
+              {opt.icon === 'quote' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+              )}
+              {opt.icon === 'shutter' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"/><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+              )}
+              {opt.icon === 'products' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2zm-5 12H9v-2h6v2zm5-7H4V4l16-.02V7z"/></svg>
+              )}
+              {opt.icon === 'pin' && (
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              )}
+            </span>
+            <span class="help-dropdown__text">
+              <span class="help-dropdown__label">{opt.label}</span>
+              {opt.description && <span class="help-dropdown__desc">{opt.description}</span>}
+            </span>
+            <svg class="help-dropdown__arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-help-dropdown]').forEach((root) => {
+    const trigger = root.querySelector<HTMLButtonElement>('.help-dropdown__trigger');
+    if (!trigger) return;
+
+    const setOpen = (open: boolean) => {
+      trigger.setAttribute('aria-expanded', String(open));
+      root.classList.toggle('is-open', open);
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(trigger.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    // Arrow key navigation between menu items
+    root.addEventListener('keydown', (e) => {
+      if (!root.classList.contains('is-open')) return;
+      const items = Array.from(root.querySelectorAll<HTMLAnchorElement>('a[role="menuitem"]'));
+      if (!items.length) return;
+      const active = document.activeElement as HTMLElement | null;
+      const idx = items.findIndex((i) => i === active);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        items[(idx + 1) % items.length]?.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        items[(idx - 1 + items.length) % items.length]?.focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault(); items[0]?.focus();
+      } else if (e.key === 'End') {
+        e.preventDefault(); items[items.length - 1]?.focus();
+      }
+    });
+  });
+</script>
+
+<style>
+  .help-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* ─── Trigger pill ─────────────────────────────────────────── */
+  .help-dropdown__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.5rem 0.875rem 1.75rem;
+    background: #fff;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .help-dropdown__trigger:hover,
+  .help-dropdown.is-open .help-dropdown__trigger {
+    background: var(--color-gold-400);
+    color: #fff;
+    border-color: var(--color-gold-400);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .help-dropdown__caret {
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.75;
+  }
+  .help-dropdown.is-open .help-dropdown__caret {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  /* ─── Dropdown panel ───────────────────────────────────────── */
+  .help-dropdown__panel {
+    position: absolute;
+    top: calc(100% + 0.625rem);
+    left: 0;
+    min-width: 22rem;
+    background: #fff;
+    border: 1px solid rgba(199,154,8,0.12);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem;
+    box-shadow: var(--shadow-xl);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px) scale(0.98);
+    transform-origin: top left;
+    transition:
+      opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 30;
+  }
+  .help-dropdown.is-open .help-dropdown__panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  /* Mobile / small viewports: drop centred + a touch narrower */
+  @media (max-width: 640px) {
+    .help-dropdown__panel {
+      left: 50%;
+      transform: translate(-50%, -6px) scale(0.98);
+      transform-origin: top center;
+      min-width: min(22rem, calc(100vw - 2.5rem));
+    }
+    .help-dropdown.is-open .help-dropdown__panel {
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+  .help-dropdown__panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .help-dropdown__panel li { margin: 0; }
+  .help-dropdown__panel a {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.75rem 0.875rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: background 150ms, transform 150ms;
+  }
+  .help-dropdown__panel a:hover,
+  .help-dropdown__panel a:focus-visible {
+    background: var(--color-cream);
+    outline: none;
+  }
+  .help-dropdown__panel a:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-gold-400);
+  }
+  .help-dropdown__panel a:hover .help-dropdown__arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+  .help-dropdown__panel a:hover .help-dropdown__icon {
+    background: var(--color-gold-400);
+    color: #fff;
+  }
+
+  .help-dropdown__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    border-radius: var(--radius-md);
+    transition: background 200ms, color 200ms;
+  }
+
+  .help-dropdown__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    flex: 1;
+    text-align: left;
+  }
+  .help-dropdown__label {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .help-dropdown__desc {
+    font-size: var(--text-link-12-700);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-mute);
+    text-transform: none;
+    line-height: 1.4;
+  }
+
+  .help-dropdown__arrow {
+    color: var(--color-gold-600);
+    opacity: 0.4;
+    transition: opacity 200ms, transform 200ms;
+    flex-shrink: 0;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .help-dropdown__trigger,
+    .help-dropdown__caret,
+    .help-dropdown__panel,
+    .help-dropdown__panel a,
+    .help-dropdown__arrow,
+    .help-dropdown__icon { transition: none; }
+  }
+</style>

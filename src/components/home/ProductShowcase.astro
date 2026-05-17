@@ -5,13 +5,15 @@ interface Props {
   cta?: { label: string; href: string };
   cta_note?: string;
   products: { title: string; body: string; image: string; href: string }[];
+  backgroundImage?: string;
 }
-const { heading, body, cta, cta_note, products } = Astro.props;
+const { heading, body, cta, cta_note, products, backgroundImage } = Astro.props;
 const parts = heading.split(/\s+and\s+/i);
 ---
-<section class="product-showcase container">
-  <div class="product-showcase__grid">
-    <aside class="product-showcase__intro">
+<section id="products" class="product-showcase" style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+  <div class="product-showcase__overlay"></div>
+  <div class="product-showcase__grid container">
+    <aside class="product-showcase__intro" data-reveal="left">
       <h2>
         {parts.length === 2 ? (
           <><span class="gold">{parts[0]}</span> <span class="muted">and</span><br/><span class="gold">{parts[1]}</span></>
@@ -23,7 +25,7 @@ const parts = heading.split(/\s+and\s+/i);
       {cta_note && <p class="product-showcase__note">{cta_note}</p>}
     </aside>
 
-    <div class="product-showcase__cards">
+    <div class="product-showcase__cards" data-reveal-children>
       {products.map((p) => (
         <article class="product-showcase__card">
           <a href={p.href} class="product-showcase__image">
@@ -41,8 +43,23 @@ const parts = heading.split(/\s+and\s+/i);
 </section>
 
 <style>
-  .product-showcase { margin: 6rem auto; }
+  .product-showcase {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 6rem 1.25rem;
+    background-color: #2a2a26;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    scroll-margin-top: 6rem;
+  }
+  .product-showcase__overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15,15,15,0.86) 0%, rgba(15,15,15,0.9) 100%);
+  }
   .product-showcase__grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -52,29 +69,32 @@ const parts = heading.split(/\s+and\s+/i);
   }
   .product-showcase__intro { position: sticky; top: 6rem; }
   .product-showcase__intro h2 {
+    /* h2-60-500 */
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
     margin: 0 0 1.5rem;
-    line-height: 1.1;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
   }
-  .product-showcase__intro h2 .gold { color: var(--color-gold-600); }
-  .product-showcase__intro h2 .muted { color: var(--color-ink); font-style: italic; font-weight: 300; }
+  .product-showcase__intro h2 { color: #fff; }
+  .product-showcase__intro h2 .gold { color: var(--color-gold-400); }
+  .product-showcase__intro h2 .muted { color: rgba(255,255,255,0.85); font-style: italic; font-weight: 400; }
   .product-showcase__intro p {
-    color: var(--color-ink-soft);
-    font-size: 1rem;
-    line-height: 1.65;
+    color: rgba(255,255,255,0.82);
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
     margin: 0 0 1.25rem;
   }
   .product-showcase__intro hr {
     border: 0;
     height: 1px;
-    background: var(--color-line);
+    background: rgba(255,255,255,0.15);
     margin: 1.5rem 0;
   }
   .product-showcase__note {
-    font-size: 0.875rem;
-    color: var(--color-ink-mute);
+    font-size: var(--text-small-body-15-400);
+    color: rgba(255,255,255,0.7);
     margin-top: 1.25rem;
   }
 
@@ -83,14 +103,15 @@ const parts = heading.split(/\s+and\s+/i);
     gap: 1.5rem;
   }
   .product-showcase__card {
-    background: var(--color-cream);
-    border-radius: 12px;
+    background: #fff;
+    border-radius: var(--radius-lg);
     overflow: hidden;
+    box-shadow: var(--shadow-lg);
     transition: transform 200ms, box-shadow 200ms;
   }
   .product-showcase__card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 24px 48px -24px rgba(7,7,7,0.18);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
   }
   .product-showcase__image { display: block; }
   .product-showcase__image img {
@@ -100,24 +121,29 @@ const parts = heading.split(/\s+and\s+/i);
   }
   .product-showcase__body { padding: 1.5rem 1.75rem 1.75rem; }
   .product-showcase__body h3 {
+    /* h3-24-500 */
     font-family: var(--font-display);
     color: var(--color-gold-600);
-    font-size: 1.5rem;
+    font-size: var(--text-h3-24-500);
+    line-height: 1.2;
+    letter-spacing: -0.027em;
     font-weight: 500;
     margin: 0 0 0.625rem;
   }
   .product-showcase__body p {
     color: var(--color-ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.55;
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.875;
     margin: 0 0 1rem;
   }
   .product-showcase__link {
     color: var(--color-gold-600);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: var(--text-link-12-700);
     text-decoration: underline;
     text-underline-offset: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
   .button-pill {
     display: inline-flex;
@@ -129,7 +155,9 @@ const parts = heading.split(/\s+and\s+/i);
     border-radius: 999px;
     font-family: var(--font-sans);
     font-weight: 500;
-    font-size: 0.9375rem;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
     text-decoration: none;
     transition: background 200ms;
   }

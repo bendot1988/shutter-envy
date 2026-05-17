@@ -14,7 +14,7 @@ interface Props {
   link?: string;
 }
 const {
-  heading = 'What our customers say',
+  heading = 'What Our Customers Say',
   rating = '5.0',
   totalReviews = '25',
   reviews,
@@ -24,7 +24,7 @@ const {
 ---
 <section class="reviews-row">
   <div class="container">
-    <header class="reviews-row__header">
+    <header class="reviews-row__header" data-reveal>
       <div class="reviews-row__rating">
         <span class="reviews-row__rating-value">{rating}</span>
         <span class="reviews-row__rating-stars" aria-label={`${rating} stars`}>
@@ -37,7 +37,7 @@ const {
       <h2>{heading}</h2>
     </header>
 
-    <ul class="reviews-row__list">
+    <ul class="reviews-row__list" data-reveal-children>
       {reviews.map((r) => (
         <li class="reviews-row__card">
           <div class="reviews-row__stars" aria-label={`${r.rating} stars`}>
@@ -63,7 +63,11 @@ const {
 </section>
 
 <style>
-  .reviews-row { margin: 5rem auto; }
+  .reviews-row {
+    margin: 0 calc(50% - 50vw);
+    padding: 5rem 1.25rem;
+    background: var(--color-cream);
+  }
   .reviews-row__header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -77,17 +81,21 @@ const {
   }
   .reviews-row__rating-value {
     font-family: var(--font-display);
-    font-size: 2.25rem;
+    font-size: var(--text-h4-28-500);
     font-weight: 500;
+    letter-spacing: -0.027em;
     color: var(--color-ink);
     line-height: 1;
   }
   .reviews-row__rating-stars { color: var(--color-gold-400); display: inline-flex; gap: 1px; }
-  .reviews-row__rating-meta { font-size: 0.875rem; color: var(--color-ink-mute); }
+  .reviews-row__rating-meta { font-size: var(--text-small-body-15-400); color: var(--color-ink-mute); }
   .reviews-row h2 {
+    /* h2-60-500 (clamped for mobile) */
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 400;
+    font-size: clamp(1.875rem, 4vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
     margin: 0;
   }
   .reviews-row__list {
@@ -101,19 +109,25 @@ const {
   @media (min-width: 768px) { .reviews-row__list { grid-template-columns: repeat(3, 1fr); } }
   .reviews-row__card {
     background: #fff;
-    border: 1px solid var(--color-line);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.75rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
     margin: 0;
+    box-shadow: var(--shadow-md);
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .reviews-row__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
   .reviews-row__stars { color: var(--color-gold-400); display: inline-flex; gap: 1px; }
   .reviews-row__body {
     color: var(--color-ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.55;
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.875;
     font-style: italic;
     margin: 0;
     flex-grow: 1;
@@ -121,7 +135,7 @@ const {
   .reviews-row__attr {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8125rem;
+    font-size: var(--text-link-12-700);
     color: var(--color-ink-mute);
     padding-top: 0.75rem;
     border-top: 1px solid var(--color-line);

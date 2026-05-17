@@ -1,0 +1,153 @@
+---
+// Reusable dark Portchester® Aluminium upsell band.
+// Drop into any page — sensible defaults so you can render with no props.
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  /** The word in `heading` to render as italic gold (defaults to "Aluminium") */
+  italicWord?: string;
+  body?: string;
+  cta?: { label: string; href: string };
+  backgroundImage?: string;
+  badgeImage?: string;
+  badgeAlt?: string;
+}
+const {
+  eyebrow = '★ Premium range',
+  heading = 'Portchester® Aluminium Shutters',
+  italicWord = 'Aluminium',
+  body = 'For homeowners who want maximum security and weather protection without losing the plantation look. The premium aluminium range with the strength to match the style.',
+  cta = { label: 'Explore Portchester® Range', href: '/portchester-aluminium-shutters-leicester/' },
+  backgroundImage = '/wp-content/uploads/2025/02/Images-from-American-Shutters-low-res-43-1024x799-1.jpg',
+  badgeImage = '/wp-content/uploads/2024/08/Portchester-Certified-Partner-768x769.png',
+  badgeAlt = 'Portchester Certified Partner',
+} = Astro.props;
+
+// Split the heading around the italic word so we can style it
+const idx = heading.toLowerCase().indexOf(italicWord.toLowerCase());
+const lead = idx >= 0 ? heading.slice(0, idx).trim() : heading;
+const tail = idx >= 0 ? heading.slice(idx + italicWord.length).trim() : '';
+---
+<section class="pc-callout" style={`background-image: url('${backgroundImage}')`}>
+  <div class="pc-callout__overlay"></div>
+  <div class="pc-callout__inner container" data-reveal>
+    <div class="pc-callout__copy" data-reveal="left">
+      <span class="pc-callout__eyebrow">{eyebrow}</span>
+      <h2>
+        {lead && <>{lead} </>}
+        {idx >= 0 && <em>{italicWord}</em>}
+        {tail && <> {tail}</>}
+        {idx < 0 && heading}
+      </h2>
+      <p>{body}</p>
+      <a href={cta.href} class="pc-callout__btn">
+        {cta.label}
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="pc-callout__badge" data-reveal="right">
+      <img src={badgeImage} alt={badgeAlt} loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .pc-callout {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 5rem 1.25rem;
+    background-color: #1f1a0a;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  .pc-callout__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(15,12,5,0.92) 0%, rgba(15,12,5,0.78) 100%);
+  }
+  .pc-callout__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    max-width: 70rem;
+  }
+  @media (min-width: 768px) {
+    .pc-callout__inner { grid-template-columns: 1.4fr 1fr; gap: 3rem; }
+  }
+  .pc-callout__copy { max-width: 36rem; }
+  .pc-callout__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.2);
+    color: var(--color-gold-400);
+    border: 1px solid rgba(199,154,8,0.45);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .pc-callout h2 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: clamp(2rem, 4vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+  }
+  .pc-callout h2 em {
+    color: var(--color-gold-400);
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient(180deg, var(--color-gold-400), var(--color-gold-600));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 18px rgba(199,154,8,0.35));
+  }
+  .pc-callout p {
+    color: rgba(255,255,255,0.85);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+  }
+  .pc-callout__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--text-button-14-500);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 0 12px 32px -8px rgba(199,154,8,0.5);
+    transition: background 200ms, transform 200ms;
+  }
+  .pc-callout__btn:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-2px); }
+  .pc-callout__btn svg { transition: transform 200ms; }
+  .pc-callout__btn:hover svg { transform: translateX(3px); }
+  .pc-callout__badge {
+    display: flex;
+    justify-content: center;
+  }
+  .pc-callout__badge img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.4));
+  }
+  @media (min-width: 768px) {
+    .pc-callout__badge img { width: 280px; }
+  }
+</style>

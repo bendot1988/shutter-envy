@@ -1,102 +1,160 @@
 ---
 import { business, social, footerNav, legalNav } from '../data/site';
 const year = new Date().getFullYear();
+const whatsappLink = `https://wa.me/${business.phoneTel.replace(/[^\d]/g, '')}?text=${encodeURIComponent("Hi Shutter Envy, I'd like a free quote for shutters.")}`;
+const awardBadges = [
+  '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-300x78.png',
+  '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png',
+  '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png',
+];
 ---
+{/* ─── TRUST BADGES STRIP ─────────────────────────────── */}
+<section class="trust-strip">
+  <div class="container">
+    <p class="trust-strip__label">Trusted &amp; Award-Winning</p>
+    <div class="trust-strip__row">
+      {awardBadges.map((src, i) => (
+        <div class="trust-strip__badge">
+          <img src={src} alt={`IE 100 Awards Winner ${['2023','2024','2025'][i]}`} loading="lazy" />
+        </div>
+      ))}
+      <a href={social.googleMaps} target="_blank" rel="noopener" class="trust-strip__chip">
+        <span class="trust-strip__stars" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }).map(() => (
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          ))}
+        </span>
+        <span><strong>5.0</strong> · Google</span>
+      </a>
+      <div class="trust-strip__chip trust-strip__chip--portchester">
+        <img src="/wp-content/uploads/2024/08/Portchester-Certified-Partner-150x150.png" alt="" loading="lazy" />
+        <span><strong>Portchester®</strong> Certified Partner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
-  <div class="container site-footer__grid">
-    <nav aria-label="Menu">
-      <h2>Menu</h2>
+  {/* ─── MAIN GRID ─────────────────────────────────────── */}
+  <div class="container site-footer__top">
+    <div class="site-footer__brand">
+      <a href="/" aria-label="Shutter Envy — home">
+        <img
+          src="/wp-content/uploads/2024/08/shutter-envy-horizontal-300x73.png"
+          width="200" height="49"
+          alt="Shutter Envy"
+          loading="lazy"
+        />
+      </a>
+      <p>Award-winning, family-run shutter, blind and awning specialists across Leicester, Loughborough and Leicestershire.</p>
+      <ul class="site-footer__socials">
+        <li><a href={social.facebook} target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+        </a></li>
+        <li><a href={social.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.86 5.86 0 0 0-2.13 1.39A5.86 5.86 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13a5.86 5.86 0 0 0 2.13 1.39c.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.62c-.76-.29-1.63-.49-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.41 4.15a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        </a></li>
+        <li><a href={social.googleMaps} target="_blank" rel="noopener" aria-label="Google">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23zM5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.07H2.18A11 11 0 0 0 1 12c0 1.78.43 3.46 1.18 4.93l3.66-2.83zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 12 1a11 11 0 0 0-9.82 6.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+        </a></li>
+        <li><a href={social.trustpilot} target="_blank" rel="noopener" aria-label="Trustpilot">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Menu">
+      <h3>Menu</h3>
       <ul>
         {footerNav.menu.map((l) => (
-          <li><a href={l.href}>› {l.label}</a></li>
+          <li><a href={l.href}><span class="fl-arrow" aria-hidden="true">→</span> {l.label}</a></li>
         ))}
       </ul>
     </nav>
 
-    <nav aria-label="Shutters">
-      <h2>Shutters</h2>
+    <nav class="site-footer__col" aria-label="Shutters">
+      <h3>Shutters</h3>
       <ul>
         {footerNav.shutters.map((l) => (
-          <li><a href={l.href}>› {l.label}</a></li>
+          <li><a href={l.href}><span class="fl-arrow" aria-hidden="true">→</span> {l.label}</a></li>
         ))}
       </ul>
     </nav>
 
-    <nav aria-label="Awnings">
-      <h2>Awnings</h2>
-      <ul>
-        {footerNav.awnings.map((l) => (
-          <li><a href={l.href}>› {l.label}</a></li>
-        ))}
-      </ul>
-    </nav>
-
-    <nav aria-label="Blinds">
-      <h2>Blinds</h2>
+    <nav class="site-footer__col" aria-label="Blinds">
+      <h3>Blinds</h3>
       <ul>
         {footerNav.blinds.map((l) => (
-          <li><a href={l.href}>› {l.label}</a></li>
+          <li><a href={l.href}><span class="fl-arrow" aria-hidden="true">→</span> {l.label}</a></li>
         ))}
       </ul>
     </nav>
 
-    <div class="site-footer__contact">
-      <h2>Get in touch</h2>
+    <nav class="site-footer__col" aria-label="Awnings">
+      <h3>Awnings</h3>
       <ul>
+        {footerNav.awnings.map((l) => (
+          <li><a href={l.href}><span class="fl-arrow" aria-hidden="true">→</span> {l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  {/* ─── CONTACT BAND ──────────────────────────────────── */}
+  <div class="site-footer__contact-band">
+    <div class="container">
+      <h3>Get in Touch</h3>
+      <ul class="site-footer__contact-grid">
         <li>
           <a href={`tel:${business.phoneTel}`}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.98.98 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-            Call {business.phoneDisplay}
+            <span class="site-footer__contact-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+            </span>
+            <span>
+              <span class="site-footer__contact-label">Call us</span>
+              <strong>{business.phoneDisplay}</strong>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href={whatsappLink} target="_blank" rel="noopener">
+            <span class="site-footer__contact-icon site-footer__contact-icon--wa">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            </span>
+            <span>
+              <span class="site-footer__contact-label">WhatsApp</span>
+              <strong>Message us</strong>
+            </span>
           </a>
         </li>
         <li>
           <a href={`mailto:${business.email}`}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Email us
+            <span class="site-footer__contact-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </span>
+            <span>
+              <span class="site-footer__contact-label">Email</span>
+              <strong>{business.email}</strong>
+            </span>
           </a>
         </li>
         <li>
-          <a href={social.facebook} target="_blank" rel="noopener">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
-            SE on Facebook
-          </a>
-        </li>
-        <li>
-          <a href={social.instagram} target="_blank" rel="noopener">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.86 5.86 0 0 0-2.13 1.39A5.86 5.86 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13a5.86 5.86 0 0 0 2.13 1.39c.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.62c-.76-.29-1.63-.49-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.41 4.15a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-            SE on Instagram
-          </a>
-        </li>
-        <li>
-          <a href={social.googleMaps} target="_blank" rel="noopener">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23zM5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.44.34-2.1V7.07H2.18A11 11 0 0 0 1 12c0 1.78.43 3.46 1.18 4.93l3.66-2.83zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 12 1a11 11 0 0 0-9.82 6.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
-            SE on Google
-          </a>
-        </li>
-        <li>
-          <a href="/site-map/">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
-            Site Map
-          </a>
+          <div>
+            <span class="site-footer__contact-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </span>
+            <span>
+              <span class="site-footer__contact-label">Opening hours</span>
+              <strong>Mon–Thu 8:30–17:00 · Fri 8:30–16:00</strong>
+            </span>
+          </div>
         </li>
       </ul>
     </div>
   </div>
 
-  <div class="site-footer__badge">
-    <img src="/wp-content/uploads/2024/08/Portchester-Certified-Partner-300x300.png" alt="Portchester Certified Partner" />
-    <ul class="site-footer__socials">
-      <li><a href={social.facebook} aria-label="Facebook" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
-      </a></li>
-      <li><a href={social.instagram} aria-label="Instagram" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.55a5.86 5.86 0 0 0-2.13 1.39A5.86 5.86 0 0 0 .62 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.55 2.91.3.79.7 1.46 1.39 2.13a5.86 5.86 0 0 0 2.13 1.39c.76.29 1.63.49 2.91.55C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.55a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.29-.76.49-1.63.55-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.55-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.62c-.76-.29-1.63-.49-2.91-.55C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM18.41 4.15a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-      </a></li>
-    </ul>
-    <a href="/contact/" class="site-footer__cta">Arrange a Home Visit</a>
-  </div>
-
-  <div class="site-footer__base">
+  {/* ─── LEGAL BAR ─────────────────────────────────────── */}
+  <div class="site-footer__legal">
     <div class="container">
       <p>© {year} {business.legalName}. All rights reserved.</p>
       <nav aria-label="Legal">
@@ -109,100 +167,254 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
-  .site-footer {
-    background: #fff;
-    border-top: 1px solid var(--color-line);
-    margin-top: 0;
-    padding: 4rem 0 0;
-    color: var(--color-ink);
+  /* ─── TRUST BADGES STRIP ─────────────────────────────── */
+  .trust-strip {
+    background: var(--color-cream);
+    padding: 2.5rem 1.25rem;
+    border-bottom: 1px solid rgba(199,154,8,0.15);
   }
-  .site-footer__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .trust-strip__label {
+    text-align: center;
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+    margin: 0 0 1.5rem;
   }
-  @media (min-width: 768px) {
-    .site-footer__grid { grid-template-columns: repeat(5, 1fr); gap: 2rem; }
+  .trust-strip__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem 2rem;
   }
-  .site-footer h2 {
-    font-family: var(--font-display);
-    font-size: 1.0625rem;
-    font-weight: 500;
-    color: var(--color-ink);
-    margin: 0 0 1rem;
+  .trust-strip__badge img {
+    height: 48px;
+    width: auto;
+    transition: transform 200ms;
   }
-  .site-footer ul { list-style: none; padding: 0; margin: 0; }
-  .site-footer li { margin-block: 0.5rem; font-size: 0.9375rem; }
-  .site-footer a {
-    color: var(--color-ink-soft);
-    text-decoration: none;
+  .trust-strip__badge:hover img { transform: translateY(-2px); }
+
+  .trust-strip__chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    background: #fff;
+    border: 1px solid rgba(199,154,8,0.2);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: transform 200ms, border-color 200ms, box-shadow 200ms;
   }
-  .site-footer a:hover { color: var(--color-gold-600); }
-  .site-footer__contact a svg { color: var(--color-gold-600); flex-shrink: 0; }
+  .trust-strip__chip:hover { transform: translateY(-2px); border-color: var(--color-gold-400); box-shadow: var(--shadow-md); color: var(--color-ink); }
+  .trust-strip__chip strong { color: var(--color-gold-600); font-weight: 700; }
+  .trust-strip__chip span { font-size: var(--text-small-body-15-400); }
+  .trust-strip__stars { color: var(--color-gold-400); display: inline-flex; gap: 1px; }
+  .trust-strip__chip--portchester img { height: 28px; width: 28px; }
 
-  .site-footer__badge {
-    background: var(--color-cream);
-    padding: 3rem 1.25rem;
-    margin-top: 4rem;
-    text-align: center;
+  /* ─── MAIN FOOTER ─────────────────────────────────────── */
+  .site-footer {
+    background: #fff;
+    padding: 0;
+    color: var(--color-ink);
+    margin-top: 0;
+    border-top: 0;
   }
-  .site-footer__badge img {
-    width: 120px;
-    height: auto;
-    margin: 0 auto 1.25rem;
+  .site-footer__top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-block: 4rem 3rem;
+  }
+  @media (min-width: 768px) {
+    .site-footer__top { grid-template-columns: 1.4fr repeat(4, 1fr); gap: 2.5rem; }
+  }
+
+  /* Brand column */
+  .site-footer__brand {
+    max-width: 22rem;
+  }
+  .site-footer__brand img {
+    height: 44px;
+    width: auto;
     display: block;
+    margin-bottom: 1.25rem;
+  }
+  .site-footer__brand p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
   }
   .site-footer__socials {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem;
+    margin: 0;
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.625rem;
   }
   .site-footer__socials li { margin: 0; }
   .site-footer__socials a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 50%;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    transition: background 200ms, color 200ms, transform 200ms;
+  }
+  .site-footer__socials a:hover {
+    background: var(--color-gold-400);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* Link columns */
+  .site-footer__col h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    margin: 0 0 1.125rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .site-footer__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .site-footer__col li { margin-block: 0.625rem; }
+  .site-footer__col a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    font-size: var(--text-small-body-15-400);
+    transition: color 200ms, transform 200ms;
+  }
+  .site-footer__col a:hover { color: var(--color-gold-600); transform: translateX(3px); }
+  .fl-arrow {
+    color: var(--color-gold-400);
+    font-size: 0.8125rem;
+    opacity: 0.6;
+    transition: opacity 200ms, transform 200ms;
+    flex-shrink: 0;
+  }
+  .site-footer__col a:hover .fl-arrow { opacity: 1; transform: translateX(2px); }
+
+  /* ─── CONTACT BAND ──────────────────────────────────── */
+  .site-footer__contact-band {
+    background: var(--color-cream);
+    padding: 3rem 1.25rem;
+    border-top: 1px solid rgba(199,154,8,0.15);
+  }
+  .site-footer__contact-band h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.5rem;
+    text-align: center;
+  }
+  .site-footer__contact-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    max-width: 78rem;
+    margin-inline: auto;
+  }
+  @media (min-width: 640px) { .site-footer__contact-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .site-footer__contact-grid { grid-template-columns: repeat(4, 1fr); } }
+  .site-footer__contact-grid li { margin: 0; }
+  .site-footer__contact-grid a,
+  .site-footer__contact-grid div {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1rem 1.125rem;
+    background: #fff;
+    border: 1px solid rgba(199,154,8,0.15);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-ink);
+    height: 100%;
+    transition: transform 220ms, box-shadow 220ms, border-color 220ms;
+  }
+  .site-footer__contact-grid a:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gold-400);
+    box-shadow: var(--shadow-md);
+  }
+  .site-footer__contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    flex-shrink: 0;
+    transition: background 220ms, color 220ms;
+  }
+  .site-footer__contact-icon--wa {
+    background: rgba(37,211,102,0.15);
+    color: #1ebe5d;
+  }
+  .site-footer__contact-grid a:hover .site-footer__contact-icon {
     background: var(--color-gold-400);
     color: #fff;
   }
-  .site-footer__socials a:hover { background: var(--color-gold-600); color: #fff; }
-  .site-footer__cta {
-    display: inline-block;
-    background: var(--color-gold-400);
-    color: #fff !important;
-    padding: 0.75rem 1.75rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9375rem;
+  .site-footer__contact-grid a:hover .site-footer__contact-icon--wa {
+    background: #25D366;
+    color: #fff;
   }
-  .site-footer__cta:hover { background: var(--color-gold-600); color: #fff !important; }
+  .site-footer__contact-label {
+    display: block;
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+  }
+  .site-footer__contact-grid strong {
+    display: block;
+    font-size: var(--text-small-body-15-400);
+    color: var(--color-ink);
+    font-weight: 600;
+    margin-top: 0.125rem;
+    line-height: 1.35;
+  }
 
-  .site-footer__base {
+  /* ─── LEGAL BAR ─────────────────────────────────────── */
+  .site-footer__legal {
     background: var(--color-ink);
     color: #888;
-    padding: 1.25rem 0;
+    padding: 1.5rem 1.25rem;
     font-size: 0.8125rem;
   }
-  .site-footer__base .container {
+  .site-footer__legal .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .site-footer__base p { margin: 0; }
-  .site-footer__base nav { display: flex; gap: 0.75rem; align-items: center; }
-  .site-footer__base a { color: #aaa; font-size: 0.8125rem; }
-  .site-footer__base a:hover { color: var(--color-gold-400); }
-  .site-footer__base span { color: #555; }
+  .site-footer__legal p { margin: 0; }
+  .site-footer__legal nav { display: flex; gap: 0.75rem; align-items: center; }
+  .site-footer__legal a { color: #aaa; font-size: 0.8125rem; text-decoration: none; transition: color 200ms; }
+  .site-footer__legal a:hover { color: var(--color-gold-400); }
+  .site-footer__legal span { color: #555; }
 </style>

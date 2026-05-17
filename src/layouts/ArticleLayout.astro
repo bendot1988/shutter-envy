@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { business } from '../data/site';
 
 interface Props {
   title: string;
@@ -8,58 +10,722 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: string;
-  // Optional explicit alt for the hero image. If not provided, falls back to
-  // the post's h1 — descriptive and accessible, even if not byte-equal to
-  // WordPress's original WP-media-library alt attribute.
   heroImageAlt?: string;
   author: string;
   jsonLd?: object | object[];
+  readingTime?: number;
 }
 const {
-  title,
-  description,
-  h1,
-  pubDate,
-  updatedDate,
-  heroImage,
-  heroImageAlt,
-  author,
-  jsonLd,
+  title, description, h1, pubDate, updatedDate,
+  heroImage, heroImageAlt, author, jsonLd, readingTime = 4,
 } = Astro.props;
+
 const pubFmt = pubDate.toLocaleDateString('en-GB', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
+  day: 'numeric', month: 'long', year: 'numeric',
 });
 const updFmt = updatedDate
-  ? updatedDate.toLocaleDateString('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    })
+  ? updatedDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
   : undefined;
+
+const shareUrl = `https://shutter-envy.co.uk${Astro.url.pathname}`;
+const shareTitleEnc = encodeURIComponent(h1);
+const shareUrlEnc = encodeURIComponent(shareUrl);
+
+// More news — latest 4 posts, excluding the current one
+const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
+const allPosts = await getCollection('blog');
+const moreNews = allPosts
+  .filter((p) => p.id !== currentSlug)
+  .sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate))
+  .slice(0, 4);
 ---
 <BaseLayout {title} {description} ogImage={heroImage} ogType="article" {jsonLd}>
-  <article class="post">
-    <header class="post-header">
+  {/* ─── HERO — cream band with featured image bg + heavy overlay ───── */}
+  <section class="post-hero" style={heroImage ? `background-image: url('${heroImage}')` : undefined}>
+    {heroImage && <div class="post-hero__overlay" aria-hidden="true"></div>}
+    <div class="post-hero__inner">
+      <div class="post-hero__back-row">
+        <a href="/news/" class="post-hero__back">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M11 7H3m0 0l4-4m-4 4l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to News
+        </a>
+      </div>
+      <span class="post-hero__eyebrow">News & Updates</span>
       <h1>{h1}</h1>
-      <p class="byline">
-        By {author} ·{' '}
-        <time datetime={pubDate.toISOString()}>{pubFmt}</time>
+      <ul class="post-hero__meta">
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+          <time datetime={pubDate.toISOString()}>{pubFmt}</time>
+        </li>
         {updFmt && (
-          <>
-            {' '}· Updated{' '}
-            <time datetime={updatedDate!.toISOString()}>{updFmt}</time>
-          </>
+          <li>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            Updated <time datetime={updatedDate!.toISOString()}>{updFmt}</time>
+          </li>
         )}
-      </p>
-      {heroImage && (
-        <img class="hero-image" src={heroImage} alt={heroImageAlt ?? h1} loading="eager" />
-      )}
-    </header>
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          {readingTime} min read
+        </li>
+        <li class="post-hero__author">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          By {author}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  {/* ─── BODY + SIDEBAR ─────────────────────────────────── */}
+  <div class="post-grid">
+    {heroImage && (
+      <figure class="post-feature-image">
+        <img src={heroImage} alt={heroImageAlt ?? h1} loading="eager" fetchpriority="high" />
+      </figure>
+    )}
 
     <div class="post-body">
       <slot />
     </div>
-  </article>
+
+    <aside class="post-aside">
+      <div class="post-aside__sticky">
+        {/* Dark mini quote CTA */}
+        <div class="post-aside__cta">
+          <p class="post-aside__cta-eyebrow">★ Free home survey</p>
+          <h3>Looking for shutters or blinds?</h3>
+          <p class="post-aside__cta-body">Book a no-obligation home visit. Mark brings samples and you get a quote on the day.</p>
+          <a href="/contact/" class="post-aside__cta-btn">
+            Arrange a Home Visit
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href={`tel:${business.phoneTel}`} class="post-aside__cta-phone">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+            or call {business.phoneDisplay}
+          </a>
+        </div>
+
+        {/* Share buttons */}
+        <div class="post-aside__share">
+          <p class="post-aside__share-label">Share this article</p>
+          <ul>
+            <li>
+              <a aria-label="Share on Facebook" target="_blank" rel="noopener"
+                 href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a aria-label="Share on X (Twitter)" target="_blank" rel="noopener"
+                 href={`https://twitter.com/intent/tweet?url=${shareUrlEnc}&text=${shareTitleEnc}`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a aria-label="Share on LinkedIn" target="_blank" rel="noopener"
+                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10.21H6.13V17h2.21M7.24 9.31a1.28 1.28 0 1 0 0-2.56 1.28 1.28 0 0 0 0 2.56M18 17v-3.74c0-2-1.06-2.91-2.48-2.91a2.14 2.14 0 0 0-1.95 1.07h-.03V10.2H11.42V17h2.2v-3.36c0-.93.18-1.83 1.33-1.83 1.14 0 1.16 1.06 1.16 1.89V17H18z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a aria-label="Email this article"
+                 href={`mailto:?subject=${shareTitleEnc}&body=${shareUrlEnc}`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* More news */}
+        {moreNews.length > 0 && (
+          <div class="post-aside__more">
+            <p class="post-aside__more-label">More from the News</p>
+            <ul>
+              {moreNews.map((p) => (
+                <li>
+                  <a href={`/${p.id}/`}>
+                    {p.data.heroImage && (
+                      <span class="post-aside__more-thumb">
+                        <img src={p.data.heroImage} alt="" loading="lazy" />
+                      </span>
+                    )}
+                    <span class="post-aside__more-text">
+                      <span class="post-aside__more-title">{p.data.h1 ?? p.data.title}</span>
+                      <span class="post-aside__more-date">
+                        {p.data.pubDate.toLocaleDateString('en-GB', {
+                          day: 'numeric', month: 'short', year: 'numeric',
+                        })}
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="/news/" class="post-aside__more-all">View all news →</a>
+          </div>
+        )}
+      </div>
+    </aside>
+  </div>
+
+  {/* ─── END-OF-POST GOLD CTA ───────────────────────────── */}
+  <section class="post-end-cta" data-reveal>
+    <div class="post-end-cta__inner">
+      <p class="post-end-cta__eyebrow">★ Ready to Book?</p>
+      <h2>Book Your Free Home Survey</h2>
+      <p>Mark visits your home with samples, takes measurements, and gives you a no-obligation quote on the day. Most surveys are booked within a few days.</p>
+      <div class="post-end-cta__actions">
+        <a href="/contact/" class="post-end-cta__btn">
+          Arrange a Home Visit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href={`tel:${business.phoneTel}`} class="post-end-cta__phone">Call {business.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* ─── HERO (image bg + heavy cream overlay, centred stack) ─── */
+  .post-hero {
+    position: relative;
+    background-color: var(--color-cream);
+    background-size: cover;
+    background-position: center;
+    margin: 0 calc(50% - 50vw);
+    padding: 3.5rem 1.25rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .post-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(249,248,244,0.94) 0%, rgba(249,248,244,0.98) 100%);
+    pointer-events: none;
+  }
+  .post-hero__inner {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  .post-hero__back-row {
+    margin-bottom: 1.5rem;
+  }
+  .post-hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold-600);
+    font-weight: 700;
+    font-size: var(--text-link-12-700);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 200ms, transform 200ms;
+  }
+  .post-hero__back:hover { color: var(--color-gold-400); transform: translateX(-3px); }
+  .post-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .post-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+    color: var(--color-ink);
+  }
+  .post-hero__meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+  }
+  .post-hero__meta li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ink-mute);
+    font-size: var(--text-small-body-15-400);
+    margin: 0;
+  }
+  .post-hero__meta svg { color: var(--color-gold-600); flex-shrink: 0; }
+  .post-hero__author { color: var(--color-ink-soft) !important; font-weight: 500; }
+
+  /* ─── BODY + IMAGE + SIDEBAR GRID ────────────────────── */
+  .post-grid {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 960px) {
+    .post-grid {
+      grid-template-columns: minmax(0, 1fr) 20rem;
+      grid-template-rows: auto 1fr;
+      gap: 0 3.5rem;
+      row-gap: 2rem;
+    }
+    /* Image: top of right column */
+    .post-feature-image { grid-column: 2; grid-row: 1; }
+    /* Body: spans both rows of left column */
+    .post-body { grid-column: 1; grid-row: 1 / span 2; }
+    /* Aside: below image, sticks on scroll */
+    .post-aside { grid-column: 2; grid-row: 2; align-self: start; }
+  }
+
+  /* ─── FEATURED IMAGE ─────────────────────────────────── */
+  .post-feature-image {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .post-feature-image img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .post-feature-image:hover img { transform: scale(1.03); }
+  @media (min-width: 960px) {
+    .post-feature-image img { aspect-ratio: 3/2; }
+  }
+
+  /* ─── BODY TYPOGRAPHY ────────────────────────────────── */
+  .post-body {
+    max-width: 44rem;
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
+    color: var(--color-ink);
+  }
+  .post-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-30-500);
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
+    margin: 3rem 0 1rem;
+    scroll-margin-top: 6rem;
+    color: var(--color-ink);
+  }
+  .post-body :global(h3) {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.027em;
+    margin: 2.25rem 0 0.75rem;
+    color: var(--color-gold-600);
+    scroll-margin-top: 6rem;
+  }
+  .post-body :global(h4) {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    line-height: 1.187;
+    letter-spacing: -0.015em;
+    margin: 1.75rem 0 0.5rem;
+    color: var(--color-ink);
+  }
+  .post-body :global(p) { margin: 0 0 1.5rem; }
+  .post-body :global(a) {
+    color: var(--color-gold-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(199,154,8,0.4);
+    transition: text-decoration-color 200ms, color 200ms;
+  }
+  .post-body :global(a:hover) {
+    color: var(--color-gold-400);
+    text-decoration-color: currentColor;
+  }
+  .post-body :global(strong) { color: var(--color-ink); font-weight: 700; }
+  .post-body :global(ul), .post-body :global(ol) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .post-body :global(li) { margin: 0.5rem 0; line-height: 1.7; }
+  .post-body :global(blockquote) {
+    margin: 2rem 0;
+    padding: 1.5rem 1.75rem;
+    background: var(--color-cream);
+    border-left: 4px solid var(--color-gold-400);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-family: var(--font-display);
+    font-size: var(--text-h3-21-500);
+    font-style: italic;
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+  .post-body :global(blockquote p:last-child) { margin: 0; }
+  .post-body :global(img) {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+  }
+  .post-body :global(hr) {
+    border: 0;
+    height: 1px;
+    background: var(--color-line);
+    margin: 3rem 0;
+  }
+  .post-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: var(--text-small-body-15-400);
+  }
+  .post-body :global(th), .post-body :global(td) {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .post-body :global(th) {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-gold-600);
+    background: var(--color-cream);
+  }
+
+  /* ─── SIDEBAR (CTA + share) ──────────────────────────── */
+  .post-aside { display: block; }
+  .post-aside__sticky {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  @media (min-width: 960px) {
+    .post-aside__sticky {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+  .post-aside__cta {
+    background: linear-gradient(135deg, #1f1a0a, #2a2208);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .post-aside__cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(199,154,8,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .post-aside__cta > * { position: relative; }
+  .post-aside__cta-eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.2);
+    color: var(--color-gold-400);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+  .post-aside__cta h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-21-500);
+    color: #fff;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+  .post-aside__cta-body {
+    color: rgba(255,255,255,0.78);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+  }
+  .post-aside__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    width: 100%;
+    justify-content: center;
+    transition: background 200ms, transform 200ms;
+    margin-bottom: 0.75rem;
+  }
+  .post-aside__cta-btn:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-1px); }
+  .post-aside__cta-phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    width: 100%;
+    color: rgba(255,255,255,0.7);
+    font-size: var(--text-small-body-15-400);
+    text-decoration: none;
+    transition: color 200ms;
+  }
+  .post-aside__cta-phone:hover { color: var(--color-gold-400); }
+  .post-aside__cta-phone svg { color: var(--color-gold-400); }
+
+  .post-aside__share {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .post-aside__share-label {
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+    margin: 0 0 0.75rem;
+    text-align: center;
+  }
+  .post-aside__share ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .post-aside__share li { margin: 0; }
+  .post-aside__share a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--color-cream);
+    color: var(--color-ink-soft);
+    transition: background 200ms, color 200ms, transform 200ms;
+  }
+  .post-aside__share a:hover {
+    background: var(--color-gold-400);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ─── More News card ─────────────────────────────────── */
+  .post-aside__more {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .post-aside__more-label {
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+    margin: 0 0 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .post-aside__more ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .post-aside__more li { margin: 0; }
+  .post-aside__more a {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-sm);
+    transition: transform 200ms;
+  }
+  .post-aside__more a:hover { transform: translateX(2px); }
+  .post-aside__more-thumb {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--color-cream);
+  }
+  .post-aside__more-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 400ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .post-aside__more a:hover .post-aside__more-thumb img { transform: scale(1.08); }
+  .post-aside__more-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+  .post-aside__more-title {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    /* clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-aside__more a:hover .post-aside__more-title { color: var(--color-gold-600); }
+  .post-aside__more-date {
+    font-size: 0.75rem;
+    color: var(--color-ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .post-aside__more-all {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--color-gold-600);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 200ms;
+  }
+  .post-aside__more-all:hover { color: var(--color-gold-400); }
+
+  /* ─── END-OF-POST GOLD CTA ───────────────────────────── */
+  .post-end-cta {
+    margin: 0 calc(50% - 50vw);
+    padding: 5rem 1.25rem;
+    background: linear-gradient(135deg, var(--color-gold-400), var(--color-gold-600));
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-end-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0,0,0,0.1), transparent 50%);
+    pointer-events: none;
+  }
+  .post-end-cta__inner {
+    position: relative;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+  .post-end-cta__eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+  }
+  .post-end-cta h2 {
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
+    margin: 0 0 1rem;
+  }
+  .post-end-cta p {
+    color: rgba(255,255,255,0.9);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+  }
+  .post-end-cta__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .post-end-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #fff;
+    color: var(--color-gold-600);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 0 12px 32px -8px rgba(0,0,0,0.2);
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .post-end-cta__btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -8px rgba(0,0,0,0.3); color: var(--color-gold-600); }
+  .post-end-cta__btn svg { transition: transform 200ms; }
+  .post-end-cta__btn:hover svg { transform: translateX(3px); }
+  .post-end-cta__phone {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 200ms;
+  }
+  .post-end-cta__phone:hover { background: rgba(255,255,255,0.15); color: #fff; }
+</style>

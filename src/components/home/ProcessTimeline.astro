@@ -1,32 +1,38 @@
 ---
 interface Props {
   steps: { title: string; body: string; image?: string }[];
+  // Heading may contain HTML — use <em> to mark the gold/italic word.
+  // Example: "Super <em>Simple</em> order process"
   heading?: string;
   subheading?: string;
 }
-const { steps, heading = 'Super Simple order process', subheading = 'Transform your home with ease — our simple and stress-free shutter installation process' } = Astro.props;
+const {
+  steps,
+  heading = 'Super <em>Simple</em> Order Process',
+  subheading = 'Transform your home with ease — our simple and stress-free shutter installation process',
+} = Astro.props;
 ---
 {steps.length > 0 && (
   <section class="process-timeline">
-    <div class="container-narrow">
-      <header class="process-timeline__header">
-        <h2>{heading.split(' ').map((w, i, arr) => (
-          i === 1 ? <><span class="text-gold">{w}</span> </> : <>{w}{i < arr.length - 1 ? ' ' : ''}</>
-        ))}</h2>
+    <div class="container">
+      <header class="process-timeline__header" data-reveal>
+        <h2 set:html={heading} />
         <p>{subheading}</p>
       </header>
 
-      <ol class="process-timeline__list">
+      <ol class="process-timeline__list" style={`--step-count: ${steps.length};`} data-reveal-children>
         {steps.map((step, i) => (
-          <li class:list={['process-step', i % 2 === 0 ? 'process-step--left' : 'process-step--right']}>
-            <div class="process-step__card">
-              {step.image && <img src={step.image} alt="" loading="lazy" />}
-              <div class="process-step__body">
-                <h3>{i + 1}. {step.title}</h3>
-                <p>{step.body}</p>
-              </div>
+          <li class="process-step">
+            <div class="process-step__node-wrap">
+              <span class="process-step__node" aria-hidden="true">{i + 1}</span>
             </div>
-            <span class="process-step__node" aria-hidden="true">{i + 1}</span>
+            {step.image && (
+              <div class="process-step__image">
+                <img src={step.image} alt="" loading="lazy" />
+              </div>
+            )}
+            <h3 class="process-step__title">{step.title}</h3>
+            <p class="process-step__body">{step.body}</p>
           </li>
         ))}
       </ol>
@@ -38,110 +44,181 @@ const { steps, heading = 'Super Simple order process', subheading = 'Transform y
   .process-timeline {
     position: relative;
     margin: 6rem calc(50% - 50vw) 6rem;
-    padding: 5rem 1.25rem;
-    background: linear-gradient(180deg, #fff 0%, var(--color-cream) 30%, var(--color-cream) 70%, #fff 100%);
+    padding: 5rem 1.25rem 5.5rem;
+    background:
+      radial-gradient(ellipse at top, rgba(199,154,8,0.05), transparent 70%),
+      linear-gradient(180deg, #fff 0%, var(--color-cream) 30%, var(--color-cream) 70%, #fff 100%);
     overflow: hidden;
   }
   .process-timeline::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="200" viewBox="0 0 60 200" fill="none"><rect x="0" y="0" width="60" height="200" fill="none"/><line x1="10" y1="0" x2="10" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/><line x1="30" y1="0" x2="30" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/><line x1="50" y1="0" x2="50" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.08"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="200" viewBox="0 0 60 200" fill="none"><line x1="10" y1="0" x2="10" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.06"/><line x1="30" y1="0" x2="30" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.06"/><line x1="50" y1="0" x2="50" y2="200" stroke="%23C79A08" stroke-width="0.5" opacity="0.06"/></svg>');
     pointer-events: none;
-    opacity: 0.6;
   }
-  .process-timeline__header { text-align: center; margin-bottom: 4rem; position: relative; }
-  .process-timeline__header h2 { font-size: clamp(2rem, 4vw, 2.75rem); margin: 0; }
-  .text-gold { color: var(--color-gold-600); font-style: italic; }
-  .process-timeline__header p { color: var(--color-ink-mute); max-width: 36rem; margin: 0.75rem auto 0; }
 
+  .process-timeline__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .process-timeline__header h2 {
+    /* h2-60-500 */
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
+  }
+  .process-timeline__header h2 :global(em) {
+    color: var(--color-gold-600);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .process-timeline__header p {
+    /* large-body-19-400 */
+    color: var(--color-ink-mute);
+    margin: 0.75rem auto 0;
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.875;
+  }
+
+  /* ── Horizontal layout ─────────────────────────────────────── */
   .process-timeline__list {
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--step-count, 5), 1fr);
+    gap: 1.25rem;
   }
-  /* Central spine */
+
+  /* Horizontal connecting line behind the number nodes.
+     Sits at the vertical centre of the node row at the top of each card. */
   .process-timeline__list::before {
     content: "";
     position: absolute;
-    top: 0; bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: linear-gradient(180deg, transparent, var(--color-gold-400) 8%, var(--color-gold-400) 92%, transparent);
-    transform: translateX(-0.5px);
-  }
-  @media (max-width: 767px) {
-    .process-timeline__list::before { left: 1.25rem; }
+    top: 1.25rem;        /* aligns to the centre of the 2.5rem node */
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--color-gold-400) 8%,
+      var(--color-gold-400) 92%,
+      transparent 100%);
+    z-index: 0;
   }
 
   .process-step {
     position: relative;
-    margin: 0 0 3rem;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 768px) {
-    .process-step { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .process-step--left .process-step__card { grid-column: 1; }
-    .process-step--right .process-step__card { grid-column: 2; }
-  }
-
-  .process-step__card {
-    background: #fff;
-    border: 1px solid rgba(199,154,8,0.25);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px -16px rgba(7,7,7,0.12);
-    margin-left: 2.5rem; /* leave room for spine on mobile */
-  }
-  @media (min-width: 768px) {
-    .process-step__card { margin-left: 0; max-width: 22rem; }
-    .process-step--right .process-step__card { margin-left: auto; }
-  }
-
-  .process-step__card img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-  }
-  .process-step__body { padding: 1.25rem 1.5rem 1.5rem; }
-  .process-step__body h3 {
-    font-family: var(--font-display);
-    color: var(--color-gold-600);
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin: 0 0 0.5rem;
-  }
-  .process-step__body p {
-    color: var(--color-ink-soft);
-    font-size: 0.9375rem;
+    text-align: center;
     margin: 0;
-    line-height: 1.5;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .process-step__node-wrap {
+    /* sits ABOVE the gold line — fills behind the node so the line breaks
+       cleanly around each number */
+    background: var(--color-cream);
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
   .process-step__node {
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     background: var(--color-gold-400);
     color: #fff;
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: 0.8125rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 4px var(--color-cream), 0 4px 12px rgba(199,154,8,0.3);
-    z-index: 2;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 1.25rem;
-    margin-left: -1rem;
+    font-size: 0.9375rem;
+    box-shadow: 0 0 0 4px var(--color-cream), 0 6px 16px -4px rgba(199,154,8,0.4);
   }
-  @media (min-width: 768px) {
-    .process-step__node { left: 50%; margin-left: -1rem; }
+
+  .process-step__image {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 24px -12px rgba(7,7,7,0.18);
+    background: #fff;
+  }
+  .process-step__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .process-step__title {
+    /* h5-20-500 */
+    font-family: var(--font-display);
+    color: var(--color-gold-600);
+    font-size: var(--text-h5-20-500);
+    line-height: 1.187;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+  }
+  .process-step__body {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 220px;
+  }
+
+  /* ── Tablet: 2 rows ───────────────────────────────────────── */
+  @media (max-width: 1023px) {
+    .process-timeline__list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem 1.25rem;
+    }
+    .process-timeline__list::before {
+      display: none;
+    }
+  }
+
+  /* ── Mobile: horizontal scroll-snap row ───────────────────── */
+  @media (max-width: 640px) {
+    .process-timeline { padding-left: 0; padding-right: 0; }
+    .process-timeline__header { padding-inline: 1.25rem; }
+    .process-timeline__list {
+      display: flex;
+      grid-template-columns: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 1.25rem 1.5rem;
+      gap: 1rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-gold-400) transparent;
+    }
+    .process-step {
+      flex: 0 0 80%;
+      min-width: 80%;
+      scroll-snap-align: start;
+      background: #fff;
+      border: 1px solid rgba(199,154,8,0.2);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 8px 24px -16px rgba(7,7,7,0.12);
+    }
+    .process-step__node-wrap { background: transparent; }
   }
 </style>

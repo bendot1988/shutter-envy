@@ -1,0 +1,53 @@
+---
+interface Props {
+  images: string[];
+  caption?: string;
+}
+const { images, caption = 'Blind & Shutter Specialists of the Year' } = Astro.props;
+---
+{images.length > 0 && (
+  <section class="awards-band" data-reveal>
+    <div class="container">
+      <ul data-reveal-children>
+        {images.map((src) => (
+          <li><img src={src} alt="IE 100 Awards Winner" loading="lazy" /></li>
+        ))}
+      </ul>
+      {caption && <p>{caption}</p>}
+    </div>
+  </section>
+)}
+
+<style>
+  .awards-band {
+    padding: 2.5rem 1.25rem 3rem;
+    background: #fff;
+    text-align: center;
+  }
+  .awards-band ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem 2.5rem;
+  }
+  .awards-band li { margin: 0; }
+  .awards-band img {
+    height: 64px;
+    width: auto;
+    opacity: 0.95;
+    transition: opacity 200ms, transform 200ms;
+  }
+  .awards-band img:hover { opacity: 1; transform: translateY(-2px); }
+  .awards-band p {
+    font-family: var(--font-display);
+    color: var(--color-gold-600);
+    font-style: italic;
+    font-size: var(--text-h5-20-500);
+    margin: 1.25rem 0 0;
+    letter-spacing: -0.015em;
+  }
+</style>

@@ -1,30 +1,494 @@
 ---
-import { getEntry, render } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
-import { faqPage, breadcrumbList } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InlineCTA from '../../components/home/InlineCTA.astro';
+import { breadcrumbList } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'reviews');
 if (!entry) throw new Error('Missing pages/reviews content entry');
-const { Content } = await render(entry);
 
-const jsonLd: object[] = [
+const jsonLd = [
   breadcrumbList([
     { name: 'Home', url: '/' },
     { name: 'Reviews', url: '/reviews/' },
   ]),
 ];
-if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+
+const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/shutter-envy.co.uk';
+const GOOGLE_URL = 'https://www.google.com/search?q=shutter+envy#lrd=0x4879dfa0c6f26fb7:0xc6da05bdf5856b2c,1';
+
+type Source = 'Trustpilot' | 'Google';
+interface Review {
+  highlight: string;
+  name: string;
+  rating: number;
+  source: Source;
+  date: string;
+  url: string;
+}
+
+const reviews: Review[] = [
+  { highlight: 'Great service from start to finish.', name: 'Sarah Jackson', rating: 5, source: 'Trustpilot', date: '8 Dec 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Quality customer care, excellent product, great team, good communications.', name: 'Dipak Arya', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'It was lovely to deal with a family business that has grown from strength to strength.', name: 'John Robinson', rating: 5, source: 'Trustpilot', date: '15 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Impeccable service from the team.', name: 'Shaunna Austin', rating: 5, source: 'Trustpilot', date: '4 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Absolutely love them — guys so professional and friendly.', name: 'Sharon Brown', rating: 5, source: 'Trustpilot', date: '21 Nov 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Fast efficient service.', name: 'Customer', rating: 5, source: 'Trustpilot', date: '9 Oct 2025', url: TRUSTPILOT_URL },
+  { highlight: 'I just had my shutters fitted few days ago.', name: 'Carina Sarmiento', rating: 5, source: 'Trustpilot', date: '3 Oct 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Fantastic product fitted expertly, would highly recommend.', name: 'Mrs S', rating: 5, source: 'Trustpilot', date: '9 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Shutter Envy supply and fit shutters throughout our property.', name: 'Russell', rating: 5, source: 'Trustpilot', date: '7 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'In and out, clean, and polite.', name: 'Stephen', rating: 5, source: 'Trustpilot', date: '7 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Nice guys, very professional, highly knowledgeable about their products.', name: 'Mr Mark Patrick', rating: 5, source: 'Trustpilot', date: '5 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Just had some bay window shutters fitted — would highly recommend.', name: 'Mark Cox', rating: 5, source: 'Trustpilot', date: '4 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Great company.', name: 'Huma Chaudhri', rating: 5, source: 'Trustpilot', date: '4 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Great service efficient and no trouble thank you.', name: 'Muddy Muckers Pond Cleans', rating: 5, source: 'Trustpilot', date: '4 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'We had our shutters fitted in November last year and we love them.', name: 'Julie Tatarczuk', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Great company.', name: 'Susan James', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'What a great change which updates the dining room and living room.', name: 'Joyce & Terry Noon', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Great work, came in measured up and ordered and fitted — used this company 3 times.', name: 'Colin Phillips', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Wonderful company wonderful shutters.', name: 'Sarah Buck', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'All good no problems.', name: 'Customer', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Shutter Envy are an amazing local family firm.', name: 'Daryl', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'The whole thing was done with friendliness, and showed great knowledge.', name: 'Chris', rating: 5, source: 'Trustpilot', date: '3 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'I recently had made-to-measure shutters fitted to my property by Shutter Envy.', name: 'Darren Atwood', rating: 5, source: 'Trustpilot', date: '2 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Absolutely amazing service, company & products.', name: 'Shelly', rating: 5, source: 'Trustpilot', date: '2 Sep 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Everything was perfect from start to finish.', name: 'Bethan Morgan', rating: 5, source: 'Trustpilot', date: '10 Jul 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Very efficient installation.', name: "Claire O'Reilly", rating: 5, source: 'Trustpilot', date: '28 Jun 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Mark and Chris are amazing.', name: 'Guest', rating: 5, source: 'Trustpilot', date: '12 Feb 2025', url: TRUSTPILOT_URL },
+  { highlight: 'My neighbour had her shutters from Shutter Envy — I fell in love with them.', name: 'Gavin Hornsey', rating: 5, source: 'Trustpilot', date: '21 Jan 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Top rated service and products.', name: 'Virginia', rating: 5, source: 'Trustpilot', date: '20 Jan 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Amazing service — we moved into a new house and asked around for recommendations.', name: 'Rachel Porter', rating: 5, source: 'Trustpilot', date: '20 Jan 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Excellent service from Mark.', name: 'Sandra', rating: 5, source: 'Trustpilot', date: '20 Jan 2025', url: TRUSTPILOT_URL },
+  { highlight: 'Fantastic company!', name: 'Amie Harrison', rating: 5, source: 'Google', date: '6 months ago', url: GOOGLE_URL },
+  { highlight: 'I just had my shutters fitted few days ago.', name: 'Carina Sarmiento', rating: 5, source: 'Google', date: '7 months ago', url: GOOGLE_URL },
+  { highlight: 'I had my shutters and blinds installed in my new home some time ago!', name: 'Saz G', rating: 5, source: 'Google', date: '8 months ago', url: GOOGLE_URL },
+];
+
+const totalReviews = reviews.length;
+const avgRating = (
+  reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+).toFixed(1);
+
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase() ?? '')
+    .join('');
+}
 ---
-<PageLayout
+<BaseLayout
   title={entry.data.title}
   description={entry.data.description}
-  h1={entry.data.h1}
-  hero={entry.data.hero}
-  gallery={entry.data.gallery}
-  faqs={entry.data.faqs}
-  cta={entry.data.cta}
   ogImage={entry.data.ogImage}
   jsonLd={jsonLd}
 >
-  <Content />
-</PageLayout>
+  {/* ─── HERO ────────────────────────────────────────────── */}
+  <section class="rv-hero" data-reveal>
+    <div class="rv-hero__inner">
+      <span class="rv-hero__eyebrow">Customer Reviews</span>
+      <h1>What Our Customers Are Saying</h1>
+      <div class="rv-hero__rating">
+        <span class="rv-hero__stars" aria-label={`${avgRating} out of 5 stars`}>
+          {Array.from({ length: 5 }).map(() => (
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          ))}
+        </span>
+        <p><strong>{avgRating}</strong> · Based on <strong>{totalReviews}</strong> verified reviews from Trustpilot &amp; Google</p>
+      </div>
+      <p class="rv-hero__sub">Real feedback from real Leicestershire homeowners. Browse a selection of recent reviews below, or read every one on the platforms we trust.</p>
+      <div class="rv-hero__actions">
+        <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" class="rv-source-btn rv-source-btn--trustpilot">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+          Read all reviews on Trustpilot
+        </a>
+        <a href={GOOGLE_URL} target="_blank" rel="noopener noreferrer" class="rv-source-btn rv-source-btn--google">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4z" fill="#4285F4"/>
+            <path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a5.9 5.9 0 0 1-5.6-4H3.1v2.5A10 10 0 0 0 12 22z" fill="#34A853"/>
+            <path d="M6.4 14.1A5.9 5.9 0 0 1 6.1 12c0-.7.1-1.4.3-2.1V7.4H3.1A10 10 0 0 0 2 12c0 1.6.4 3.2 1.1 4.6l3.3-2.5z" fill="#FBBC05"/>
+            <path d="M12 6.4c1.5 0 2.8.5 3.9 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4l3.3 2.5A5.9 5.9 0 0 1 12 6.4z" fill="#EA4335"/>
+          </svg>
+          Read all reviews on Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── REVIEW GRID ─────────────────────────────────────── */}
+  <section class="rv-grid-section" data-reveal>
+    <div class="rv-grid-section__inner">
+      <header class="rv-grid-section__head">
+        <h2>A Few Recent Highlights</h2>
+        <p>Every review below is a real, verified review on Trustpilot or Google. Tap any card to read the full review on the original platform.</p>
+      </header>
+      <ul class="rv-grid" data-reveal-children>
+        {reviews.map((r) => (
+          <li>
+            <a href={r.url} target="_blank" rel="noopener noreferrer" class={`rv-card rv-card--${r.source.toLowerCase()}`}>
+              <div class="rv-card__top">
+                <span class="rv-card__source">
+                  {r.source === 'Trustpilot' ? (
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.4z" fill="#4285F4"/>
+                      <path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a5.9 5.9 0 0 1-5.6-4H3.1v2.5A10 10 0 0 0 12 22z" fill="#34A853"/>
+                      <path d="M6.4 14.1A5.9 5.9 0 0 1 6.1 12c0-.7.1-1.4.3-2.1V7.4H3.1A10 10 0 0 0 2 12c0 1.6.4 3.2 1.1 4.6l3.3-2.5z" fill="#FBBC05"/>
+                      <path d="M12 6.4c1.5 0 2.8.5 3.9 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4l3.3 2.5A5.9 5.9 0 0 1 12 6.4z" fill="#EA4335"/>
+                    </svg>
+                  )}
+                  {r.source}
+                </span>
+                <span class="rv-card__stars" aria-label={`${r.rating} out of 5`}>
+                  {Array.from({ length: r.rating }).map(() => (
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                  ))}
+                </span>
+              </div>
+              <span class="rv-card__quote-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                  <path d="M9.5 8c-3.6 0-6.5 2.9-6.5 6.5v9.5h9.5v-9.5H7.5C7.5 12.1 9.4 10 11.7 9.4l-.5-1.4c-.5 0-1 0-1.7 0zm14 0c-3.6 0-6.5 2.9-6.5 6.5v9.5H26.5v-9.5h-5C21.5 12.1 23.4 10 25.7 9.4l-.5-1.4c-.5 0-1 0-1.7 0z"/>
+                </svg>
+              </span>
+              <p class="rv-card__quote">{r.highlight}</p>
+              <div class="rv-card__foot">
+                <div class="rv-card__author">
+                  <span class="rv-card__avatar" aria-hidden="true">{initials(r.name)}</span>
+                  <span class="rv-card__name">
+                    {r.name}
+                    <span class="rv-card__date">{r.date}</span>
+                  </span>
+                </div>
+                <span class="rv-card__link">
+                  Read full
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="rv-grid__foot">
+        Want to read every word? Browse the full list on
+        <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer">Trustpilot</a>
+        or
+        <a href={GOOGLE_URL} target="_blank" rel="noopener noreferrer">Google</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* ─── END CTA ────────────────────────────────────────── */}
+  <InlineCTA
+    eyebrow="Loved What You Read?"
+    heading="Let's Make Your Home the Next Five-Star Project"
+    body="Book a free home survey with Mark. Samples in hand, quote on the day, no pressure."
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    secondaryCta={{ label: 'Call 07729 572277', href: 'tel:+447729572277' }}
+    tone="gold"
+  />
+</BaseLayout>
+
+<style>
+  /* ─── HERO ────────────────────────────────────────────── */
+  .rv-hero {
+    background: var(--color-cream);
+    margin: 0 calc(50% - 50vw);
+    padding: 5rem 1.25rem 4rem;
+    text-align: center;
+  }
+  .rv-hero__inner { max-width: 48rem; margin: 0 auto; }
+  .rv-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .rv-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+  }
+  .rv-hero__rating {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0 0 1.5rem;
+  }
+  .rv-hero__stars {
+    color: var(--color-gold-400);
+    display: inline-flex;
+    gap: 3px;
+    filter: drop-shadow(0 0 12px rgba(199,154,8,0.4));
+  }
+  .rv-hero__rating p {
+    margin: 0;
+    color: var(--color-ink-mute);
+    font-size: var(--text-link-12-700);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .rv-hero__rating strong { color: var(--color-gold-600); font-weight: 700; }
+  .rv-hero__sub {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    max-width: 36rem;
+  }
+  .rv-hero__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .rv-source-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    color: var(--color-ink);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms, box-shadow 200ms, border-color 200ms, color 200ms;
+  }
+  .rv-source-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .rv-source-btn--trustpilot { color: #00b67a; border-color: rgba(0,182,122,0.35); }
+  .rv-source-btn--trustpilot:hover { border-color: #00b67a; color: #00b67a; }
+  .rv-source-btn--google { color: #1f1f1f; }
+  .rv-source-btn--google:hover { border-color: #4285F4; color: #1f1f1f; }
+
+  /* ─── GRID SECTION ───────────────────────────────────── */
+  .rv-grid-section { padding: 5rem 1.25rem 4rem; }
+  .rv-grid-section__inner {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+  .rv-grid-section__head {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+  .rv-grid-section__head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.027em;
+    margin: 0 0 0.875rem;
+  }
+  .rv-grid-section__head p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .rv-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 768px)  { .rv-grid { grid-template-columns: repeat(2, 1fr); } }
+  .rv-grid li { margin: 0; }
+
+  /* ─── CARD ───────────────────────────────────────────── */
+  .rv-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2.25rem 2.25rem 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition:
+      transform 280ms cubic-bezier(0.16,1,0.3,1),
+      box-shadow 280ms,
+      border-color 280ms;
+  }
+  .rv-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--color-gold-400);
+    opacity: 0;
+    transition: opacity 280ms;
+  }
+  .rv-card::before {
+    background: linear-gradient(180deg, var(--color-gold-400), var(--color-gold-600));
+  }
+  .rv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-gold-400);
+    color: inherit;
+  }
+  .rv-card:hover::before { opacity: 1; }
+
+  .rv-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .rv-card__source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-cream);
+  }
+  .rv-card--trustpilot .rv-card__source { color: #00b67a; }
+  .rv-card--google .rv-card__source { color: #1f1f1f; }
+  .rv-card__stars {
+    display: inline-flex;
+    gap: 1px;
+    color: var(--color-gold-400);
+  }
+
+  .rv-card__quote-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(199,154,8,0.18), rgba(199,154,8,0.06));
+    border: 1px solid rgba(199,154,8,0.3);
+    color: var(--color-gold-600);
+    margin: 0 0 1.25rem;
+    box-shadow: 0 8px 20px -10px rgba(199,154,8,0.6);
+  }
+  .rv-card__quote-mark svg { width: 1.25rem; height: 1.25rem; }
+
+  .rv-card__quote {
+    flex: 1;
+    margin: 0 0 2rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .rv-card__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-line);
+  }
+  .rv-card__author {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    min-width: 0;
+  }
+  .rv-card__avatar {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-gold-400), var(--color-gold-600));
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+  }
+  .rv-card__name {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    min-width: 0;
+  }
+  .rv-card__date {
+    font-weight: 400;
+    color: var(--color-ink-mute);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .rv-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-gold-600);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .rv-card__link svg { transition: transform 240ms; }
+  .rv-card:hover .rv-card__link svg { transform: translateX(3px); }
+
+  .rv-grid__foot {
+    text-align: center;
+    margin: 3rem 0 0;
+    color: var(--color-ink-mute);
+    font-size: var(--text-body-16-400);
+  }
+  .rv-grid__foot a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin: 0 0.125rem;
+  }
+  .rv-grid__foot a:hover { color: var(--color-gold-400); }
+</style>

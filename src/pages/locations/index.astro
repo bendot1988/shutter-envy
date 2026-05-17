@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InlineCTA from '../../components/home/InlineCTA.astro';
 import { breadcrumbList } from '../../lib/schema';
 
 const locations = await getCollection('locations');
@@ -13,17 +14,208 @@ const jsonLd = [
   ]),
 ];
 ---
-<PageLayout
+<BaseLayout
   title="Shutter Installation Areas in Leicestershire | Shutter Envy"
   description="See where Shutter Envy fits made-to-measure shutters, blinds and awnings across Leicester, Loughborough, Melton Mowbray and nearby areas."
-  h1="Shutter, Blind and Awning Installation Areas"
   jsonLd={jsonLd}
 >
-  <ul>
-    {locations.map((loc) => (
-      <li>
-        <a href={`/locations/${loc.id}/`}>{loc.data.area}</a>
-      </li>
-    ))}
-  </ul>
-</PageLayout>
+  <section class="loc-hero" data-reveal>
+    <span class="loc-hero__eyebrow">Where We Work</span>
+    <h1>Shutter, Blind and Awning Installation Areas</h1>
+    <p>We're based in Melton Mowbray and fit across Leicester, Loughborough, Charnwood, Market Harborough and every village in between. Find your area below.</p>
+  </section>
+
+  <section class="loc-grid container">
+    <ul data-reveal-children>
+      {locations.map((loc) => (
+        <li>
+          <a href={`/locations/${loc.id}/`} class="loc-card">
+            <span class="loc-card__pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+              </svg>
+            </span>
+            <span class="loc-card__name">{loc.data.area}</span>
+            <span class="loc-card__arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="loc-aside container" data-reveal>
+    <div class="loc-aside__card">
+      <h2>Don't See Your Area?</h2>
+      <p>We regularly travel across Leicestershire and into neighbouring counties for the right project. Get in touch and we'll tell you whether we can help.</p>
+      <a href="/contact/" class="loc-aside__btn">
+        Ask Us About Your Area
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <InlineCTA
+    eyebrow="Ready to Get Started?"
+    heading="Book Your Free Home Survey"
+    body="No matter where you are in Leicestershire, Mark visits with samples and gives you a no-obligation quote on the day."
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    secondaryCta={{ label: 'Call 07729 572277', href: 'tel:+447729572277' }}
+    tone="gold"
+  />
+</BaseLayout>
+
+<style>
+  .loc-hero {
+    text-align: center;
+    padding: 5rem 1.25rem 3rem;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  .loc-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .loc-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+  }
+  .loc-hero p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .loc-grid {
+    padding: 0 1.25rem 3rem;
+  }
+  .loc-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 640px) { .loc-grid ul { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .loc-grid ul { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1200px) { .loc-grid ul { grid-template-columns: repeat(4, 1fr); } }
+  .loc-grid li { margin: 0; }
+
+  .loc-card {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1.125rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 220ms cubic-bezier(0.16,1,0.3,1),
+                box-shadow 220ms, border-color 220ms;
+  }
+  .loc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold-400);
+  }
+  .loc-card__pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: rgba(199,154,8,0.12);
+    color: var(--color-gold-600);
+    flex-shrink: 0;
+    transition: background 220ms, color 220ms;
+  }
+  .loc-card:hover .loc-card__pin { background: var(--color-gold-400); color: #fff; }
+  .loc-card__name {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
+  .loc-card__arrow {
+    color: var(--color-gold-600);
+    opacity: 0.4;
+    transition: opacity 220ms, transform 220ms;
+  }
+  .loc-card:hover .loc-card__arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  .loc-aside {
+    padding: 2rem 1.25rem 5rem;
+    max-width: var(--container-narrow);
+  }
+  .loc-aside__card {
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .loc-aside__card h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-30-500);
+    font-weight: 500;
+    letter-spacing: -0.027em;
+    margin: 0 0 0.75rem;
+  }
+  .loc-aside__card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.65;
+    margin: 0 auto 1.5rem;
+    max-width: 36rem;
+  }
+  .loc-aside__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.875rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: background 200ms, transform 200ms, box-shadow 200ms;
+  }
+  .loc-aside__btn:hover {
+    background: var(--color-gold-600);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .loc-aside__btn svg { transition: transform 200ms; }
+  .loc-aside__btn:hover svg { transform: translateX(3px); }
+</style>

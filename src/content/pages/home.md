@@ -1,11 +1,11 @@
 ---
 title: "Shutters, Blinds and Awnings Leicester | Shutter Envy"
 description: "Transform your home with made-to-measure shutters, blinds, awnings and motorised solutions from Shutter Envy. Serving Leicester, Loughborough and Leicestershire."
-h1: "Award winning Shutters & Blinds - 3 Years Running!"
+h1: "Award-Winning Shutters & Blinds — 3 Years Running"
 ogImage: "/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.05.55.jpeg"
 announcement: "Happy 2026! Embrace 2026 with Stunning Shutters!"
 heroEyebrow: "Shutters, Blinds and Awnings in <strong>Leicester</strong> and <strong>Leicestershire</strong>"
-heroBackgroundImage: "/wp-content/uploads/2024/09/hero-1024x576.jpg"
+heroBackgroundImage: "/wp-content/uploads/2026/04/ChatGPT-Image-Apr-23-2026-04_37_13-PM.jpeg"
 heroLocation: "Based in Melton Mowbray, servicing Leicestershire"
 heroPrimaryCta:
   label: "Our shutters"
@@ -22,19 +22,21 @@ featureChecklist:
       body: "Recognised internationally for excellence in blinds and shutters."
     - heading: "5-Star Rated on Google"
       body: "Trusted by hundreds of satisfied customers for exceptional service and quality."
-    - heading: "Premium quality materials"
+    - heading: "Premium Quality Materials"
       body: "Durable, sustainable, and stylish options for any room."
-    - heading: "Customisable to fit any space"
+    - heading: "Customisable to Fit Any Space"
       body: "Tailored to your exact specifications, ensuring a perfect fit."
-    - heading: "Expert installation service"
+    - heading: "Expert Installation Service"
       body: "Professional and hassle-free setup by our skilled team."
+    - heading: "Family-Run Business"
+      body: "A local Leicestershire team you'll deal with from quote to fitting."
   cta:
     label: "Arrange a Home Visit"
     href: "/contact/"
 stats:
-  - { value: "600+", label: "Happy customers" }
-  - { value: "25", label: "5-Star Reviews" }
-  - { value: "15", label: "Years in the shutter industry" }
+  - { value: "600+", label: "Happy Customers",               emoji: "👥" }
+  - { value: "25",   label: "5-Star Reviews",                emoji: "⭐" }
+  - { value: "15",   label: "Years in the Shutter Industry", emoji: "📅" }
 productShowcase:
   heading: "Blinds, Shutters and Awnings"
   body: "We provide a wide range of blinds, shutters, and awnings to suit any style and need. Whether you're looking for something modern and sleek or classic and timeless, our collection includes options that will enhance the beauty and functionality of your space. Our products are designed with both aesthetics and practicality in mind, ensuring that you get the best of both worlds."
@@ -62,17 +64,17 @@ processSteps:
   - title: "Personalised Home Visit"
     body: "Mark will bring along a range of samples and work closely with you to understand your vision. You'll receive expert advice and a no-obligation quote right there on the day."
     image: "/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg"
-  - title: "Manufacturing with Care"
+  - title: "Manufacturing With Care"
     body: "Once you're happy and give us the green light, your custom shutters will begin production. We'll keep you updated every step of the way so you always know what's happening."
     image: "/wp-content/uploads/2024/09/5bc529c6-242f-4aab-8112-67d895fc7c43-1024x768.jpg"
   - title: "Professional Installation"
     body: "When your shutters are ready, either Mark or Laura will give you a call to schedule the installation. We'll make sure everything is perfect, from the fit to the finish and leaving no mess."
     image: "/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.08.01.jpeg"
-  - title: "Enjoy Your Beautiful New Shutters / Blinds"
+  - title: "Enjoy Your Beautiful New Shutters & Blinds"
     body: "On installation day, we'll provide a handy brochure on how to care for your shutters and back it up with a 5-year warranty for added peace of mind."
     image: "/wp-content/uploads/2024/09/431555826_2629833587193609_4928996973115882659_n-300x169.jpg"
 awardsCTA:
-  backgroundImage: "/wp-content/uploads/2024/09/hero-1024x576.jpg"
+  backgroundImage: "/wp-content/uploads/2026/05/01-shutter-envy.jpeg"
   eyebrow: "Ready for your 5-star service?"
   heading: "Have You Experienced Shutter Envy?"
   body: "Discover the difference that award-winning craftsmanship and personalised service can make. At Shutter Envy, we don't just offer products; we create elegant, functional spaces that elevate your home's style and comfort. Join the hundreds of satisfied customers who have transformed their living spaces with our premium blinds, shutters, and awnings."
@@ -80,7 +82,7 @@ awardsCTA:
     - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-300x78.png"
     - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png"
     - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png"
-  awardsCaption: "Blind and Shutter Specialists of The Year"
+  awardsCaption: "Blind and Shutter Specialists of the Year"
   ctaNote: "Get started today with a no-obligation, personalised consultation."
   cta:
     label: "Arrange a Home Visit"
@@ -116,9 +118,35 @@ reviewsRow:
       rating: 5
       date: "2 years ago"
       body: "Fantastic service from Mark. First class product. Excellent results. Fast, efficient and perfect. So pleased."
+bayWindows:
+  heading: "Bay Window Shutters in Leicester"
+  body:
+    - "Transform your bay windows in Leicester with our expertly crafted shutters, designed to blend style and functionality. Our bespoke bay window shutters are tailored to fit all bay types, including box, bow, and angled designs, ensuring a perfect finish every time. They provide excellent control over light and privacy while adding timeless elegance to your space."
+    - "Whether you desire classic full-height shutters, chic café-style designs, or flexible tier-on-tier options, our range ensures a solution that complements your home. Experience the Shutter Envy difference and elevate your bay windows with style and practicality."
+  cta:
+    label: "Arrange a Home Visit"
+    href: "/contact/"
+  ctaNote: "Book your free home consultation today! Available in Loughborough, Mountsorrel, Quorn, Rothley, and surrounding areas."
+  cardTitle: "Bay Window Shutters in Leicester"
+  cardBody: "These elegant bay window shutters perfectly blend style with functionality. Their tier-on-tier design lets you control upper and lower panels separately, offering flexible light control and privacy. The crisp white finish suits both modern and traditional interiors, while the precise fit accentuates the bay window's shape. Beyond their aesthetic appeal, these shutters improve insulation and bring timeless elegance to your home."
+  cardImage: "/wp-content/uploads/2026/04/Bay-window-shutters-in-Loughborough-1024x571.jpeg"
+  cardLink:
+    label: "Learn more about our shutters"
+    href: "/our-shutters/"
+  faqs:
+    - question: "What are the benefits of bay window shutters?"
+      answer: "Bay window shutters provide excellent light control, privacy, and insulation. They enhance the unique shape of bay windows, adding timeless elegance while improving energy efficiency."
+    - question: "What styles of shutters are suitable for bay windows?"
+      answer: "Full-height, tier-on-tier, café-style and shaped shutters all work beautifully on bay windows. We'll recommend the right style during your home survey based on the room and how you use it."
+    - question: "Can bay window shutters be customised to fit my window shape?"
+      answer: "Yes — every set is made-to-measure. We template box, bow and angled bays precisely so the shutters fit your window perfectly with no awkward gaps."
+    - question: "Are bay window shutters available in different colours and materials?"
+      answer: "Yes. Choose from hardwood, faux wood, MDF or 100% waterproof ABS — in over 50 painted and stained finishes. Custom colours are available on our premium Montana range."
+    - question: "Do bay window shutters help with insulation?"
+      answer: "Yes, shutters provide excellent insulation by reducing heat loss during winter and keeping rooms cooler in summer. They are a stylish and practical way to improve energy efficiency in your home."
 midPageCta:
-  eyebrow: "Ready to start?"
-  heading: "Book your free home survey"
+  eyebrow: "Ready to Start?"
+  heading: "Book Your Free Home Survey"
   body: "Mark visits your home with samples, takes measurements, and gives you a no-obligation quote on the day. Most surveys are booked within a few days."
   cta:
     label: "Arrange a Home Visit"
@@ -126,7 +154,7 @@ midPageCta:
   secondaryCta:
     label: "Call 07729 572277"
     href: "tel:+447729572277"
-  tone: "cream"
+  tone: "gold"
 transformCTA:
   image: "/wp-content/uploads/2024/11/shutter-envy.jpg"
   heading: "Transform Your Home Today with Shutter Envy"

@@ -9,20 +9,23 @@ interface Props {
   intro?: string;
   layout?: 'stacked' | 'two-column';
   closingCta?: { label: string; href: string; prompt?: string };
+  backgroundImage?: string;
 }
-const { items, id = 'faqs', heading = 'Your questions answered', intro, layout = 'two-column', closingCta } = Astro.props;
+const { items, id = 'faqs', heading = 'Your Questions Answered', intro, layout = 'two-column', closingCta, backgroundImage } = Astro.props;
 // Split heading on last word to gold it (e.g. "Your questions answered" → "Your questions" + "answered.")
 const words = heading.split(' ');
 const lead = words.slice(0, -1).join(' ');
 const last = words[words.length - 1];
 ---
 {items.length > 0 && (
-  <section id={id} class:list={['faq', `faq--${layout}`]}>
-    <header class="faq__header">
+  <section id={id} class:list={['faq', `faq--${layout}`, backgroundImage ? 'faq--has-bg' : '']} style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+    {backgroundImage && <div class="faq__overlay"></div>}
+    <div class="faq__inner">
+    <header class="faq__header" data-reveal>
       <h2>{lead} <span class="gold">{last}.</span></h2>
       {intro && <p>{intro}</p>}
     </header>
-    <dl>
+    <dl data-reveal-children>
       {items.map((f) => (
         <details>
           <summary><dt>{f.question}</dt></summary>
@@ -36,26 +39,49 @@ const last = words[words.length - 1];
         <a href={closingCta.href}>{closingCta.label} →</a>
       </p>
     )}
+    </div>
   </section>
 )}
 
 <style>
-  .faq { margin: 5rem auto; max-width: 64rem; padding-inline: 1.25rem; }
-  .faq--two-column {
+  .faq {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 6rem 1.25rem;
+    background-color: #fff;
+  }
+  .faq--has-bg {
+    background-color: var(--color-cream);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .faq__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(249,248,244,0.96));
+  }
+  .faq__inner {
+    position: relative;
+    max-width: 64rem;
+    margin-inline: auto;
+  }
+  .faq--two-column .faq__inner {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   @media (min-width: 768px) {
-    .faq--two-column { grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+    .faq--two-column .faq__inner { grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
     .faq--two-column dl { grid-column: 1 / -1; margin-top: 1.5rem; }
   }
   .faq__header h2 {
+    /* h2-60-500 */
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
     margin: 0 0 1rem;
-    line-height: 1.15;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
   }
   .faq__header .gold {
     color: var(--color-gold-600);
@@ -63,8 +89,8 @@ const last = words[words.length - 1];
   }
   .faq__header p {
     color: var(--color-ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.65;
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
     margin: 0;
   }
   .faq dl {
@@ -74,20 +100,30 @@ const last = words[words.length - 1];
     padding: 0;
   }
   .faq details {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--color-line);
-    background: transparent;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    transition: none;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.625rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 200ms, box-shadow 200ms, transform 200ms;
+  }
+  .faq details:hover {
+    border-color: var(--color-gold-400);
+    box-shadow: var(--shadow-md);
+  }
+  .faq details[open] {
+    border-color: var(--color-gold-400);
+    box-shadow: var(--shadow-md);
   }
   .faq details[open] { border-color: var(--color-line); }
   .faq summary {
+    /* h5-20-500 */
     font-family: var(--font-display);
     font-weight: 500;
-    font-size: 1.0625rem;
+    font-size: var(--text-h5-20-500);
+    line-height: 1.187;
+    letter-spacing: -0.015em;
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -111,8 +147,8 @@ const last = words[words.length - 1];
     margin: 0.875rem 0 0;
     padding: 0;
     color: var(--color-ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.65;
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
   }
   .faq__closing {
     margin-top: 1.75rem;

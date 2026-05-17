@@ -8,10 +8,10 @@ interface Props {
 const { image, heading, body, cta } = Astro.props;
 ---
 <section class="transform-cta">
-  <div class="transform-cta__image">
+  <div class="transform-cta__image" data-reveal="left">
     <img src={image} alt="" loading="lazy" />
   </div>
-  <div class="transform-cta__content">
+  <div class="transform-cta__content" data-reveal="right">
     <div class="transform-cta__icon" aria-hidden="true">
       <svg viewBox="0 0 60 60" fill="none">
         <line x1="0" y1="25" x2="20" y2="25" stroke="currentColor" stroke-width="1"/>
@@ -32,7 +32,7 @@ const { image, heading, body, cta } = Astro.props;
 
 <style>
   .transform-cta {
-    margin: 5rem calc(50% - 50vw) 0;
+    margin: 0 calc(50% - 50vw);
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -62,16 +62,19 @@ const { image, heading, body, cta } = Astro.props;
   }
   .transform-cta__icon svg { width: 96px; height: 96px; }
   .transform-cta h2 {
+    /* h2-30-500 (smaller H2, in-content) */
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 400;
+    font-size: clamp(1.75rem, 3vw, var(--text-h2-30-500));
+    font-weight: 500;
+    line-height: 1.175;
+    letter-spacing: -0.027em;
     margin: 0 0 1rem;
     color: var(--color-ink);
   }
   .transform-cta p {
     color: var(--color-ink-soft);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: var(--text-body-16-400);
+    line-height: 1.875;
     max-width: 32rem;
     margin: 0 0 2rem;
   }
@@ -81,7 +84,11 @@ const { image, heading, body, cta } = Astro.props;
     color: #fff;
     padding: 0.875rem 2rem;
     border-radius: 999px;
+    font-family: var(--font-sans);
     font-weight: 500;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
     text-decoration: none;
     transition: background 200ms;
   }

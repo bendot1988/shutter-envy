@@ -4,13 +4,15 @@ interface Props {
   body?: string;
   items: { heading: string; body: string }[];
   cta?: { label: string; href: string };
+  backgroundImage?: string;
 }
-const { heading, body, items, cta } = Astro.props;
-// Split heading on " and " so we can emphasise the outer words in gold
+const { heading, body, items, cta, backgroundImage } = Astro.props;
 const parts = heading.split(/\s+and\s+/i);
 ---
-<section class="feature-checklist container-narrow">
-  <header>
+<section class="feature-checklist" style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+  <div class="feature-checklist__overlay"></div>
+  <div class="feature-checklist__inner container-narrow">
+  <header data-reveal>
     <h2>
       {parts.length === 2 ? (
         <><span class="gold">{parts[0]}</span> <span class="muted">and</span> <span class="gold">{parts[1]}</span></>
@@ -19,7 +21,7 @@ const parts = heading.split(/\s+and\s+/i);
     {body && <p>{body}</p>}
   </header>
 
-  <ul class="feature-checklist__list">
+  <ul class="feature-checklist__list" data-reveal-children>
     {items.map((it) => (
       <li>
         <span class="feature-checklist__check" aria-hidden="true">
@@ -29,60 +31,89 @@ const parts = heading.split(/\s+and\s+/i);
         </span>
         <div>
           <h3>{it.heading}</h3>
-          <p>{it.body}</p>
+          {it.body && <p>{it.body}</p>}
         </div>
       </li>
     ))}
   </ul>
 
   {cta && (
-    <div class="feature-checklist__cta">
+    <div class="feature-checklist__cta" data-reveal data-reveal-delay="200">
       <a href={cta.href} class="button-pill">{cta.label} <span aria-hidden="true">→</span></a>
     </div>
   )}
+  </div>
 </section>
 
 <style>
-  .feature-checklist { margin: 5rem auto; }
+  .feature-checklist {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 6rem 1.25rem;
+    background-color: var(--color-cream);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  .feature-checklist__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(249,248,244,0.92) 0%, rgba(255,255,255,0.94) 100%);
+  }
+  .feature-checklist__inner { position: relative; }
   .feature-checklist header { text-align: center; margin-bottom: 2.5rem; }
   .feature-checklist h2 {
+    /* h2-60-500 */
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
+    font-size: clamp(2rem, 5vw, var(--text-h2-60-500));
+    line-height: 1.175;
+    letter-spacing: -0.027em;
+    font-weight: 500;
     margin: 0 0 1rem;
   }
   .feature-checklist h2 .gold { color: var(--color-gold-600); }
-  .feature-checklist h2 .muted { color: var(--color-ink); font-style: italic; font-weight: 300; }
+  .feature-checklist h2 .muted { color: var(--color-ink); font-style: italic; font-weight: 400; }
   .feature-checklist header p {
+    /* large-body-19-400 */
     color: var(--color-ink-soft);
     max-width: 44rem;
     margin: 0 auto;
-    font-size: 1.0625rem;
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.875;
   }
   .feature-checklist__list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 0.75rem;
-    max-width: 44rem;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    max-width: 64rem;
     margin-inline: auto;
+  }
+  @media (min-width: 640px) {
+    .feature-checklist__list { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  }
+  @media (min-width: 960px) {
+    .feature-checklist__list { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   }
   .feature-checklist__list li {
     background: #fff;
     border: 1px solid var(--color-line);
-    border-radius: 8px;
-    padding: 1.125rem 1.25rem;
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1rem;
     align-items: start;
     margin: 0;
-    transition: border-color 200ms, transform 200ms;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 200ms, transform 200ms, box-shadow 200ms;
   }
   .feature-checklist__list li:hover {
     border-color: var(--color-gold-400);
-    transform: translateX(2px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
   .feature-checklist__check {
     color: #16a34a;
@@ -90,17 +121,21 @@ const parts = heading.split(/\s+and\s+/i);
     margin-top: 0.125rem;
   }
   .feature-checklist__list h3 {
+    /* h5-20-500 */
     font-family: var(--font-display);
-    font-size: 1.125rem;
+    font-size: var(--text-h5-20-500);
     font-weight: 500;
+    line-height: 1.187;
+    letter-spacing: -0.015em;
     margin: 0 0 0.25rem;
     color: var(--color-ink);
   }
   .feature-checklist__list p {
+    /* small-body-15-400 */
     margin: 0;
     color: var(--color-ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.5;
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.875;
   }
   .feature-checklist__cta { text-align: center; margin-top: 2rem; }
   .button-pill {
@@ -113,7 +148,9 @@ const parts = heading.split(/\s+and\s+/i);
     border-radius: 999px;
     font-family: var(--font-sans);
     font-weight: 500;
-    font-size: 0.9375rem;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
     text-decoration: none;
     transition: background 200ms, transform 200ms;
   }
