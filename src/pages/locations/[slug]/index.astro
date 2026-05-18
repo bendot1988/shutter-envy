@@ -114,6 +114,31 @@ const area = loc.data.area;
       {/* Markdown content */}
       <article class="loc-prose">
         <Content />
+
+        {/* Team callout — JS lifts this and slots it before the 2nd H2 so it
+            sits naturally mid-flow. If there's only one H2, it stays at the
+            end of the prose (still a nice visual full-stop). */}
+        <aside class="loc-team" data-team-callout>
+          <div class="loc-team__media">
+            <img
+              src="/images/mark-shutter-envy-van.png"
+              alt={`Mark from Shutter Envy with the company van — covering ${area}`}
+              loading="lazy"
+            />
+          </div>
+          <div class="loc-team__body">
+            <span class="loc-team__eyebrow">★ Meet Mark</span>
+            <p class="loc-team__quote">
+              "I personally visit every {area} home before quoting — samples in hand, no pressure, just honest advice."
+            </p>
+            <a href="#enquire" class="loc-team__link">
+              Book a visit in {area}
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </aside>
       </article>
 
       {/* Sticky sidebar */}
@@ -223,6 +248,19 @@ const area = loc.data.area;
     tone="gold"
   />
 </BaseLayout>
+
+<script>
+  // Lift the team callout out of its position and drop it before the 2nd H2,
+  // so it breaks up the wall of body copy. If only one H2 exists, leave it
+  // where it is (end of prose).
+  (() => {
+    const prose = document.querySelector('.loc-prose');
+    const team = document.querySelector<HTMLElement>('[data-team-callout]');
+    if (!prose || !team) return;
+    const h2s = prose.querySelectorAll(':scope > h2');
+    if (h2s.length >= 2) prose.insertBefore(team, h2s[1]);
+  })();
+</script>
 
 <style>
   /* ─── Shared utility eyebrow ──────────────────────────── */
@@ -400,6 +438,7 @@ const area = loc.data.area;
     padding-bottom: 0.625rem;
     border-bottom: 1px solid var(--color-line);
     position: relative;
+    text-wrap: balance;
   }
   .loc-prose :global(h2)::after {
     content: "";
@@ -494,6 +533,77 @@ const area = loc.data.area;
     font-style: italic;
     font-size: 1.0625rem;
   }
+
+  /* ─── Team callout (inside prose) ─────────────────────── */
+  .loc-team {
+    display: block;
+    background: linear-gradient(180deg, var(--color-cream) 0%, #fff 100%);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin: 2.5rem 0 2.5rem;
+    transition: transform 280ms cubic-bezier(0.16,1,0.3,1), box-shadow 280ms;
+  }
+  .loc-team:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .loc-team__media {
+    background: var(--color-cream);
+    overflow: hidden;
+  }
+  .loc-team__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .loc-team:hover .loc-team__media img { transform: scale(1.03); }
+  .loc-team__body {
+    padding: 1.5rem 1.75rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    text-align: center;
+    align-items: center;
+  }
+  .loc-team__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-600);
+  }
+  .loc-team__quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--color-ink);
+    margin: 0;
+    max-width: 36rem;
+    text-wrap: balance;
+  }
+  .loc-team__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-gold-600);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: fit-content;
+    transition: color 150ms;
+  }
+  .loc-team__link svg { transition: transform 150ms; }
+  .loc-team__link:hover { color: var(--color-gold-400); }
+  .loc-team__link:hover svg { transform: translateX(3px); }
 
   /* ─── Sidebar ─────────────────────────────────────────── */
   .loc-side { min-width: 0; }
@@ -644,8 +754,10 @@ const area = loc.data.area;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.027em;
-    margin: 0;
+    margin: 0 auto;
     color: var(--color-ink);
+    max-width: 18ch;
+    text-wrap: balance;
   }
   .loc-faqs__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.625rem; }
   .loc-faqs__list li { margin: 0; }
@@ -686,8 +798,11 @@ const area = loc.data.area;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.027em;
-    margin: 0 0 0.875rem;
+    margin: 0 auto 0.875rem;
+    max-width: 18ch;
+    text-wrap: balance;
   }
+  .loc-enquire header p { text-wrap: pretty; }
   .loc-enquire header p {
     color: var(--color-ink-soft);
     font-size: var(--text-body-16-400);

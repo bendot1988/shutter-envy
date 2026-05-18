@@ -2,6 +2,13 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { breadcrumbList } from '../../lib/schema';
+import { plainTextExcerpt } from '../../lib/text';
+import {
+  BLOG_CATEGORY_BY_SLUG,
+  BLOG_CATEGORY_LABELS,
+  BLOG_CATEGORY_ORDER,
+  type BlogCategoryId,
+} from '../../data/blog-categories';
 
 // One static page only — client-side filter + search across all posts.
 // We keep the [...page].astro filename so the existing route shape doesn't
@@ -14,38 +21,49 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate),
 );
 
-// ─── Auto-categorise each post by keyword detection ────
-// Categories are derived at build time from the post slug + title + h1, so
-// no schema change is required. Order matters: more specific buckets first.
-const CATEGORIES: { id: string; label: string; match: RegExp }[] = [
-  { id: 'portchester', label: 'Portchester / Security', match: /portchester|aluminium|security|secure/i },
-  { id: 'awnings',     label: 'Awnings',                match: /awning|outdoor[- ]living|patio[- ]shade/i },
-  { id: 'blinds',      label: 'Blinds',                 match: /\bblind|motorised[- ]blind|roller|venetian|honeycomb|vertical[- ]blind|duo[- ]roller/i },
-  { id: 'bay-windows', label: 'Bay Windows',            match: /bay[- ]window|tier[- ]on[- ]tier|bifold|bi[- ]folding/i },
-  { id: 'guides',      label: 'Buying Guides',          match: /guide|cost|price|how[- ]to|how[- ]much|vs\.?|choose|choosing|tips|complete[- ]uk/i },
-  { id: 'projects',    label: 'Recent Projects',        match: /installation|installed|install|stamford|burbage|mountsorrel|charnwood|loughborough|leicester|harborough|woodhouse|new[- ]build|queniborough/i },
-  { id: 'news',        label: 'News & Awards',          match: /award|named|wins|christmas|halloween|bonfire|new[- ]year|merry|happy|website|envy[- ]named|review/i },
-];
+type PostWithMeta = (typeof posts)[number] & {
+  _category: BlogCategoryId;
+  _categoryLabel: string;
+  _excerptPlain: string;
+};
 
-type PostWithMeta = (typeof posts)[number] & { _category: string; _categoryLabel: string };
+function categoryForPost(slug: string): BlogCategoryId {
+  const cat = BLOG_CATEGORY_BY_SLUG[slug];
+  if (!cat) {
+    throw new Error(
+      `Missing news category for blog post "${slug}". Add it to src/data/blog-categories.ts.`,
+    );
+  }
+  return cat;
+}
 
-const FALLBACK = { id: 'shutters', label: 'Shutters & Advice' };
 const enriched: PostWithMeta[] = posts.map((p) => {
-  const haystack = `${p.id} ${p.data.title} ${p.data.h1 ?? ''} ${p.data.excerpt ?? ''}`;
-  const cat = CATEGORIES.find((c) => c.match.test(haystack)) ?? FALLBACK;
-  return Object.assign(p, { _category: cat.id, _categoryLabel: cat.label });
+  const _excerptPlain = p.data.excerpt ? plainTextExcerpt(p.data.excerpt) : '';
+  const _category = categoryForPost(p.id);
+  return Object.assign(p, {
+    _category,
+    _categoryLabel: BLOG_CATEGORY_LABELS[_category],
+    _excerptPlain,
+  });
 });
 
-// Build category-pill list with counts; keep order matching CATEGORIES then fallback.
-const categoryOrder = [...CATEGORIES.map((c) => c.id), FALLBACK.id];
-const categoryLabels = Object.fromEntries(
-  [...CATEGORIES, FALLBACK].map((c) => [c.id, c.label]),
-) as Record<string, string>;
-const categoryCounts: Record<string, number> = {};
-for (const p of enriched) categoryCounts[p._category] = (categoryCounts[p._category] ?? 0) + 1;
-const visibleCategories = categoryOrder
-  .filter((id) => categoryCounts[id] > 0)
-  .map((id) => ({ id, label: categoryLabels[id], count: categoryCounts[id] }));
+const categoryCounts: Record<BlogCategoryId, number> = {
+  portchester: 0,
+  awnings: 0,
+  blinds: 0,
+  'bay-windows': 0,
+  guides: 0,
+  projects: 0,
+  news: 0,
+  shutters: 0,
+};
+for (const p of enriched) categoryCounts[p._category] += 1;
+
+const visibleCategories = BLOG_CATEGORY_ORDER.filter((id) => categoryCounts[id] > 0).map((id) => ({
+  id,
+  label: BLOG_CATEGORY_LABELS[id],
+  count: categoryCounts[id],
+}));
 
 const [featured, ...rest] = enriched;
 
@@ -68,7 +86,7 @@ const fmtDate = (d: Date) =>
   <header class="news-hero" data-reveal>
     <span class="news-hero__eyebrow">News & Updates</span>
     <h1>Shutter Envy News</h1>
-    <p>Real projects, plain-English advice, and updates from across Leicester &amp; Leicestershire.</p>
+    <p>Real projects, plain-English advice, and updates from across Leicester&nbsp;&amp;&nbsp;Leicestershire.</p>
   </header>
 
   {/* ─── Two-column layout: sidebar + grid ─────────────── */}
@@ -135,7 +153,7 @@ const fmtDate = (d: Date) =>
             <div class="news-featured__body">
               <span class="news-featured__badge">★ Featured · {featured._categoryLabel}</span>
               <h2>{featured.data.h1 ?? featured.data.title}</h2>
-              {featured.data.excerpt && <p>{featured.data.excerpt}</p>}
+              {featured._excerptPlain && <p>{featured._excerptPlain}</p>}
               <p class="news-featured__meta">
                 <time datetime={featured.data.pubDate.toISOString()}>{fmtDate(featured.data.pubDate)}</time>
                 <span aria-hidden="true">·</span>
@@ -155,18 +173,20 @@ const fmtDate = (d: Date) =>
           <li
             class="news-card-wrap"
             data-cat={post._category}
-            data-search={`${post.data.title} ${post.data.h1 ?? ''} ${post.data.excerpt ?? ''}`.toLowerCase()}
+            data-search={`${post.data.title} ${post.data.h1 ?? ''} ${post._excerptPlain}`.toLowerCase()}
           >
             <a href={`/${post.id}/`} class="news-card">
-              {post.data.heroImage && (
-                <div class="news-card__image">
+              <div class="news-card__image">
+                {post.data.heroImage ? (
                   <img src={post.data.heroImage} alt={post.data.h1 ?? post.data.title} loading="lazy" />
-                  <span class="news-card__tag">{post._categoryLabel}</span>
-                </div>
-              )}
+                ) : (
+                  <div class="news-card__image-placeholder" aria-hidden="true" />
+                )}
+                <span class="news-card__tag">{post._categoryLabel}</span>
+              </div>
               <div class="news-card__body">
                 <h3>{post.data.h1 ?? post.data.title}</h3>
-                {post.data.excerpt && <p class="news-card__excerpt">{post.data.excerpt}</p>}
+                {post._excerptPlain && <p class="news-card__excerpt">{post._excerptPlain}</p>}
                 <p class="news-card__meta">
                   <time datetime={post.data.pubDate.toISOString()}>{fmtDate(post.data.pubDate)}</time>
                   <span class="news-card__read">Read more →</span>
@@ -309,7 +329,9 @@ const fmtDate = (d: Date) =>
     color: var(--color-ink-soft);
     font-size: var(--text-large-body-19-400);
     line-height: 1.6;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 36rem;
+    text-wrap: balance;
   }
 
   /* ─── Two-column layout ────────────────────────────────── */
@@ -654,15 +676,25 @@ const fmtDate = (d: Date) =>
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    align-items: stretch;
   }
-  @media (min-width: 640px)  { .news-grid__list { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1280px) { .news-grid__list { grid-template-columns: repeat(3, 1fr); } }
-  .news-grid__list li { margin: 0; }
+  @media (min-width: 640px) {
+    .news-grid__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .news-grid__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .news-grid__list li { margin: 0; min-width: 0; }
+  .news-card-wrap {
+    display: flex;
+    min-width: 0;
+  }
   .news-card-wrap[hidden] { display: none; }
 
   .news-card {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 100%;
     background: #fff;
     border: 1px solid var(--color-line);
@@ -682,13 +714,21 @@ const fmtDate = (d: Date) =>
     position: relative;
     overflow: hidden;
     background: var(--color-cream);
+    aspect-ratio: 16 / 10;
+    flex-shrink: 0;
+  }
+  .news-card__image img,
+  .news-card__image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
   .news-card__image img {
-    width: 100%;
-    aspect-ratio: 16/10;
     object-fit: cover;
-    display: block;
     transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .news-card__image-placeholder {
+    background: linear-gradient(135deg, var(--color-cream) 0%, rgba(199,154,8,0.08) 100%);
   }
   .news-card:hover .news-card__image img { transform: scale(1.05); }
   .news-card__tag {
@@ -714,6 +754,10 @@ const fmtDate = (d: Date) =>
     letter-spacing: -0.027em;
     margin: 0;
     color: var(--color-ink);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .news-card:hover h3 { color: var(--color-gold-600); }
   .news-card__excerpt {

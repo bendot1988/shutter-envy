@@ -115,7 +115,7 @@ const {
     margin: 0 0 1.25rem;
     color: var(--color-ink);
   }
-  .bay-section__intro p {
+  .bay-section__intro p:not(.bay-section__note) {
     color: var(--color-ink-soft);
     font-size: var(--text-body-16-400);
     line-height: 1.875;
@@ -126,6 +126,7 @@ const {
     align-items: center;
     gap: 0.5rem;
     margin-top: 1rem;
+    margin-bottom: 0;
     padding: 0.875rem 1.875rem;
     background: var(--color-gold-400);
     color: #fff;
@@ -151,7 +152,7 @@ const {
     color: var(--color-ink-mute);
     font-size: var(--text-small-body-15-400);
     line-height: 1.6;
-    margin: 1.25rem 0 0;
+    margin: 2rem 0 0;
   }
 
   /* ─── RIGHT card + FAQs ──────────────────────────────────── */

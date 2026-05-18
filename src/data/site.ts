@@ -99,7 +99,7 @@ export const primaryNav: NavItem[] = [
       },
     ],
     featured: {
-      image: '/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-650x492.jpg',
+      image: '/images/mark-shutter-envy-van.png',
       heading: 'Free home survey',
       body: 'No-obligation quote in your living room, anywhere in Leicestershire.',
       cta: { label: 'Arrange a visit', href: '/contact/' },

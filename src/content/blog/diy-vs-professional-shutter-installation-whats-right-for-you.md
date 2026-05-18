@@ -178,7 +178,7 @@ Get started today with a no-obligation, personalised consultation.
 
 							
 
-					![Picture of Mark Sanders](/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-300x227.jpg)
+					![Picture of Mark Sanders](/images/mark-shutter-envy-van.png)
 
 			
 

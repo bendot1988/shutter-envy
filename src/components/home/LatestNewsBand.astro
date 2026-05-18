@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { plainTextExcerpt } from '../../lib/text';
 
 interface Props {
   limit?: number;
@@ -25,7 +26,7 @@ const posts = (await getCollection('blog'))
           )}
           <div class="latest-news__body">
             <h3><a href={`/${p.id}/`}>{p.data.h1 ?? p.data.title}</a></h3>
-            {p.data.excerpt && <p>{p.data.excerpt}</p>}
+            {p.data.excerpt && <p>{plainTextExcerpt(p.data.excerpt)}</p>}
             <a href={`/${p.id}/`} class="latest-news__read">Read More »</a>
           </div>
         </li>

@@ -13,7 +13,7 @@ cta:
 
 ## About Us
 
-![dotwall Web Design2024 09 02 at 20.46.30](/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg)
+![Mark Sanders by the Shutter Envy van](/images/mark-shutter-envy-van.png)
 
 ### History
 

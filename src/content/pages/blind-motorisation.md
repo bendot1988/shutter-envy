@@ -10,13 +10,3 @@ cta:
     label: "Get a free quote"
     href: "/contact/"
 ---
-
-## Motorised Blinds
-
-## We're Blind Motorisation Experts
-
-Shutter Envy has a fully trained and highly skilled team of blind motorisation experts, for any kind of automation package you desire. Whether that is remote controlled roller blinds, two directional top down bottom up Honey comb pleated blinds or high end voice activated full house blinds installation, we can arrange a full service to delight you.
-
-Future-proof your blinds and home automation with many of our home systems.
-
-Be the Envy of your friends and neighbours, and [call Shutter Envy for your free consultation](/contact/).

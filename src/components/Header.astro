@@ -404,9 +404,10 @@ const isCurrent = (href: string) =>
     transform: translateY(0);
   }
   .mega-panel__inner {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2.5rem 1.25rem 2.75rem;
+    /* Match the header bar: full-bleed, with the same edge padding. */
+    max-width: none;
+    margin: 0;
+    padding: 2.5rem clamp(1.25rem, 3vw, 2.5rem) 2.75rem;
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 3rem;
@@ -520,8 +521,9 @@ const isCurrent = (href: string) =>
     transform: translateY(0);
   }
   .locations-panel__inner {
-    max-width: 84rem;
-    margin: 0 auto;
+    /* Match the header bar: full-bleed, with the same edge padding. */
+    max-width: none;
+    margin: 0;
     padding: 2rem clamp(1.25rem, 3vw, 2.5rem) 2.5rem;
   }
   .locations-panel__head {
@@ -579,12 +581,12 @@ const isCurrent = (href: string) =>
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.875rem;
+    /* Auto-fill at ~11rem keeps thumbnails consistently small no matter how
+       wide the viewport gets — the panel reflows from 2 cols on mobile to as
+       many as fit on ultrawides, but each tile stays bite-sized. */
+    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+    gap: 0.75rem;
   }
-  @media (min-width: 768px)  { .locations-panel__grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (min-width: 1024px) { .locations-panel__grid { grid-template-columns: repeat(4, 1fr); } }
-  @media (min-width: 1280px) { .locations-panel__grid { grid-template-columns: repeat(6, 1fr); } }
   .locations-panel__grid li { margin: 0; }
 
   .loc-tile {
@@ -607,7 +609,7 @@ const isCurrent = (href: string) =>
   .loc-tile__media {
     display: block;
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
     overflow: hidden;
     background: var(--color-cream);
   }
@@ -622,12 +624,12 @@ const isCurrent = (href: string) =>
   .loc-tile__body {
     display: flex;
     flex-direction: column;
-    padding: 0.625rem 0.875rem 0.75rem;
-    gap: 0.125rem;
+    padding: 0.5rem 0.75rem 0.625rem;
+    gap: 0.0625rem;
   }
   .loc-tile__label {
     font-family: var(--font-display);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.2;
     color: var(--color-ink);
@@ -635,9 +637,11 @@ const isCurrent = (href: string) =>
   }
   .loc-tile:hover .loc-tile__label { color: var(--color-gold-600); }
   .loc-tile__sub {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     color: var(--color-ink-mute);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   /* ─── Simple dropdown ────────────────────────────────────────── */

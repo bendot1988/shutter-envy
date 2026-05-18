@@ -47,7 +47,7 @@ productShowcase:
   products:
     - title: "Shutters"
       body: "Transform your home with our bespoke shutters, designed to perfectly fit your windows and elevate your interior. Whether you're looking for privacy, light control, or a touch of elegance, our high-quality shutters offer the ideal solution. Discover the difference today."
-      image: "/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg"
+      image: "/images/mark-shutter-envy-van.png"
       href: "/our-shutters/"
     - title: "Blinds"
       body: "At Shutter Envy Ltd, we offer a variety of high-quality blinds for every home, from simple Rollers to luxurious Romans. Consider our unique Dijon Fabric blinds, which combine the versatility of a vertical blind with the feel of curtains, or our innovative Aversa blind for total light control. Explore our motorisation section for added convenience."
@@ -55,7 +55,7 @@ productShowcase:
       href: "/our-blinds/"
     - title: "Awnings"
       body: "Extend your living space and enjoy the outdoors in comfort with our stylish and durable awnings. Perfect for shading patios, gardens, or balconies, our awnings provide the ideal blend of functionality and elegance. Protect your home from the elements while adding a touch of luxury."
-      image: "/wp-content/uploads/2024/10/106shots_so.jpeg"
+      image: "/images/awnings/puma.png"
       href: "/awnings/"
 processSteps:
   - title: "Schedule a Home Visit"
@@ -63,7 +63,7 @@ processSteps:
     image: "/wp-content/uploads/2024/10/106shots_so.jpeg"
   - title: "Personalised Home Visit"
     body: "Mark will bring along a range of samples and work closely with you to understand your vision. You'll receive expert advice and a no-obligation quote right there on the day."
-    image: "/wp-content/uploads/2024/09/dotwall-Web-Design2024-09-02-at-20.46.30-1024x775.jpg"
+    image: "/images/mark-shutter-envy-van.png"
   - title: "Manufacturing With Care"
     body: "Once you're happy and give us the green light, your custom shutters will begin production. We'll keep you updated every step of the way so you always know what's happening."
     image: "/wp-content/uploads/2024/09/5bc529c6-242f-4aab-8112-67d895fc7c43-1024x768.jpg"
@@ -156,7 +156,7 @@ midPageCta:
     href: "tel:+447729572277"
   tone: "gold"
 transformCTA:
-  image: "/wp-content/uploads/2024/11/shutter-envy.jpg"
+  image: "/wp-content/uploads/2026/04/ChatGPT-Image-Apr-23-2026-04_37_13-PM.jpeg"
   heading: "Transform Your Home Today with Shutter Envy"
   body: "Ready to elevate your living space with bespoke shutters? Our expert team is here to guide you every step of the way, from consultation to installation. Discover the perfect solution for your home with Shutter Envy. Click below to get started and schedule your free consultation."
   cta:

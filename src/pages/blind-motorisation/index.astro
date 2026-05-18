@@ -1,11 +1,16 @@
 ---
-import { getEntry, render } from 'astro:content';
-import PageLayout from '../../layouts/PageLayout.astro';
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeatureChecklist from '../../components/home/FeatureChecklist.astro';
+import MarqueeGallery from '../../components/MarqueeGallery.astro';
+import ProcessTimeline from '../../components/home/ProcessTimeline.astro';
+import ReviewsRow from '../../components/home/ReviewsRow.astro';
+import InlineCTA from '../../components/home/InlineCTA.astro';
+import ClearLineForm from '../../components/ClearLineForm.astro';
 import { faqPage, breadcrumbList } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'blind-motorisation');
 if (!entry) throw new Error('Missing pages/blind-motorisation content entry');
-const { Content } = await render(entry);
 
 const jsonLd: object[] = [
   breadcrumbList([
@@ -13,18 +18,684 @@ const jsonLd: object[] = [
     { name: 'Blind Motorisation', url: '/blind-motorisation/' },
   ]),
 ];
-if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
+if (entry.data.faqs?.length) jsonLd.push(faqPage(entry.data.faqs));
+
+const locationEntries = await getCollection('locations');
+const towns = locationEntries
+  .map((l) => {
+    const slug = l.id.replace(/\.md$/, '');
+    const town = slug
+      .replace(/^shutters-(in-)?/, '')
+      .split('-')
+      .map((w) => (w === 'upon' ? 'upon' : w.charAt(0).toUpperCase() + w.slice(1)))
+      .join(' ');
+    return { town, href: `/locations/${slug}/` };
+  })
+  .filter((t) => !/charnwood/i.test(t.town))
+  .sort((a, b) => a.town.localeCompare(b.town));
+
+const heroImage = '/wp-content/uploads/2025/07/motor-blinds.webp';
+const videoSrc = '/wp-content/uploads/2024/09/file.mp4';
+
+const marqueeImages = [
+  { src: '/wp-content/uploads/2025/07/motor-blinds.webp',                                                                        alt: 'Motorised blinds installed' },
+  { src: '/wp-content/uploads/2025/04/Galaxy-Honey-Comb-Blind-2.webp',                                                           alt: 'Galaxy honeycomb blind' },
+  { src: '/wp-content/uploads/2026/02/Black-Art-Vines-Blinds-Bedroom-Shutter-MV-shutters-blinds-Loughborough-Leicester.jpeg',     alt: 'Bedroom blinds in Loughborough' },
+  { src: '/wp-content/uploads/2026/04/Automotive-Blinds-in-Loughborough-ShutterEnvy.jpeg',                                       alt: 'Automotive-style blinds in Loughborough' },
+  { src: '/wp-content/uploads/2025/10/01-new-build-home-shutters-and-blinds-shutter-envy.jpeg',                                  alt: 'New-build home shutters and blinds' },
+  { src: '/wp-content/uploads/2025/10/03-new-build-home-shutters-and-blinds-shutter-envy.jpeg',                                  alt: 'New-build home shutters and blinds' },
+  { src: '/wp-content/uploads/2025/10/05-new-build-home-shutters-and-blinds-shutter-envy.jpeg',                                  alt: 'New-build home shutters and blinds' },
+  { src: '/wp-content/uploads/2025/11/Shutters-and-Blinds-in-Leicester-Shutter-Envy-Shutters-Bonfire-Night-et-cetera-Shutter-Envy.jpeg', alt: 'Shutters and blinds in Leicester' },
+];
+
+const intro = {
+  heading: 'Smart Blinds for Every Room',
+  paragraph:
+    "Shutter Envy supplies and fits motorised blinds for homes across Leicester, Loughborough, Melton Mowbray and surrounding Leicestershire areas. From a single rechargeable roller to a fully voice-controlled home, we specify, supply and commission the right system for every window — using Somfy motors and integrating with Alexa, Google Home, Apple HomeKit and Philips Hue.",
+};
+
+const features = [
+  { heading: 'Voice control with Amazon Alexa and Google Home', body: '' },
+  { heading: 'Apple HomeKit and Philips Hue integration', body: '' },
+  { heading: 'Somfy motors — industry-leading reliability', body: '' },
+  { heading: 'Rechargeable battery options — no rewiring required', body: '' },
+  { heading: 'App, remote and scheduled automation', body: '' },
+  { heading: 'Expert survey, supply and installation across Leicestershire', body: '' },
+];
+
+const partners = [
+  { src: '/wp-content/uploads/2024/09/1.png', alt: 'VELUX' },
+  { src: '/wp-content/uploads/2024/09/2.png', alt: 'Zigbee' },
+  { src: '/wp-content/uploads/2024/09/3.png', alt: 'SONOS' },
+  { src: '/wp-content/uploads/2024/09/4.png', alt: 'Somfy' },
+  { src: '/wp-content/uploads/2024/09/5.png', alt: 'Hitachi' },
+  { src: '/wp-content/uploads/2024/09/6.png', alt: 'Amazon Alexa' },
+  { src: '/wp-content/uploads/2024/09/7.png', alt: 'Philips Hue' },
+  { src: '/wp-content/uploads/2024/09/8.png', alt: 'Apple HomeKit' },
+  { src: '/wp-content/uploads/2024/09/9.png', alt: 'Danfoss' },
+  { src: '/wp-content/uploads/2024/09/Shutter-Envy-Logos.png', alt: 'Google Home' },
+];
+
+const reviews = [
+  { name: 'Liz Twitchell', rating: 5, date: '1 year ago', body: 'Top notch job by Mark and team yet again. From initial consultation to fitting — a totally professional, efficient and friendly experience.' },
+  { name: 'Wendy Harrison', rating: 5, date: '2 years ago', body: 'I would like to thank Mark & Co at Shutter Envy. Their service is excellent. From the minute I contacted them they were helpful and professional.' },
+  { name: 'Sandra Mould', rating: 5, date: '2 years ago', body: 'Fantastic service from Mark. First class product. Excellent results. Fast, efficient and perfect. So pleased.' },
+];
+
+const processSteps = [
+  { title: 'Schedule a Home Visit', body: "Book a time that suits you. We'll assess your windows and talk through motorisation options.", image: '/wp-content/uploads/2024/10/106shots_so.jpeg' },
+  { title: 'Personalised Home Visit', body: 'Mark brings samples, explains smart-home integration, and gives you a no-obligation quote on the day.', image: '/images/mark-shutter-envy-van.png' },
+  { title: 'Manufacturing With Care', body: 'Your custom blinds are made to order with the motor and control system specified for your home.', image: '/wp-content/uploads/2024/09/5bc529c6-242f-4aab-8112-67d895fc7c43-1024x768.jpg' },
+  { title: 'Professional Installation', body: 'Tidy installation, motor commissioning, remote pairing and app setup — all done on the day.', image: '/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.08.01.jpeg' },
+  { title: 'Enjoy Smart Blinds', body: 'Full handover with guidance on voice control, schedules and aftercare.', image: '/wp-content/uploads/2024/09/431555826_2629833587193609_4928996973115882659_n-300x169.jpg' },
+];
+
+const cta = entry.data.cta;
 ---
-<PageLayout
+
+<BaseLayout
   title={entry.data.title}
   description={entry.data.description}
-  h1={entry.data.h1}
-  hero={entry.data.hero}
-  gallery={entry.data.gallery}
-  faqs={entry.data.faqs}
-  cta={entry.data.cta}
   ogImage={entry.data.ogImage}
   jsonLd={jsonLd}
 >
-  <Content />
-</PageLayout>
+  <section class="bm-hero" style={`background-image: url('${heroImage}')`}>
+    <div class="bm-hero__overlay" />
+    <div class="bm-hero__inner" data-reveal>
+      <span class="bm-hero__eyebrow">Smart Home Blinds</span>
+      <h1>{entry.data.h1}</h1>
+      <p>Remote, app and voice-controlled blinds — measured, supplied and fitted by our family-run team across Leicestershire.</p>
+      <div class="bm-hero__actions">
+        <a href="/contact/" class="bm-hero__btn">
+          Arrange a Home Visit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="tel:+447729572277" class="bm-hero__btn bm-hero__btn--ghost">Call 07729 572277</a>
+      </div>
+    </div>
+  </section>
+
+  <MarqueeGallery images={marqueeImages} speed={55} tileWidth={340} />
+
+  <section class="bm-intro container" data-reveal>
+    <h2>{intro.heading}</h2>
+    <p>{intro.paragraph}</p>
+  </section>
+
+  <section class="bm-split container" data-reveal>
+    <div class="bm-split__copy">
+      <h2>We're Blind Motorisation Experts</h2>
+      <p>
+        Shutter Envy has a fully trained and highly skilled team of <strong>blind motorisation experts</strong>, for any kind of automation package you desire. Whether that is remote controlled roller blinds, two directional top down bottom up honeycomb pleated blinds or high end voice activated full house blinds installation, we can arrange a full service to delight you.
+      </p>
+      <p>Future-proof your blinds and home automation with many of our home systems.</p>
+      <p>
+        Be the Envy of your friends and neighbours, and <a href="/contact/">call Shutter Envy for your free consultation</a>.
+      </p>
+    </div>
+    <div class="bm-split__media">
+      <video
+        class="bm-video"
+        src={videoSrc}
+        controls
+        playsinline
+        preload="metadata"
+        poster={heroImage}
+      >
+        <track kind="captions" />
+        Your browser does not support embedded video. <a href={videoSrc}>Download the video</a>.
+      </video>
+    </div>
+  </section>
+
+  <FeatureChecklist
+    heading="Smart Control, Professionally Fitted"
+    body="From a single rechargeable roller to whole-home automation — we specify, supply and commission the right system for your windows."
+    items={features}
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    backgroundImage={heroImage}
+  />
+
+  <section class="bm-partners" data-reveal>
+    <div class="bm-partners__inner container">
+      <header>
+        <span class="bm-eyebrow">Compatible Systems</span>
+        <h2>Works With Leading Smart Home Brands</h2>
+        <p>We integrate with the platforms and motor systems you already use — for seamless control from your phone, remote or voice assistant.</p>
+      </header>
+      <ul class="bm-partners__grid" data-reveal-children>
+        {partners.map((p) => (
+          <li>
+            <figure class="bm-partner-card">
+              <img src={p.src} alt={p.alt} loading="lazy" width="500" height="500" />
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {cta && (
+    <section class="bm-form" data-reveal>
+      <div class="bm-form__grid container">
+        <div class="bm-form__copy" data-reveal="left">
+          <span class="bm-eyebrow">Get Started</span>
+          <h2>{cta.heading}</h2>
+          {cta.body && <p>{cta.body}</p>}
+          <ul class="bm-form__points">
+            <li>★ Free home survey, no obligation</li>
+            <li>★ Motor and smart-home advice on the day</li>
+            <li>★ Quote provided at your visit</li>
+          </ul>
+        </div>
+        <div class="bm-form__panel" data-reveal="right">
+          <div class="bm-form__head">
+            <p class="bm-form__head-eyebrow">★ Free home survey</p>
+            <h3>Get Your Free Quote in 60 Seconds</h3>
+            <p class="bm-form__head-note">Fill in the form below to get started.</p>
+          </div>
+          <ClearLineForm showIntro={false} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="bm-locations" data-reveal>
+    <div class="bm-locations__overlay"></div>
+    <div class="bm-locations__inner container">
+      <header>
+        <span class="bm-locations__eyebrow">Coverage</span>
+        <h2>Motorised Blind Fitting Areas</h2>
+        <p>We fit motorised blinds across Leicester, Loughborough, Melton Mowbray, Market Harborough and nearby villages. Click your town for local&nbsp;installation.</p>
+      </header>
+      <ul class="bm-locations__grid" data-reveal-children>
+        {towns.map((t) => (
+          <li>
+            <a href={t.href} class="bm-location-card">
+              <span class="bm-location-card__label">Motorised blinds in</span>
+              <span class="bm-location-card__town">{t.town}</span>
+              <span class="bm-location-card__cta">
+                View area
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="bm-locations__foot">
+        Don't see your town? <a href="/contact/">Get in touch</a> — we cover most of Leicestershire.
+      </p>
+    </div>
+  </section>
+
+  <ProcessTimeline steps={processSteps} />
+
+  <ReviewsRow
+    heading="What Our Customers Say"
+    rating="5.0"
+    totalReviews="25"
+    source="Google"
+    link="https://www.google.com/search?q=shutter+envy#lrd=0x4879dfa0c6f26fb7:0xc6da05bdf5856b2c,1"
+    reviews={reviews}
+  />
+
+  <InlineCTA
+    eyebrow="Ready to Go Smart?"
+    heading="Book Your Free Motorisation Survey"
+    body="Mark visits your home, talks through control options — remote, app or voice — and gives you a no-obligation quote on the day."
+    cta={{ label: 'Arrange a Home Visit', href: '/contact/' }}
+    secondaryCta={{ label: 'Call 07729 572277', href: 'tel:+447729572277' }}
+    tone="gold"
+  />
+</BaseLayout>
+
+<style>
+  .bm-eyebrow {
+    display: inline-block;
+    background: rgba(199, 154, 8, 0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+
+  .bm-hero {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 5rem 1.25rem 5.5rem;
+    background-color: var(--color-cream);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .bm-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(249, 248, 244, 0.86) 0%, rgba(249, 248, 244, 0.94) 100%);
+  }
+  .bm-hero__inner { position: relative; max-width: 48rem; margin: 0 auto; }
+  .bm-hero__eyebrow {
+    display: inline-block;
+    background: rgba(199, 154, 8, 0.12);
+    color: var(--color-gold-600);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .bm-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+  }
+  .bm-hero p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0 auto 2rem;
+    max-width: 36rem;
+  }
+  .bm-hero__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .bm-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.875rem;
+    background: linear-gradient(180deg, var(--color-gold-400), var(--color-gold-600));
+    color: #fff;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    box-shadow: 0 12px 32px -8px rgba(199, 154, 8, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 200ms, filter 200ms;
+  }
+  .bm-hero__btn:hover { transform: translateY(-2px); filter: brightness(1.08); color: #fff; }
+  .bm-hero__btn svg { transition: transform 200ms; }
+  .bm-hero__btn:hover svg { transform: translateX(3px); }
+  .bm-hero__btn--ghost {
+    background: #fff;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-sm);
+  }
+  .bm-hero__btn--ghost:hover {
+    background: var(--color-cream);
+    border-color: var(--color-gold-400);
+    color: var(--color-gold-600);
+  }
+
+  .bm-intro {
+    max-width: 48rem;
+    padding: 4rem 1.25rem 1rem;
+    text-align: center;
+  }
+  .bm-intro h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+  }
+  .bm-intro p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 40rem;
+    text-wrap: pretty;
+  }
+
+  .bm-split {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem 1.25rem 4.5rem;
+    max-width: 72rem;
+  }
+  @media (min-width: 900px) {
+    .bm-split { grid-template-columns: 1fr 1fr; gap: 3.5rem; padding-top: 2.5rem; }
+  }
+  .bm-split__copy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+    color: var(--color-ink);
+  }
+  .bm-split__copy p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.65;
+    margin: 0 0 1rem;
+  }
+  .bm-split__copy p:last-child { margin-bottom: 0; }
+  .bm-split__copy a {
+    color: var(--color-gold-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .bm-split__copy a:hover { color: var(--color-gold-400); }
+  .bm-split__media {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-line);
+    background: #000;
+  }
+  .bm-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+
+  .bm-partners {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, #fff 0%, var(--color-cream) 100%);
+  }
+  .bm-partners header {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 2.5rem;
+  }
+  .bm-partners h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+  .bm-partners header p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .bm-partners__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+  }
+  @media (min-width: 520px) { .bm-partners__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 768px) { .bm-partners__grid { grid-template-columns: repeat(5, 1fr); gap: 0.625rem; } }
+  .bm-partners__grid li { margin: 0; }
+  .bm-partner-card {
+    margin: 0;
+    aspect-ratio: 1;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms, border-color 220ms;
+  }
+  .bm-partner-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold-400);
+  }
+  .bm-partner-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .bm-form {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .bm-form__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 72rem;
+  }
+  @media (min-width: 900px) {
+    .bm-form__grid { grid-template-columns: 1fr 1.1fr; gap: 3.5rem; }
+  }
+  .bm-form__copy h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+  .bm-form__copy > p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+  }
+  .bm-form__points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+  }
+  .bm-form__panel {
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-md);
+  }
+  .bm-form__head h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+  }
+  .bm-form__head-eyebrow {
+    color: var(--color-gold-600);
+    font-size: var(--text-link-12-700);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+  }
+  .bm-form__head-note {
+    color: var(--color-ink-mute);
+    font-size: var(--text-small-body-15-400);
+    margin: 0 0 1.25rem;
+  }
+  .bm-form__panel :global(.clearline-embed) {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+  }
+  .bm-form__panel :global(.clearline-embed iframe) {
+    min-height: 520px;
+  }
+
+  .bm-locations {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    padding: 6rem 1.25rem 5.5rem;
+    background-color: #0c0c0c;
+    background-image: url('/wp-content/uploads/2025/07/motor-blinds.webp');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  .bm-locations__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 12, 12, 0.88) 0%, rgba(12, 12, 12, 0.94) 100%);
+  }
+  .bm-locations__inner { position: relative; max-width: 72rem; margin: 0 auto; }
+  .bm-locations header { text-align: center; max-width: 44rem; margin: 0 auto 3rem; }
+  .bm-locations__eyebrow {
+    display: inline-block;
+    background: rgba(199, 154, 8, 0.2);
+    color: var(--color-gold-400);
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .bm-locations h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.25vw, var(--text-h2-60-500));
+    font-weight: 500;
+    line-height: 1.075;
+    letter-spacing: -0.027em;
+    margin: 0 0 1rem;
+    color: #fff;
+    text-wrap: nowrap;
+  }
+  @media (max-width: 480px) {
+    .bm-locations h2 {
+      font-size: clamp(1.35rem, 6vw, 1.75rem);
+      text-wrap: balance;
+      white-space: normal;
+    }
+  }
+  .bm-locations header p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .bm-locations__grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 520px)  { .bm-locations__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 768px)  { .bm-locations__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .bm-locations__grid { grid-template-columns: repeat(4, 1fr); } }
+  .bm-locations__grid li { margin: 0; }
+
+  .bm-location-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    min-height: 11rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    overflow: hidden;
+    transition:
+      transform 320ms cubic-bezier(0.16,1,0.3,1),
+      background 320ms,
+      border-color 320ms,
+      box-shadow 320ms;
+    backdrop-filter: blur(4px);
+  }
+  .bm-location-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-gold-400), var(--color-gold-600));
+    opacity: 0;
+    transition: opacity 320ms;
+  }
+  .bm-location-card:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(180deg, rgba(199,154,8,0.18) 0%, rgba(199,154,8,0.06) 100%);
+    border-color: rgba(199,154,8,0.55);
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,0.6), 0 0 0 1px rgba(199,154,8,0.15);
+    color: #fff;
+  }
+  .bm-location-card:hover::before { opacity: 1; }
+
+  .bm-location-card__label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold-400);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .bm-location-card__town {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2vw, 1.625rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-top: 0.125rem;
+    text-wrap: balance;
+  }
+  .bm-location-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    transition: color 240ms;
+  }
+  .bm-location-card__cta svg { transition: transform 240ms; }
+  .bm-location-card:hover .bm-location-card__cta { color: var(--color-gold-400); }
+  .bm-location-card:hover .bm-location-card__cta svg { transform: translateX(4px); }
+  .bm-locations__foot {
+    text-align: center;
+    margin: 2.5rem 0 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-body-16-400);
+  }
+  .bm-locations__foot a {
+    color: var(--color-gold-400);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .bm-locations__foot a:hover { color: #fff; }
+</style>
