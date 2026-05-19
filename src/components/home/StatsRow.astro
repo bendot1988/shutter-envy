@@ -1,15 +1,14 @@
 ---
 interface Stat {
-  value: string;          // e.g. "600+" or "25" — we parse out the number and any prefix/suffix
+  value: string;
   label: string;
-  emoji?: string;         // optional emoji override; otherwise we infer from position
+  image?: string;
 }
 interface Props {
   items: Stat[];
 }
 const { items } = Astro.props;
 
-// Parse "600+" → { prefix: "", number: 600, suffix: "+" }
 function parseStat(value: string) {
   const match = value.match(/^([^\d.]*)(\d+(?:\.\d+)?)(.*)$/);
   if (!match) return { prefix: '', number: 0, suffix: value };
@@ -20,25 +19,33 @@ function parseStat(value: string) {
   };
 }
 
-// Default emojis if none are provided in content — match the live brand vibe
-const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
+const defaultImages = [
+  '/wp-content/uploads/2026/05/01-shutter-envy.jpeg',
+  '/wp-content/uploads/2026/04/Bay-window-shutters-in-Loughborough.jpeg',
+  '/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.05.55.jpeg',
+];
 ---
 {items.length > 0 && (
-  <section class="stats-row container">
+  <section class="stats-row container" aria-label="Company highlights">
     <ul>
       {items.map((s, i) => {
         const parsed = parseStat(s.value);
-        const emoji = s.emoji ?? defaultEmojis[i % defaultEmojis.length];
+        const bg = s.image ?? defaultImages[i % defaultImages.length];
         return (
-          <li class="stats-row__card" style={`--i: ${i};`}>
-            <div class="stats-row__emoji" aria-hidden="true">{emoji}</div>
-            <p
-              class="stats-row__value"
-              data-count-target={parsed.number}
-              data-count-prefix={parsed.prefix}
-              data-count-suffix={parsed.suffix}
-            >{parsed.prefix}0{parsed.suffix}</p>
-            <p class="stats-row__label">{s.label}</p>
+          <li
+            class="stats-row__card"
+            style={`--i: ${i}; --stat-bg: url("${bg}");`}
+          >
+            <div class="stats-row__overlay" aria-hidden="true"></div>
+            <div class="stats-row__content">
+              <p
+                class="stats-row__value"
+                data-count-target={parsed.number}
+                data-count-prefix={parsed.prefix}
+                data-count-suffix={parsed.suffix}
+              >{parsed.prefix}0{parsed.suffix}</p>
+              <p class="stats-row__label">{s.label}</p>
+            </div>
           </li>
         );
       })}
@@ -47,8 +54,6 @@ const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
 )}
 
 <script>
-  // Count-up on scroll-into-view. Uses IntersectionObserver + rAF.
-  // Each value element has data-count-target plus optional prefix/suffix.
   const els = document.querySelectorAll<HTMLElement>('.stats-row__value[data-count-target]');
   if (els.length) {
     const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -81,10 +86,9 @@ const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.4 });
       els.forEach((el) => io.observe(el));
     } else {
-      // Reduced motion / no IO support: just write the final value
       els.forEach((el) => {
         const target = parseFloat(el.dataset.countTarget ?? '0');
         const prefix = el.dataset.countPrefix ?? '';
@@ -114,25 +118,24 @@ const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
     .stats-row ul { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   }
 
-  /* ─── Gold inverted cards ──────────────────────────────────── */
   .stats-row__card {
     position: relative;
-    background: linear-gradient(135deg, var(--color-gold-400) 0%, var(--color-gold-600) 100%);
-    color: #fff;
+    min-height: 220px;
     border-radius: var(--radius-lg);
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow-md);
-    margin: 0;
     overflow: hidden;
-    transition: transform 250ms cubic-bezier(0.16,1,0.3,1),
-                box-shadow 250ms cubic-bezier(0.16,1,0.3,1);
+    box-shadow: var(--shadow-md);
+    background-color: var(--color-charcoal-900);
+    background-image: var(--stat-bg);
+    background-size: cover;
+    background-position: center;
+    transition:
+      transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* Subtle staggered fade-up on intro */
     opacity: 0;
-    transform: translateY(12px);
-    animation: stat-card-in 700ms cubic-bezier(0.16,1,0.3,1) forwards;
-    animation-delay: calc(var(--i, 0) * 0.12s);
+    transform: translateY(16px);
+    animation: stat-card-in 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 0.1s);
   }
   @keyframes stat-card-in {
     to { opacity: 1; transform: translateY(0); }
@@ -141,31 +144,43 @@ const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
     .stats-row__card { animation: none; opacity: 1; transform: none; }
   }
 
-  /* Soft inner highlight to give the gold some life */
-  .stats-row__card::before {
-    content: "";
+  .stats-row__card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg), 0 28px 56px -28px rgba(0, 0, 0, 0.35);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stats-row__card:hover { transform: none; }
+  }
+
+  .stats-row__overlay {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(circle at 30% 0%, rgba(255,255,255,0.18), transparent 50%),
-      radial-gradient(circle at 80% 100%, rgba(0,0,0,0.12), transparent 50%);
+    background: linear-gradient(
+      180deg,
+      rgba(20, 18, 16, 0.45) 0%,
+      rgba(20, 18, 16, 0.72) 100%
+    );
+    transition: background 400ms ease;
     pointer-events: none;
   }
-  .stats-row__card > * { position: relative; }
-
-  .stats-row__card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      var(--shadow-lg),
-      0 24px 48px -24px rgba(199,154,8,0.55);
+  .stats-row__card:hover .stats-row__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(20, 18, 16, 0.38) 0%,
+      rgba(20, 18, 16, 0.65) 100%
+    );
   }
 
-  .stats-row__emoji {
-    font-size: 2.25rem;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-    /* keep emoji sharp on dark backgrounds */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  .stats-row__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
   }
 
   .stats-row__value {
@@ -176,17 +191,17 @@ const defaultEmojis = ['👥', '⭐', '📅', '🏆', '💛', '🛠️'];
     letter-spacing: -0.027em;
     color: #fff;
     margin: 0;
-    /* Reserve space so the layout doesn't jump as the number counts */
     font-variant-numeric: tabular-nums;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
   .stats-row__label {
     font-family: var(--font-sans);
     font-size: var(--text-small-body-15-400);
     line-height: 1.4;
-    color: rgba(255,255,255,0.92);
+    color: rgba(255, 255, 255, 0.92);
     margin: 0.625rem 0 0;
     font-weight: 500;
     letter-spacing: 0.01em;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
   }
 </style>

@@ -88,6 +88,7 @@ export const primaryNav: NavItem[] = [
         items: [
           { label: 'Our Blinds', href: '/our-blinds/', description: 'Roller, Venetian, Roman & more' },
           { label: 'Motorised Blinds', href: '/blind-motorisation/', description: 'Smart, automated control' },
+          { label: 'BlindScreen®', href: '/blindscreen/', description: 'Blackout & fly screens for bifolds' },
         ],
       },
       {
@@ -155,6 +156,7 @@ export const footerNav = {
     { label: 'Bobcat Awnings', href: '/awnings/' },
   ],
   blinds: [
+    { label: 'BlindScreen®', href: '/blindscreen/' },
     { label: 'Smart automatic Blinds', href: '/blind-motorisation/' },
     { label: 'Roller Blinds', href: '/our-blinds/' },
     { label: 'Venetian Blinds', href: '/our-blinds/' },

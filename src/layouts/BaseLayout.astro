@@ -20,6 +20,8 @@ interface Props {
   isHome?: boolean;
   // Optional gold announcement strip above the header. Set to a string to render.
   announcement?: string;
+  // Product/marketing pages manage their own width per section — skip main.container.
+  fullWidthMain?: boolean;
   // Per-page opt-in to noindex (e.g. 404). Combined with the site-wide
   // PUBLIC_NOINDEX env switch — either being true disables indexing.
   noindex?: boolean;
@@ -34,6 +36,7 @@ const {
   includeLocalBusiness = true,
   isHome = false,
   announcement,
+  fullWidthMain = false,
   noindex = false,
 } = Astro.props;
 
@@ -76,7 +79,7 @@ const allJsonLd: object[] = [
   <body>
     {announcement && <AnnouncementBar message={announcement} />}
     <Header />
-    <main class={isHome ? '' : 'container'}>
+    <main class={isHome || fullWidthMain ? '' : 'container'}>
       <slot />
     </main>
     <Footer />

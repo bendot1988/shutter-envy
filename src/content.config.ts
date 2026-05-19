@@ -60,7 +60,7 @@ const pages = defineCollection({
         z.object({
           value: z.string(),
           label: z.string(),
-          emoji: z.string().optional(),
+          image: z.string().optional(),
         }),
       )
       .default([]),

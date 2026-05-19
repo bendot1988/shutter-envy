@@ -34,9 +34,15 @@ featureChecklist:
     label: "Arrange a Home Visit"
     href: "/contact/"
 stats:
-  - { value: "600+", label: "Happy Customers",               emoji: "👥" }
-  - { value: "25",   label: "5-Star Reviews",                emoji: "⭐" }
-  - { value: "15",   label: "Years in the Shutter Industry", emoji: "📅" }
+  - value: "778+"
+    label: "Happy Customers"
+    image: "/wp-content/uploads/2026/05/01-shutter-envy.jpeg"
+  - value: "50+"
+    label: "5-Star Reviews"
+    image: "/wp-content/uploads/2026/04/Bay-window-shutters-in-Loughborough.jpeg"
+  - value: "15"
+    label: "Years in the Shutter Industry"
+    image: "/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.05.55.jpeg"
 productShowcase:
   heading: "Blinds, Shutters and Awnings"
   body: "We provide a wide range of blinds, shutters, and awnings to suit any style and need. Whether you're looking for something modern and sleek or classic and timeless, our collection includes options that will enhance the beauty and functionality of your space. Our products are designed with both aesthetics and practicality in mind, ensuring that you get the best of both worlds."
@@ -47,11 +53,11 @@ productShowcase:
   products:
     - title: "Shutters"
       body: "Transform your home with our bespoke shutters, designed to perfectly fit your windows and elevate your interior. Whether you're looking for privacy, light control, or a touch of elegance, our high-quality shutters offer the ideal solution. Discover the difference today."
-      image: "/images/mark-shutter-envy-van.png"
+      image: "/wp-content/uploads/2026/04/Bay-window-shutters-in-Loughborough.jpeg"
       href: "/our-shutters/"
     - title: "Blinds"
       body: "At Shutter Envy Ltd, we offer a variety of high-quality blinds for every home, from simple Rollers to luxurious Romans. Consider our unique Dijon Fabric blinds, which combine the versatility of a vertical blind with the feel of curtains, or our innovative Aversa blind for total light control. Explore our motorisation section for added convenience."
-      image: "/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.08.01.jpeg"
+      image: "/images/blinds/roller.png"
       href: "/our-blinds/"
     - title: "Awnings"
       body: "Extend your living space and enjoy the outdoors in comfort with our stylish and durable awnings. Perfect for shading patios, gardens, or balconies, our awnings provide the ideal blend of functionality and elegance. Protect your home from the elements while adding a touch of luxury."
