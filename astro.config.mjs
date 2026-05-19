@@ -25,9 +25,13 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Mirror what WordPress serves: include every page, every location,
-      // every blog post. Pagination pages (/news/page/N/) are excluded —
-      // they're crawl entry points, not indexable destinations.
-      filter: (page) => !/\/news\/page\/\d+\/?$/.test(page),
+      // every blog post. Excluded:
+      // - /news/page/N/ — paginated crawl entry points, not destinations
+      //   (kept off live in case we resurrect pagination)
+      // - /brand/ — internal design-system reference, also carries a
+      //   `noindex` meta on the page itself
+      filter: (page) =>
+        !/\/news\/page\/\d+\/?$/.test(page) && !/\/brand\/?$/.test(page),
     }),
   ],
 });

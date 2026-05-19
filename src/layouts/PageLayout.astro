@@ -3,7 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Gallery from '../components/Gallery.astro';
 import FAQ from '../components/FAQ.astro';
-import CTA from '../components/CTA.astro';
+import InlineCTA from '../components/home/InlineCTA.astro';
+import { business } from '../data/site';
 
 interface Props {
   title: string;
@@ -65,12 +66,18 @@ const {
 
     {faqs.length > 0 && <FAQ items={faqs} />}
 
-    {cta && (
-      <div class="page-cta-wrap" data-reveal>
-        <CTA {...cta} />
-      </div>
-    )}
   </article>
+
+  {cta && (
+    <InlineCTA
+      eyebrow="Ready to Book?"
+      heading={cta.heading}
+      body={cta.body}
+      cta={cta.button}
+      secondaryCta={{ label: `Call ${business.phoneDisplay}`, href: `tel:${business.phoneTel}` }}
+      tone="gold"
+    />
+  )}
 </BaseLayout>
 
 <style>

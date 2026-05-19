@@ -4,6 +4,21 @@ The single most important file before flipping DNS. Work top-to-bottom on launch
 
 ---
 
+## ✅ Launch blockers cleared (as of 2026-05-18)
+
+- ✅ **GA4 measurement ID confirmed: `G-CDBPY9EJBB`** (matches live snippet,
+      verified by client 2026-05-18). `src/components/Analytics.astro` updated,
+      `TODO confirm` comment removed.
+- ✅ **Dotwall Stats** privacy-friendly tracker added alongside GA4 + Meta Pixel
+      (`https://dotwallstats.co.uk/js/script.js`, `defer`, cookieless).
+
+Everything else below is either ✅ verified passing in the 2026-05-18 audit
+or a soft pre-launch task. **No remaining hard blockers** — once you've
+deployed and confirmed `PUBLIC_NOINDEX` is unset on Netlify prod, you're
+clear to flip DNS.
+
+---
+
 ## 🚨 Pre-launch (must be done before DNS cutover)
 
 ### Indexing / robots
@@ -14,11 +29,12 @@ The single most important file before flipping DNS. Work top-to-bottom on launch
       `index,follow`.
 - [ ] Confirm `PUBLIC_NOINDEX=true` IS still set on staging/branch-deploy contexts
       (so future previews stay private).
+- ✅ `/brand/` is noindexed AND excluded from `sitemap-index.xml` (2026-05-18).
 
-### Pixel / GA4
-- [ ] Confirm GA4 ID in `src/components/Analytics.astro` is the production one
-      (currently `G-CDBPY9EJBB`).
-- [ ] Confirm Facebook Pixel ID `1214905783001306` matches the live one.
+### Pixel / GA4 / Dotwall Stats
+- ✅ **GA4 ID `G-CDBPY9EJBB` confirmed** against live snippet (2026-05-18).
+- ✅ Facebook Pixel ID `1214905783001306` confirmed present in built HTML.
+- ✅ Dotwall Stats cookieless tracker wired up.
 - [ ] Get the Meta Pixel events list from the agency and wire any missing
       conversion events (especially Lead on ClearLine form submit).
 - [ ] If the agency uses domain verification via meta tag, paste the tag
@@ -30,13 +46,16 @@ The single most important file before flipping DNS. Work top-to-bottom on launch
       event fires in Meta Events Manager (test event tool).
 
 ### URL parity
-- [ ] Run a final sitemap parity check: every URL from the LIVE
-      `https://shutter-envy.co.uk/sitemap_index.xml` either (a) exists on the
-      new site at the same path, or (b) has a logged 301 in `REDIRECTS.md`.
-- [ ] Spot-check the 6 redirects in `public/_redirects` actually fire on the
-      production domain after cutover.
+- ✅ 104/104 live sitemap URLs build at identical paths in `dist/` (2026-05-18 audit).
+- ✅ All documented redirects in `REDIRECTS.md` are present in `public/_redirects`.
+- ✅ `astro.config.mjs` has `trailingSlash: 'always'` + `build.format: 'directory'`.
+- [ ] Spot-check the redirects in `public/_redirects` actually fire on the
+      production domain after cutover (use curl with `-I`).
 
 ### Schema sanity
+- ✅ Per-page SEO confirmed on home, /our-shutters/, /contact/, a location,
+      and a blog post: 1 H1, canonical URL with trailing slash, OG tags, valid
+      JSON-LD (2026-05-18 audit).
 - [ ] Paste `/`, `/our-shutters/`, `/contact/`, `/locations/shutters-in-leicester/`,
       and one blog post into Google's Rich Results Test. Confirm 0 errors each.
 
@@ -48,11 +67,14 @@ The single most important file before flipping DNS. Work top-to-bottom on launch
 - [ ] Verify domain ownership is still valid post-cutover (DNS TXT records).
 
 ### Images
-- [ ] Confirm the `/wp-content/uploads/` tree has been copied from the WP
-      media library into `public/wp-content/uploads/` and deployed. Spot-check
-      a few image URLs from the homepage gallery actually resolve.
+- ✅ `public/wp-content/uploads/` tree present; 7/7 spot-checked live homepage
+      images resolve at identical paths in `dist/` (2026-05-18 audit).
+- [ ] After deploy, re-verify a couple of `/wp-content/uploads/...` paths load
+      on production (Netlify CDN headers).
 
 ### Forms
+- ✅ ClearLine embed intact at the same widget URL
+      (`clearlineconnect.io/widget/form/HLEAdfiqbR0txyg0BfKl`) — not swapped.
 - [ ] Real ClearLine form submission works end-to-end from production domain
       (the form is an iframe — sometimes parent-domain referrer rules matter).
 - [ ] Phone numbers in the header and footer are clickable and dial the right

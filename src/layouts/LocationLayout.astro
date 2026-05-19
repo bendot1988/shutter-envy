@@ -5,8 +5,9 @@ import Gallery from '../components/Gallery.astro';
 import ServiceBlurbs from '../components/ServiceBlurbs.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import FAQ from '../components/FAQ.astro';
-import CTA from '../components/CTA.astro';
+import InlineCTA from '../components/home/InlineCTA.astro';
 import ClearLineForm from '../components/ClearLineForm.astro';
+import { business } from '../data/site';
 
 interface Props {
   title: string;
@@ -75,6 +76,16 @@ const {
       <ClearLineForm />
     </section>
 
-    {cta && <CTA {...cta} />}
   </article>
+
+  {cta && (
+    <InlineCTA
+      eyebrow="Ready to Book?"
+      heading={cta.heading}
+      body={cta.body}
+      cta={cta.button}
+      secondaryCta={{ label: `Call ${business.phoneDisplay}`, href: `tel:${business.phoneTel}` }}
+      tone="gold"
+    />
+  )}
 </BaseLayout>

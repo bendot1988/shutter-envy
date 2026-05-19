@@ -1,9 +1,12 @@
 ---
-// GA4 + Facebook Pixel. CLAUDE.md §6: must be carried over verbatim.
-// GA4 measurement ID: TODO confirm from live site before launch.
+// GA4 + Meta Pixel + Dotwall Stats. CLAUDE.md §6: must be carried over verbatim.
+// GA4 measurement ID confirmed against the live site (2026-05-18).
 const GA4_ID = 'G-CDBPY9EJBB';
 const FB_PIXEL_ID = '1214905783001306';
 ---
+<!-- Dotwall Stats (privacy-friendly, cookieless) -->
+<script defer data-domain="shutter-envy.co.uk" src="https://dotwallstats.co.uk/js/script.js"></script>
+
 <!-- Google Analytics 4 -->
 <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
 <script is:inline define:vars={{ GA4_ID }}>
