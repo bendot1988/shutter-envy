@@ -55,6 +55,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'plantation-shutters-in-loughborough-why-local-homeowners-are-choosing-shutter-envy': 'guides',
   'shutters-blinds-north-leicestershire': 'guides',
   'shutters-in-leicester-prices-timelines-quote-checklist': 'guides',
+  'sash-window-shutters-a-practical-guide-for-period-homes': 'guides',
   'shutters-vs-blackout-blinds-for-noise-which-is-best-for-your-sleep': 'guides',
   'shutters-vs-curtains-which-is-right-for-your-home': 'guides',
   'the-complete-uk-guide-to-plantation-shutters': 'guides',
