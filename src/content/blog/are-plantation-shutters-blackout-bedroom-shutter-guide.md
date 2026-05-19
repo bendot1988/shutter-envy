@@ -8,6 +8,15 @@ heroImage: "/images/blog/plantation-shutters-blackout-bedroom-featured.png"
 heroImageAlt: "Bedroom with white plantation shutters closed for room-darkening light control"
 excerpt: "Plantation shutters are excellent for privacy and light control, but are they fully blackout? Here is the honest answer for bedrooms, nurseries and street-facing rooms."
 author: "Shutter Envy"
+faqs:
+  - question: "Do plantation shutters make a bedroom dark?"
+    answer: "Yes, plantation shutters can make a bedroom much darker, especially with full-height panels and closed louvres. They are best described as room-darkening rather than fully blackout."
+  - question: "Can you get blackout plantation shutters?"
+    answer: "Some systems can be paired with blackout blinds or additional layers, but standard plantation shutters are not usually 100% blackout by themselves."
+  - question: "Are shutters better than curtains for bedroom privacy?"
+    answer: "For privacy and daytime control, shutters are often better than curtains because you can angle the louvres without exposing the whole room. Curtains can still be useful for softness and extra darkness at night."
+  - question: "What is the best window covering for complete blackout?"
+    answer: "A dedicated blackout blind or lined blackout curtains usually offer the strongest darkness. For many bedrooms, shutters plus a blackout layer gives the best balance of privacy, style and sleep comfort."
 ---
 If you are choosing shutters for a bedroom, nursery or street-facing room, one question matters more than most: are plantation shutters blackout?
 
@@ -118,24 +127,6 @@ During a home survey, the fitter should check:
 - how the shutters will open
 
 This is one reason we do not recommend guessing from online measurements for bedroom shutters. Small errors can leave visible gaps, poor alignment or awkward operation. Our guide on [why measuring yourself can be a costly mistake](/why-measuring-yourself-can-be-a-costly-mistake/) explains this in more detail.
-
-## Frequently Asked Questions
-
-### Do plantation shutters make a bedroom dark?
-
-Yes, plantation shutters can make a bedroom much darker, especially with full-height panels and closed louvres. They are best described as room-darkening rather than fully blackout.
-
-### Can you get blackout plantation shutters?
-
-Some systems can be paired with blackout blinds or additional layers, but standard plantation shutters are not usually 100% blackout by themselves.
-
-### Are shutters better than curtains for bedroom privacy?
-
-For privacy and daytime control, shutters are often better than curtains because you can angle the louvres without exposing the whole room. Curtains can still be useful for softness and extra darkness at night.
-
-### What is the best window covering for complete blackout?
-
-A dedicated blackout blind or lined blackout curtains usually offer the strongest darkness. For many bedrooms, shutters plus a blackout layer gives the best balance of privacy, style and sleep comfort.
 
 ## Thinking about bedroom shutters?
 

@@ -218,6 +218,7 @@ const blog = defineCollection({
     heroImageAlt: z.string().optional(),
     excerpt: z.string().optional(),
     author: z.string().default('Shutter Envy'),
+    faqs,
   }),
 });
 

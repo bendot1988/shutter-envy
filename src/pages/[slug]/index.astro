@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { blogPosting, breadcrumbList } from '../../lib/schema';
+import FAQ from '../../components/FAQ.astro';
+import { blogPosting, breadcrumbList, faqPage } from '../../lib/schema';
 
 // Root-level blog posts (CLAUDE.md §2): /<slug>/, NOT /blog/<slug>/.
 // Static .astro routes (e.g. /our-shutters/, /about/) take precedence over this
@@ -44,6 +45,7 @@ const jsonLd = [
     { name: post.data.h1 ?? post.data.title, url: `/${post.id}/` },
   ]),
 ];
+if (post.data.faqs.length) jsonLd.push(faqPage(post.data.faqs));
 ---
 <ArticleLayout
   title={post.data.title}
@@ -58,4 +60,18 @@ const jsonLd = [
   showHeroAtEnd={showHeroAtEnd}
 >
   <Content />
+  {post.data.faqs.length > 0 && (
+    <FAQ
+      items={post.data.faqs}
+      id="post-faqs"
+      heading="Frequently Asked Questions"
+      layout="stacked"
+      className="post-faq"
+      closingCta={{
+        prompt: 'Need advice for your own bedroom windows?',
+        label: 'Arrange a home visit',
+        href: '/contact/',
+      }}
+    />
+  )}
 </ArticleLayout>
