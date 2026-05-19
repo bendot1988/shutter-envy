@@ -410,6 +410,15 @@ const moreNews = allPosts
     margin: 2rem 0;
     box-shadow: var(--shadow-md);
   }
+  .post-body :global(img[src*="s.w.org/images/core/emoji"]) {
+    width: 1em;
+    height: 1em;
+    display: inline;
+    margin: 0 0.1em;
+    border-radius: 0;
+    box-shadow: none;
+    vertical-align: -0.1em;
+  }
   .post-body :global(hr) {
     border: 0;
     height: 1px;

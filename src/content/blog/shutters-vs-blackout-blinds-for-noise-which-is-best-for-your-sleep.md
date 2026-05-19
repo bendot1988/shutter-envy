@@ -18,13 +18,13 @@ While blackout blinds are fantastic for light control, shutters are the heavywei
 
 - Dense Materials 
 
-  Most shutters are crafted from solid hardwood or high-quality composites. These materials are much denser than the fabric used in blinds. This density allows them to absorb and reflect sound waves rather than letting them vibrate through.
+Most shutters are crafted from solid hardwood or high-quality composites. These materials are much denser than the fabric used in blinds. This density allows them to absorb and reflect sound waves rather than letting them vibrate through.
 - The Airtight Seal 
 
-  Unlike blinds, which often hang loosely and leave gaps at the sides, shutters are custom-fitted into a frame. This creates a secondary barrier against your window, effectively trapping a layer of air that acts as a sound insulator.
+Unlike blinds, which often hang loosely and leave gaps at the sides, shutters are custom-fitted into a frame. This creates a secondary barrier against your window, effectively trapping a layer of air that acts as a sound insulator.
 - Vibration Reduction 
 
-  ardwood shutters are sturdy. They do not rattle when a heavy lorry passes your home in Syston or Kegworth; instead, they dampen the vibration, keeping your bedroom quiet.
+ardwood shutters are sturdy. They do not rattle when a heavy lorry passes your home in Syston or Kegworth; instead, they dampen the vibration, keeping your bedroom quiet.
 ![bedroom shutters in leicester](https://shutter-envy.co.uk/wp-content/uploads/2025/12/bedroom-shutters-in-leicester-1024x717.jpeg "Shutters vs Blackout Blinds for Noise: Which is Best for Your Sleep? 1")
 
 ### Where Blackout Blinds Fit In

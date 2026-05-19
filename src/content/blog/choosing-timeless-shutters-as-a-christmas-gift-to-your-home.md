@@ -50,22 +50,22 @@ Open the louvres wide to flood rooms with winter sunlight, highlighting your Chr
 
 [Shutters](/our-shutters/) do more than look good. They insulate against cold. In winter, they trap air between louvres and glass, reducing heat loss. This keeps homes warmer, cutting energy bills. In chilly Leicestershire winters, quality shutters add an effective barrier against draughts.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Award Winning Leicestershire Shutters!
 
-									
-						Shutter Envy has received the 2026 ‘Award of Excellence’, marking the fourth year in a row.					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/shutter-envy-wins-2026-award-of-excellence/">
-						Read more...					</a>
+Shutter Envy has received the 2026 ‘Award of Excellence’, marking the fourth year in a row.
+
+
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/shutter-envy-wins-2026-award-of-excellence/">
+Read more...					</a>

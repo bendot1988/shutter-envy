@@ -15,13 +15,13 @@ For this project, the shutters were chosen to suit the proportions and character
 Tier-on-tier shutters are a strong option for front-facing rooms, period homes and spaces where light control changes throughout the day. If you are comparing shutter styles, you can browse our [full shutter range](/our-shutters/) or [arrange a home visit](/contact/) with Shutter Envy.
 
 <div class='gallery-icon landscape'>
-				[![791728748 485611077 1009038771288395 2022411368741097297 n](/wp-content/uploads/2025/10/791728748-485611077_1009038771288395_2022411368741097297_n-1024x1024.jpg)]()
-			</div>
+[![791728748 485611077 1009038771288395 2022411368741097297 n](/wp-content/uploads/2025/10/791728748-485611077_1009038771288395_2022411368741097297_n-1024x1024.jpg)]()
+</div>
 
 <div class='gallery-icon landscape'>
-				[![791728748 485611077 1009038771288395 2022411368741097297 n Large](/wp-content/uploads/2025/10/791728748-485611077_1009038771288395_2022411368741097297_n-Large-1024x1024.jpeg)]()
-			</div>
+[![791728748 485611077 1009038771288395 2022411368741097297 n Large](/wp-content/uploads/2025/10/791728748-485611077_1009038771288395_2022411368741097297_n-Large-1024x1024.jpeg)]()
+</div>
 
 <div class='gallery-icon landscape'>
-				[![791728753 485009890 1009040757954863 684415294911763627 n](/wp-content/uploads/2025/10/791728753-485009890_1009040757954863_684415294911763627_n-1024x1024.jpg)]()
-			</div>
+[![791728753 485009890 1009040757954863 684415294911763627 n](/wp-content/uploads/2025/10/791728753-485009890_1009040757954863_684415294911763627_n-1024x1024.jpg)]()
+</div>

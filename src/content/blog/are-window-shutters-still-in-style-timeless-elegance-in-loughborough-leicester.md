@@ -46,21 +46,21 @@ If you live in areas such as Ratby, Gaddesby, Rearsby or any of the villages nea
 
 So, are window shutters still in style? Absolutely. They’re stylish, versatile and practical, making them the perfect choice for any home. Whether you want to add elegance to a bay window in Rothley, enjoy more privacy in Birstall or improve insulation in a Loughborough townhouse, shutters are a timeless solution that will never go out of fashion.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Transform Your Home with Timeless Shutters
 
-									
-						**Add style, security and value to your home with our classic plantation shutters.**
+
+**Add style, security and value to your home with our classic plantation shutters.**
 
 ✔ Enhanced Security with patented Italian lock system
 
@@ -70,6 +70,6 @@ So, are window shutters still in style? Absolutely. They’re stylish, versatile
 
 ✔ Timeless style and custom fit for every window					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
-						Contact Us					</a>
+
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
+Contact Us					</a>

@@ -14,4 +14,4 @@ For this project, the goal was to create a cleaner and more permanent finish tha
 
 They are a particularly strong option for homeowners who want shutter styling on doors or wider spans without compromising practicality. If you are comparing options for large windows or glazed doors, you can explore our [full shutter range](/our-shutters/) or [arrange a home visit](/contact/) with Shutter Envy.
 
-				[![bypass](/wp-content/uploads/2025/10/bypass-768x1024.jpg)](/wp-content/uploads/2025/10/bypass.jpg)
+[![bypass](/wp-content/uploads/2025/10/bypass-768x1024.jpg)](/wp-content/uploads/2025/10/bypass.jpg)

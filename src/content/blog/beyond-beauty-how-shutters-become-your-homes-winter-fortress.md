@@ -44,21 +44,21 @@ Investing in high-quality, custom-made shutters is more than just an aesthetic u
 
 At Shutter Envy, we understand the nuances of home comfort and energy efficiency. Our local family business takes pride in crafting and installing shutters that not only look magnificent but also perform flawlessly, providing that essential layer of insulation that will make a tangible difference to your home this winter. Don’t let another season’s worth of heat (and money!) escape. Make the smart choice for a warmer, more energy-efficient, and undeniably more stylish home.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Transform Your Home with Timeless Shutters
 
-									
-						**Add style, security and value to your home with our classic plantation shutters.**
+
+**Add style, security and value to your home with our classic plantation shutters.**
 
 ✔ Enhanced Security with patented Italian lock system
 
@@ -68,17 +68,17 @@ At Shutter Envy, we understand the nuances of home comfort and energy efficiency
 
 ✔ Timeless style and custom fit for every window					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
-						Contact Us					</a>
 
-							
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
+Contact Us					</a>
 
-						
 
-				
 
-							
+
+
+
+
+
 - [Our Shutters](/our-shutters/)
 - [Our Blinds](/our-blinds/)
 - [Motorised Blinds](/blind-motorisation/)

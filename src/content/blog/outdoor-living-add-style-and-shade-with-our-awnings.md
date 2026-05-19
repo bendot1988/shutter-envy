@@ -18,7 +18,7 @@ Our awnings do more than just look good. They’re a smart investment in comfort
 
 - [Custom-sized to fit your space perfectly 
 
-  to fit your space perfectly](https://shutter-envy.co.uk/awnings/)
+to fit your space perfectly](https://shutter-envy.co.uk/awnings/)
 - Available in a wide range of fabrics and colours
 - Motorised for ease of use, with remote and voice control options
 - Equipped with optional sun and wind sensors for automatic adjustment

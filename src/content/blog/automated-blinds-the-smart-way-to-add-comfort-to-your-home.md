@@ -22,77 +22,77 @@ This isn’t about showing off. It’s about making your home work for you. Wake
 
 Our motorised blind systems work with leading smart home ecosystems — meaning you’re in control, your way.
 
-				
 
-				
+
+
 
 - Amazon Alexa & Google Home                        
-                         Use your voice to open or close blinds. It’s as easy as saying ‘Alexa, close the bedroom blinds’.
+Use your voice to open or close blinds. It’s as easy as saying ‘Alexa, close the bedroom blinds’.
 - Apple HomeKit                        
-                         For Apple users, integration is smooth and secure. Control your blinds directly from your iPhone or iPad, or automate them with other smart features in your home.
+For Apple users, integration is smooth and secure. Control your blinds directly from your iPhone or iPad, or automate them with other smart features in your home.
 - Philips Hue                        
-                         Want your blinds to close as your smart lights dim? Create a full ambience with blinds and lighting working together.
+Want your blinds to close as your smart lights dim? Create a full ambience with blinds and lighting working together.
 - Velux, Somfy, Hitachi, Sonos, Zigbee, Danfoss                        
-                         Our systems are compatible with a wide range of smart home brands. Whether it’s temperature control, home audio or heating, your blinds can be part of the bigger picture.
+Our systems are compatible with a wide range of smart home brands. Whether it’s temperature control, home audio or heating, your blinds can be part of the bigger picture.
 
-				
 
-				
+
+
 
 With these systems, you can also set ‘scenes’. Imagine a ‘Goodnight’ scene that turns off your lights, locks your door, and shuts all your blinds in one tap. Or a ‘Movie Time’ scene that closes the blinds and dims the lights as you settle in.
 
-				
 
-				
 
-					<video class="elementor-video" src="https://shutter-envy.co.uk/wp-content/uploads/2024/09/file.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
 
-						
 
-				
+<video class="elementor-video" src="https://shutter-envy.co.uk/wp-content/uploads/2024/09/file.mp4" controls="" preload="metadata" controlsList="nodownload"></video>
 
-							
 
-					
 
-							
 
-														
 
-					
 
-							
 
-														
 
-					
 
-							
 
-														
 
-					
 
-							
 
-														
 
-					
 
-							
 
-														
 
-					
 
-				
 
-					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Simple to Install. Easy to Use.
 
-				
 
-				
+
+
 
 Many people imagine that smart blinds must be hard to fit — but that’s not the case. Most of our motorised options run on rechargeable batteries that last six months or more on a single charge. You don’t need an electrician or wiring — just a USB charger and you’re good to go.
 
@@ -107,15 +107,15 @@ Motorised blinds don’t just look great — they’re practical too:
 - Child and Pet Safe: No cords or chains mean no risk of tangles or accidents. A big win for family homes.
 - Hard-to-Reach Windows: High-up skylights or large patio doors? No problem. Let automation do the work.
 
-				
 
-				
+
+
 
 ### Designed Around Your Life
 
-				
 
-				
+
+
 
 One of the best parts of smart blinds is that they adjust around you — not the other way round. Whether you prefer using your phone, remote control, or simple voice commands, your blinds are always just a tap or word away.
 
@@ -123,33 +123,33 @@ If you’re into home routines, create a schedule that matches your day — open
 
 And with systems like Somfy RTS, Zigbee, and Danfoss smart hubs, there’s the option to link everything up. Your blinds can work together with your heating, lighting and even music system, thanks to platforms like Sonos.
 
-				
 
-				
+
+
 
 ### The Shutter Envy Touch
 
-				
 
-				
+
+
 
 As blind automation experts, our team can help guide you through all the options. We’ll look at what works for your home, lifestyle and setup. You’ll get a complete service — from product advice and home survey to fitting and aftercare.
 
 Whether you’re starting your smart home journey or adding to it, we’ll make the process easy.
 
-				
 
-				
-															![automised blinds ben in loughboough](/wp-content/uploads/2025/04/automised-blinds-ben-in-loughboough.jpeg)															
 
-				
 
-					
+![automised blinds ben in loughboough](/wp-content/uploads/2025/04/automised-blinds-ben-in-loughboough.jpeg)
+
+
+
+
 ### Motorised Blinds in Loughborough and Leicester
 
-				
 
-				
+
+
 
 Let Shutter Envy help you bring convenience, control and comfort to your windows. Our motorised blinds combine quality, elegance and cutting-edge tech — with no complicated setup.
 
@@ -157,21 +157,21 @@ Contact us today to book your free home consultation. We cover [Loughborough](/l
 
 Be the envy of your neighbours. Choose Shutter Envy.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Transform Your Home with Timeless Shutters
 
-									
-						**Add style, security and value to your home with our classic plantation shutters.**
+
+**Add style, security and value to your home with our classic plantation shutters.**
 
 ✔ Enhanced Security with patented Italian lock system
 
@@ -181,17 +181,17 @@ Be the envy of your neighbours. Choose Shutter Envy.
 
 ✔ Timeless style and custom fit for every window					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
-						Contact Us					</a>
 
-							
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
+Contact Us					</a>
 
-						
 
-				
 
-							
+
+
+
+
+
 - [Our Shutters](/our-shutters/)
 - [Our Blinds](/our-blinds/)
 - [Motorised Blinds](/blind-motorisation/)

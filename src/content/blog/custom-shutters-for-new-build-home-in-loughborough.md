@@ -14,19 +14,19 @@ For this installation, the priority was to make each window feel properly finish
 
 This type of project is a good example of why shutters work so well in modern developments across [Loughborough](/locations/shutters-in-loughborough/) and the wider area. If you are planning shutters for a new build, see our [shutter options](/our-shutters/) or visit our [Loughborough page](/locations/shutters-in-loughborough/) to learn more about local installations.
 
-				[![01 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/01-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/01-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+[![01 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/01-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/01-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
 
-			
-				[![02 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/02-new-build-home-shutters-and-blinds-shutter-envy-1024x768.jpeg)](/wp-content/uploads/2025/10/02-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
 
-			
-				[![03 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/03-new-build-home-shutters-and-blinds-shutter-envy-1024x768.jpeg)](/wp-content/uploads/2025/10/03-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+[![02 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/02-new-build-home-shutters-and-blinds-shutter-envy-1024x768.jpeg)](/wp-content/uploads/2025/10/02-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
 
-			
-				[![04 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/04-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/04-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
 
-			
-				[![05 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/05-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/05-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+[![03 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/03-new-build-home-shutters-and-blinds-shutter-envy-1024x768.jpeg)](/wp-content/uploads/2025/10/03-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
 
-			
-				[![06 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/06-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/06-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+
+[![04 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/04-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/04-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+
+
+[![05 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/05-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/05-new-build-home-shutters-and-blinds-shutter-envy.jpeg)
+
+
+[![06 new build home shutters and blinds shutter envy](/wp-content/uploads/2025/10/06-new-build-home-shutters-and-blinds-shutter-envy-768x1024.jpeg)](/wp-content/uploads/2025/10/06-new-build-home-shutters-and-blinds-shutter-envy.jpeg)

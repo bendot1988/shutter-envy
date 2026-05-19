@@ -10,9 +10,9 @@ author: "Shutter Envy"
 ---
 ![Shutters and Blinds in Leicester Shutter Envy Shutters Bonfire Night et cetera Shutter Envy 1](/wp-content/uploads/2025/11/Shutters-and-Blinds-in-Leicester-Shutter-Envy-Shutters-Bonfire-Night-et-cetera-Shutter-Envy-1-1024x558.jpeg)															
 
-				
 
-									
+
+
 ## Bonfire Night Bliss Behind Our Shutters
 
 Today is the 5th of November, more commonly known as **Bonfire Night** or Guy Fawkes Night. This annual commemoration dates back to 1605 and the failed ‘Gunpowder Plot’, where a group of Catholic conspirators, led by Guy Fawkes, attempted to blow up the Houses of Parliament and assassinate the Protestant King James I. The discovery of the plot on the night of the 4th/5th of November led to the tradition of lighting bonfires and fireworks to celebrate the King’s survival. Over 400 years later, it’s a date that still fills the skies of our local areas like **Loughborough** and **Leicester** with spectacular displays.
@@ -31,21 +31,21 @@ While you’re enjoying the stunning firework displays tonight, please remember 
 
 Be the Envy of your friends and neighbours this Bonfire Night. Contact Shutter Envy for your free home consultation and let us transform your home.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Transform Your Home with Timeless Shutters
 
-									
-						**Add style, security and value to your home with our classic plantation shutters.**
+
+**Add style, security and value to your home with our classic plantation shutters.**
 
 ✔ Enhanced Security with patented Italian lock system
 
@@ -55,6 +55,6 @@ Be the Envy of your friends and neighbours this Bonfire Night. Contact Shutter E
 
 ✔ Timeless style and custom fit for every window					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
-						Contact Us					</a>
+
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
+Contact Us					</a>

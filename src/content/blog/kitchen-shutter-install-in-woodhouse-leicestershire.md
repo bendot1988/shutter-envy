@@ -14,13 +14,13 @@ For this project, the shutters were chosen to provide privacy and easy light con
 
 Kitchen shutters are particularly useful where homeowners want a durable, low-maintenance solution without sacrificing appearance. If you are considering shutters for a kitchen or utility space, you can view our [shutter range](/our-shutters/) or explore the [areas we cover](/locations/).
 
-				[![DSCF3115](/wp-content/uploads/2025/08/DSCF3115-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3115/)
+[![DSCF3115](/wp-content/uploads/2025/08/DSCF3115-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3115/)
 
-			
-				[![DSCF3114](/wp-content/uploads/2025/08/DSCF3114-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3114/)
 
-			
-				[![DSCF3109](/wp-content/uploads/2025/08/DSCF3109-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3109/)
+[![DSCF3114](/wp-content/uploads/2025/08/DSCF3114-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3114/)
 
-			
-				[![DSCF3117](/wp-content/uploads/2025/08/DSCF3117-683x1024.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3117/)
+
+[![DSCF3109](/wp-content/uploads/2025/08/DSCF3109-1024x683.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3109/)
+
+
+[![DSCF3117](/wp-content/uploads/2025/08/DSCF3117-683x1024.webp)](/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/dscf3117/)

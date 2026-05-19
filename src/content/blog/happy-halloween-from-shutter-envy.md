@@ -10,18 +10,18 @@ author: "Shutter Envy"
 ---
 ![Happy Halloween from Shutter Envy shutters and blinds in Leicestershire](/wp-content/uploads/2025/10/Happy-Halloween-from-Shutter-Envy-shutters-and-blinds-in-Leicestershire.jpg)															
 
-				
 
-							
+
+
 - [Our Shutters](/our-shutters/)
 - [Our Blinds](/our-blinds/)
 - [Motorised Blinds](/blind-motorisation/)
 - [Our Awnings](/awnings/)
 - [Where we install shutters](/locations/)
 
-				
 
-				
+
+
 
 From everyone here at Shutter Envy, we wish you a truly Happy Halloween! As the nights draw in and pumpkins glow, it’s a time for a little fun, a few frights, and perhaps a thought about cosy homes.
 
@@ -55,21 +55,21 @@ If you’re dreaming of new shutters or blinds to give your home that perfect lu
 
 Contact Shutter Envy today for your free home consultation across **Moutsorrel**, **Quorn**, **Rothley**, **Barrow Upon Soar**, and many more local areas. Let us help you transform your home and be the envy of your friends and neighbours this Christmas.
 
-				
 
-				
 
-					
 
-				
 
-							
 
-									
+
+
+
+
+
+
 ## Transform Your Home with Timeless Shutters
 
-									
-						**Add style, security and value to your home with our classic plantation shutters.**
+
+**Add style, security and value to your home with our classic plantation shutters.**
 
 ✔ Enhanced Security with patented Italian lock system
 
@@ -79,6 +79,6 @@ Contact Shutter Envy today for your free home consultation across **Moutsorrel**
 
 ✔ Timeless style and custom fit for every window					
 
-									
-					<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
-						Contact Us					</a>
+
+<a class="elementor-cta__button elementor-button elementor-size-" href="https://shutter-envy.co.uk/contact/">
+Contact Us					</a>
