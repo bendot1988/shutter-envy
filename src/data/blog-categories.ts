@@ -39,6 +39,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   // ─── Buying guides (how-to, cost, comparisons, process) ────
   '7-signs-its-time-to-replace-your-old-blinds-with-shutters': 'guides',
   'are-faux-wood-shutters-any-good-durability-cost-honest-verdict': 'guides',
+  'are-plantation-shutters-blackout-bedroom-shutter-guide': 'guides',
   'are-window-shutters-worth-it-your-complete-guide-to-cost-value-and-style': 'guides',
   'are-window-shutters-still-in-style-timeless-elegance-in-loughborough-leicester': 'guides',
   'choosing-timeless-shutters-as-a-christmas-gift-to-your-home': 'guides',
@@ -55,7 +56,6 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'plantation-shutters-in-loughborough-why-local-homeowners-are-choosing-shutter-envy': 'guides',
   'shutters-blinds-north-leicestershire': 'guides',
   'shutters-in-leicester-prices-timelines-quote-checklist': 'guides',
-  'sash-window-shutters-a-practical-guide-for-period-homes': 'guides',
   'shutters-vs-blackout-blinds-for-noise-which-is-best-for-your-sleep': 'guides',
   'shutters-vs-curtains-which-is-right-for-your-home': 'guides',
   'the-complete-uk-guide-to-plantation-shutters': 'guides',
