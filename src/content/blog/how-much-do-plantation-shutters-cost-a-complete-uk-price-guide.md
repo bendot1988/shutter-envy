@@ -1,6 +1,6 @@
 ---
-title: "How Much Do Plantation Shutters Cost? A Complete UK Price Guide"
-description: "Plantation shutters cost £120–£800+ in the UK depending on material and style. Get our honest 2026 price guide and find out what to expect."
+title: "Plantation Shutters Cost UK 2026: Real Prices Per Window"
+description: "What plantation shutters really cost in the UK — £120–£800 per window by material, style and size. Honest 2026 ranges, what drives the price, no inflated quotes."
 h1: "How Much Do Plantation Shutters Cost? A Complete UK Price Guide"
 pubDate: 2026-04-10
 updatedDate: 2026-04-10

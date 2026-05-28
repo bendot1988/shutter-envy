@@ -6,7 +6,7 @@ import MarqueeGallery from '../../components/MarqueeGallery.astro';
 import ProcessTimeline from '../../components/home/ProcessTimeline.astro';
 import ReviewsRow from '../../components/home/ReviewsRow.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
-import { faqPage, breadcrumbList } from '../../lib/schema';
+import { faqPage, breadcrumbList, service } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'our-blinds');
 if (!entry) throw new Error('Missing pages/our-blinds content entry');
@@ -16,6 +16,12 @@ const jsonLd: object[] = [
     { name: 'Home', url: '/' },
     { name: 'Our Blinds', url: '/our-blinds/' },
   ]),
+  service({
+    url: 'https://shutter-envy.co.uk/our-blinds/',
+    name: 'Made-to-measure blinds',
+    description: 'Roller, Venetian, vertical, honeycomb and duo blinds, surveyed and installed by Shutter Envy across Leicester, Loughborough and Leicestershire.',
+    serviceType: 'Window blinds',
+  }),
 ];
 if (entry.data.faqs?.length) jsonLd.push(faqPage(entry.data.faqs));
 

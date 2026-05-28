@@ -10,7 +10,7 @@ author: "Shutter Envy"
 ---
 ## Timeless Appeal with Modern Benefits
 
-Shutters have been around for centuries, yet their design never dates. They suit both modern and traditional homes, adding kerb appeal while improving the look and feel of interiors. Unlike curtains or standard blinds, shutters are made to measure, ensuring a perfect fit for every type of window – from bay windows in Quorn or [Rothley](/locations/shutters-in-rothley/) to shaped windows in [Anstey](/locations/shutters-in-anstey/) or Groby.
+Shutters have been around for centuries, yet their design never dates. They suit both modern and traditional homes, adding kerb appeal while improving the look and feel of interiors. Unlike curtains or standard blinds, shutters are made to measure, ensuring a perfect fit for every type of window – from bay windows in Quorn or [Rothley](/locations/shutters-in-rothley/) to shaped windows in Anstey or Groby.
 
 Our [shutters](/our-shutters/) are available in a range of styles including full height, café-style, tier-on-tier and even track shutters for bi-folding doors. With so many options, it’s easy to see why more and more households in Moutsorrel, Syston and Barrow Upon Soar are choosing shutters as their go-to window covering.
 

@@ -137,6 +137,72 @@ export function blogPosting(opts: {
   };
 }
 
+// Service schema for product/category pages. Used on /our-shutters/,
+// /our-blinds/, /awnings/, /blind-motorisation/, /blindscreen/,
+// /portchester-aluminium-shutters-leicester/, /british-made-shutters/.
+//
+// Anchored to the LocalBusiness via `provider`. `areaServed` defaults to the
+// Leicestershire service region; pass an explicit value to scope to a single
+// town if you ever wire this into a location route.
+export function service(opts: {
+  url: string;
+  name: string;
+  description: string;
+  serviceType?: string;
+  areaServed?: string | string[];
+  image?: string;
+}) {
+  const area = opts.areaServed ?? [
+    'Leicester',
+    'Loughborough',
+    'Leicestershire',
+    'Charnwood',
+    'Melton Mowbray',
+    'Market Harborough',
+  ];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${opts.url}#service`,
+    name: opts.name,
+    description: opts.description,
+    ...(opts.serviceType ? { serviceType: opts.serviceType } : {}),
+    provider: { '@id': ID.localBusiness },
+    areaServed: Array.isArray(area)
+      ? area.map((a) => ({ '@type': 'AdministrativeArea', name: a }))
+      : { '@type': 'AdministrativeArea', name: area },
+    url: opts.url,
+    ...(opts.image
+      ? {
+          image: opts.image.startsWith('http')
+            ? opts.image
+            : `${SITE}${opts.image}`,
+        }
+      : {}),
+  };
+}
+
+// AggregateRating schema. Used on /reviews/ and the homepage to expose
+// the visible Trustindex / Google review average to crawlers.
+// Numbers must reflect a real review count (Google flags fabricated ratings).
+export function aggregateRating(opts: {
+  ratingValue: number;
+  reviewCount: number;
+  bestRating?: number;
+  worstRating?: number;
+  itemReviewed?: { '@id': string };
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AggregateRating',
+    ratingValue: opts.ratingValue,
+    reviewCount: opts.reviewCount,
+    bestRating: opts.bestRating ?? 5,
+    worstRating: opts.worstRating ?? 1,
+    itemReviewed: opts.itemReviewed ?? { '@id': ID.localBusiness },
+  };
+}
+
 export function breadcrumbList(crumbs: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',

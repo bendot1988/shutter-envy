@@ -34,7 +34,7 @@ Taking a moment to work out what category your home falls under sets the tone fo
 
 Don’t worry if your home doesn’t fit one neat style. Many houses have been extended or updated over the years. The goal isn’t to pin it down to one label, but to understand the major details so your window coverings work *with* them, not against them.
 
-For example, a semi-detached home in **Quorn** built in the 1930s with **bay windows** and stained glass at the top panes cries out for something subtle and elegant that won’t compete with the charm—perhaps [**café-style shutters**](https://shutter-envy.co.uk/shutter-installation/cafe-style-shutters/) that fit neatly below the glass, letting the patterns above take centre stage.
+For example, a semi-detached home in **Quorn** built in the 1930s with **bay windows** and stained glass at the top panes cries out for something subtle and elegant that won’t compete with the charm—perhaps [**café-style shutters**](/our-shutters/) that fit neatly below the glass, letting the patterns above take centre stage.
 
 ## Selecting the Right Shutter Design
 
@@ -85,7 +85,7 @@ You can also choose different slat sizes. **Bigger slats** let in more natural l
 
 Shutters are more than a style piece. They shape comfort, frame your light, and add real character to a room. When they reflect your home’s structure and design, everything feels more connected.
 
-Whether you have a red-brick terrace in **Loughborough**, a renovated barn by the **Charnwood** countryside, or a crisp new build in [**Thurmaston**](https://shutter-envy.co.uk/locations/shutters-in-thurmaston/), there’s a shutter style that can bring it all together. The process works best when your home leads the journey. Start with what’s already there. Let the architecture do the talking.
+Whether you have a red-brick terrace in **Loughborough**, a renovated barn by the **Charnwood** countryside, or a crisp new build in **Thurmaston**, there’s a shutter style that can bring it all together. The process works best when your home leads the journey. Start with what’s already there. Let the architecture do the talking.
 
 Ready to transform your home’s look and feel? [Contact **Shutter Envy** for your **free home consultation**](https://shutter-envy.co.uk/contact/) and discover how bespoke shutters can complement your home’s architecture while adding comfort, privacy, and timeless charm.
 

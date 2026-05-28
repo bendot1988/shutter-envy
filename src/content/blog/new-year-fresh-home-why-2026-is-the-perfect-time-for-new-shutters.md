@@ -30,7 +30,7 @@ As a family-run business with over **14 years in the blinds and shutters** indus
 
 **This January, give your home the fresh start it deserves. Be ready for spring with shutters that combine beauty, function, and lasting value.**
 
-[Contact](/contact/) Shutter Envy today for your free consultation. Our local team visits [Loughborough](/locations/shutters-in-loughborough/), [Mountsorrel](/bypass-track-shutter-in-mountsorrel/), [Woodhouse Eaves](/locations/shutters-in-woodhouse-eaves/), and all surrounding areas daily. Fill in the form below to get started.
+[Contact](/contact/) Shutter Envy today for your free consultation. Our local team visits [Loughborough](/locations/shutters-in-loughborough/), [Mountsorrel](/bypass-track-shutter-in-mountsorrel/), Woodhouse Eaves, and all surrounding areas daily. Fill in the form below to get started.
 
 New year, fresh home – let’s make 2026 your most stylish yet.
 

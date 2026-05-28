@@ -4,7 +4,6 @@ description: "Looking for shutters in Syston? Shutter Envy offers made-to-measur
 h1: "Made-to-Measure Shutters in Syston"
 area: "Syston"
 postcodePrefixes: []
-ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 mapEmbedUrl: "https://maps.google.com/maps?q=Syston&t=m&z=12&output=embed&iwloc=near"
 ---
 ## Award winning Shutters & Blinds - 3 Years Running!

@@ -85,6 +85,11 @@ body {
   line-height: 1.875;       /* 30 / 16 */
   font-weight: 400;
   color: var(--color-ink);
+  /* Belt-and-braces with the html rule above: some browser quirks (iOS Safari
+     in particular, sticky descendants interacting with fixed siblings) can
+     let overflow leak past the html element. Clipping body too is harmless
+     because we never expect horizontal scroll site-wide. */
+  overflow-x: clip;
 }
 
 /* Headings use Spectral 500 with brand letter-spacing.

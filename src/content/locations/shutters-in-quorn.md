@@ -4,7 +4,6 @@ description: "Looking for shutters in Quorn? Shutter Envy supplies and fits made
 h1: "Made-to-Measure Shutters in Quorn"
 area: "Quorn"
 postcodePrefixes: []
-ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 mapEmbedUrl: "https://maps.google.com/maps?q=Quorn&t=m&z=12&output=embed&iwloc=near"
 ---
 ## Award winning Shutters & Blinds - 3 Years Running!

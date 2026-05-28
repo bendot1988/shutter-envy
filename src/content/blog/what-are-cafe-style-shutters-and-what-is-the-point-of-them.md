@@ -1,6 +1,6 @@
 ---
-title: "What Are Cafe Style Shutters? Benefits & Design Guide"
-description: "Discover cafe style shutters - the perfect blend of privacy and natural light. Learn benefits, ideal rooms, and design options for your home."
+title: "Café-Style Shutters Explained: Privacy + Light (UK 2026 Guide)"
+description: "Café-style shutters cover the lower half of a window — privacy at the bottom, daylight at the top. When they work, where they don't, and what they cost in the UK."
 h1: "What Are Cafe Style Shutters and What Is the Point of Them?"
 pubDate: 2026-02-25
 updatedDate: 2026-02-25
@@ -8,7 +8,7 @@ heroImage: "/wp-content/uploads/2026/02/cafe-Style-Shutters-Shutter-Envy-in-Loug
 excerpt: "The origin of cafe-style shutters can be traced back to European cafes and bistros, where they were used to provide a degree of privacy for patrons while still allowing natural light to flood the establishment. This practical application quickly transitioned into residential u..."
 author: "Shutter Envy"
 ---
-[Cafe-style](https://shutter-envy.co.uk/shutter-installation/cafe-style-shutters/) shutters are a popular and elegant window dressing, offering a unique solution for homeowners seeking both natural light and privacy. This style of shutter covers only the bottom portion of a window, leaving the top half exposed. This design choice provides a distinct aesthetic and practical benefits that have made them a favourite in various settings.
+[Cafe-style](/our-shutters/) shutters are a popular and elegant window dressing, offering a unique solution for homeowners seeking both natural light and privacy. This style of shutter covers only the bottom portion of a window, leaving the top half exposed. This design choice provides a distinct aesthetic and practical benefits that have made them a favourite in various settings.
 
 ## Why Do Cafe Style Shutters Exist?
 

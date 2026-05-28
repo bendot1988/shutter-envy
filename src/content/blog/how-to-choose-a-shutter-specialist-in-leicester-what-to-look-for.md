@@ -21,7 +21,7 @@ Choosing the right specialist for your window shutters is a significant decision
 
 ### Prioritise Local Expertise over National Chains
 
-The first thing to look for is a genuinely local business. While national chains have large marketing budgets, they often lack the personal touch and specific knowledge of Leicestershire homes. A local specialist understands the local architecture, from the traditional bay windows in [Loughborough](/locations/shutters-in-loughborough/) and [Birstall](/locations/shutters-in-birstall/) to the modern new-builds in [Anstey](/locations/shutters-in-anstey/) or [Groby](/locations/shutters-in-groby/).
+The first thing to look for is a genuinely local business. While national chains have large marketing budgets, they often lack the personal touch and specific knowledge of Leicestershire homes. A local specialist understands the local architecture, from the traditional bay windows in [Loughborough](/locations/shutters-in-loughborough/) and [Birstall](/locations/shutters-birstall/) to the modern new-builds in Anstey or [Groby](/locations/shutters-groby/).
 
 When you choose a local family-run business, you are dealing with people who value their reputation within your community. At Shutter Envy, we bring 14 years of industry experience specifically to the local area, ensuring that the person who surveys your home is the same person invested in the final result.
 

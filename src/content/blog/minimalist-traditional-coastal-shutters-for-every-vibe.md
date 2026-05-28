@@ -23,7 +23,7 @@ Do you live in a period property or simply love timeless style? Then tier-on-tie
 
 ![traditional](/wp-content/uploads/2025/06/traditional-1024x683.webp)
 
-Opt for a warm woodgrain finish to complement antique furnishings, traditional mouldings, and features like bay windows. These shutters work especially well in homes across heritage-rich areas like [Leicester](/locations/shutters-in-leicester/) and [Melton Mowbray](/locations/shutters-in-melton-mowbray/), where sash windows and Victorian architecture are common. They feel made for each other.
+Opt for a warm woodgrain finish to complement antique furnishings, traditional mouldings, and features like bay windows. These shutters work especially well in homes across heritage-rich areas like [Leicester](/locations/shutters-in-leicester/) and [Melton Mowbray](/locations/shutters-melton-mowbray/), where sash windows and Victorian architecture are common. They feel made for each other.
 
 ## For the Coastal Aesthetic
 

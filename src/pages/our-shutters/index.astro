@@ -7,7 +7,7 @@ import PortchesterCallout from '../../components/PortchesterCallout.astro';
 import ProcessTimeline from '../../components/home/ProcessTimeline.astro';
 import ReviewsRow from '../../components/home/ReviewsRow.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
-import { faqPage, breadcrumbList } from '../../lib/schema';
+import { faqPage, breadcrumbList, service } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'our-shutters');
 if (!entry) throw new Error('Missing pages/our-shutters content entry');
@@ -18,6 +18,12 @@ const jsonLd: object[] = [
     { name: 'Home', url: '/' },
     { name: 'Our Shutters', url: '/our-shutters/' },
   ]),
+  service({
+    url: 'https://shutter-envy.co.uk/our-shutters/',
+    name: 'Made-to-measure plantation shutters',
+    description: 'Bespoke plantation, café-style, full-height and tier-on-tier shutters, surveyed, manufactured and installed across Leicester, Loughborough and Leicestershire.',
+    serviceType: 'Window shutters',
+  }),
 ];
 if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
 

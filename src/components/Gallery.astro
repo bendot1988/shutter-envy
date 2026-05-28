@@ -1,12 +1,15 @@
 ---
 interface Props {
-  images: { src: string; alt: string }[];
+  images: { src: string; alt: string; href?: string }[];
   id?: string;
   heading?: string;
   // Set to false on pages where a lightbox would be unwanted (e.g. an admin preview)
   lightbox?: boolean;
 }
 const { images, id, heading, lightbox = true } = Astro.props;
+// Tiles that have an `href` navigate to that URL instead of opening the
+// lightbox. The lightbox data array still keeps placeholder slots so indices
+// line up; click handler skips items with `href`.
 ---
 {images.length > 0 && (
   <section id={id} class="gallery" data-reveal>
@@ -14,7 +17,15 @@ const { images, id, heading, lightbox = true } = Astro.props;
     <ul class="gallery-grid" data-lightbox={lightbox ? 'gallery' : undefined} data-reveal-children>
       {images.map((img, i) => (
         <li>
-          {lightbox ? (
+          {img.href ? (
+            <a
+              class="gallery-tile gallery-tile--link"
+              href={img.href}
+              aria-label={`Read more: ${img.alt}`}
+            >
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+            </a>
+          ) : lightbox ? (
             <button
               type="button"
               class="gallery-tile"
@@ -192,6 +203,9 @@ const { images, id, heading, lightbox = true } = Astro.props;
       0 0 0 3px var(--color-gold-400),
       var(--shadow-md);
   }
+
+  /* Anchor variant — same look as the button, but cursor reads as link */
+  a.gallery-tile--link { cursor: pointer; text-decoration: none; color: inherit; }
 
   /* Plain (non-lightbox) image — keep the old simple style */
   .gallery li > img:not(.lightbox__image) {

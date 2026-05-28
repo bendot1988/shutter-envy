@@ -113,7 +113,7 @@ Simply fill in our contact form or give us a call. We will make an appointment a
 
 ### Step 2: Survey Process
 
-We visit your home in [Anstey](/locations/shutters-in-anstey/), [Sileby](/locations/sileby/), [Groby](/locations/shutters-in-groby/), or the surrounding areas to conduct a full survey. We bring physical colour samples so you can see exactly how ‘Silk White’ or our various wood stains look against your actual walls and in your room’s specific light.
+We visit your home in Anstey, [Sileby](/locations/shutters-sileby/), [Groby](/locations/shutters-groby/), or the surrounding areas to conduct a full survey. We bring physical colour samples so you can see exactly how ‘Silk White’ or our various wood stains look against your actual walls and in your room’s specific light.
 
 ### Step 3: Ordering
 

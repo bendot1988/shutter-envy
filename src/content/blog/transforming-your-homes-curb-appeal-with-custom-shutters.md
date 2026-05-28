@@ -90,11 +90,11 @@ Each material is **carefully sourced** to ensure **durability, style, and functi
 
 **[Syston](/locations/shutters-in-syston/), Thurmaston, Thurcaston, Anstey, Groby**
 
-**[Sileby](/locations/sileby/), East Goscote, Gaddesby, Rearsby, Thrussington**
+**[Sileby](/locations/shutters-sileby/), East Goscote, Gaddesby, Rearsby, Thrussington**
 
-**[Glenfield](/locations/shutters-in-glenfield/), Cropston, Woodhouse Eaves, Seagrave**
+**Glenfield, Cropston, Woodhouse Eaves, Seagrave**
 
-**[East Leake](/locations/shutters-in-east-leake/), Burton on the Wolds, Newtown Linford**
+**East Leake, Burton on the Wolds, Newtown Linford**
 
 If you’re in these areas, book a **free consultation** to explore our **custom shutter solutions**.
 

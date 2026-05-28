@@ -103,7 +103,7 @@ Whether you live in Anstey, Sileby, or East Leake, our team is ready to help you
 
 If you are looking for modern convenience, Shutter Envy also specialises in blind motorisation. We can install remote-controlled or voice-activated systems for those seeking a ‘future-proof’ home. From blackout shutters for bedrooms to honeycomb pleated blinds, we provide a versatile solution for every room.
 
-If you are in [Thrussington](/locations/shutters-in-thrussington/) or the surrounding [Leicestershire](/window-shutters-leicestershire/) villages, why not see the difference for yourself? Be the envy of your neighbours and choose a family-run business that puts your interests at the forefront.
+If you are in Thrussington or the surrounding [Leicestershire](/window-shutters-leicestershire/) villages, why not see the difference for yourself? Be the envy of your neighbours and choose a family-run business that puts your interests at the forefront.
 
 
 

@@ -7,7 +7,7 @@ import ProcessTimeline from '../../components/home/ProcessTimeline.astro';
 import ReviewsRow from '../../components/home/ReviewsRow.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import ClearLineForm from '../../components/ClearLineForm.astro';
-import { faqPage, breadcrumbList } from '../../lib/schema';
+import { faqPage, breadcrumbList, service } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'blind-motorisation');
 if (!entry) throw new Error('Missing pages/blind-motorisation content entry');
@@ -17,6 +17,12 @@ const jsonLd: object[] = [
     { name: 'Home', url: '/' },
     { name: 'Blind Motorisation', url: '/blind-motorisation/' },
   ]),
+  service({
+    url: 'https://shutter-envy.co.uk/blind-motorisation/',
+    name: 'Motorised blind installation',
+    description: 'Smart-home and remote-controlled blind motorisation, including retrofit, surveyed and installed across Leicestershire.',
+    serviceType: 'Motorised blinds',
+  }),
 ];
 if (entry.data.faqs?.length) jsonLd.push(faqPage(entry.data.faqs));
 

@@ -70,7 +70,7 @@ const area = loc.data.area;
 <BaseLayout
   title={loc.data.title}
   description={loc.data.description}
-  ogImage={loc.data.ogImage}
+  ogImage={loc.data.ogImage ?? heroImage}
   jsonLd={jsonLd}
   includeLocalBusiness={false}
 >
@@ -166,6 +166,20 @@ const area = loc.data.area;
             <p class="loc-side__title">Where we go</p>
             <p>We visit {area} and the surrounding Leicestershire villages, including Mountsorrel, Quorn, Rothley, Sileby, Syston, Birstall, Anstey, Groby and Woodhouse Eaves.</p>
             <a href="/locations/" class="loc-side__link">See all locations →</a>
+          </div>
+
+          {/* Services in this area — reinforces topical relevance to the
+              service hubs (F7 in SEO-ROADMAP). Plain anchors, no images. */}
+          <div class="loc-side__services">
+            <p class="loc-side__title">Services in {area}</p>
+            <ul>
+              <li><a href="/our-shutters/">Plantation shutters in {area}</a></li>
+              <li><a href="/our-blinds/">Made-to-measure blinds in {area}</a></li>
+              <li><a href="/awnings/">Awnings &amp; outdoor shade</a></li>
+              <li><a href="/blind-motorisation/">Motorised blinds</a></li>
+              <li><a href="/portchester-aluminium-shutters-leicester/">Portchester aluminium shutters</a></li>
+              <li><a href="/british-made-shutters/">British-made shutters</a></li>
+            </ul>
           </div>
 
           {/* Map */}
@@ -705,8 +719,9 @@ const area = loc.data.area;
   }
   .loc-side__cta-phone:hover { color: var(--color-gold-400); }
 
-  /* Coverage + Map cards */
+  /* Coverage + Services + Map cards */
   .loc-side__coverage,
+  .loc-side__services,
   .loc-side__map {
     background: #fff;
     border: 1px solid var(--color-line);
@@ -719,6 +734,41 @@ const area = loc.data.area;
     color: var(--color-ink-soft);
     font-size: 0.875rem;
     line-height: 1.55;
+  }
+  .loc-side__services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .loc-side__services li {
+    margin: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .loc-side__services li:last-child { border-bottom: 0; }
+  .loc-side__services a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.625rem 0;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 150ms, transform 150ms;
+  }
+  .loc-side__services a::after {
+    content: "→";
+    color: var(--color-gold-400);
+    opacity: 0.5;
+    transition: opacity 150ms, transform 150ms;
+  }
+  .loc-side__services a:hover {
+    color: var(--color-gold-600);
+  }
+  .loc-side__services a:hover::after {
+    opacity: 1;
+    transform: translateX(3px);
   }
   .loc-side__link {
     color: var(--color-gold-600);

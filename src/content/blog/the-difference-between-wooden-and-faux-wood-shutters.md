@@ -1,6 +1,6 @@
 ---
-title: "The Difference Between Wooden and Faux Wood Shutters - Shutter Envy"
-description: "Choosing the right shutter material can make all the difference. Whether you’re after timeless charm or practical durability, knowing the pros and cons of"
+title: "Wood vs Faux Wood Shutters: Which Lasts, Looks & Costs Less?"
+description: "Side-by-side honest comparison of real wood and faux wood plantation shutters — lifespan, moisture, price per window, and which one suits your room best. UK 2026."
 h1: "The Difference Between Wooden and Faux Wood Shutters"
 pubDate: 2025-06-23
 updatedDate: 2025-07-16

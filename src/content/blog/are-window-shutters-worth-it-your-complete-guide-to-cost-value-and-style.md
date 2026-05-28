@@ -1,6 +1,6 @@
 ---
-title: "Are Window Shutters Worth It? UK Cost & Value Guide 2026"
-description: "Discover if window shutters are worth the investment. Complete UK guide covering costs (£180-£350/m²), benefits, and expert advice for your home."
+title: "Are Window Shutters Worth It in 2026? UK Cost & Value Guide"
+description: "Honest UK guide to whether shutters are worth the money — typical £180–£350/m², the savings on energy and curtains, and where they fall short. Read before quoting."
 h1: "Are Window Shutters Worth It? Your Complete Guide to Cost, Value, and Style"
 pubDate: 2026-03-04
 updatedDate: 2026-03-11

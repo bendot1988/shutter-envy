@@ -37,7 +37,13 @@ const faqs = z
   .default([]);
 
 const gallery = z
-  .array(z.object({ src: z.string(), alt: z.string() }))
+  .array(z.object({
+    src: z.string(),
+    alt: z.string(),
+    // Optional click-through. When set, the tile becomes an anchor that
+    // navigates to this URL instead of opening the lightbox.
+    href: z.string().optional(),
+  }))
   .default([]);
 
 const pages = defineCollection({

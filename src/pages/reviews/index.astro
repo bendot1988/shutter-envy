@@ -2,17 +2,10 @@
 import { getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
-import { breadcrumbList } from '../../lib/schema';
+import { breadcrumbList, aggregateRating } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'reviews');
 if (!entry) throw new Error('Missing pages/reviews content entry');
-
-const jsonLd = [
-  breadcrumbList([
-    { name: 'Home', url: '/' },
-    { name: 'Reviews', url: '/reviews/' },
-  ]),
-];
 
 const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/shutter-envy.co.uk';
 const GOOGLE_URL = 'https://www.google.com/search?q=shutter+envy#lrd=0x4879dfa0c6f26fb7:0xc6da05bdf5856b2c,1';
@@ -68,6 +61,20 @@ const totalReviews = reviews.length;
 const avgRating = (
   reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
 ).toFixed(1);
+
+// AggregateRating attached to the site-wide LocalBusiness (@id ref).
+// Numbers must reflect the visible reviews on this page; if you change the
+// reviews array above the schema updates automatically.
+const jsonLd = [
+  breadcrumbList([
+    { name: 'Home', url: '/' },
+    { name: 'Reviews', url: '/reviews/' },
+  ]),
+  aggregateRating({
+    ratingValue: Number(avgRating),
+    reviewCount: totalReviews,
+  }),
+];
 
 function initials(name: string) {
   return name

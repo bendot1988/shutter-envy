@@ -7,7 +7,7 @@ import MarqueeGallery from '../../components/MarqueeGallery.astro';
 import AwardsCTABox from '../../components/home/AwardsCTABox.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import { business } from '../../data/site';
-import { breadcrumbList } from '../../lib/schema';
+import { breadcrumbList, service } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'portchester-aluminium-shutters-leicester');
 if (!entry) throw new Error('Missing pages/portchester-aluminium-shutters-leicester content entry');
@@ -17,6 +17,12 @@ const jsonLd = [
     { name: 'Home', url: '/' },
     { name: 'Portchester® Aluminium Shutters', url: '/portchester-aluminium-shutters-leicester/' },
   ]),
+  service({
+    url: 'https://shutter-envy.co.uk/portchester-aluminium-shutters-leicester/',
+    name: 'Portchester® aluminium security shutters',
+    description: 'Certified Portchester® aluminium security shutters supplied and installed by Shutter Envy across Leicester and Leicestershire.',
+    serviceType: 'Aluminium security shutters',
+  }),
 ];
 
 // Risk-framing — verbatim questions + supporting context + stat hooks

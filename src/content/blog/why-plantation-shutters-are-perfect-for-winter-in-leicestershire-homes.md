@@ -15,13 +15,13 @@ This is exactly why plantation shutters are one of the smartest home improvement
 
 Unlike curtains or standard blinds, full-height or tier-on-tier shutters create a solid barrier right at the window. The thick panels and precision-fit frames trap a layer of still air between the shutter and the glass, dramatically reducing heat loss.  
 
-Independent tests show that well-fitted shutters can cut heat loss through windows by up to 50%. In real homes in Rothley, [Quorn](/locations/shutters-in-quorn/) and [Thurcaston](/locations/shutters-in-thurcaston/) we regularly hear customers say their living rooms feel noticeably warmer within days of installation – and their boilers aren’t working as hard.
+Independent tests show that well-fitted shutters can cut heat loss through windows by up to 50%. In real homes in Rothley, [Quorn](/locations/shutters-in-quorn/) and Thurcaston we regularly hear customers say their living rooms feel noticeably warmer within days of installation – and their boilers aren’t working as hard.
 
 ![Shutters insulation Leicestershire home Kerberfield](/wp-content/uploads/2025/11/Shutters-insulation-Leicestershire-home-Kerberfield-1024x558.jpeg)
 
 ## 2. Total Draught Protection
 
-[Leicestershire](/window-shutters-leicestershire/) homes – especially the gorgeous Victorian and Edwardian properties in Stoneygate, Clarendon Park, and villages like [Swithland](/locations/shutters-in-swithland/) and Cropston – often have beautiful original sash windows… that let in icy blasts. Café-style or solid-panel shutters seal those gaps completely. No more rattling curtains or cold spots by the sofa.
+[Leicestershire](/window-shutters-leicestershire/) homes – especially the gorgeous Victorian and Edwardian properties in Stoneygate, Clarendon Park, and villages like Swithland and Cropston – often have beautiful original sash windows… that let in icy blasts. Café-style or solid-panel shutters seal those gaps completely. No more rattling curtains or cold spots by the sofa.
 
 ## 3. Cosy, Scandi-Style Ambience
 

@@ -45,7 +45,7 @@ Think of shutters as the centrepiece of a multi-layered solution for a quieter h
 
 ## Real Homes, Real Results
 
-We’ve worked with homeowners across Leicestershire who struggled with outside noise — and the feedback has been consistently positive. One customer in [Melton Mowbray](/locations/shutters-in-melton-mowbray/) came to us desperate for peace in their baby’s nursery, which faced a lively street. After installing [made-to-measure shutters](/our-shutters/), they immediately noticed a difference: longer naps, calmer evenings, and a happier household.
+We’ve worked with homeowners across Leicestershire who struggled with outside noise — and the feedback has been consistently positive. One customer in [Melton Mowbray](/locations/shutters-melton-mowbray/) came to us desperate for peace in their baby’s nursery, which faced a lively street. After installing [made-to-measure shutters](/our-shutters/), they immediately noticed a difference: longer naps, calmer evenings, and a happier household.
 
 These aren’t just aesthetic upgrades — they make a real difference to day-to-day comfort.
 

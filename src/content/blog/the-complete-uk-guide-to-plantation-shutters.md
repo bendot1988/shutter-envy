@@ -1,6 +1,6 @@
 ---
-title: "The Complete UK Guide to Plantation Shutters - Shutter Envy"
-description: "Plantation shutters have become one of the UK’s most popular window treatments, valued not only for their timeless elegance but also for their practical"
+title: "Plantation Shutters UK: Styles, Costs & How to Choose (2026)"
+description: "Everything UK homeowners ask about plantation shutters in one place — styles, materials, costs, installation, and how to pick the right ones for your windows."
 h1: "The Complete UK Guide to Plantation Shutters"
 pubDate: 2025-09-10
 updatedDate: 2025-09-10

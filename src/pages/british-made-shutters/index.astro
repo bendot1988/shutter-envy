@@ -5,7 +5,7 @@ import AwardsCTABox from '../../components/home/AwardsCTABox.astro';
 import TransformCTA from '../../components/home/TransformCTA.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import { business } from '../../data/site';
-import { breadcrumbList } from '../../lib/schema';
+import { breadcrumbList, service } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'british-made-shutters');
 if (!entry) throw new Error('Missing pages/british-made-shutters content entry');
@@ -15,6 +15,12 @@ const jsonLd = [
     { name: 'Home', url: '/' },
     { name: 'British Made Shutters', url: '/british-made-shutters/' },
   ]),
+  service({
+    url: 'https://shutter-envy.co.uk/british-made-shutters/',
+    name: 'British-made plantation shutters',
+    description: 'UK-manufactured hardwood and faux-wood plantation shutters with 3–4 week lead times, surveyed and installed across Leicestershire.',
+    serviceType: 'British-made window shutters',
+  }),
 ];
 
 // ─── Content (verbatim from original ranking page) ──────
