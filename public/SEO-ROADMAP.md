@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-05-28
+- **Last updated:** 2026-06-02
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (apex). See §4 for the recommended addition.
@@ -225,7 +225,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **C6 — Strengthen /locations/shutters-market-harborough/ (bay windows).** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **C7 — New /shutters-vs-blinds-…/ blog (or merge existing).** status: pending · owner: _TBD_ · done: — · note: if merging, log 301 in REDIRECTS.md
 - [ ] **C8 — Refresh /the-complete-uk-guide-to-plantation-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
-- [ ] **C9 — Refresh /how-much-do-plantation-shutters-cost-…/.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **C9 — Refresh /how-much-do-plantation-shutters-cost-…/.** status: done · owner: Claude · done: 2026-06-02 · note: added "Plantation Shutters Cost — 2026 At a Glance" TL;DR block, new "Bay Window Shutter Costs" subsection (targets `bay window shutters cost 2026` query), 8 FAQs mapped to GSC cost queries (FAQPage JSON-LD now emits), "Last reviewed June 2026" body stamp, and bumped `updatedDate` so sitemap `lastmod` reflects the refresh
 - [ ] **C10 — Refresh /the-difference-between-wooden-and-faux-wood-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **C11 — New /motorised-blinds-bifold-doors-…/ blog.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **C12 — New /locations/shutters-derby/ and /locations/shutters-derbyshire/.** status: pending · owner: _TBD_ · done: — · note: coverage approved 2026-05-28
@@ -247,6 +247,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-06-02** — Phase 2 begins: **C9 shipped early** (cost-guide refresh). Added at-a-glance pricing block, dedicated bay-window section, 8 cost-focused FAQs (FAQPage rich-result eligibility), and refresh stamp. F9/F12 still blocked on DNS access — moved on to on-repo content work in the meantime.
 - **2026-05-28** — Phase 1 execution pass: F1, F2, F3, F4, F5, F6, F7, F8, F10, F11 shipped (10 of 12). F9 and F12 are off-repo — step-by-step instructions added below. Also: fixed live horizontal scroll on desktop (`body { overflow-x: clip }` in `src/styles/global.css`; removed redundant `width: 100vw` from `.bs-difference` and `.bs-form` in `src/pages/blindscreen/index.astro`).
 - **2026-05-28** — Roadmap created. Baseline metrics seeded from `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-05-28.xlsx`. Two policy decisions captured: (a) new commercial hubs approved (Cafe-style, Faux Wood, Aluminium Plantation, Arched Window), (b) Derby/Derbyshire location coverage approved. No source files modified in this pass.
 
