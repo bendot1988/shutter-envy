@@ -48,6 +48,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'dont-get-shutter-struck-your-essential-guide-to-buying-shutters': 'guides',
   'from-mdf-to-hardwood-choosing-the-right-shutter-material': 'guides',
   'how-much-do-plantation-shutters-cost-a-complete-uk-price-guide': 'guides',
+  'shutter-blinds-explained-uk-guide': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
