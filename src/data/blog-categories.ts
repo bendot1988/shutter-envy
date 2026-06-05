@@ -27,6 +27,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   // ─── Blinds (motorised & blind-focused) ──────────────────
   'automated-blinds-for-bifold-doors-stylish-smart-practical': 'blinds',
   'automated-blinds-the-smart-way-to-add-comfort-to-your-home': 'blinds',
+  'best-blackout-blind-for-bifold-doors-leicestershire': 'blinds',
   'motorised-blinds-a-smarter-way-to-control-your-home': 'blinds',
   'the-benefits-of-motorised-blinds-convenience-style-and-smart-home-integration': 'blinds',
 
