@@ -21,3 +21,5 @@ We work across Melton Mowbray and the surrounding villages, offering home consul
 ## Why homeowners in Melton Mowbray choose Shutter Envy
 
 Homeowners in Melton Mowbray choose Shutter Envy because they want a local, family-run company that takes care over the details. With more than 15 years of experience, we focus on honest advice, made-to-measure quality and a fitting process that leaves you with shutters that look right, work properly and add lasting value to the room.
+
+Beyond shutters, we also install **[BlindScreen® blackout blinds and fly screens](/blindscreen/)** in Melton Mowbray homes — popular for bedrooms, conservatories and bifold doors.

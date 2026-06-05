@@ -21,3 +21,5 @@ We cover Birstall and nearby areas, offering home consultations, measuring and f
 ## Why homeowners in Birstall choose Shutter Envy
 
 Homeowners in Birstall choose Shutter Envy because they want shutters fitted by specialists who understand both design and practicality. We are a family-run business with years of experience, and we focus on clear advice, accurate measuring and a final fit that gives the shutters the clean, balanced look they are supposed to have.
+
+We also fit **[BlindScreen® blackout blinds and integrated fly screens](/blindscreen/)** across Birstall — ideal for bedrooms, bifold doors and conservatories where you want total blackout or to keep insects out in summer.

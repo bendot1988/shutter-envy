@@ -21,3 +21,5 @@ We cover Syston and surrounding areas, offering home visits, measuring and fitti
 ## Why homeowners in Syston choose Shutter Envy
 
 Homeowners in Syston choose Shutter Envy because they want expert advice without the hard sell. We are a family-run, award-winning shutter specialist and we take care over the whole process, from selecting the right style for the room to ensuring the measuring and fitting are done to a high standard.
+
+Beyond shutters, we also install **[BlindScreen® blackout blinds and fly screens](/blindscreen/)** in Syston homes — popular for bedrooms, conservatories and bifold doors.

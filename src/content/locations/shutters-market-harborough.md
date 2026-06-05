@@ -21,3 +21,5 @@ We cover Market Harborough and nearby villages, offering a straightforward home 
 ## Why homeowners in Market Harborough choose Shutter Envy
 
 Homeowners in Market Harborough choose Shutter Envy because they want a family-run company that combines product knowledge with careful measuring and fitting. We do not treat shutters as an off-the-shelf purchase. We take the time to understand the room, the window shape and the finish you want, then deliver a result that looks considered and works properly day to day.
+
+If your Market Harborough project also needs total blackout or insect screening, ask about **[BlindScreen® blackout & fly screens](/blindscreen/)** — we fit them alongside our shutter and blind installs.

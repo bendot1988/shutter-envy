@@ -21,3 +21,5 @@ We work in Groby and nearby parts of Leicestershire, offering home consultations
 ## Why homeowners in Groby choose Shutter Envy
 
 Homeowners in Groby choose Shutter Envy because they want shutters fitted by a company that values finish as much as product choice. We are a family-run business with years of specialist experience, and we focus on recommending the right solution for the room, measuring carefully and delivering a fitted result that feels polished and long lasting.
+
+Many Groby customers also ask us about **[BlindScreen® blackout and fly screens](/blindscreen/)** — a slimline, fully-fitted system for bedrooms, bifolds and west-facing rooms.

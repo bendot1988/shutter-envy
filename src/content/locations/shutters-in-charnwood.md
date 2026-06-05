@@ -17,3 +17,5 @@ We operate within a 20-mile radius of our HQ in Loughborough, covering Charnwood
 ## Why homeowners in Charnwood choose Shutter Envy
 
 Charnwood is known for its rugged landscape, featuring ancient woodlands and the Charnwood Forest, a remnant of England’s medieval forests, home to unique geological features dating back 600 million years.
+
+We also fit **[BlindScreen® blackout blinds and integrated fly screens](/blindscreen/)** across Charnwood — ideal for bedrooms, bifold doors and conservatories where you want total blackout or to keep insects out in summer.

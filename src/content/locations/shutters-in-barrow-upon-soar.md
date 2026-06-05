@@ -21,3 +21,5 @@ We work in Barrow upon Soar and nearby areas, helping local homeowners choose an
 ## Why homeowners in Barrow upon Soar choose Shutter Envy
 
 Homeowners in Barrow upon Soar choose Shutter Envy because they want a company that takes the time to get the fit and finish right. We are family-run, experienced and focused on delivering shutters that are measured correctly, professionally fitted and chosen to suit the room rather than pushed as a one-size-fits-all product.
+
+Beyond shutters, we also install **[BlindScreen® blackout blinds and fly screens](/blindscreen/)** in Barrow upon Soar homes — popular for bedrooms, conservatories and bifold doors.

@@ -21,3 +21,5 @@ We cover Sileby and surrounding areas, offering home consultations, professional
 ## Why homeowners in Sileby choose Shutter Envy
 
 Homeowners in Sileby choose Shutter Envy because they want a reliable, family-run company that combines product knowledge with a careful fitting process. We do not just sell shutters; we help you choose the right configuration for the room and make sure the final result feels clean, balanced and genuinely made for the home.
+
+If your Sileby project also needs total blackout or insect screening, ask about **[BlindScreen® blackout & fly screens](/blindscreen/)** — we fit them alongside our shutter and blind installs.

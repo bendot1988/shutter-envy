@@ -25,15 +25,29 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
   jsonLd={jsonLd}
 >
   {/* ─── Hero with form ─────────────────────────────────── */}
+  {/*
+    Three grid areas: head (H1), form, details. On mobile they stack
+    head → form → details so visitors hit the conversion form immediately
+    after the welcome, then can scroll for contact details, opening hours,
+    and the rest of the body content. On desktop the form sits on the
+    right and spans both rows of the left column.
+  */}
   <section class="contact-hero">
     <div class="contact-hero__grid">
-      <div class="contact-hero__copy" data-reveal="left">
-        <span class="contact-hero__eyebrow">Get in Touch</span>
+      <header class="contact-hero__head" data-reveal="left">
         <h1>{entry.data.h1}</h1>
-        <div class="contact-hero__body">
-          <Content />
-        </div>
+      </header>
 
+      <aside class="contact-hero__form" data-reveal="right">
+        <div class="contact-hero__form-head">
+          <p class="contact-hero__form-eyebrow">★ Free home survey</p>
+          <h2>Get Your Free Quote in 60 Seconds</h2>
+          <p class="contact-hero__form-sub">No obligation. We'll call you back to book a convenient time.</p>
+        </div>
+        <ClearLineForm showIntro={false} />
+      </aside>
+
+      <div class="contact-hero__details" data-reveal="left">
         <div class="contact-channels" data-reveal-children>
           <a href={`tel:${business.phoneTel}`} class="contact-channel">
             <span class="contact-channel__icon">
@@ -72,15 +86,10 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="contact-hero__form" data-reveal="right">
-        <div class="contact-hero__form-head">
-          <p class="contact-hero__form-eyebrow">★ Free home survey</p>
-          <h2>Get Your Free Quote in 60 Seconds</h2>
-          <p class="contact-hero__form-sub">No obligation. We'll call you back to book a convenient time.</p>
+        <div class="contact-hero__body">
+          <Content />
         </div>
-        <ClearLineForm showIntro={false} />
       </div>
     </div>
   </section>
@@ -112,41 +121,53 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: start;
   }
+  /* Desktop: H1 sits top-left, form spans the full right column, the rest
+     of the contact details flow under the H1 on the left. */
   @media (min-width: 1024px) {
-    .contact-hero__grid { grid-template-columns: 0.95fr 1.05fr; gap: 4rem; }
+    .contact-hero__grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-areas:
+        "head    form"
+        "details form";
+      column-gap: 4rem;
+      row-gap: 2rem;
+    }
+    .contact-hero__head    { grid-area: head; }
+    .contact-hero__form    { grid-area: form; align-self: start; }
+    .contact-hero__details { grid-area: details; }
   }
 
-  .contact-hero__eyebrow {
-    display: inline-block;
-    background: rgba(199,154,8,0.12);
-    color: var(--color-gold-600);
-    padding: 0.375rem 0.875rem;
-    border-radius: var(--radius-pill);
-    font-size: var(--text-link-12-700);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0 0 1.25rem;
-  }
+  .contact-hero__head { margin: 0; }
   .contact-hero h1 {
     font-family: var(--font-display);
     font-size: clamp(2.25rem, 5vw, var(--text-h2-60-500));
     font-weight: 500;
     line-height: 1.075;
     letter-spacing: -0.027em;
-    margin: 0 0 1.25rem;
+    margin: 0;
   }
   .contact-hero__body {
     color: var(--color-ink-soft);
     font-size: var(--text-large-body-19-400);
     line-height: 1.6;
-    margin: 0 0 2rem;
+    margin: 2rem 0 0;
   }
   .contact-hero__body :global(p) { margin: 0 0 1rem; }
   .contact-hero__body :global(p:last-child) { margin-bottom: 0; }
+  .contact-hero__body :global(h3) {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    margin: 1.75rem 0 0.75rem;
+    color: var(--color-ink);
+  }
+  .contact-hero__body :global(h3:first-child) { margin-top: 0; }
+  .contact-hero__body :global(ul) { padding-left: 1.1rem; margin: 0 0 1rem; }
+  .contact-hero__body :global(li) { margin: 0.25rem 0; }
 
   /* Contact channels */
   .contact-channels {

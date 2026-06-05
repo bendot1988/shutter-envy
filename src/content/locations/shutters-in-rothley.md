@@ -21,3 +21,5 @@ We cover Rothley and surrounding areas, offering a full home consultation, measu
 ## Why homeowners in Rothley choose Shutter Envy
 
 Homeowners in Rothley choose Shutter Envy because they want quality shutters supplied by a team that understands finish, proportion and fit. We are a family-run, award-winning business and we focus on giving clear advice, taking accurate measurements and delivering a final result that complements the home rather than feeling like a generic add-on.
+
+If your Rothley project also needs total blackout or insect screening, ask about **[BlindScreen® blackout & fly screens](/blindscreen/)** — we fit them alongside our shutter and blind installs.

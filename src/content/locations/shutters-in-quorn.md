@@ -21,3 +21,5 @@ We work in Quorn and surrounding areas, offering home visits, expert measuring a
 ## Why homeowners in Quorn choose Shutter Envy
 
 Homeowners in Quorn choose Shutter Envy because they want shutters supplied by a specialist that values quality, fit and finish. As a family-run, award-winning business, we focus on honest advice, careful measuring and a final installation that feels refined, practical and properly suited to the home.
+
+Many Quorn customers also ask us about **[BlindScreen® blackout and fly screens](/blindscreen/)** — a slimline, fully-fitted system for bedrooms, bifolds and west-facing rooms.

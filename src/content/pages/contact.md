@@ -22,13 +22,11 @@ faqs:
     answer: "Shutter Envy is 10 years old."
 ---
 
-## Contact Us
-
 ### Get in Touch
 
 Whether you’re looking for more information, want to book a free consultation, or have questions about an existing order, we’d love to hear from you.
 
-**Call:** [07729572277](tel:+447729572277)
+**Call:** [07729 572277](tel:+447729572277)
 
 **Email:** [sales@shutter-envy.co.uk](mailto:sales@shutter-envy.co.uk)
 

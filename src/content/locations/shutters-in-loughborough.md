@@ -17,3 +17,5 @@ We work across Loughborough and nearby areas including Quorn, Barrow upon Soar, 
 ## Why homeowners in Loughborough choose Shutter Envy
 
 Loughborough has a wide mix of properties, from period homes with traditional proportions to modern developments with larger glazed openings and cleaner interior lines. That makes shutters a particularly versatile option here, as they can be tailored to suit both character properties and newer homes while improving privacy, light control and the overall finish of a room.
+
+Many Loughborough customers also ask us about **[BlindScreen® blackout and fly screens](/blindscreen/)** — a slimline, fully-fitted system for bedrooms, bifolds and west-facing rooms.

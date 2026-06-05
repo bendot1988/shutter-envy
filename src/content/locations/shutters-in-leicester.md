@@ -21,3 +21,5 @@ We cover Leicester and nearby areas, providing home consultations, precise measu
 ## Why homeowners in Leicester choose Shutter Envy
 
 Homeowners in Leicester choose Shutter Envy because they want expert guidance and a proper fitted finish, not a rushed sales process. We are a family-run, award-winning business with years of hands-on shutter experience, and we focus on products that suit the room, accurate measuring and fitting that gives the shutters the clean, built-in look people want.
+
+We also fit **[BlindScreen® blackout blinds and integrated fly screens](/blindscreen/)** across Leicester — ideal for bedrooms, bifold doors and conservatories where you want total blackout or to keep insects out in summer.
