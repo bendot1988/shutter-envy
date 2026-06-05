@@ -151,9 +151,38 @@ const isCurrent = (href: string) =>
     </button>
     </div>
   </div>
+</header>
 
-  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
-    <ul>
+{/*
+  Mobile menu lives OUTSIDE <header> on purpose. The header has
+  `backdrop-filter` which makes it a containing block for any fixed-positioned
+  descendant — so a `position: fixed` drawer placed inside the header would
+  be trapped inside it instead of covering the viewport. Rendering it as a
+  body-level sibling lets `position: fixed; inset: 0` actually fill the
+  screen on every browser, especially iOS Safari.
+*/}
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" aria-hidden="true">
+  <div class="mobile-nav__head">
+    <a href="/" class="mobile-nav__brand" aria-label="Shutter Envy — home">
+      <img
+        src="/wp-content/uploads/2024/08/shutter-envy-horizontal-300x73.png"
+        srcset="/wp-content/uploads/2024/08/shutter-envy-horizontal-300x73.png 300w, /wp-content/uploads/2024/08/shutter-envy-horizontal-650x159.png 650w"
+        sizes="160px"
+        width="200"
+        height="49"
+        alt="Shutter Envy"
+        decoding="async"
+      />
+    </a>
+    <button class="mobile-nav__close" type="button" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mobile-nav__body">
+    <ul class="mobile-nav__list">
       {primaryNav.map((item) => {
         const hasDrop = 'type' in item && (item.type === 'mega' || item.type === 'simple' || item.type === 'locations');
         return (
@@ -189,13 +218,17 @@ const isCurrent = (href: string) =>
           </li>
         );
       })}
-      <li><a class="mobile-cta" href="/contact/">Arrange a Home Visit</a></li>
-      <li class="mobile-contact">
-        <a href={`tel:${business.phoneTel}`}>📞 {business.phoneDisplay}</a>
-      </li>
     </ul>
-  </nav>
-</header>
+
+    <div class="mobile-nav__footer">
+      <a class="mobile-cta" href="/contact/">Arrange a Home Visit</a>
+      <a class="mobile-contact" href={`tel:${business.phoneTel}`} aria-label={`Call ${business.phoneDisplay}`}>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
+        {business.phoneDisplay}
+      </a>
+    </div>
+  </div>
+</nav>
 
 <script>
   // Mega-menu + simple dropdown interactions.
@@ -268,21 +301,17 @@ const isCurrent = (href: string) =>
     if (!(e.target as Element).closest('.site-header .nav-item.has-drop')) closeAll();
   });
 
-  // Mobile hamburger
-  // The mobile nav is rendered inside the sticky <header> for semantics, but
-  // when open it switches to position:fixed pinned just below the visible
-  // header bar. This keeps the sticky header at its natural compact height
-  // (so it never "jumps" the page) and means the menu always appears where
-  // the user actually is, not at the top of the document.
+  // Mobile menu (full-screen overlay)
+  // The drawer is rendered outside <header> so its `position: fixed` isn't
+  // trapped by the header's `backdrop-filter` containing block. When open
+  // it covers the viewport and the body is scroll-locked using the
+  // iOS-safe pattern (plain `overflow: hidden` on <body> does NOT actually
+  // freeze scrolling on iOS Safari).
   const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle');
   const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
+  const closeBtn = document.querySelector<HTMLButtonElement>('.mobile-nav__close');
   const header = document.querySelector<HTMLElement>('.site-header');
-  const headerBar = document.querySelector<HTMLElement>('.site-header__bar');
 
-  // Saved scroll position used by the iOS-safe body scroll lock below.
-  // Plain `overflow: hidden` on <body> does NOT freeze scrolling on iOS
-  // Safari — we have to pin <body> with position:fixed and restore the
-  // scrollY on close.
   let lockedScrollY = 0;
 
   const lockScroll = () => {
@@ -303,29 +332,26 @@ const isCurrent = (href: string) =>
     window.scrollTo(0, lockedScrollY);
   };
 
-  const setMenuTop = () => {
-    if (!headerBar || !mobileNav) return;
-    // The header bar is sticky at top:0, so getBoundingClientRect().bottom
-    // is exactly where the menu should start in the viewport.
-    const top = Math.max(0, headerBar.getBoundingClientRect().bottom);
-    mobileNav.style.setProperty('--mobile-nav-top', `${top}px`);
-  };
-
   const openMenu = () => {
-    if (!toggle || !mobileNav || !header) return;
-    setMenuTop();
+    if (!toggle || !mobileNav) return;
     toggle.setAttribute('aria-expanded', 'true');
     mobileNav.classList.add('mobile-nav--open');
-    header.classList.add('site-header--menu-open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    header?.classList.add('site-header--menu-open');
     lockScroll();
+    // Move focus to the close button so keyboard users land inside the
+    // overlay rather than stuck on the now-covered hamburger.
+    requestAnimationFrame(() => closeBtn?.focus());
   };
 
   const closeMenu = () => {
-    if (!toggle || !mobileNav || !header) return;
+    if (!toggle || !mobileNav) return;
     toggle.setAttribute('aria-expanded', 'false');
     mobileNav.classList.remove('mobile-nav--open');
-    header.classList.remove('site-header--menu-open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    header?.classList.remove('site-header--menu-open');
     unlockScroll();
+    toggle.focus();
   };
 
   toggle?.addEventListener('click', () => {
@@ -333,14 +359,16 @@ const isCurrent = (href: string) =>
     isOpen ? closeMenu() : openMenu();
   });
 
-  // Close on any link tap inside the mobile menu so navigation doesn't
-  // leave the body in a scroll-locked state.
+  closeBtn?.addEventListener('click', closeMenu);
+
+  // Tapping any link inside the drawer should close it so we never leave
+  // the body in a scroll-locked state after navigation.
   mobileNav?.addEventListener('click', (e) => {
     const link = (e.target as Element).closest('a');
     if (link && mobileNav.contains(link)) closeMenu();
   });
 
-  // Esc closes the mobile menu too.
+  // Esc closes the mobile menu.
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileNav?.classList.contains('mobile-nav--open')) {
       closeMenu();
@@ -352,11 +380,6 @@ const isCurrent = (href: string) =>
   const desktopMQ = window.matchMedia('(min-width: 1024px)');
   desktopMQ.addEventListener('change', (e) => {
     if (e.matches && mobileNav?.classList.contains('mobile-nav--open')) closeMenu();
-  });
-
-  // Keep the menu's top edge aligned with the header bar on resize/orient.
-  window.addEventListener('resize', () => {
-    if (mobileNav?.classList.contains('mobile-nav--open')) setMenuTop();
   });
 </script>
 
@@ -887,31 +910,95 @@ const isCurrent = (href: string) =>
   .site-header--menu-open .mobile-toggle span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
   @media (min-width: 1024px) { .mobile-toggle { display: none; } }
 
-  /* ─── Mobile drawer ──────────────────────────────────────────── */
-  /* When closed, the drawer is display:none so it adds no height to the
-     sticky header. When open it switches to position:fixed pinned just
-     below the visible header bar (--mobile-nav-top is set by JS from the
-     header's current viewport position). This way the menu always opens
-     where the user actually is, never "at the top of the page". */
+  /* ─── Mobile drawer (full-screen overlay) ────────────────────── */
+  /* Lives outside <header> in the DOM so it isn't trapped by the header's
+     backdrop-filter (which creates a containing block for fixed children).
+     Always position:fixed; visibility/opacity gate its display so it never
+     affects layout when closed. */
   .mobile-nav {
-    display: none;
+    position: fixed;
+    inset: 0;
     background: #fff;
-    border-top: 1px solid var(--color-line);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 220ms ease, visibility 0s linear 220ms;
   }
   .mobile-nav.mobile-nav--open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition: opacity 200ms ease, transform 220ms ease, visibility 0s;
+  }
+  /* Drawer is mobile/tablet only — desktop uses .primary-nav. */
+  @media (min-width: 1024px) {
+    .mobile-nav { display: none !important; }
+  }
+
+  /* Gold hairline at the top, mirroring the site header */
+  .mobile-nav::before {
+    content: "";
     display: block;
-    position: fixed;
-    top: var(--mobile-nav-top, 0px);
-    left: 0;
-    right: 0;
-    bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold-400) 0%, var(--color-gold-600) 50%, var(--color-gold-400) 100%);
+    flex-shrink: 0;
+  }
+
+  .mobile-nav__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem clamp(1.25rem, 4vw, 1.5rem);
+    border-bottom: 1px solid var(--color-line);
+    flex-shrink: 0;
+  }
+  .mobile-nav__brand {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+  }
+  .mobile-nav__brand img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  .mobile-nav__close {
+    background: none;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink);
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+    transition: background 150ms, border-color 150ms, color 150ms;
+  }
+  .mobile-nav__close:hover,
+  .mobile-nav__close:focus-visible {
+    background: rgba(199, 154, 8, 0.08);
+    border-color: rgba(199, 154, 8, 0.3);
+    color: var(--color-gold-600);
+  }
+
+  .mobile-nav__body {
+    flex: 1 1 auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    z-index: 59;
-    box-shadow: 0 16px 32px -16px rgba(7, 7, 7, 0.18);
+    padding: 0.5rem clamp(1.25rem, 4vw, 1.5rem) calc(1.5rem + env(safe-area-inset-bottom, 0px));
   }
-  .mobile-nav > ul { list-style: none; padding: 0.75rem 1.25rem 1.5rem; margin: 0; }
+  .mobile-nav__list { list-style: none; padding: 0; margin: 0; }
   .mobile-nav__item { border-bottom: 1px solid var(--color-line); }
   .mobile-nav__item > a, .mobile-nav summary {
     display: block;
@@ -970,22 +1057,53 @@ const isCurrent = (href: string) =>
   .mobile-nav__group a:hover, .mobile-nav__children > ul a:hover {
     color: var(--color-gold-600);
   }
+
+  .mobile-nav__footer {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
   .mobile-cta {
     display: block;
     background: var(--color-gold-400);
-    color: #fff !important;
+    color: #fff;
     border-radius: 999px;
     text-align: center;
-    margin-top: 1.5rem !important;
-    padding: 0.875rem 1.5rem !important;
-    font-weight: 600 !important;
-    border: 0 !important;
+    padding: 0.875rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 200ms;
   }
-  .mobile-cta + .mobile-contact { border: 0 !important; text-align: center; margin-top: 0.75rem; }
-  .mobile-contact a {
+  .mobile-cta:hover { background: var(--color-gold-600); }
+  .mobile-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     color: var(--color-ink-soft);
     font-size: 0.9375rem;
     padding: 0.5rem 0;
     text-decoration: none;
+    text-align: center;
+  }
+  .mobile-contact svg {
+    color: var(--color-gold-600);
+    background: rgba(199, 154, 8, 0.12);
+    border-radius: 999px;
+    padding: 6px;
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+  }
+
+  /* Reduced-motion users get instant open/close. */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-nav,
+    .mobile-nav.mobile-nav--open {
+      transition: none;
+      transform: none;
+    }
   }
 </style>
