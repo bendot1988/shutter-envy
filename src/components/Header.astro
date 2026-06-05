@@ -269,15 +269,94 @@ const isCurrent = (href: string) =>
   });
 
   // Mobile hamburger
+  // The mobile nav is rendered inside the sticky <header> for semantics, but
+  // when open it switches to position:fixed pinned just below the visible
+  // header bar. This keeps the sticky header at its natural compact height
+  // (so it never "jumps" the page) and means the menu always appears where
+  // the user actually is, not at the top of the document.
   const toggle = document.querySelector<HTMLButtonElement>('.mobile-toggle');
   const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');
   const header = document.querySelector<HTMLElement>('.site-header');
+  const headerBar = document.querySelector<HTMLElement>('.site-header__bar');
+
+  // Saved scroll position used by the iOS-safe body scroll lock below.
+  // Plain `overflow: hidden` on <body> does NOT freeze scrolling on iOS
+  // Safari — we have to pin <body> with position:fixed and restore the
+  // scrollY on close.
+  let lockedScrollY = 0;
+
+  const lockScroll = () => {
+    lockedScrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  };
+
+  const unlockScroll = () => {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, lockedScrollY);
+  };
+
+  const setMenuTop = () => {
+    if (!headerBar || !mobileNav) return;
+    // The header bar is sticky at top:0, so getBoundingClientRect().bottom
+    // is exactly where the menu should start in the viewport.
+    const top = Math.max(0, headerBar.getBoundingClientRect().bottom);
+    mobileNav.style.setProperty('--mobile-nav-top', `${top}px`);
+  };
+
+  const openMenu = () => {
+    if (!toggle || !mobileNav || !header) return;
+    setMenuTop();
+    toggle.setAttribute('aria-expanded', 'true');
+    mobileNav.classList.add('mobile-nav--open');
+    header.classList.add('site-header--menu-open');
+    lockScroll();
+  };
+
+  const closeMenu = () => {
+    if (!toggle || !mobileNav || !header) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    mobileNav.classList.remove('mobile-nav--open');
+    header.classList.remove('site-header--menu-open');
+    unlockScroll();
+  };
+
   toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    mobileNav?.classList.toggle('mobile-nav--open', !open);
-    header?.classList.toggle('site-header--menu-open', !open);
-    document.body.style.overflow = !open ? 'hidden' : '';
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close on any link tap inside the mobile menu so navigation doesn't
+  // leave the body in a scroll-locked state.
+  mobileNav?.addEventListener('click', (e) => {
+    const link = (e.target as Element).closest('a');
+    if (link && mobileNav.contains(link)) closeMenu();
+  });
+
+  // Esc closes the mobile menu too.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav?.classList.contains('mobile-nav--open')) {
+      closeMenu();
+    }
+  });
+
+  // If the viewport crosses into desktop while the menu is open, close it
+  // so the body doesn't stay scroll-locked behind a hidden drawer.
+  const desktopMQ = window.matchMedia('(min-width: 1024px)');
+  desktopMQ.addEventListener('change', (e) => {
+    if (e.matches && mobileNav?.classList.contains('mobile-nav--open')) closeMenu();
+  });
+
+  // Keep the menu's top edge aligned with the header bar on resize/orient.
+  window.addEventListener('resize', () => {
+    if (mobileNav?.classList.contains('mobile-nav--open')) setMenuTop();
   });
 </script>
 
@@ -809,14 +888,29 @@ const isCurrent = (href: string) =>
   @media (min-width: 1024px) { .mobile-toggle { display: none; } }
 
   /* ─── Mobile drawer ──────────────────────────────────────────── */
+  /* When closed, the drawer is display:none so it adds no height to the
+     sticky header. When open it switches to position:fixed pinned just
+     below the visible header bar (--mobile-nav-top is set by JS from the
+     header's current viewport position). This way the menu always opens
+     where the user actually is, never "at the top of the page". */
   .mobile-nav {
     display: none;
     background: #fff;
     border-top: 1px solid var(--color-line);
-    max-height: calc(100vh - 70px);
-    overflow-y: auto;
   }
-  .mobile-nav.mobile-nav--open { display: block; }
+  .mobile-nav.mobile-nav--open {
+    display: block;
+    position: fixed;
+    top: var(--mobile-nav-top, 0px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    z-index: 59;
+    box-shadow: 0 16px 32px -16px rgba(7, 7, 7, 0.18);
+  }
   .mobile-nav > ul { list-style: none; padding: 0.75rem 1.25rem 1.5rem; margin: 0; }
   .mobile-nav__item { border-bottom: 1px solid var(--color-line); }
   .mobile-nav__item > a, .mobile-nav summary {
