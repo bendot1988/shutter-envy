@@ -50,6 +50,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'from-mdf-to-hardwood-choosing-the-right-shutter-material': 'guides',
   'how-much-do-plantation-shutters-cost-a-complete-uk-price-guide': 'guides',
   'shutter-blinds-explained-uk-guide': 'guides',
+  'are-mdf-shutters-any-good-honest-uk-verdict': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',

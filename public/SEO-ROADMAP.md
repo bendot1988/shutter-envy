@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-06-04
+- **Last updated:** 2026-06-09 (post 2 A8)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (apex). See §4 for the recommended addition.
@@ -239,7 +239,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: pending · owner: _TBD_ · done: — · note: candidate-only, no blanket rollout
 - [ ] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
-- [ ] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: in-progress · owner: Claude · done: — · note: post 1 of 6 shipped early on 2026-06-04 — `/shutter-blinds-explained-uk-guide/` targets `shutter blinds` (A.23, 481 impr / pos 29 / 0% CTR). 5 seeded topics still pending.
+- [ ] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: in-progress · owner: Claude · done: — · note: 2 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` targets A.23 `shutter blinds` (481 impr / pos 29 / 0% CTR). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` targets A.7 `mdf shutters` (968 impr / pos 48.49 / 0% CTR) — highest-headroom unaddressed query in Appendix A; honest-broker positioning qualifies cheap shoppers and upsells the rest to faux wood. (Earlier draft on sash windows withdrawn — client flagged as too specialist a promise.) 4 seeded topics still pending.
 - [ ] **A9 — Topical "see also" block in ArticleLayout.** status: pending · owner: _TBD_ · done: — · note: use src/data/blog-categories.ts
 - [ ] **A10 — Lighthouse + CWV pass on top-10 commercial pages.** status: pending · owner: _TBD_ · done: — · note: file follow-ups as new IDs if needed
 - [ ] **A11 — Set up rank tracking for Appendix A queries.** status: pending · owner: _TBD_ · done: — · note: tool TBC
@@ -247,6 +247,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-06-09** — **Second A8 editorial post shipped:** `/are-mdf-shutters-any-good-honest-uk-verdict/` directly targets Appendix A.7 `mdf shutters` (968 impr / pos 48.49 / 0% CTR — the highest-headroom unaddressed query in Appendix A). Honest-broker editorial stance: MDF is fine in dry low-traffic rooms, wrong in moisture-heavy ones, price gap to faux wood smaller than buyers expect, lifespan gap bigger than buyers expect. Strategic outcome: qualifies cheap shoppers out, upsells the rest to faux wood (better margin), positions Shutter Envy as honest at the same time. Registered in `src/data/blog-categories.ts` as `guides`. Includes 7 FAQs (FAQPage rich-result eligibility), TL;DR, MDF construction explainer, room-by-room verdict, price-gap reality check, lifespan field data, "what to ask the surveyor" checklist. Three new images in `public/images/blog/`: hero (MDF in a mid-market UK living room), louvre cross-section comparison (visualises the construction difference between MDF and faux wood without needing a label), and a low-humidity bedroom (the room MDF was made for). Internal links to /our-shutters/, /the-difference-between-wooden-and-faux-wood-shutters/, /how-much-do-plantation-shutters-cost-a-complete-uk-price-guide/, /can-your-shutters-survive-the-bathroom/, /locations/shutters-in-leicester/. **Note:** an earlier draft for 2026-06-09 (sash windows) was scrapped pre-publish — client flagged the topic as too specialist a promise.
 - **2026-06-04** — **First A8 editorial post shipped early:** `/shutter-blinds-explained-uk-guide/` targets the `shutter blinds` cluster (Appendix A.23, 481 impr / pos 29 / 0% CTR). Registered in `src/data/blog-categories.ts` as a `guides` post. Includes 7 FAQs (FAQPage rich-result eligibility), TL;DR block, by-room decision guide, internal links to /our-shutters/, /our-blinds/, the cost guide, and two location pages.
 - **2026-06-02** — Phase 2 begins: **C9 shipped early** (cost-guide refresh). Added at-a-glance pricing block, dedicated bay-window section, 8 cost-focused FAQs (FAQPage rich-result eligibility), and refresh stamp. F9/F12 still blocked on DNS access — moved on to on-repo content work in the meantime.
 - **2026-05-28** — Phase 1 execution pass: F1, F2, F3, F4, F5, F6, F7, F8, F10, F11 shipped (10 of 12). F9 and F12 are off-repo — step-by-step instructions added below. Also: fixed live horizontal scroll on desktop (`body { overflow-x: clip }` in `src/styles/global.css`; removed redundant `width: 100vw` from `.bs-difference` and `.bs-form` in `src/pages/blindscreen/index.astro`).
