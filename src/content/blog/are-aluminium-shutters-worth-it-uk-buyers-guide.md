@@ -3,20 +3,20 @@ title: "Are Aluminium Shutters Worth It? UK Buyer's Guide (2026)"
 description: "Aluminium plantation shutters cost about twice as much as faux wood. Honest UK guide to who they actually suit, who they don't, real costs and what they replace."
 h1: "Are Aluminium Shutters Worth It? An Honest UK Buyer's Guide"
 pubDate: 2026-06-16
-updatedDate: 2026-06-16
+updatedDate: 2026-06-17
 heroImage: "/images/blog/are-aluminium-shutters-worth-it-featured.png"
-heroImageAlt: "Warm-white aluminium plantation shutters fitted to a tall casement window in a tasteful UK living room, horizontal louvres tilted partially open, slim plantation profile with mitred frame and chrome hinges visible."
+heroImageAlt: "Warm-white aluminium plantation shutters fitted to a tall casement window in a UK living room, horizontal louvres tilted partially open, each panel with its own small key lock at the meeting stile and no pull handles or tilt rods."
 excerpt: "Aluminium plantation shutters look like ordinary shutters at first glance. They cost about twice as much. So why do we recommend them more often than you'd think? Honest UK guide to the jobs they were actually built for."
 author: "Shutter Envy"
 faqs:
   - question: "What are aluminium plantation shutters made of?"
-    answer: "Extruded aluminium with a baked powder-coat finish. Each louvre, stile and rail is a hollow aluminium section pressed from a single billet, then powder-coated in the colour you choose. The internal chambers are what give the louvres their strength while keeping the overall weight comparable to a faux wood shutter. This is fundamentally different from a wood, MDF or PVC shutter — the material is structural, not just a painted surface."
+    answer: "Construction-grade extruded aluminium with a baked powder-coat finish. Each louvre, stile and rail is a hollow aluminium section pressed from a single billet, then powder-coated in the colour you choose. The internal chambers are what give the louvres their strength while keeping the overall weight comparable to a faux wood shutter. Construction-grade aluminium is the specification used for security and architectural applications — thicker wall sections and a harder alloy than the lightweight sheet used in cheap window dressings. This is fundamentally different from a wood, MDF or PVC shutter — the material is structural, not just a painted surface."
   - question: "Are aluminium shutters the same as roller shutters?"
     answer: "No, and this confusion costs people a lot of time at quote stage. Roller shutters are the chunky external slatted units that roll up and down inside a box above the window, typically on shops or rear extensions for full lock-down. Aluminium plantation shutters are interior shutters that look almost identical to standard plantation shutters — same horizontal louvres, same hinged panels, same plantation aesthetic — just built in aluminium for strength, security and weather durability. If you want the plantation look on the inside, you want aluminium plantation shutters. If you want hardened external coverage, you want roller shutters."
   - question: "Are aluminium shutters more secure than wooden ones?"
     answer: "Yes, meaningfully. A standard plantation shutter in wood or faux wood is a privacy and light-control product, not a security one — a determined intruder will break through the louvres or pop the frame. An aluminium plantation shutter with a key-locking system (which is standard on the Portchester range we fit) genuinely resists forced entry. Insurers recognise the difference. For ground-floor patio doors, French doors and side-return bedroom windows, aluminium is a real security upgrade dressed as a plantation shutter."
   - question: "Do aluminium shutters look like normal plantation shutters?"
-    answer: "From across a room, yes — that's the whole point. Up close the differences become apparent: the louvres are noticeably slimmer in profile, the edges are crisper, and the hinges are chrome or brushed stainless instead of brass. In white or off-white, an aluminium plantation shutter reads as a slightly more refined plantation shutter — most visitors won't know it's metal. In a deeper colour (anthracite, charcoal, black), the material shows more obviously, which can be deliberate. We bring physical samples to every survey so you can see and feel both side by side."
+    answer: "From across a room, yes — that's the whole point. Up close the differences become apparent: the louvres are noticeably slimmer in profile, the edges are crisper, and the hinges are chrome or brushed stainless instead of brass. Operation is different too — there is no centre tilt rod or pull handle. Security is handled with individual key locks rather than handles. On a standard two-panel window that's typically one lock per panel; on a wider four-panel opening such as French doors, the locks sit on the inner panels only — the outer panels hinge open without a lock on the outer stile. In white or off-white, an aluminium plantation shutter reads as a slightly more refined plantation shutter — most visitors won't know it's metal. In a deeper colour (anthracite, charcoal, black), the material shows more obviously, which can be deliberate. We bring physical samples to every survey so you can see and feel both side by side."
   - question: "Can you use aluminium shutters in a conservatory?"
     answer: "Yes, and conservatories are one of the strongest cases for them. Wooden plantation shutters bow and warp in the temperature swings and condensation of a UK conservatory; faux wood handles it better but isn't bullet-proof on south-facing glass; aluminium is genuinely indifferent to temperature and moisture. They don't expand or contract meaningfully in summer, they don't degrade in humidity, and they don't fade in direct UK sun. If you've been told a conservatory is too humid for shutters, aluminium is the right answer."
   - question: "How much do aluminium plantation shutters cost in the UK?"
@@ -37,13 +37,13 @@ Before the full breakdown, here's the verdict:
 
 - **Aluminium plantation shutters are not a different colour of plantation shutter. They're a different product entirely** — built for security, weather and durability where wood and faux wood will eventually fail.
 - **They cost about twice as much as faux wood.** Roughly £600–£1,400 per window fitted in 2026.
-- **From across the room, they look like premium plantation shutters.** Up close the louvres are slimmer, the edges crisper, and the hinges chrome instead of brass.
+- **From across the room, they look like premium plantation shutters.** Up close the louvres are slimmer, the edges crisper, and security uses individual key locks — not a centre tilt rod or pull handle.
 - **Right rooms:** conservatories, south-facing rooms, bathrooms with persistent condensation, ground-floor patio doors and French doors where security matters.
 - **Wrong rooms:** dry first-floor bedrooms, north-facing living rooms, anywhere faux wood would already do a perfectly good job. Most houses end up with aluminium on two or three openings and faux wood everywhere else.
 
 ## What Aluminium Plantation Shutters Actually Are
 
-Aluminium plantation shutters are made from extruded aluminium — the same material used in modern UK window frames and high-end architectural detailing. Each louvre, stile, rail and frame section is a hollow aluminium extrusion pressed from a single billet, then powder-coated in your chosen colour. The internal chambers in the louvres are what give them their strength while keeping the weight close to a faux wood equivalent.
+Aluminium plantation shutters are made from **construction-grade extruded aluminium** — a heavier, harder specification than the lightweight sheet used in cheap window dressings, and the same grade used in security and architectural applications. Each louvre, stile, rail and frame section is a hollow aluminium extrusion pressed from a single billet, then powder-coated in your chosen colour. The internal chambers in the louvres are what give them their strength while keeping the weight close to a faux wood equivalent.
 
 This is structurally different from every other shutter material:
 
@@ -88,9 +88,9 @@ This is the single most common confusion at the survey door, so it deserves its 
 
 If you want the plantation look on the inside of your house, you want aluminium plantation shutters. If you want hardened external coverage that disappears into a housing when not in use, you want roller shutters. They're different products solving different problems.
 
-![Anthracite aluminium plantation shutters fitted across French doors in a UK kitchen-diner with heritage-green walls, exposed brick chimney breast and wood-burner, oak dining table with a bowl of green apples, horizontal louvres tilted half-open showing the back garden through the slats.](/images/blog/aluminium-shutters-french-doors-anthracite.png)
+![Anthracite aluminium plantation shutters on a four-panel French door — brushed-stainless hinges on both outer panels, key locks on the two inner panels at the centre only, no pull handles.](/images/blog/aluminium-shutters-french-doors-anthracite.png)
 
-The image above is the classic aluminium use case: a ground-floor French door opening directly onto a back garden. The anthracite finish makes the architectural quality of the aluminium visible, the slats give privacy and light control in the standard plantation way, and the panels lock — so a door that's both the room's main feature and the home's most vulnerable opening doesn't have to be either a security risk or covered in roller blinds at night.
+The image above is the classic aluminium use case: a ground-floor French door opening directly onto a back garden. Four shutter panels across the opening — the two outer panels hinge from the frame, and the two inner panels carry the key locks at the centre. The anthracite finish makes the architectural quality of the aluminium visible, the slats give privacy and light control in the standard plantation way, and the inner panels lock — so a door that's both the room's main feature and the home's most vulnerable opening doesn't have to be either a security risk or covered in roller blinds at night.
 
 ## What Aluminium Plantation Shutters Cost in 2026
 
