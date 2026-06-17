@@ -10,7 +10,7 @@ const { images, caption = 'Blind & Shutter Specialists of the Year' } = Astro.pr
     <div class="container">
       <ul data-reveal-children>
         {images.map((src) => (
-          <li><img src={src} alt="IE 100 Awards Winner" loading="lazy" /></li>
+          <li><img src={src} alt="IE 100 Awards Winner" loading="lazy" width="300" height="78" /></li>
         ))}
       </ul>
       {caption && <p>{caption}</p>}

@@ -34,8 +34,18 @@ const defaultImages = [
         return (
           <li
             class="stats-row__card"
-            style={`--i: ${i}; --stat-bg: url("${bg}");`}
+            style={`--i: ${i};`}
           >
+            <img
+              class="stats-row__bg"
+              src={bg}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1280"
+              height="714"
+              aria-hidden="true"
+            />
             <div class="stats-row__overlay" aria-hidden="true"></div>
             <div class="stats-row__content">
               <p
@@ -125,9 +135,6 @@ const defaultImages = [
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background-color: var(--color-charcoal-900);
-    background-image: var(--stat-bg);
-    background-size: cover;
-    background-position: center;
     transition:
       transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
       box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -136,6 +143,16 @@ const defaultImages = [
     transform: translateY(16px);
     animation: stat-card-in 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: calc(var(--i, 0) * 0.1s);
+  }
+  .stats-row__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
   }
   @keyframes stat-card-in {
     to { opacity: 1; transform: translateY(0); }
@@ -155,6 +172,7 @@ const defaultImages = [
   .stats-row__overlay {
     position: absolute;
     inset: 0;
+    z-index: 1;
     background: linear-gradient(
       180deg,
       rgba(20, 18, 16, 0.45) 0%,

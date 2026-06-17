@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Self-hosted brand fonts (replaces Google Fonts CDN). */
+@import "@fontsource/libre-franklin/400.css";
+@import "@fontsource/libre-franklin/500.css";
+@import "@fontsource/libre-franklin/600.css";
+@import "@fontsource/libre-franklin/700.css";
+@import "@fontsource/spectral/400.css";
+@import "@fontsource/spectral/500.css";
+@import "@fontsource/spectral/600.css";
+@import "@fontsource/spectral/700.css";
+
 /* Brand tokens from the Peek audit (2026-05-16) of shutter-envy.co.uk.
    Colours are exact-matched, type scale uses the named brand styles.
    Keep in sync with src/data/site.ts. */

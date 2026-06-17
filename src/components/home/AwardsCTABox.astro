@@ -1,5 +1,6 @@
 ---
 import { business } from '../../data/site';
+import BackgroundImage from '../BackgroundImage.astro';
 
 interface Props {
   backgroundImage?: string;
@@ -35,11 +36,8 @@ const lead = words.join(' ');
 const awardYears = ['2023', '2024', '2025'];
 ---
 <section class="awards-cta">
-  <div
-    class="awards-cta__box"
-    style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}
-    data-reveal="scale"
-  >
+  <div class="awards-cta__box" data-reveal="scale">
+    {backgroundImage && <BackgroundImage src={backgroundImage} loading="lazy" />}
     {/* Layered atmospheric overlay (depth + gold light bleed) */}
     <div class="awards-cta__overlay awards-cta__overlay--base"></div>
     <div class="awards-cta__overlay awards-cta__overlay--vignette"></div>
@@ -127,8 +125,6 @@ const awardYears = ['2023', '2024', '2025'];
   .awards-cta__box {
     position: relative;
     background-color: #1f1a0a;
-    background-size: cover;
-    background-position: center;
     border-radius: var(--radius-xl);
     overflow: hidden;
     padding: 5rem 1.5rem 4.5rem;

@@ -8,13 +8,19 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "compress-images": "node scripts/compress-images.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.0",
+    "@fontsource/libre-franklin": "^5.2.8",
+    "@fontsource/spectral": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^5.0.0",
     "remark-custom-header-id": "^1.0.0",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.1"
   }
 }

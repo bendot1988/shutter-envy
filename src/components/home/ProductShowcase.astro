@@ -1,4 +1,6 @@
 ---
+import BackgroundImage from '../BackgroundImage.astro';
+
 interface Props {
   heading: string;
   body?: string;
@@ -10,7 +12,8 @@ interface Props {
 const { heading, body, cta, cta_note, products, backgroundImage } = Astro.props;
 const parts = heading.split(/\s+and\s+/i);
 ---
-<section id="products" class="product-showcase" style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+<section id="products" class="product-showcase">
+  {backgroundImage && <BackgroundImage src={backgroundImage} loading="lazy" />}
   <div class="product-showcase__overlay"></div>
   <div class="product-showcase__grid container">
     <aside class="product-showcase__intro" data-reveal="left">
@@ -29,7 +32,7 @@ const parts = heading.split(/\s+and\s+/i);
       {products.map((p) => (
         <article class="product-showcase__card">
           <a href={p.href} class="product-showcase__image">
-            <img src={p.image} alt={p.title} loading="lazy" />
+            <img src={p.image} alt={p.title} loading="lazy" width="1280" height="714" />
           </a>
           <div class="product-showcase__body">
             <h3>{p.title}</h3>
@@ -48,8 +51,6 @@ const parts = heading.split(/\s+and\s+/i);
     margin: 0 calc(50% - 50vw);
     padding: 6rem 1.25rem;
     background-color: #2a2a26;
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     scroll-margin-top: 6rem;
   }

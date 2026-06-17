@@ -1,6 +1,7 @@
 ---
 import ClearLineForm from '../ClearLineForm.astro';
 import HelpDropdown from './HelpDropdown.astro';
+import BackgroundImage from '../BackgroundImage.astro';
 
 interface Badge { icon?: 'star' | 'award' | 'home' | 'check'; label: string }
 
@@ -15,7 +16,10 @@ interface Props {
 }
 const { backgroundImage, eyebrow, heading, body, location, badges = [] } = Astro.props;
 ---
-<section class="home-hero" style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+<section class="home-hero">
+  {backgroundImage && (
+    <BackgroundImage src={backgroundImage} loading="eager" fetchpriority="high" />
+  )}
   <div class="home-hero__overlay"></div>
   <div class="home-hero__grid container">
     <div class="home-hero__copy">
@@ -76,8 +80,7 @@ const { backgroundImage, eyebrow, heading, body, location, badges = [] } = Astro
     margin: 0 calc(50% - 50vw);
     padding: 4rem 1.25rem 5rem;
     background-color: var(--color-cream);
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
   }
   .home-hero__overlay {
     position: absolute; inset: 0;

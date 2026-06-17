@@ -17,7 +17,7 @@ const { heading, body, members } = Astro.props;
       {members.map((m) => (
         <li>
           <div class="team-cards__image">
-            <img src={m.image} alt={m.name} loading="lazy" />
+            <img src={m.image} alt={m.name} loading="lazy" width="542" height="650" />
           </div>
           <h3>{m.name}</h3>
           <p>{m.role}</p>

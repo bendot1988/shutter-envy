@@ -23,7 +23,7 @@ const { images, id, heading, lightbox = true } = Astro.props;
               href={img.href}
               aria-label={`Read more: ${img.alt}`}
             >
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width="300" height="225" />
             </a>
           ) : lightbox ? (
             <button
@@ -32,10 +32,10 @@ const { images, id, heading, lightbox = true } = Astro.props;
               data-lightbox-index={i}
               aria-label={`View image: ${img.alt}`}
             >
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width="300" height="225" />
             </button>
           ) : (
-            <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+            <img src={img.src} alt={img.alt} loading="lazy" decoding="async" width="300" height="225" />
           )}
         </li>
       ))}

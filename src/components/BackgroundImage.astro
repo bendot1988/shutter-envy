@@ -1,0 +1,32 @@
+---
+// Decorative cover image for section backgrounds. Replaces CSS background-image
+// so browsers can lazy-load offscreen sections and Lighthouse can size the asset.
+interface Props {
+  src: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+}
+const { src, loading = 'lazy', fetchpriority } = Astro.props;
+---
+<img
+  class="bg-cover"
+  src={src}
+  alt=""
+  loading={loading}
+  decoding="async"
+  fetchpriority={fetchpriority}
+  aria-hidden="true"
+/>
+
+<style>
+  .bg-cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
