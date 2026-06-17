@@ -114,16 +114,16 @@ const fmtDate = (d: Date) =>
 
         <div class="news-sidebar__block">
           <h3 class="news-sidebar__title">Categories</h3>
-          <ul class="news-cats" role="tablist" aria-label="Filter by category">
+          <ul class="news-cats" role="group" aria-label="Filter by category">
             <li>
-              <button type="button" class="news-cat is-active" data-cat="all" role="tab" aria-selected="true">
+              <button type="button" class="news-cat is-active" data-cat="all" aria-pressed="true">
                 <span class="news-cat__label">All posts</span>
                 <span class="news-cat__count">{enriched.length}</span>
               </button>
             </li>
             {visibleCategories.map((c) => (
               <li>
-                <button type="button" class="news-cat" data-cat={c.id} role="tab" aria-selected="false">
+                <button type="button" class="news-cat" data-cat={c.id} aria-pressed="false">
                   <span class="news-cat__label">{c.label}</span>
                   <span class="news-cat__count">{c.count}</span>
                 </button>
@@ -269,9 +269,9 @@ const fmtDate = (d: Date) =>
   // Category pills
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
-      pills.forEach((p) => { p.classList.remove('is-active'); p.setAttribute('aria-selected', 'false'); });
+      pills.forEach((p) => { p.classList.remove('is-active'); p.setAttribute('aria-pressed', 'false'); });
       pill.classList.add('is-active');
-      pill.setAttribute('aria-selected', 'true');
+      pill.setAttribute('aria-pressed', 'true');
       activeCat = pill.dataset.cat ?? 'all';
       apply();
     });
@@ -281,9 +281,9 @@ const fmtDate = (d: Date) =>
     if (input) input.value = '';
     activeSearch = '';
     activeCat = 'all';
-    pills.forEach((p) => { p.classList.remove('is-active'); p.setAttribute('aria-selected', 'false'); });
+    pills.forEach((p) => { p.classList.remove('is-active'); p.setAttribute('aria-pressed', 'false'); });
     pills[0]?.classList.add('is-active');
-    pills[0]?.setAttribute('aria-selected', 'true');
+    pills[0]?.setAttribute('aria-pressed', 'true');
     apply();
   });
 

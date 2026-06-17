@@ -23,7 +23,6 @@ const {
   <button
     class="help-dropdown__trigger"
     type="button"
-    aria-haspopup="true"
     aria-expanded="false"
     aria-controls="help-dropdown-menu"
   >
@@ -33,11 +32,11 @@ const {
     </svg>
   </button>
 
-  <div class="help-dropdown__panel" id="help-dropdown-menu" role="menu">
+  <div class="help-dropdown__panel" id="help-dropdown-menu">
     <ul>
       {options.map((opt) => (
         <li>
-          <a href={opt.href} role="menuitem">
+          <a href={opt.href}>
             <span class="help-dropdown__icon" aria-hidden="true">
               {opt.icon === 'quote' && (
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
@@ -92,7 +91,7 @@ const {
     // Arrow key navigation between menu items
     root.addEventListener('keydown', (e) => {
       if (!root.classList.contains('is-open')) return;
-      const items = Array.from(root.querySelectorAll<HTMLAnchorElement>('a[role="menuitem"]'));
+      const items = Array.from(root.querySelectorAll<HTMLAnchorElement>('.help-dropdown__panel a'));
       if (!items.length) return;
       const active = document.activeElement as HTMLElement | null;
       const idx = items.findIndex((i) => i === active);

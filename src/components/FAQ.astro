@@ -29,14 +29,14 @@ const last = words[words.length - 1];
       <h2>{lead} <span class="gold">{last}.</span></h2>
       {intro && <p>{intro}</p>}
     </header>
-    <dl data-reveal-children>
+    <div class="faq__list" data-reveal-children>
       {items.map((f) => (
         <details>
-          <summary><dt>{f.question}</dt></summary>
-          <dd set:html={f.answer} />
+          <summary>{f.question}</summary>
+          <div class="faq__answer" set:html={f.answer} />
         </details>
       ))}
-    </dl>
+    </div>
     {closingCta && (
       <p class="faq__closing">
         {closingCta.prompt ?? 'Still have questions?'}
@@ -85,7 +85,7 @@ const last = words[words.length - 1];
   }
   @media (min-width: 768px) {
     .faq--two-column .faq__inner { grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
-    .faq--two-column dl { grid-column: 1 / -1; margin-top: 1.5rem; }
+    .faq--two-column .faq__list { grid-column: 1 / -1; margin-top: 1.5rem; }
   }
   .faq__header h2 {
     /* h2-60-500 */
@@ -111,7 +111,7 @@ const last = words[words.length - 1];
     line-height: 1.875;
     margin: 0;
   }
-  .faq dl {
+  .faq__list {
     display: grid;
     gap: 0;
     margin: 0;
@@ -160,8 +160,7 @@ const last = words[words.length - 1];
     line-height: 1;
   }
   .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq summary dt { display: inline; font-weight: inherit; }
-  .faq dd {
+  .faq__answer {
     margin: 0.875rem 0 0;
     padding: 0;
     color: var(--color-ink-soft);

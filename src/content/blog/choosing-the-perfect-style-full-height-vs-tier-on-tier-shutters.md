@@ -150,7 +150,7 @@ If you are in Thrussington or the surrounding [Leicestershire](/window-shutters-
 
 
 
-<article class="elementor-post elementor-grid-item post-2387 post type-post status-publish format-standard has-post-thumbnail hentry category-shutters category-recent-projects" role="listitem">
+<article class="elementor-post elementor-grid-item post-2387 post type-post status-publish format-standard has-post-thumbnail hentry category-shutters category-recent-projects">
 <a class="elementor-post__thumbnail__link" href="https://shutter-envy.co.uk/transformative-elegance-british-made-faux-wood-shutters-in-silk-white-market-harborough/" tabindex="-1" >
 ![04 Shutter envy shutters in Market Harbour new install](/wp-content/uploads/2025/11/04-Shutter-envy-shutters-in-Market-Harbour-new-install-768x1024.jpg)
 </a>
@@ -168,7 +168,7 @@ Read More »		</a>
 
 
 </article>
-<article class="elementor-post elementor-grid-item post-2300 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects" role="listitem">
+<article class="elementor-post elementor-grid-item post-2300 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects">
 <a class="elementor-post__thumbnail__link" href="https://shutter-envy.co.uk/bypass-track-shutter-in-mountsorrel/" tabindex="-1" >
 ![bypass](/wp-content/uploads/2025/10/bypass-768x1024.jpg)
 </a>
@@ -186,7 +186,7 @@ Read More »		</a>
 
 
 </article>
-<article class="elementor-post elementor-grid-item post-2239 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects" role="listitem">
+<article class="elementor-post elementor-grid-item post-2239 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects">
 <a class="elementor-post__thumbnail__link" href="https://shutter-envy.co.uk/pairing-bespoke-shutters-with-your-homes-architecture-in-the-east-midlands/" tabindex="-1" >
 ![shutters new and old](/wp-content/uploads/2025/10/shutters-new-and-old-768x768.jpeg)
 </a>
@@ -204,7 +204,7 @@ Read More »		</a>
 
 
 </article>
-<article class="elementor-post elementor-grid-item post-2233 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects" role="listitem">
+<article class="elementor-post elementor-grid-item post-2233 post type-post status-publish format-standard has-post-thumbnail hentry category-recent-projects">
 <a class="elementor-post__thumbnail__link" href="https://shutter-envy.co.uk/kitchen-shutter-install-in-woodhouse-leicestershire/" tabindex="-1" >
 ![DSCF3115](/wp-content/uploads/2025/08/DSCF3115-768x512.webp)
 </a>
