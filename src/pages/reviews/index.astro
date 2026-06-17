@@ -97,7 +97,7 @@ function initials(name: string) {
       <span class="rv-hero__eyebrow">Customer Reviews</span>
       <h1>What Our Customers Are Saying</h1>
       <div class="rv-hero__rating">
-        <span class="rv-hero__stars" aria-label={`${avgRating} out of 5 stars`}>
+        <span class="rv-hero__stars" role="img" aria-label={`${avgRating} out of 5 stars`}>
           {Array.from({ length: 5 }).map(() => (
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
               <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
@@ -154,7 +154,7 @@ function initials(name: string) {
                   )}
                   {r.source}
                 </span>
-                <span class="rv-card__stars" aria-label={`${r.rating} out of 5`}>
+                <span class="rv-card__stars" role="img" aria-label={`${r.rating} out of 5`}>
                   {Array.from({ length: r.rating }).map(() => (
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
                       <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>

@@ -52,7 +52,7 @@ const awardYears = ['2023', '2024', '2025'];
     <div class="awards-cta__inner">
       {/* Rating row — actual gold stars + supporting line */}
       <div class="awards-cta__rating">
-        <span class="awards-cta__stars" aria-label={`${rating} out of 5 stars`}>
+        <span class="awards-cta__stars" role="img" aria-label={`${rating} out of 5 stars`}>
           {Array.from({ length: 5 }).map((_, i) => (
             <svg style={`--i: ${i};`} viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
               <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
