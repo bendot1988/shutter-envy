@@ -14,12 +14,12 @@ interface Props {
 }
 const { showIntro = true } = Astro.props;
 ---
-<div class="clearline-embed">
+<div class="clearline-embed" data-clearline-form>
   {showIntro && (
     <p>Fill in the form below to get started.</p>
   )}
   <iframe
-    src={FORM_URL}
+    data-src={FORM_URL}
     style="width:100%;height:100%;border:none;border-radius:0px"
     id={`inline-${FORM_ID}`}
     data-layout="{'id':'INLINE'}"
@@ -42,4 +42,60 @@ const { showIntro = true } = Astro.props;
     </a>.
   </p>
 </div>
-<script src="https://link.clearlineconnect.io/js/form_embed.js"></script>
+<script is:inline>
+  (() => {
+    const SCRIPT_SRC = 'https://link.clearlineconnect.io/js/form_embed.js';
+
+    function loadClearLine() {
+      if (window.__seClearLineLoaded) return;
+      window.__seClearLineLoaded = true;
+
+      document.querySelectorAll('[data-clearline-form]').forEach((root) => {
+        const iframe = root.querySelector('iframe[data-src]');
+        if (iframe && !iframe.getAttribute('src')) {
+          iframe.setAttribute('src', iframe.dataset.src);
+        }
+      });
+
+      if (!document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
+        const s = document.createElement('script');
+        s.src = SCRIPT_SRC;
+        document.head.appendChild(s);
+      }
+    }
+
+    const roots = document.querySelectorAll('[data-clearline-form]');
+    if (!roots.length) return;
+
+    const start = () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadClearLine, { timeout: 2500 });
+      } else {
+        setTimeout(loadClearLine, 1500);
+      }
+    };
+
+    // If any form is already on screen (hero), still defer briefly for LCP.
+    const visible = [...roots].some((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    });
+
+    if (visible) {
+      start();
+      return;
+    }
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          loadClearLine();
+          io.disconnect();
+        }
+      }, { rootMargin: '200px' });
+      roots.forEach((el) => io.observe(el));
+    } else {
+      start();
+    }
+  })();
+</script>

@@ -1,6 +1,8 @@
 ---
 // Reusable dark Portchester® Aluminium upsell band.
 // Drop into any page — sensible defaults so you can render with no props.
+import BackgroundImage from './BackgroundImage.astro';
+
 interface Props {
   eyebrow?: string;
   heading?: string;
@@ -28,7 +30,8 @@ const idx = heading.toLowerCase().indexOf(italicWord.toLowerCase());
 const lead = idx >= 0 ? heading.slice(0, idx).trim() : heading;
 const tail = idx >= 0 ? heading.slice(idx + italicWord.length).trim() : '';
 ---
-<section class="pc-callout" style={`background-image: url('${backgroundImage}')`}>
+<section class="pc-callout">
+  <BackgroundImage src={backgroundImage} loading="lazy" />
   <div class="pc-callout__overlay"></div>
   <div class="pc-callout__inner container" data-reveal>
     <div class="pc-callout__copy" data-reveal="left">
@@ -59,17 +62,17 @@ const tail = idx >= 0 ? heading.slice(idx + italicWord.length).trim() : '';
     margin: 0 calc(50% - 50vw);
     padding: 5rem 1.25rem;
     background-color: #1f1a0a;
-    background-size: cover;
-    background-position: center;
     color: #fff;
     overflow: hidden;
   }
   .pc-callout__overlay {
     position: absolute; inset: 0;
+    z-index: 1;
     background: linear-gradient(135deg, rgba(15,12,5,0.92) 0%, rgba(15,12,5,0.78) 100%);
   }
   .pc-callout__inner {
     position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;

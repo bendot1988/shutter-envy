@@ -2,6 +2,8 @@
 // Pure HTML renderer for FAQs. The matching FAQPage JSON-LD is emitted by
 // the page's route handler via lib/schema.ts — kept separate so structured
 // data and visible markup can't drift apart.
+import BackgroundImage from './BackgroundImage.astro';
+
 interface Props {
   items: { question: string; answer: string }[];
   id?: string;
@@ -19,7 +21,8 @@ const lead = words.slice(0, -1).join(' ');
 const last = words[words.length - 1];
 ---
 {items.length > 0 && (
-  <section id={id} class:list={['faq', `faq--${layout}`, backgroundImage ? 'faq--has-bg' : '', className]} style={backgroundImage ? `background-image: url('${backgroundImage}')` : undefined}>
+  <section id={id} class:list={['faq', `faq--${layout}`, backgroundImage ? 'faq--has-bg' : '', className]}>
+    {backgroundImage && <BackgroundImage src={backgroundImage} loading="lazy" />}
     {backgroundImage && <div class="faq__overlay"></div>}
     <div class="faq__inner">
     <header class="faq__header" data-reveal>
@@ -58,16 +61,16 @@ const last = words[words.length - 1];
   }
   .faq--has-bg {
     background-color: var(--color-cream);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    overflow: hidden;
   }
   .faq__overlay {
     position: absolute; inset: 0;
+    z-index: 1;
     background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(249,248,244,0.96));
   }
   .faq__inner {
     position: relative;
+    z-index: 2;
     max-width: 64rem;
     margin-inline: auto;
   }

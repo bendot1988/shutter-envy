@@ -1,33 +1,57 @@
 ---
-// GA4 + Meta Pixel + Dotwall Stats. CLAUDE.md §6: must be carried over verbatim.
-// GA4 measurement ID confirmed against the live site (2026-05-18).
+// GA4 + Meta Pixel + Dotwall Stats. CLAUDE.md §6: IDs and event wiring preserved;
+// scripts load after first paint so they don't block LCP.
 const GA4_ID = 'G-CDBPY9EJBB';
 const FB_PIXEL_ID = '1214905783001306';
 ---
 <!-- Dotwall Stats (privacy-friendly, cookieless) -->
-<script defer data-domain="shutter-envy.co.uk" src="https://dotwallstats.co.uk/js/script.js"></script>
-
-<!-- Google Analytics 4 -->
-<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-<script is:inline define:vars={{ GA4_ID }}>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', GA4_ID);
+<script is:inline>
+  function loadDotwallStats() {
+    if (document.querySelector('script[data-domain="shutter-envy.co.uk"]')) return;
+    const s = document.createElement('script');
+    s.defer = true;
+    s.dataset.domain = 'shutter-envy.co.uk';
+    s.src = 'https://dotwallstats.co.uk/js/script.js';
+    document.head.appendChild(s);
+  }
 </script>
 
-<!-- Meta Pixel -->
-<script is:inline define:vars={{ FB_PIXEL_ID }}>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', FB_PIXEL_ID);
-  fbq('track', 'PageView');
+<!-- Google Analytics 4 + Meta Pixel (deferred until after load) -->
+<script is:inline define:vars={{ GA4_ID, FB_PIXEL_ID }}>
+  function loadAnalytics() {
+    if (window.__seAnalyticsLoaded) return;
+    window.__seAnalyticsLoaded = true;
+
+    const ga = document.createElement('script');
+    ga.async = true;
+    ga.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+    document.head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', FB_PIXEL_ID);
+    fbq('track', 'PageView');
+
+    loadDotwallStats();
+  }
+
+  if (document.readyState === 'complete') {
+    loadAnalytics();
+  } else {
+    window.addEventListener('load', loadAnalytics, { once: true });
+  }
 </script>
 <noscript>
   <img height="1" width="1" style="display:none"

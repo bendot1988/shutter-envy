@@ -19,7 +19,6 @@ At Shutter Envy, we bring over 14 years of industry experience to homes across L
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 ## The DIY Route: Pros and Cons
 
@@ -43,7 +42,6 @@ Disadvantages
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 ## Professional Installation: The Shutter Envy Way
 
@@ -60,7 +58,6 @@ Advantages
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 Disadvantages
 
@@ -102,7 +99,6 @@ When deciding between DIY and professional fitting, consider the ‘Window Healt
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 ## Frequently Asked Questions
 

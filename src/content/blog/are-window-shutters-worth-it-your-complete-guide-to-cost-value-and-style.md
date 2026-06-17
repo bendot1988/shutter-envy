@@ -49,9 +49,6 @@ Several factors influence this price:
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300&family=Spectral:wght@500;700&display=swap" rel="stylesheet">
-
-
 ### 1. Increased Property Value
 
 Unlike curtains, shutters are considered a 'fixture'. They stay with the house when you sell it. Estate agents often note that high-quality shutters can increase the 'kerb appeal' and overall valuation of a property because they suggest a well-maintained, premium home.
@@ -126,7 +123,6 @@ We have spent over **14 years in the industry**, and we know that a ‘superior 
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Spectral:wght@500;700&display=swap" rel="stylesheet">
 
 Step 01
 

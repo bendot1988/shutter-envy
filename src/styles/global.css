@@ -1,10 +1,7 @@
 @import "tailwindcss";
 
-/* Self-hosted brand fonts (replaces Google Fonts CDN). */
-@import "@fontsource/libre-franklin/400.css";
-@import "@fontsource/libre-franklin/500.css";
-@import "@fontsource/libre-franklin/600.css";
-@import "@fontsource/libre-franklin/700.css";
+/* Self-hosted fonts — variable sans + static display (Spectral has no variable package). */
+@import "@fontsource-variable/libre-franklin";
 @import "@fontsource/spectral/400.css";
 @import "@fontsource/spectral/500.css";
 @import "@fontsource/spectral/600.css";
@@ -37,7 +34,7 @@
 
   /* ─── Type system ───────────────────────────────────────────── */
   --font-display: "Spectral", ui-serif, Georgia, "Times New Roman", serif;
-  --font-sans:    "Libre Franklin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans:    "Libre Franklin Variable", "Libre Franklin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Named type styles — pulled verbatim from the brand audit */
   --text-h2-60-500: 3.75rem;        /* 60px / 70.5px / -1.62px */
