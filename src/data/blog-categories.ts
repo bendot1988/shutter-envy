@@ -36,6 +36,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'choosing-the-perfect-style-full-height-vs-tier-on-tier-shutters': 'bay-windows',
   'versatile-tier-on-tier-shutters-shutter-envy-leicestershire': 'bay-windows',
   'what-are-cafe-style-shutters-and-what-is-the-point-of-them': 'bay-windows',
+  'bay-window-shutters-cost-uk-2026-guide': 'bay-windows',
 
   // ─── Buying guides (how-to, cost, comparisons, process) ────
   '7-signs-its-time-to-replace-your-old-blinds-with-shutters': 'guides',

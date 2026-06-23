@@ -4,8 +4,8 @@ description: "Aluminium plantation shutters cost about twice as much as faux woo
 h1: "Are Aluminium Shutters Worth It? An Honest UK Buyer's Guide"
 pubDate: 2026-06-16
 updatedDate: 2026-06-17
-heroImage: "/images/blog/are-aluminium-shutters-worth-it-featured.png"
-heroImageAlt: "Warm-white aluminium plantation shutters fitted to a tall casement window in a UK living room, horizontal louvres tilted partially open, each panel with its own small key lock at the meeting stile and no pull handles or tilt rods."
+heroImage: "/wp-content/uploads/2025/02/S-CRAFT-Aluminium-Shutters-Living-Room-2-Satin-White-1024x670.jpg"
+heroImageAlt: "S:CRAFT Portchester aluminium plantation shutters in satin white, fitted to a UK living-room window — real product photography showing the slim louvre profile and key-lock hardware."
 excerpt: "Aluminium plantation shutters look like ordinary shutters at first glance. They cost about twice as much. So why do we recommend them more often than you'd think? Honest UK guide to the jobs they were actually built for."
 author: "Shutter Envy"
 faqs:
@@ -53,9 +53,9 @@ This is structurally different from every other shutter material:
 
 That single difference is the whole pitch. Aluminium doesn't warp, it doesn't bow, it doesn't crack, it doesn't fade, it doesn't rot, and it doesn't get pushed through with a screwdriver. Wood and faux wood do some combination of all of those over enough time in difficult rooms.
 
-![Side-by-side cross-section product photograph of two white plantation shutter louvres on a neutral grey backdrop, the left louvre is faux wood showing a solid uniform PVC core with a thick painted shell, the right louvre is aluminium showing a hollow extruded aluminium chamber with internal walls visible and a noticeably slimmer overall profile.](/images/blog/aluminium-vs-faux-wood-louvre-comparison.png)
+![S:CRAFT Portchester aluminium plantation shutters in a satin-white UK kitchen — real manufacturer photography showing the slim extruded louvre profile and individual key-lock hardware on each panel.](/wp-content/uploads/2025/02/S-CRAFT-Aluminium-Shutters-Kitchen-2-Satin-White-1024x683.jpg)
 
-That cross-section tells the whole story. Left: faux wood — solid PVC, thick painted skin, moisture-indifferent but heat-sensitive on south-facing glass. Right: aluminium — hollow extruded chamber, thin powder-coat finish, structurally stronger and completely indifferent to moisture, heat or impact.
+This is the Portchester aluminium range we fit — satin white in a kitchen setting. The louvres are noticeably slimmer than faux wood, the edges are crisper, and security is handled with individual key locks rather than centre tilt rods or pull handles. Up close you can see why aluminium reads as a more refined, architectural shutter even though it looks like standard plantation from across the room.
 
 ## The Honest Case FOR Aluminium
 
@@ -88,9 +88,9 @@ This is the single most common confusion at the survey door, so it deserves its 
 
 If you want the plantation look on the inside of your house, you want aluminium plantation shutters. If you want hardened external coverage that disappears into a housing when not in use, you want roller shutters. They're different products solving different problems.
 
-![Anthracite aluminium plantation shutters on a four-panel French door — brushed-stainless hinges on both outer panels, key locks on the two inner panels at the centre only, no pull handles.](/images/blog/aluminium-shutters-french-doors-anthracite.png)
+![S:CRAFT Portchester aluminium shutters on a wide kitchen opening with French-door-style glazing — satin-white panels with key-lock hardware, photographed as a real manufacturer install reference.](/wp-content/uploads/2025/02/S-CRAFT-Aluminium-Shutters-Kitchen-4-Satin-White-1024x681.jpg)
 
-The image above is the classic aluminium use case: a ground-floor French door opening directly onto a back garden. Four shutter panels across the opening — the two outer panels hinge from the frame, and the two inner panels carry the key locks at the centre. The anthracite finish makes the architectural quality of the aluminium visible, the slats give privacy and light control in the standard plantation way, and the inner panels lock — so a door that's both the room's main feature and the home's most vulnerable opening doesn't have to be either a security risk or covered in roller blinds at night.
+The image above is the classic aluminium use case: a ground-floor opening onto a back garden. On a four-panel configuration, the two outer panels hinge from the frame and the two inner panels carry the key locks at the centre. The satin-white finish shows the architectural quality of the aluminium, the slats give privacy and light control in the standard plantation way, and the inner panels lock — so a door that's both the room's main feature and the home's most vulnerable opening doesn't have to be either a security risk or covered in roller blinds at night.
 
 ## What Aluminium Plantation Shutters Cost in 2026
 

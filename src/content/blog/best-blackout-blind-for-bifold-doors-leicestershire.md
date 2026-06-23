@@ -3,8 +3,8 @@ title: "Best Blackout Blind for Bifold Doors in Leicestershire"
 description: "Looking for the best blackout blind for bifold doors in Leicestershire? Compare options for bedrooms, kitchens and patio doors — and book a free home survey."
 h1: "The Best Blackout Blind for Bifold Doors in Leicestershire"
 pubDate: 2026-06-05
-heroImage: "/images/blog/blindscreen-bifold-doors-leicestershire-hero.png"
-heroImageAlt: "BlindScreen® branded cassette and cellular blackout fabric — the system Shutter Envy fits to bifold doors across Leicestershire"
+heroImage: "/images/blindscreen/kitchen-wide.webp"
+heroImageAlt: "BlindScreen pleated blackout blind fitted above a kitchen sink — a real product install photograph used on the Shutter Envy BlindScreen page."
 excerpt: "Standard roller blinds aren’t built for bifold doors. Here’s what actually works for total blackout and summer ventilation across Leicestershire homes."
 author: "Shutter Envy"
 faqs:
@@ -42,7 +42,7 @@ For Leicestershire homes, we fit the **[BlindScreen® system](/blindscreen/)** �
 
 It’s the same product we use in bedrooms, conservatories, garden rooms and home offices across [Leicester](/locations/shutters-in-leicester/), [Loughborough](/locations/shutters-in-loughborough/), Market Harborough and the surrounding villages.
 
-![BlindScreen® cellular blackout blind fully closed over a kitchen window, showing the slim cassette and pleated honeycomb fabric](/images/blog/blindscreen-cellular-blackout-install.png)
+![Close-up of a BlindScreen cellular blackout fabric and slim side-channel cassette on a real install.](/images/blindscreen/blind-closeup.webp)
 
 ## Blackout blind vs shutters vs curtains for bifolds
 

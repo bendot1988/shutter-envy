@@ -4,8 +4,8 @@ description: "Are plantation shutters blackout? Learn how much light shutters bl
 h1: "Are Plantation Shutters Blackout? What to Know Before Choosing Bedroom Shutters"
 pubDate: 2026-05-19
 updatedDate: 2026-05-19
-heroImage: "/images/blog/plantation-shutters-blackout-bedroom-featured.png"
-heroImageAlt: "Bedroom with white plantation shutters closed for room-darkening light control"
+heroImage: "/wp-content/uploads/2025/12/bedroom-shutters-in-leicester-1024x717.jpeg"
+heroImageAlt: "Bedroom with white plantation shutters closed for room-darkening light control — a real Shutter Envy install in Leicester."
 excerpt: "Plantation shutters are excellent for privacy and light control, but are they fully blackout? Here is the honest answer for bedrooms, nurseries and street-facing rooms."
 author: "Shutter Envy"
 faqs:
@@ -40,7 +40,7 @@ You may still notice light:
 
 For bedrooms, this level of darkness is enough for many people. But if you need complete darkness for shift work, a baby’s room, migraines or very light-sensitive sleep, shutters alone may not be the whole solution.
 
-![Close-up of plantation shutter louvres controlling daylight in a bedroom](/images/blog/bedroom-shutters-light-control.png)
+![Close-up of plantation shutter louvres on a real install, showing how closed slats reduce daylight while small gaps remain at the louvre edges.](/wp-content/uploads/2026/04/faux-wood-shutter-louvre-close-up-768x428.jpeg)
 
 ## Why shutters still work well in bedrooms
 
@@ -95,7 +95,7 @@ This is not always necessary. Many homeowners are happy with shutters alone. But
 
 We also compare sleep-focused window coverings in our guide to [shutters vs blackout blinds for noise and sleep](/shutters-vs-blackout-blinds-for-noise-which-is-best-for-your-sleep/).
 
-![Bedroom with plantation shutters and curtains layered for extra night-time darkness](/images/blog/shutters-with-blackout-layer-bedroom.png)
+![Before and after comparison showing a bright bedroom with sheer curtains versus the same room darkened with a BlindScreen blackout layer alongside shutters.](/images/blindscreen/blackout-before-after.png)
 
 ## Do shutters help with street lights?
 

@@ -4,8 +4,8 @@ description: "MDF plantation shutters are the cheapest option on the UK market. 
 h1: "Are MDF Shutters Any Good? An Honest UK Verdict for 2026"
 pubDate: 2026-06-09
 updatedDate: 2026-06-09
-heroImage: "/images/blog/are-mdf-shutters-any-good-featured.png"
-heroImageAlt: "Crisp white MDF plantation shutters with horizontal louvres fitted to a uPVC casement window in a modern UK living room, panels closed with tilt rods centred and brass hinges visible on the outer stiles."
+heroImage: "/wp-content/uploads/2026/04/01-Shutter-Envy-shutters-in-Loughbray-and-Leicester--1024x571.jpeg"
+heroImageAlt: "White plantation shutters fitted to a standard UK casement window in a Leicestershire home — a real Shutter Envy install showing correct hinge placement and louvre alignment."
 excerpt: "MDF plantation shutters look the part on day one. The question every UK homeowner should ask is what they look like on day 1,800 — and whether the saving over faux wood is worth what you give up. Honest verdict, 2026 prices."
 author: "Shutter Envy"
 faqs:
@@ -51,9 +51,9 @@ For plantation shutters, MDF is machined into the four components of a shutter �
 
 The difference is what's underneath the paint. Where faux wood has a solid PVC polymer core, MDF has compressed wood fibres held together by resin. That core is the source of every advantage and every limitation MDF has.
 
-![Side-by-side cross-section comparison of two white-painted plantation shutter louvres on a neutral grey backdrop — the louvre on the left shows the dense pressed fibreboard core of MDF, the louvre on the right shows the solid uniform PVC polymer core of faux wood.](/images/blog/mdf-vs-faux-wood-louvre-comparison.png)
+![Close-up of a real faux wood plantation shutter louvre and stile on a Shutter Envy install — the solid polymer core and factory-painted finish that MDF shutters try to imitate at a lower price point.](/wp-content/uploads/2026/04/faux-wood-shutter-louvre-close-up-768x428.jpeg)
 
-The image above tells the whole story. Left: MDF — that exposed cross-section is what you're buying. Right: faux wood — solid, uniform, moisture-indifferent.
+That close-up shows what you're comparing MDF against: a factory-finished faux wood louvre with a solid polymer core and a hard painted shell. MDF uses the same outward appearance but a fibreboard core underneath — which is why moisture is the dividing line between the two materials.
 
 ## The Honest Case FOR MDF Shutters
 
@@ -107,7 +107,7 @@ To be specific about where we *do* quote MDF — these are the rooms where it ma
 - **Hallways and landings** in dry properties.
 - **Dining rooms** that aren't open-plan to a kitchen.
 
-![A clean, low-humidity guest bedroom in a UK home with crisp white MDF plantation shutters fitted to a single rectangular window, panels closed with horizontal louvres allowing slivers of late afternoon light, brass hinges visible on the outer stiles — the right kind of room for MDF.](/images/blog/mdf-shutters-bedroom-low-humidity.png)
+![A real bedroom shutter install in a Leicestershire home — the kind of dry, low-traffic room where MDF shutters can work well if budget is the deciding factor.](/wp-content/uploads/2026/02/Black-Art-Vines-Blinds-Bedroom-Shutter-MV-shutters-blinds-Loughborough-Leicester-768x504.jpeg)
 
 This is the room MDF was made for. Dry, quiet, low-traffic, low-touch. In a room like this, MDF will give you 10–12 years of reliable service for roughly two-thirds the price of faux wood — and that's a perfectly sensible trade.
 
