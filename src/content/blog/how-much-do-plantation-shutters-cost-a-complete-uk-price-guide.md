@@ -83,7 +83,7 @@ Aluminium shutters are a specialist product, typically used for larger openings,
 
 Beyond material, the style of shutter you choose affects the price. Full-height shutters — which cover the entire window — are the most popular and use more material than café style shutters, which only cover the lower half. Tier-on-tier shutters, where the top and bottom sections operate independently, sit in the mid-range. As a rough rule of thumb:
 
-- **Café style shutters** — typically 30–40% less than full height on the same window
+- **Café style shutters** — typically 30–40% less than full height on the same window. See our [café-style shutters hub](/cafe-style-shutters/) for room-by-room advice.
 - **Tier-on-tier shutters** — comparable to full height, sometimes slightly more due to the independent frame
 - **Solid panel shutters** — often lower cost as there are no louvres to manufacture
 - **Bay windows** — expect to pay 2–3x a standard flat window due to the number of panels involved

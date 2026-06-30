@@ -28,6 +28,11 @@ https://www.shutter-envy.co.uk/*  https://shutter-envy.co.uk/:splat  301!
 # Preserve any Search Console submission that still references the old path.
 /sitemap_index.xml        /sitemap-index.xml  301
 
+# ─── C1 café-style hub (2026-06-30) ───
+# Legacy WordPress product URL + F11 placeholder destination.
+/shutter-installation/cafe-style-shutters           /cafe-style-shutters/  301
+/shutter-installation/cafe-style-shutters/          /cafe-style-shutters/  301
+
 # ─── WordPress attachment pages → parent post ───
 # WP renders /<post-slug>/<image-slug>/ for some media. Catch-all fallback to
 # /our-shutters/ for the 7 we identified during the crawl, rather than a

@@ -58,7 +58,7 @@ The style you choose affects both cost and everyday usability. Common choices in
 
 - Tier-on-tier: Top and bottom operate separately. Compare [full height vs tier-on-tier](/choosing-the-perfect-style-full-height-vs-tier-on-tier-shutters/) for flexibility.
 
-- Café style: Lower half covered only. Learn more about [café style shutters](/what-are-cafe-style-shutters-and-what-is-the-point-of-them/) for light and privacy balance.
+- Café style: Lower half covered only. Learn more about [café-style shutters](/cafe-style-shutters/) for light and privacy balance, or read the [in-depth guide](/what-are-cafe-style-shutters-and-what-is-the-point-of-them/).
 
 ### Price expectations by window type
 

@@ -34,7 +34,7 @@ Taking a moment to work out what category your home falls under sets the tone fo
 
 Don’t worry if your home doesn’t fit one neat style. Many houses have been extended or updated over the years. The goal isn’t to pin it down to one label, but to understand the major details so your window coverings work *with* them, not against them.
 
-For example, a semi-detached home in **Quorn** built in the 1930s with **bay windows** and stained glass at the top panes cries out for something subtle and elegant that won’t compete with the charm—perhaps [**café-style shutters**](/our-shutters/) that fit neatly below the glass, letting the patterns above take centre stage.
+For example, a semi-detached home in **Quorn** built in the 1930s with **bay windows** and stained glass at the top panes cries out for something subtle and elegant that won’t compete with the charm—perhaps [**café-style shutters**](/cafe-style-shutters/) that fit neatly below the glass, letting the patterns above take centre stage.
 
 ## Selecting the Right Shutter Design
 

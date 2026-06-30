@@ -76,7 +76,7 @@ For blackout purposes, though, the extra meeting point between the top and botto
 
 ### Cafe-style shutters
 
-[Cafe-style shutters](/what-are-cafe-style-shutters-and-what-is-the-point-of-them/) are not usually the best choice for bedroom darkness because they cover only the lower part of the window.
+[Cafe-style shutters](/cafe-style-shutters/) are not usually the best choice for bedroom darkness because they cover only the lower part of the window.
 
 They are excellent for daytime privacy in lounges and street-facing rooms, but they leave the top of the window open. For a bedroom, that usually means too much early morning light unless you combine them with curtains or a blind.
 

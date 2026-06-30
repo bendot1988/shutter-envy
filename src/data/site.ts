@@ -77,6 +77,7 @@ export const primaryNav: NavItem[] = [
         href: '/our-shutters/',
         items: [
           { label: 'Our Shutters', href: '/our-shutters/', description: 'Made-to-measure plantation shutters' },
+          { label: 'Café-Style Shutters', href: '/cafe-style-shutters/', description: 'Privacy below, light above' },
           { label: 'Colour Swatches', href: '/our-shutters/colour-swatches/', description: 'Browse our full range' },
           { label: 'Portchester® Aluminium', href: '/portchester-aluminium-shutters-leicester/', description: 'Security shutters' },
           { label: 'British Made Shutters', href: '/british-made-shutters/', description: 'Materials & craftsmanship' },
@@ -146,6 +147,7 @@ export const footerNav = {
   ],
   shutters: [
     { label: 'Award Winning Window Shutters', href: '/our-shutters/' },
+    { label: 'Café-Style Shutters', href: '/cafe-style-shutters/' },
     { label: 'Shutter Materials', href: '/british-made-shutters/' },
     { label: 'Portchester Aluminium Shutters', href: '/portchester-aluminium-shutters-leicester/' },
   ],

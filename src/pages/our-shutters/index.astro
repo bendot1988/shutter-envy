@@ -71,8 +71,9 @@ const styles = [
   },
   {
     name: 'Cafe-Style Shutters',
-    body: 'Cafe-Style Shutter installation is for when you only require privacy and light control to either the bottom section of your window, or a given height. Allowing daylight to flood into your room from the opening above while maintaining a high level of privacy.',
+    body: 'Cafe-Style Shutter installation is for when you only require privacy and light control to either the bottom section of your window, or a given height. Allowing daylight to flood into your room from the opening above while maintaining a high level of privacy. See our dedicated café-style shutters page for room-by-room advice.',
     image: '/wp-content/uploads/2026/02/cafe-Style-Shutters-Shutter-Envy-in-Loughborough.jpg',
+    href: '/cafe-style-shutters/',
   },
   {
     name: 'Bay Window Shutters',
@@ -255,6 +256,9 @@ const faqs = entry.data.faqs ?? [];
               <div class="osh-style-card__body">
                 <h3>{s.name}</h3>
                 <p>{s.body}</p>
+                {'href' in s && s.href && (
+                  <p class="osh-style-card__link"><a href={s.href}>Learn more →</a></p>
+                )}
               </div>
             </article>
           </li>
@@ -530,6 +534,15 @@ const faqs = entry.data.faqs ?? [];
     line-height: 1.65;
     margin: 0;
   }
+  .osh-style-card__link {
+    margin: 0.875rem 0 0 !important;
+  }
+  .osh-style-card__link a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .osh-style-card__link a:hover { text-decoration: underline; }
 
   /* ─── Placeholder image card ─────────────────────────── */
   .osh-placeholder {

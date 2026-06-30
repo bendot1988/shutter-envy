@@ -1,10 +1,10 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-06-17 (post 5 A8)
+- **Last updated:** 2026-06-30 (C1 `/cafe-style-shutters/` shipped; Phase 2 in progress)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
-- **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (apex). See §4 for the recommended addition.
+- **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
 
 ---
 
@@ -62,7 +62,7 @@ Grow non-brand organic visibility for Shutter Envy across Leicestershire and the
 - 21 dead `/locations/shutters-in-X/` links in blog bodies — listed at `PARITY-REPORT.md:71-85` (gap: `F11`).
 - Dead code: `src/layouts/LocationLayout.astro` is not imported anywhere (gap: `F8`).
 - Sitemap omits `lastmod` — `astro.config.mjs:25-36` (gap: `F10`).
-- Bing Webmaster Tools not set up; only URL-prefix GSC property exists (gap: `F9`).
+- Bing Webmaster Tools not set up (optional — no longer tracked under F9; add separately if needed).
 
 ### 3.5 GSC baseline — 90 days ending 2026-05-26
 
@@ -92,11 +92,12 @@ Headline finding: the site shows for 145K impressions but desktop CTR is **0.26%
 
 No host plumbing issues. No multi-hop chains. No fix required at this layer.
 
-### 4.2 Property recommendation
+### 4.2 Property decision
 
-- The GSC export filename `https___shutter-envy.co.uk_…` confirms a **URL-prefix property** on the bare apex. Because all variants 301 to apex, this URL-prefix sees the canonical traffic. Day-to-day reporting is correct.
-- **Recommended addition (tracked as `F9`):** verify a **Domain property** for `shutter-envy.co.uk` via DNS TXT. A Domain property catches every subdomain and protocol — useful for detecting host drift, accidental staging exposure, or a future `blog.shutter-envy.co.uk`. Keep the URL-prefix as the day-to-day daily driver.
-- Bing Webmaster Tools: not yet verified. Same DNS TXT verification path; tracked as part of `F9`.
+- The GSC export filename `https___shutter-envy.co.uk_…` confirms a **URL-prefix property** on `https://shutter-envy.co.uk/`. Because all variants (`http://`, `www.`) 301 to the HTTPS apex, this property captures canonical traffic. Day-to-day reporting is correct.
+- **Decision (2026-06-24, `F9` dropped):** keep the existing **URL-prefix** property as the sole GSC property. A separate **Domain** property (`shutter-envy.co.uk` via DNS TXT) will not be added — team preference; no DNS change required.
+- **Implication:** all GSC work (sitemap submission, URL inspection, performance exports) uses `https://shutter-envy.co.uk/` as the active property. F12 is unblocked.
+- **Bing Webmaster Tools:** still optional. Can be added later via GSC import or manual DNS verification; not required for Phase 1 close-out.
 
 ## 5. Strategic priorities
 
@@ -110,7 +111,7 @@ No host plumbing issues. No multi-hop chains. No fix required at this layer.
 
 ### 5.3 P3 — Plant pillars and close topical gaps
 
-**Why:** Cafe-style shutters (3K+ impr / pos 18–32), faux wood shutters (1,760 impr / pos 15), aluminium / plantation aluminium (760 impr / pos 17–20), arched window shutters (558 / pos 13), and `shutters vs blinds` (991 / pos 18–24) all share one symptom: no dedicated commercial hub. They are scattered across 77 blog posts. New commercial hubs (`/cafe-style-shutters/`, `/faux-wood-shutters/`, `/aluminium-plantation-shutters/`, `/arched-window-shutters/`) consolidate intent — approved 2026-05-28. Each must be a real, locally-grounded page, not a doorway.
+**Why:** Cafe-style shutters (3K+ impr / pos 18–32) now have a dedicated hub at `/cafe-style-shutters/` (`C1` shipped 2026-06-30). Remaining gaps: faux wood shutters (1,760 impr / pos 15), aluminium / plantation aluminium (760 impr / pos 17–20), arched window shutters (558 / pos 13), and `shutters vs blinds` (991 / pos 18–24) — all still scattered across blog posts. New commercial hubs (`/faux-wood-shutters/`, `/aluminium-plantation-shutters/`, `/arched-window-shutters/`) consolidate intent — approved 2026-05-28. Each must be a real, locally-grounded page, not a doorway.
 
 ---
 
@@ -128,10 +129,10 @@ Phase boundaries are guides, not gates. An item can ship earlier if a PR opens e
 - **F6 — Per-tile click-through on `/recent-work/`.** Add per-tile target in `src/pages/recent-work/index.astro` linking each project tile to its blog post when one exists. Outcome: link equity flowing back to project posts.
 - **F7 — Location → services internal links in the template.** Add a sidebar block in `src/pages/locations/[slug]/index.astro` listing `/our-shutters/`, `/our-blinds/`, `/awnings/`, `/portchester-aluminium-shutters-leicester/` with natural anchors. Outcome: topical reinforcement on 12+1 pages.
 - **F8 — Remove `src/layouts/LocationLayout.astro` (dead code).** One file delete. Outcome: cleaner repo, no behavioural change.
-- **F9 — Verify a GSC Domain property and Bing Webmaster Tools.** Off-repo. DNS TXT verification on `shutter-envy.co.uk`. Submit sitemap on both. Outcome: diagnostic coverage across all variants and a second search engine.
+- **F9 — GSC Domain property + Bing Webmaster Tools.** ~~Off-repo. DNS TXT verification on `shutter-envy.co.uk`.~~ **Dropped 2026-06-24** — team will use the existing URL-prefix property `https://shutter-envy.co.uk/` only. Bing remains optional.
 - **F10 — Add `lastmod` to the sitemap.** Update `@astrojs/sitemap` config in `astro.config.mjs:25-36` with a `serialize` callback reading frontmatter `updatedDate ?? pubDate`. Outcome: clearer freshness signal to crawlers.
 - **F11 — Sweep 21 dead `/locations/shutters-in-X/` body links in blog posts.** List of broken anchors lives at `PARITY-REPORT.md:71-85`. Either point to a real location, point to `/locations/`, or strip the link. Files: enumerated in the PARITY report. Outcome: zero internal 404s from body content.
-- **F12 — Submit sitemap to Domain property and request indexing on the top product pages.** Off-repo. Pages: `/our-shutters/`, `/our-blinds/`, `/awnings/`, `/blind-motorisation/`, `/portchester-aluminium-shutters-leicester/`. Outcome: faster crawl pickup.
+- **F12 — Submit sitemap and request indexing on the top product pages.** Off-repo. Use the `https://shutter-envy.co.uk/` URL-prefix property in GSC. Pages: `/our-shutters/`, `/our-blinds/`, `/awnings/`, `/blind-motorisation/`, `/portchester-aluminium-shutters-leicester/`. Outcome: faster crawl pickup.
 
 ### 6.2 Phase 2 — Days 31–60 — Content and coverage
 
@@ -210,14 +211,14 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [x] **F6 — Per-tile click-through on /recent-work/.** status: done · owner: Claude · done: 2026-05-28 · note: extended Gallery schema with optional `href`; 12 of 13 tiles linkified to matching blog posts (one tile, "Window Shutters Leicestershire", left as lightbox-only because no unique destination existed)
 - [x] **F7 — Location → services internal links in template.** status: done · owner: Claude · done: 2026-05-28 · note: new "Services in {area}" sidebar card on every location page linking to /our-shutters/, /our-blinds/, /awnings/, /blind-motorisation/, /portchester-aluminium-shutters-leicester/, /british-made-shutters/
 - [x] **F8 — Delete dead src/layouts/LocationLayout.astro.** status: done · owner: Claude · done: 2026-05-28 · note: confirmed 0 imports before deleting
-- [ ] **F9 — Verify GSC Domain property + Bing Webmaster.** status: pending · owner: _TBD_ · done: — · note: off-repo — see §F9-steps below
+- [~] **F9 — Verify GSC Domain property + Bing Webmaster.** status: dropped · owner: team · done: 2026-06-24 · note: **Decision:** keep existing URL-prefix property `https://shutter-envy.co.uk/` only; Domain property via DNS TXT will not be added. Bing Webmaster Tools remains optional and is not blocking Phase 1.
 - [x] **F10 — Add lastmod to sitemap.** status: done · owner: Claude · done: 2026-05-28 · note: built-time map in `astro.config.mjs` reads `updatedDate` (fallback `pubDate`, then file mtime) and passes per-URL `lastmod` to @astrojs/sitemap's `serialize` callback
 - [x] **F11 — Sweep 21 dead /locations/shutters-in-X/ links in blog bodies.** status: done · owner: Claude · done: 2026-05-28 · note: 4 typos repointed to real slugs (Melton Mowbray, Birstall, Groby, Sileby); 7 references to uncovered towns unlinked; 2 absolute /shutter-installation/cafe-style-shutters/ links temporarily repointed to /our-shutters/ until C1 ships
-- [ ] **F12 — Submit sitemap + request indexing on top product pages.** status: pending · owner: _TBD_ · done: — · note: off-repo, after F9 — see §F12-steps below
+- [x] **F12 — Submit sitemap + request indexing on top product pages.** status: done · owner: team · done: 2026-06-30 · note: `/sitemap-index.xml` submitted (Success). `/reviews/`, `/our-shutters/`, and remaining priority URLs confirmed indexed; rich-results validation passed. Phase 1 complete (F9 dropped, F12 done).
 
 ### Phase 2 — Content and coverage
 
-- [ ] **C1 — New /cafe-style-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
+- [x] **C1 — New /cafe-style-shutters/ hub.** status: done · owner: Claude · done: 2026-06-30 · note: `src/content/pages/cafe-style-shutters.md` + `src/pages/cafe-style-shutters/index.astro`; nav in Products mega + footer; 301 from `/shutter-installation/cafe-style-shutters/`; internal links from 7 posts + /our-shutters/ café-style card; hero/room/process images swapped to S-Craft manufacturer photography (removed WP AI/stock assets); pending Mark validation + GSC indexing request for `https://shutter-envy.co.uk/cafe-style-shutters/`
 - [ ] **C2 — New /faux-wood-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
 - [ ] **C3 — New /aluminium-plantation-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
 - [ ] **C4 — New /arched-window-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
@@ -239,7 +240,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: pending · owner: _TBD_ · done: — · note: candidate-only, no blanket rollout
 - [ ] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
-- [ ] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: in-progress · owner: Claude · done: — · note: 5 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` (A.23). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` (A.7). Post 3 (2026-06-09, team): `/best-blackout-blind-for-bifold-doors-leicestershire/` (A.21). Post 4 (2026-06-16): `/are-aluminium-shutters-worth-it-uk-buyers-guide/` (A.25). Post 5 (2026-06-17): `/bay-window-shutters-cost-uk-2026-guide/` — A8 seeded topic `bay window shutters cost 2026`; dedicated commercial hub for Victorian/Edwardian terrace stock across Leicester/Loughborough; complements C9 cost guide bay section without cannibalising. 1 seeded topic still pending (`noise-reducing shutters guide`; cottage window shutters withdrawn as too specialist).
+- [x] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: done · owner: Claude · done: 2026-06-30 · note: 6 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` (A.23). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` (A.7). Post 3 (2026-06-09, team): `/best-blackout-blind-for-bifold-doors-leicestershire/` (A.21). Post 4 (2026-06-16): `/are-aluminium-shutters-worth-it-uk-buyers-guide/` (A.25). Post 5 (2026-06-17): `/bay-window-shutters-cost-uk-2026-guide/`. Post 6 (2026-06-30): `/do-shutters-reduce-noise-uk-honest-guide/` — honest noise-dampening guide; cottage window shutters topic withdrawn as too specialist.
 - [ ] **A9 — Topical "see also" block in ArticleLayout.** status: pending · owner: _TBD_ · done: — · note: use src/data/blog-categories.ts
 - [ ] **A10 — Lighthouse + CWV pass on top-10 commercial pages.** status: pending · owner: _TBD_ · done: — · note: file follow-ups as new IDs if needed
 - [ ] **A11 — Set up rank tracking for Appendix A queries.** status: pending · owner: _TBD_ · done: — · note: tool TBC
@@ -247,6 +248,10 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-06-30** — **C1 signed off:** `/cafe-style-shutters/` image pass — replaced WP AI/stock room photos with S-Craft manufacturer photography from `public/wp-content/uploads/2025/02/` (living room, kitchen, bay install, tier-on-tier period room). Mark validation pending before publish/indexing push.
+- **2026-06-30** — **C1 done:** new commercial hub `/cafe-style-shutters/` — page content, route, Service + FAQPage JSON-LD, Products mega + footer nav, 301 from legacy `/shutter-installation/cafe-style-shutters/`, internal links from 7 existing posts + /our-shutters/ café-style card. **A8 complete:** sixth editorial post `/do-shutters-reduce-noise-uk-honest-guide/` shipped. Next up: Phase 2 — C2 `/faux-wood-shutters/` hub.
+- **2026-06-30** — **F12 done:** sitemap submitted, priority URLs confirmed indexed, rich-results validation passed. **Phase 1 complete** (11 done, 1 dropped). Next up: Phase 2 — C1 `/cafe-style-shutters/` hub.
+- **2026-06-24** — **F9 dropped:** team decision to keep the existing GSC **URL-prefix** property `https://shutter-envy.co.uk/` as the sole Search Console property. Domain property (`shutter-envy.co.uk` via DNS TXT) will not be added. §4.2 updated. F12 unblocked — sitemap submission and URL inspection can proceed in the URL-prefix property without DNS changes. Bing Webmaster Tools noted as optional, no longer part of F9.
 - **2026-06-17** — **Fifth A8 editorial post shipped:** `/bay-window-shutters-cost-uk-2026-guide/` — A8 seeded topic `bay window shutters cost 2026`. Dedicated commercial hub for the highest-volume window shape in Leicestershire period stock (Victorian/Edwardian splay bays, 1930s box bays). Complements the bay subsection in C9 cost guide without cannibalising — this URL targets bay-specific cost queries directly. Includes 7 FAQs, TL;DR price ranges by bay type (splay/box/bow), per-panel pricing explainer, material comparison table, style cost deltas, quote checklist, red flags on cheap quotes. Three new images: hero (three-panel splay bay), splay vs box comparison, tier-on-tier on Leicester terrace bay. Registered in `blog-categories.ts` as `bay-windows`. Internal links to /our-shutters/, cost guide, MDF guide, aluminium guide, tier-on-tier comparison, /bay-window-shutters-installed/, Leicester and Loughborough location pages.
 - **2026-06-16** — **Fourth A8 editorial post shipped:** `/are-aluminium-shutters-worth-it-uk-buyers-guide/` directly targets Appendix A.25 `aluminium shutters` (471 impr / pos 19.74 — end of page 2, close enough to push to page 1 with a dedicated educational hub). Completes a coherent "honest verdict" trilogy (MDF / faux wood / aluminium) across the shutter material spectrum. Strategic role: educational hub that feeds the commercial `/portchester-aluminium-shutters-leicester/` product page rather than cannibalising it. Includes 7 FAQs (FAQPage rich-result eligibility), TL;DR, material explainer with cross-section image, room-by-room verdict, explicit "aluminium vs roller shutters" section to disambiguate a known consumer confusion, 2026 cost ranges, "what to ask the surveyor" checklist. Three new images in `public/images/blog/`: hero (warm-white aluminium plantation in a UK living room — emphasises "plantation look preserved"), louvre cross-section comparison (visualises hollow aluminium extrusion vs solid faux wood core), and anthracite aluminium on French doors (the security + style use case). Internal links to /our-shutters/, /portchester-aluminium-shutters-leicester/, /how-much-do-plantation-shutters-cost-a-complete-uk-price-guide/, /are-mdf-shutters-any-good-honest-uk-verdict/, /the-difference-between-wooden-and-faux-wood-shutters/, /locations/shutters-in-leicester/, /locations/shutters-in-loughborough/.
 - **2026-06-09** — **Second A8 editorial post shipped:** `/are-mdf-shutters-any-good-honest-uk-verdict/` directly targets Appendix A.7 `mdf shutters` (968 impr / pos 48.49 / 0% CTR — the highest-headroom unaddressed query in Appendix A). Honest-broker editorial stance: MDF is fine in dry low-traffic rooms, wrong in moisture-heavy ones, price gap to faux wood smaller than buyers expect, lifespan gap bigger than buyers expect. Strategic outcome: qualifies cheap shoppers out, upsells the rest to faux wood (better margin), positions Shutter Envy as honest at the same time. Registered in `src/data/blog-categories.ts` as `guides`. Includes 7 FAQs (FAQPage rich-result eligibility), TL;DR, MDF construction explainer, room-by-room verdict, price-gap reality check, lifespan field data, "what to ask the surveyor" checklist. Three new images in `public/images/blog/`: hero (MDF in a mid-market UK living room), louvre cross-section comparison (visualises the construction difference between MDF and faux wood without needing a label), and a low-humidity bedroom (the room MDF was made for). Internal links to /our-shutters/, /the-difference-between-wooden-and-faux-wood-shutters/, /how-much-do-plantation-shutters-cost-a-complete-uk-price-guide/, /can-your-shutters-survive-the-bathroom/, /locations/shutters-in-leicester/. **Note:** an earlier draft for 2026-06-09 (sash windows) was scrapped pre-publish — client flagged the topic as too specialist a promise.
@@ -257,51 +262,33 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ---
 
-## F9 — Step-by-step: GSC Domain property + Bing Webmaster Tools
+## F9 — GSC property (dropped) + optional Bing Webmaster Tools
 
-This is the one piece of Phase 1 plumbing that has to happen outside the repo. Until it's done, half your Google data is hidden in the URL-prefix property and you have no visibility into Bing/DuckDuckGo at all. Allow ~30 minutes total.
+**Status: dropped 2026-06-24.** The team will use the existing Google Search Console **URL-prefix** property `https://shutter-envy.co.uk/` only. A separate Domain property is not required — all live traffic 301s to this canonical HTTPS apex, so day-to-day reporting is accurate.
 
-### F9.1 — Verify a Google Search Console **Domain property** for `shutter-envy.co.uk`
+**What this means in practice:**
+- All GSC exports, sitemap submission, and URL inspection use `https://shutter-envy.co.uk/` as the active property.
+- No DNS TXT record needed for Google verification.
+- Proceed directly to **F12** (sitemap + indexing requests).
 
-A Domain property covers every protocol and subdomain (`http://`, `https://`, `www.`, bare). The current property is URL-prefix only, which silently drops some impressions/clicks.
+### F9 (optional) — Bing Webmaster Tools
 
-1. Sign in to [Google Search Console](https://search.google.com/search-console) with the same Google account that already owns the current property.
-2. Click the property dropdown (top-left) → **Add property**.
-3. In the left panel choose **Domain**, type `shutter-envy.co.uk` (no `https://`, no `www.`), then **Continue**.
-4. Search Console will display a single **TXT record** (looks like `google-site-verification=...`). Copy it.
-5. Go to your DNS provider (where the domain is registered — likely the same place that handles email/MX). Open the DNS records for `shutter-envy.co.uk`.
-6. Add a new record:
-   - **Type:** TXT
-   - **Host / Name:** `@` (the root domain — *not* `www`)
-   - **Value:** the full `google-site-verification=...` string from step 4
-   - **TTL:** default (3600s / 1 hr is fine)
-7. Save. Wait 5–10 minutes for DNS to propagate (sometimes faster).
-8. Back in Search Console, click **Verify**. If it fails, wait another 10 minutes and click again — DNS propagation can take up to an hour but usually doesn't.
-9. Once verified, **do not delete the old URL-prefix property** for at least 90 days — keep both so historical comparison still works. Set the new Domain property as the default in your bookmarks.
+Bing also powers DuckDuckGo and Yahoo. This is **optional** and no longer blocks Phase 1.
 
-**Expected outcome:** new property starts collecting data immediately (no backfill — you'll see Day 1 today, Day 30 in a month). Numbers will be slightly higher than URL-prefix because it now captures `http://` and `www.` impressions too.
-
-### F9.2 — Verify the site on **Bing Webmaster Tools**
-
-Bing also powers DuckDuckGo and Yahoo. Free traffic you currently can't see.
-
-1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters) and sign in with any Microsoft account (create one if needed — use a business email, not a personal Hotmail).
-2. Click **Add a site**.
-3. Choose **Import from Google Search Console** (the easiest path now that F9.1 is done). Sign in with the same Google account that owns the GSC property. Bing will list verified GSC properties and import them in one click.
-4. *(Fallback if the import flow ever breaks)*: choose **Add manually**, enter `https://shutter-envy.co.uk`, pick **DNS TXT** verification, and add a Bing-supplied TXT record the same way you did in F9.1.
-5. Once verified, go to **Sitemaps** (left nav) → **Submit sitemap** → enter `https://shutter-envy.co.uk/sitemap-index.xml` → **Submit**.
-
-**Expected outcome:** Bing starts crawling within 24–48 hours. You'll see Bing/DuckDuckGo traffic for the first time. Tick `F9` as done and log a screenshot/note of both verifications in this file's changelog.
+1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters) and sign in.
+2. Click **Add a site** → **Import from Google Search Console** (imports the verified `https://shutter-envy.co.uk/` property).
+3. *(Fallback)*: add manually with DNS TXT verification.
+4. Submit sitemap: `https://shutter-envy.co.uk/sitemap-index.xml`.
 
 ---
 
 ## F12 — Step-by-step: Submit sitemap + request indexing on top product pages
 
-Do this **after F9.1** is verified, because you want to be working in the new Domain property where all the data is.
+Use the **`https://shutter-envy.co.uk/` URL-prefix property** in Google Search Console.
 
 ### F12.1 — Submit the sitemap in Google Search Console
 
-1. Open Search Console → **shutter-envy.co.uk** (Domain property).
+1. Open Search Console → select **`https://shutter-envy.co.uk/`** (URL-prefix property).
 2. Left nav → **Indexing → Sitemaps**.
 3. In the "Add a new sitemap" field, paste exactly: `sitemap-index.xml` (the prefix `https://shutter-envy.co.uk/` is added automatically).
 4. Click **Submit**.
@@ -363,8 +350,8 @@ Source: GSC, 90 days ending 2026-05-26. "Current landing" is the page receiving 
 - **A.1 plantation shutters** — 2,696 impr · 0.07% · pos 21.10 → `/the-complete-uk-guide-to-plantation-shutters/`. **Gap:** title and intro do not lead with commercial intent.
 - **A.2 faux wood shutters** — 1,760 impr · 0.28% · pos 15.20 → `/the-difference-between-wooden-and-faux-wood-shutters/`. **Gap:** no dedicated commercial hub (`C2`).
 - **A.3 plantation shutters cost** — 1,609 impr · 0.00% · pos 18.05 → `/how-much-do-plantation-shutters-cost-a-complete-uk-price-guide/`. **Gap:** cost table buried; meta description does not reassure on price (`C9`).
-- **A.4 cafe style shutters** — 1,446 impr · 0.07% · pos 32.06 → none. **Gap:** no commercial hub (`C1`).
-- **A.5 cafe shutters** — 1,245 impr · 0.00% · pos 30.59 → none. **Gap:** same as A.4 (`C1`).
+- **A.4 cafe style shutters** — 1,446 impr · 0.07% · pos 32.06 → `/cafe-style-shutters/` (hub shipped `C1`). **Gap:** monitor rankings/CTR post-indexing; legacy blog `/what-are-cafe-style-shutters-and-what-is-the-point-of-them/` remains educational layer.
+- **A.5 cafe shutters** — 1,245 impr · 0.00% · pos 30.59 → `/cafe-style-shutters/`. **Gap:** same as A.4 (`C1` shipped).
 - **A.6 plantation shutters uk** — 1,001 impr · 0.10% · pos 16.33 → `/the-complete-uk-guide-to-plantation-shutters/`. **Gap:** UK-specific signals missing (`C8`).
 - **A.7 mdf shutters** — 968 impr · 0.00% · pos 48.49 → `/from-mdf-to-hardwood-choosing-the-right-shutter-material/`. **Gap:** title and content under-targeted for MDF.
 - **A.8 shutters near me** — 907 impr · 0.33% · pos 15.86 → `/our-shutters/`. **Gap:** insufficient location reinforcement; depends on `F7`/`C5`.

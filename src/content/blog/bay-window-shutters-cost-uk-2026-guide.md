@@ -100,7 +100,7 @@ Material isn't the only variable. Style affects the price on a bay too:
 
 - **Full-height** — baseline price for the bay type and material.
 - **Tier-on-tier** — usually 5–15% more than full-height on the same bay, because each panel has two tiers instead of one. The most popular choice on street-facing ground-floor bays.
-- **Café-style** — usually 25–35% less than full-height, because the shutter only covers the lower half. Works well on ground-floor bays where you want maximum light from the top.
+- **Café-style** — usually 25–35% less than full-height, because the shutter only covers the lower half. Works well on ground-floor bays where you want maximum light from the top. [Café-style shutters explained →](/cafe-style-shutters/)
 - **Solid panel** — can be slightly less than louvred styles, but uncommon on bays because it blocks too much light from the angled facets.
 
 ![Tier-on-tier plantation shutters on a three-panel splay bay window in a UK terrace living room — upper panels open for daylight, lower panels closed for privacy at sofa height.](/wp-content/uploads/2026/01/shutter-envy-full-height-shutters-vs-tier-on-tier-shutters-1024x764.webp)

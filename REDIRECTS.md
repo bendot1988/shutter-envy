@@ -16,6 +16,7 @@ These 301s already exist on shutter-envy.co.uk and were detected during the craw
 ## Approved exceptions for the rebuild
 
 - `/privacy-2/` → `/privacy/`  (301, orphan duplicate stub — `/privacy/` is the canonical privacy page with full nav and 18 internal links; `/privacy-2/` has only 1 internal link and was effectively unreachable. Approved by Ben, 2026-05-15)
+- `/shutter-installation/cafe-style-shutters/` → `/cafe-style-shutters/`  (301, legacy WordPress product URL; new commercial hub approved in SEO roadmap C1. Preserves F11 internal links and any external equity. 2026-06-30)
 
 ## Sitemap URL preservation
 

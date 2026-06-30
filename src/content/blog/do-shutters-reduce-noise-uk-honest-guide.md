@@ -81,7 +81,7 @@ For the full style comparison, see [full-height vs tier-on-tier shutters](/choos
 
 ### 4. Café-style shutters
 
-Cover the lower half only. Good for privacy at sofa height on a bay, but the exposed upper glass lets sound in freely. Not our first recommendation for a noisy street-facing room.
+Cover the lower half only. Good for privacy at sofa height on a bay, but the exposed upper glass lets sound in freely. Not our first recommendation for a noisy street-facing room. See [café-style shutters](/cafe-style-shutters/) for where they work best.
 
 ## Material and Density: Does It Matter?
 
