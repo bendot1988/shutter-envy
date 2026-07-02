@@ -6,6 +6,7 @@ import TransformCTA from '../../components/home/TransformCTA.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import { business } from '../../data/site';
 import { breadcrumbList, service } from '../../lib/schema';
+import { TRACK } from '../../data/tracking';
 
 const entry = await getEntry('pages', 'british-made-shutters');
 if (!entry) throw new Error('Missing pages/british-made-shutters content entry');
@@ -104,13 +105,13 @@ const icon = {
         Quick <strong>3–4 week</strong> lead time
       </div>
       <div class="bms-hero__actions">
-        <a href="/contact/" class="bms-hero__btn">
+        <a href="/contact/" class="bms-hero__btn" data-track={TRACK.productHeroCtas}>
           Arrange a Home Visit
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href={`tel:${business.phoneTel}`} class="bms-hero__phone">
+        <a href={`tel:${business.phoneTel}`} class="bms-hero__phone" data-track={TRACK.productHeroCtas}>
           <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
           Call {business.phoneDisplay}
         </a>

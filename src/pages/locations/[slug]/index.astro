@@ -6,6 +6,7 @@ import InlineCTA from '../../../components/home/InlineCTA.astro';
 import ClearLineForm from '../../../components/ClearLineForm.astro';
 import { localBusiness, faqPage, breadcrumbList } from '../../../lib/schema';
 import { business } from '../../../data/site';
+import { TRACK } from '../../../data/tracking';
 
 export async function getStaticPaths() {
   const locations = await getCollection('locations');
@@ -89,13 +90,13 @@ const area = loc.data.area;
       <h1>{loc.data.h1}</h1>
       <p>Designed, supplied and fitted by our family-run team — serving {area} and the surrounding villages.</p>
       <div class="loc-hero__actions">
-        <a href="#enquire" class="loc-hero__btn">
+        <a href="#enquire" class="loc-hero__btn" data-track={TRACK.locationHeroForm}>
           Arrange a Home Visit
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href={`tel:${business.phoneTel}`} class="loc-hero__btn loc-hero__btn--ghost">Call {business.phoneDisplay}</a>
+        <a href={`tel:${business.phoneTel}`} class="loc-hero__btn loc-hero__btn--ghost" data-track={TRACK.locationHeroForm}>Call {business.phoneDisplay}</a>
       </div>
       <ul class="loc-hero__stats" aria-label="Trust signals">
         {stats.map((s) => (
@@ -248,7 +249,7 @@ const area = loc.data.area;
         <p>Tell us a bit about your windows and we'll be in touch to arrange a no-obligation visit.</p>
       </header>
       <div class="loc-enquire__form">
-        <ClearLineForm />
+        <ClearLineForm dataTrack={TRACK.locationHeroForm} />
       </div>
     </div>
   </section>

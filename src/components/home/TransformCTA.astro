@@ -1,4 +1,5 @@
 ---
+import { TRACK } from '../../data/tracking';
 interface Props {
   image: string;
   heading: string;
@@ -26,7 +27,7 @@ const { image, heading, body, cta } = Astro.props;
     </div>
     <h2>{heading}</h2>
     <p>{body}</p>
-    <a href={cta.href} class="button-pill">{cta.label}</a>
+    <a href={cta.href} class="button-pill" data-track={TRACK.transformCta}>{cta.label}</a>
   </div>
 </section>
 

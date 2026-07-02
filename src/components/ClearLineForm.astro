@@ -11,10 +11,12 @@ const FORM_URL = `https://link.clearlineconnect.io/widget/form/${FORM_ID}`;
 
 interface Props {
   showIntro?: boolean;
+  /** Dotwall Monitor data-track id for this embed instance */
+  dataTrack?: string;
 }
-const { showIntro = true } = Astro.props;
+const { showIntro = true, dataTrack } = Astro.props;
 ---
-<div class="clearline-embed" data-clearline-form>
+<div class="clearline-embed" data-clearline-form {...(dataTrack ? { 'data-track': dataTrack } : {})}>
   {showIntro && (
     <p>Fill in the form below to get started.</p>
   )}
@@ -37,7 +39,12 @@ const { showIntro = true } = Astro.props;
   ></iframe>
   <p class="clearline-fallback">
     Is the form not showing?{' '}
-    <a href={FORM_URL} target="_blank" rel="noopener noreferrer nofollow">
+    <a
+      href={FORM_URL}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      data-track="clearline-form-fallback-link-shutterenvy-7n1d"
+    >
       Click here
     </a>.
   </p>

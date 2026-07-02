@@ -1,4 +1,5 @@
 ---
+import { TRACK } from '../../data/tracking';
 interface Review {
   name: string;
   rating: number;
@@ -56,7 +57,7 @@ const {
 
     {link && (
       <p class="reviews-row__link">
-        <a href={link} target="_blank" rel="noopener">Read all reviews on {source} →</a>
+        <a href={link} target="_blank" rel="noopener" data-track={TRACK.reviewsLinks}>Read all reviews on {source} →</a>
       </p>
     )}
   </div>

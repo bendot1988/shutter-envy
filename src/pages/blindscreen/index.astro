@@ -8,6 +8,7 @@ import ReviewsRow from '../../components/home/ReviewsRow.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import ClearLineForm from '../../components/ClearLineForm.astro';
 import { faqPage, breadcrumbList, service } from '../../lib/schema';
+import { TRACK } from '../../data/tracking';
 
 const entry = await getEntry('pages', 'blindscreen');
 if (!entry) throw new Error('Missing pages/blindscreen content entry');
@@ -150,7 +151,7 @@ const cta = entry.data.cta;
         Expertly fitted for bedrooms, bifold doors and large windows. A modern alternative with up to <strong>49% better thermal efficiency</strong> and a typical <strong>14-day</strong> survey-to-fit turnaround.
       </p>
       <div class="bs-hero__actions">
-        <a href="/contact/" class="bs-hero__btn">
+        <a href="/contact/" class="bs-hero__btn" data-track={TRACK.productHeroCtas}>
           Arrange a Free Home Visit
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>

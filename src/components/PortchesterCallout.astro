@@ -2,6 +2,7 @@
 // Reusable dark Portchester® Aluminium upsell band.
 // Drop into any page — sensible defaults so you can render with no props.
 import BackgroundImage from './BackgroundImage.astro';
+import { TRACK } from '../data/tracking';
 
 interface Props {
   eyebrow?: string;
@@ -43,7 +44,7 @@ const tail = idx >= 0 ? heading.slice(idx + italicWord.length).trim() : '';
         {idx < 0 && heading}
       </h2>
       <p>{body}</p>
-      <a href={cta.href} class="pc-callout__btn">
+      <a href={cta.href} class="pc-callout__btn" data-track={TRACK.portchesterCallout}>
         {cta.label}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>

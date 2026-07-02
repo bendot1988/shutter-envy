@@ -8,6 +8,7 @@ import AwardsCTABox from '../../components/home/AwardsCTABox.astro';
 import InlineCTA from '../../components/home/InlineCTA.astro';
 import { business } from '../../data/site';
 import { breadcrumbList, service } from '../../lib/schema';
+import { TRACK } from '../../data/tracking';
 
 const entry = await getEntry('pages', 'portchester-aluminium-shutters-leicester');
 if (!entry) throw new Error('Missing pages/portchester-aluminium-shutters-leicester content entry');
@@ -206,7 +207,7 @@ const icon = {
         <h1>Portchester<sup>®</sup> <em>Aluminium</em> Shutters</h1>
         <p>The premium aluminium shutter range with the strength to match the style. Maximum security and weather protection — without losing the plantation look — for homes across <strong>Leicester</strong>, <strong>Loughborough</strong> and <strong>Leicestershire</strong>.</p>
         <div class="pa-hero__actions">
-          <a href="/contact/" class="pa-hero__btn">
+          <a href="/contact/" class="pa-hero__btn" data-track={TRACK.productHeroCtas}>
             Arrange a Home Visit
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>

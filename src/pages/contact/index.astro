@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ClearLineForm from '../../components/ClearLineForm.astro';
 import FAQ from '../../components/FAQ.astro';
 import { business } from '../../data/site';
+import { TRACK } from '../../data/tracking';
 import { faqPage, breadcrumbList } from '../../lib/schema';
 
 const entry = await getEntry('pages', 'contact');
@@ -44,12 +45,12 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
           <h2>Get Your Free Quote in 60 Seconds</h2>
           <p class="contact-hero__form-sub">No obligation. We'll call you back to book a convenient time.</p>
         </div>
-        <ClearLineForm showIntro={false} />
+        <ClearLineForm showIntro={false} dataTrack={TRACK.contactPageForm} />
       </aside>
 
       <div class="contact-hero__details" data-reveal="left">
         <div class="contact-channels" data-reveal-children>
-          <a href={`tel:${business.phoneTel}`} class="contact-channel">
+          <a href={`tel:${business.phoneTel}`} class="contact-channel" data-track={TRACK.contactPageCallEmail}>
             <span class="contact-channel__icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
             </span>
@@ -58,7 +59,7 @@ if (entry.data.faqs.length) jsonLd.push(faqPage(entry.data.faqs));
               <p class="contact-channel__value">{business.phoneDisplay}</p>
             </div>
           </a>
-          <a href={`mailto:${business.email}`} class="contact-channel">
+          <a href={`mailto:${business.email}`} class="contact-channel" data-track={TRACK.contactPageCallEmail}>
             <span class="contact-channel__icon">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </span>

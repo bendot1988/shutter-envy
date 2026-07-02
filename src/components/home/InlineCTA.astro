@@ -1,4 +1,5 @@
 ---
+import { TRACK } from '../../data/tracking';
 interface Props {
   eyebrow?: string;
   heading: string;
@@ -32,14 +33,14 @@ const {
     <h2>{heading}</h2>
     {body && <p class="inline-cta__body">{body}</p>}
     <div class="inline-cta__actions">
-      <a href={cta.href} class="inline-cta__btn inline-cta__btn--primary">
+      <a href={cta.href} class="inline-cta__btn inline-cta__btn--primary" data-track={TRACK.inlineCta}>
         {cta.label}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       {secondaryCta && (
-        <a href={secondaryCta.href} class="inline-cta__btn inline-cta__btn--secondary">{secondaryCta.label}</a>
+        <a href={secondaryCta.href} class="inline-cta__btn inline-cta__btn--secondary" data-track={TRACK.inlineCta}>{secondaryCta.label}</a>
       )}
     </div>
   </div>

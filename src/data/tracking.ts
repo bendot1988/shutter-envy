@@ -1,0 +1,20 @@
+// Dotwall Monitor data-track ids — do not rename; dashboard reports against these.
+export const TRACK = {
+  headerCtaPhone: 'header-cta-phone-shutterenvy-7n1d',
+  mobileMenuCtaPhone: 'mobile-menu-cta-phone-shutterenvy-7n1d',
+  stickyMobileBar: 'sticky-mobile-bar-shutterenvy-7n1d',
+  homepageHeroForm: 'homepage-hero-form-shutterenvy-7n1d',
+  contactPageForm: 'contact-page-form-shutterenvy-7n1d',
+  clearlineFormFallback: 'clearline-form-fallback-link-shutterenvy-7n1d',
+  helpDropdownGetQuote: 'help-dropdown-get-quote-shutterenvy-7n1d',
+  footerPhoneWhatsappEmail: 'footer-phone-whatsapp-email-shutterenvy-7n1d',
+  footerGoogleReviews: 'footer-google-reviews-shutterenvy-7n1d',
+  contactPageCallEmail: 'contact-page-call-email-shutterenvy-7n1d',
+  locationHeroForm: 'location-hero-form-shutterenvy-7n1d',
+  inlineCta: 'inline-cta-primary-call-secondary-shutterenvy-7n1d',
+  portchesterCallout: 'portchester-callout-shutterenvy-7n1d',
+  reviewsLinks: 'reviews-links-shutterenvy-7n1d',
+  megaMenuFeaturedLocations: 'mega-menu-featured-locations-view-all-shutterenvy-7n1d',
+  transformCta: 'transform-cta-shutterenvy-7n1d',
+  productHeroCtas: 'product-hero-ctas-shutterenvy-7n1d',
+} as const;

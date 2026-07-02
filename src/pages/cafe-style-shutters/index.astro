@@ -7,6 +7,7 @@ import InlineCTA from '../../components/home/InlineCTA.astro';
 import FAQ from '../../components/FAQ.astro';
 import { business } from '../../data/site';
 import { breadcrumbList, faqPage, service } from '../../lib/schema';
+import { TRACK } from '../../data/tracking';
 
 const entry = await getEntry('pages', 'cafe-style-shutters');
 if (!entry) throw new Error('Missing pages/cafe-style-shutters content entry');
@@ -111,13 +112,13 @@ const processSteps = [
       <h1>{entry.data.h1}</h1>
       <p>Privacy on the lower half. Daylight from above. Made to measure and professionally fitted across Leicester, Loughborough and Leicestershire.</p>
       <div class="css-hero__actions">
-        <a href="/contact/" class="css-hero__btn">
+        <a href="/contact/" class="css-hero__btn" data-track={TRACK.productHeroCtas}>
           Arrange a Home Visit
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href={`tel:${business.phoneTel}`} class="css-hero__btn css-hero__btn--ghost">Call {business.phoneDisplay}</a>
+        <a href={`tel:${business.phoneTel}`} class="css-hero__btn css-hero__btn--ghost" data-track={TRACK.productHeroCtas}>Call {business.phoneDisplay}</a>
       </div>
     </div>
   </section>
