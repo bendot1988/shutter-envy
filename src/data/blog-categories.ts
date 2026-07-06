@@ -54,6 +54,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'are-mdf-shutters-any-good-honest-uk-verdict': 'guides',
   'are-aluminium-shutters-worth-it-uk-buyers-guide': 'guides',
   'do-shutters-reduce-noise-uk-honest-guide': 'guides',
+  'shutters-vs-blinds-honest-uk-comparison-2026': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
