@@ -4,8 +4,8 @@ description: "Shutters or blinds for your UK home? Honest 2026 comparison on cos
 h1: "Shutters vs Blinds: Which Is Right for Your UK Home in 2026?"
 pubDate: 2026-07-06
 updatedDate: 2026-07-06
-heroImage: "/images/blog/shutters-vs-blinds-shutters-hero.jpg"
-heroImageAlt: "S-Craft satin-white plantation shutters in a UK living room — rigid louvred panels fitted in the window recess, showing correct hinge placement and even louvre alignment."
+heroImage: "/images/blog/shutters-vs-blinds-featured.png"
+heroImageAlt: "Side-by-side comparison: dark horizontal blinds in a modern living room beside white plantation shutters in a brighter classic setting — shutters vs blinds at a glance."
 excerpt: "Shutters and blinds solve the same problems — light, privacy, insulation — but in very different ways. This honest 2026 guide compares upfront cost, lifespan, cleaning and room fit so you can choose once, not twice."
 author: "Shutter Envy"
 faqs:
