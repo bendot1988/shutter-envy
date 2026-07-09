@@ -99,6 +99,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'shutter-envy-named-blind-shutter-specialists-of-the-year-for-third-year-running': 'news',
   'shutter-envy-wins-2026-award-of-excellence': 'news',
   'shutter-envy-wins-prestigious-award-of-excellence-2025': 'news',
+  'bbsa-accredited-specialist-shutter-envy': 'news',
   'transform-your-home-with-shutter-envy-real-reviews-real-results': 'news',
   'what-a-review-from-amie': 'news',
   'what-our-customers-say-recent-success-across-leicestershire': 'news',

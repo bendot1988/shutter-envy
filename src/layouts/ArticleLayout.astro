@@ -442,6 +442,35 @@ const moreNews = allPosts
     color: var(--color-gold-600);
     background: var(--color-cream);
   }
+  .post-body :global(.bbsa-cert-actions) {
+    margin: 1.5rem 0;
+  }
+  .post-body :global(.bbsa-cert-actions .button-pill) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    border-radius: 999px;
+    background: var(--color-gold-400);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 200ms, transform 200ms;
+  }
+  .post-body :global(.bbsa-cert-actions .button-pill:hover) {
+    background: var(--color-gold-600);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .post-body :global(.bbsa-cert-embed) {
+    display: block;
+    width: 100%;
+    min-height: 32rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0 1rem;
+    background: #fff;
+  }
 
   /* ─── SIDEBAR (CTA + share) ──────────────────────────── */
   .post-aside { display: block; }

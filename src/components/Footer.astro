@@ -8,6 +8,7 @@ const awardBadges = [
   '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png',
   '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png',
 ];
+const bbsaPostHref = '/bbsa-accredited-specialist-shutter-envy/';
 ---
 {/* ─── TRUST BADGES STRIP ─────────────────────────────── */}
 <section class="trust-strip">
@@ -62,6 +63,26 @@ const awardBadges = [
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </a></li>
       </ul>
+      <div class="site-footer__accreditation" aria-label="Industry accreditations">
+        <a href={bbsaPostHref} class="site-footer__accreditation-link" title="Read about our BBSA Accredited Specialist status">
+          <img
+            src="/wp-content/uploads/2026/07/bbsa-accredited-specialist-badge.png"
+            alt="BBSA Accredited Specialist — the authority on UK shading"
+            width="120"
+            height="120"
+            loading="lazy"
+          />
+        </a>
+        <a href={bbsaPostHref} class="site-footer__accreditation-link" title="Read about our Make It Safe child-safety commitment">
+          <img
+            src="/wp-content/uploads/2026/07/make-it-safe-badge.png"
+            alt="Make It Safe — BBSA child safety campaign"
+            width="120"
+            height="100"
+            loading="lazy"
+          />
+        </a>
+      </div>
     </div>
 
     <nav class="site-footer__col" aria-label="Menu">
@@ -273,6 +294,32 @@ const awardBadges = [
     background: var(--color-gold-400);
     color: #fff;
     transform: translateY(-2px);
+  }
+
+  .site-footer__accreditation {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .site-footer__accreditation-link {
+    display: block;
+    line-height: 0;
+    transition: transform 200ms, opacity 200ms;
+  }
+  .site-footer__accreditation-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+  .site-footer__accreditation-link img {
+    display: block;
+    width: auto;
+    height: 4.5rem;
+    max-width: 100%;
+  }
+  @media (min-width: 768px) {
+    .site-footer__accreditation-link img { height: 5.25rem; }
   }
 
   /* Link columns */
