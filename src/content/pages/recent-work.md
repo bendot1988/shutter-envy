@@ -4,6 +4,9 @@ description: "Browse recent shutter, blind and awning installations completed by
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 gallery:
+  - src: "/wp-content/uploads/2026/07/awning-installation-mountsorrel-shutter-envy.png"
+    alt: "Awning installation in Mountsorrel — striped retractable patio awning over French doors"
+    href: "/awning-installation-in-mountsorrel/"
   - src: "/wp-content/uploads/2025/11/04-Shutter-envy-shutters-in-Market-Harbour-new-install-768x1024.jpg"
     alt: "Transformative Elegance: British-Made Faux Wood Shutters in Silk White, Market Harborough"
     href: "/transformative-elegance-british-made-faux-wood-shutters-in-silk-white-market-harborough/"
