@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-06-30 (C1 `/cafe-style-shutters/` shipped; Phase 2 in progress)
+- **Last updated:** 2026-07-06 (C7 shutters vs blinds comparison post shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -224,7 +224,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **C4 — New /arched-window-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
 - [ ] **C5 — Strengthen /locations/shutters-in-leicester/.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **C6 — Strengthen /locations/shutters-market-harborough/ (bay windows).** status: pending · owner: _TBD_ · done: — · note: —
-- [ ] **C7 — New /shutters-vs-blinds-…/ blog (or merge existing).** status: pending · owner: _TBD_ · done: — · note: if merging, log 301 in REDIRECTS.md
+- [x] **C7 — New /shutters-vs-blinds-…/ blog (or merge existing).** status: done · owner: Claude · done: 2026-07-06 · note: `/shutters-vs-blinds-honest-uk-comparison-2026/` shipped — honest room-by-room comparison, 7 FAQs, cost-over-time section; targets A.11 `shutters vs blinds` cluster. Legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` left live (no 301 until Mark approves merge)
 - [ ] **C8 — Refresh /the-complete-uk-guide-to-plantation-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
 - [x] **C9 — Refresh /how-much-do-plantation-shutters-cost-…/.** status: done · owner: Claude · done: 2026-06-02 · note: added "Plantation Shutters Cost — 2026 At a Glance" TL;DR block, new "Bay Window Shutter Costs" subsection (targets `bay window shutters cost 2026` query), 8 FAQs mapped to GSC cost queries (FAQPage JSON-LD now emits), "Last reviewed June 2026" body stamp, and bumped `updatedDate` so sitemap `lastmod` reflects the refresh
 - [ ] **C10 — Refresh /the-difference-between-wooden-and-faux-wood-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-07-06** — **C7 done:** `/shutters-vs-blinds-honest-uk-comparison-2026/` — honest shutters vs blinds comparison for UK homeowners; 7 FAQs, room-by-room Leicestershire table, cost-over-time section; real S-Craft + Shutter Envy install photography (no AI). Targets Appendix A.11 `shutters vs blinds` (689 impr / pos 24.79). Legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` retained pending merge decision.
 - **2026-06-30** — **C1 signed off:** `/cafe-style-shutters/` image pass — replaced WP AI/stock room photos with S-Craft manufacturer photography from `public/wp-content/uploads/2025/02/` (living room, kitchen, bay install, tier-on-tier period room). Mark validation pending before publish/indexing push.
 - **2026-06-30** — **C1 done:** new commercial hub `/cafe-style-shutters/` — page content, route, Service + FAQPage JSON-LD, Products mega + footer nav, 301 from legacy `/shutter-installation/cafe-style-shutters/`, internal links from 7 existing posts + /our-shutters/ café-style card. **A8 complete:** sixth editorial post `/do-shutters-reduce-noise-uk-honest-guide/` shipped. Next up: Phase 2 — C2 `/faux-wood-shutters/` hub.
 - **2026-06-30** — **F12 done:** sitemap submitted, priority URLs confirmed indexed, rich-results validation passed. **Phase 1 complete** (11 done, 1 dropped). Next up: Phase 2 — C1 `/cafe-style-shutters/` hub.
@@ -357,7 +358,7 @@ Source: GSC, 90 days ending 2026-05-26. "Current landing" is the page receiving 
 - **A.8 shutters near me** — 907 impr · 0.33% · pos 15.86 → `/our-shutters/`. **Gap:** insufficient location reinforcement; depends on `F7`/`C5`.
 - **A.9 shutters leicester** — 836 impr · 0.60% · pos 20.93 → `/locations/shutters-in-leicester/`. **Gap:** page itself ranks pos 31 (`C5`).
 - **A.10 blinds leicester** — 807 impr · 0.37% · pos 13.26 → `/locations/shutters-in-leicester/`. **Gap:** location page is shutter-centric; needs blinds section (`C5`).
-- **A.11 shutters vs blinds** — 689 impr · 0.00% · pos 24.79 → `/window-blinds-vs-shutters-which-is-right-for-your-home/`. **Gap:** weak title (`C7`).
+- **A.11 shutters vs blinds** — 689 impr · 0.00% · pos 24.79 → `/shutters-vs-blinds-honest-uk-comparison-2026/` (shipped `C7`). **Gap:** monitor CTR; consider 301 from legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` after Mark approval.
 - **A.12 what are plantation shutters** — 615 impr · 0.00% · pos 12.24 → `/the-complete-uk-guide-to-plantation-shutters/`. **Gap:** intro doesn't earn the click (`C8`).
 - **A.13 are wood shutters better than faux wood** — 562 impr · 0.00% · pos 3.07 → `/the-difference-between-wooden-and-faux-wood-shutters/`. **Gap:** pure snippet rewrite (`C10`).
 - **A.14 arched window shutters** — 558 impr · 0.00% · pos 13.33 → `/bespoke-arched-window-shutters-shutter-envy-leicestershire/`. **Gap:** no commercial hub (`C4`).
