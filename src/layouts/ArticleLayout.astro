@@ -81,13 +81,12 @@ const moreNews = allPosts
   </section>
 
   {/* ─── BODY + SIDEBAR ─────────────────────────────────── */}
+  {/*
+    Desktop sticky = CTA + share only (compact, fits under the header).
+    Featured image and "More news" stay in normal flow so they never
+    slide under the sticky cards or fight a nested scroll container.
+  */}
   <div class="post-grid">
-    {heroImage && (
-      <figure class="post-feature-image">
-        <img src={heroImage} alt={heroImageAlt ?? h1} loading="eager" fetchpriority="high" />
-      </figure>
-    )}
-
     <div class="post-body">
       <slot />
       {showHeroAtEnd && heroImage && (
@@ -98,6 +97,12 @@ const moreNews = allPosts
     </div>
 
     <aside class="post-aside">
+      {heroImage && (
+        <figure class="post-feature-image">
+          <img src={heroImage} alt={heroImageAlt ?? h1} loading="eager" fetchpriority="high" />
+        </figure>
+      )}
+
       <div class="post-aside__sticky">
         {/* Dark mini quote CTA */}
         <div class="post-aside__cta">
@@ -146,38 +151,39 @@ const moreNews = allPosts
             </li>
           </ul>
         </div>
-
-        {/* More news */}
-        {moreNews.length > 0 && (
-          <div class="post-aside__more">
-            <p class="post-aside__more-label">More from the News</p>
-            <ul>
-              {moreNews.map((p) => (
-                <li>
-                  <a href={`/${p.id}/`}>
-                    {p.data.heroImage && (
-                      <span class="post-aside__more-thumb">
-                        <img src={p.data.heroImage} alt="" loading="lazy" />
-                      </span>
-                    )}
-                    <span class="post-aside__more-text">
-                      <span class="post-aside__more-title">{p.data.h1 ?? p.data.title}</span>
-                      <span class="post-aside__more-date">
-                        {p.data.pubDate.toLocaleDateString('en-GB', {
-                          day: 'numeric', month: 'short', year: 'numeric',
-                        })}
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a href="/news/" class="post-aside__more-all">View all news →</a>
-          </div>
-        )}
       </div>
     </aside>
   </div>
+
+  {moreNews.length > 0 && (
+    <section class="post-more-news" aria-labelledby="post-more-news-heading">
+      <div class="post-more-news__inner">
+        <h2 id="post-more-news-heading" class="post-more-news__heading">More from the News</h2>
+        <ul class="post-more-news__list">
+          {moreNews.map((p) => (
+            <li>
+              <a href={`/${p.id}/`}>
+                {p.data.heroImage && (
+                  <span class="post-more-news__thumb">
+                    <img src={p.data.heroImage} alt="" loading="lazy" />
+                  </span>
+                )}
+                <span class="post-more-news__text">
+                  <span class="post-more-news__title">{p.data.h1 ?? p.data.title}</span>
+                  <span class="post-more-news__date">
+                    {p.data.pubDate.toLocaleDateString('en-GB', {
+                      day: 'numeric', month: 'short', year: 'numeric',
+                    })}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href="/news/" class="post-more-news__all">View all news →</a>
+      </div>
+    </section>
+  )}
 
   {/* ─── END-OF-POST CTA — uses shared InlineCTA so blog posts match the
        homepage / product pages (gold tone with shutter image bg). */}
@@ -280,7 +286,7 @@ const moreNews = allPosts
   .post-hero__meta svg { color: var(--color-gold-600); flex-shrink: 0; }
   .post-hero__author { color: var(--color-ink-soft) !important; font-weight: 500; }
 
-  /* ─── BODY + IMAGE + SIDEBAR GRID ────────────────────── */
+  /* ─── BODY + SIDEBAR GRID ────────────────────────────── */
   .post-grid {
     max-width: var(--container-wide);
     margin: 0 auto;
@@ -289,19 +295,21 @@ const moreNews = allPosts
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  /* Mobile: featured image / CTA above the article (aside is first visually) */
+  .post-aside { order: -1; }
   @media (min-width: 960px) {
     .post-grid {
       grid-template-columns: minmax(0, 1fr) 20rem;
-      grid-template-rows: auto 1fr;
       gap: 0 3.5rem;
-      row-gap: 2rem;
+      align-items: start;
     }
-    /* Image: top of right column */
-    .post-feature-image { grid-column: 2; grid-row: 1; }
-    /* Body: spans both rows of left column */
-    .post-body { grid-column: 1; grid-row: 1 / span 2; }
-    /* Aside: below image, sticks on scroll */
-    .post-aside { grid-column: 2; grid-row: 2; align-self: start; }
+    .post-body { grid-column: 1; order: 0; }
+    /* Stretch with the article so sticky children have room to travel */
+    .post-aside {
+      grid-column: 2;
+      order: 0;
+      align-self: stretch;
+    }
   }
 
   /* ─── FEATURED IMAGE ─────────────────────────────────── */
@@ -473,7 +481,11 @@ const moreNews = allPosts
   }
 
   /* ─── SIDEBAR (CTA + share) ──────────────────────────── */
-  .post-aside { display: block; }
+  .post-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
   .post-aside__sticky {
     display: flex;
     flex-direction: column;
@@ -482,7 +494,8 @@ const moreNews = allPosts
   @media (min-width: 960px) {
     .post-aside__sticky {
       position: sticky;
-      top: 6rem;
+      /* Clear sticky site header + small breathing room */
+      top: calc(6rem + 10px);
     }
   }
   .post-aside__cta {
@@ -603,87 +616,95 @@ const moreNews = allPosts
     transform: translateY(-2px);
   }
 
-  /* ─── More News card ─────────────────────────────────── */
-  .post-aside__more {
+  /* ─── More News (below article — kept out of sticky column) ── */
+  .post-more-news {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 1.25rem 1rem;
+  }
+  .post-more-news__inner {
     background: #fff;
     border: 1px solid var(--color-line);
     border-radius: var(--radius-lg);
-    padding: 1.25rem 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 1.75rem;
     box-shadow: var(--shadow-sm);
   }
-  .post-aside__more-label {
-    font-size: var(--text-link-12-700);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-ink-mute);
-    margin: 0 0 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--color-line);
+  .post-more-news__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-h3-24-500);
+    font-weight: 500;
+    letter-spacing: -0.027em;
+    margin: 0 0 1.25rem;
+    color: var(--color-ink);
   }
-  .post-aside__more ul {
+  .post-more-news__list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .post-more-news__list { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .post-more-news__list { grid-template-columns: repeat(4, 1fr); }
+  }
+  .post-more-news__list li { margin: 0; }
+  .post-more-news__list a {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
-  }
-  .post-aside__more li { margin: 0; }
-  .post-aside__more a {
-    display: flex;
-    align-items: flex-start;
     gap: 0.75rem;
     text-decoration: none;
     color: inherit;
-    border-radius: var(--radius-sm);
+    height: 100%;
     transition: transform 200ms;
   }
-  .post-aside__more a:hover { transform: translateX(2px); }
-  .post-aside__more-thumb {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
+  .post-more-news__list a:hover { transform: translateY(-2px); }
+  .post-more-news__thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
     border-radius: var(--radius-sm);
     overflow: hidden;
     background: var(--color-cream);
   }
-  .post-aside__more-thumb img {
+  .post-more-news__thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 400ms cubic-bezier(0.16,1,0.3,1);
   }
-  .post-aside__more a:hover .post-aside__more-thumb img { transform: scale(1.08); }
-  .post-aside__more-text {
+  .post-more-news__list a:hover .post-more-news__thumb img { transform: scale(1.05); }
+  .post-more-news__text {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     min-width: 0;
   }
-  .post-aside__more-title {
+  .post-more-news__title {
     font-family: var(--font-display);
-    font-size: 0.9375rem;
+    font-size: 0.975rem;
     font-weight: 500;
-    line-height: 1.25;
+    line-height: 1.3;
     letter-spacing: -0.015em;
     color: var(--color-ink);
-    /* clamp to 3 lines */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .post-aside__more a:hover .post-aside__more-title { color: var(--color-gold-600); }
-  .post-aside__more-date {
+  .post-more-news__list a:hover .post-more-news__title { color: var(--color-gold-600); }
+  .post-more-news__date {
     font-size: 0.75rem;
     color: var(--color-ink-mute);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-weight: 600;
   }
-  .post-aside__more-all {
+  .post-more-news__all {
     display: inline-block;
     margin-top: 1.25rem;
     color: var(--color-gold-600);
@@ -694,6 +715,6 @@ const moreNews = allPosts
     text-decoration: none;
     transition: color 200ms;
   }
-  .post-aside__more-all:hover { color: var(--color-gold-400); }
+  .post-more-news__all:hover { color: var(--color-gold-400); }
 
 </style>
