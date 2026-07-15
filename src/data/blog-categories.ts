@@ -1,5 +1,5 @@
 /**
- * News archive categories — one primary bucket per post (76 total).
+ * News archive categories — one primary bucket per post (85 total).
  * Assigned from slug + title; overrides regex auto-detection on /news/.
  */
 export const BLOG_CATEGORY_LABELS = {
@@ -28,6 +28,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'automated-blinds-for-bifold-doors-stylish-smart-practical': 'blinds',
   'automated-blinds-the-smart-way-to-add-comfort-to-your-home': 'blinds',
   'best-blackout-blind-for-bifold-doors-leicestershire': 'blinds',
+  'how-much-do-made-to-measure-blinds-cost-uk-2026': 'blinds',
   'motorised-blinds-a-smarter-way-to-control-your-home': 'blinds',
   'the-benefits-of-motorised-blinds-convenience-style-and-smart-home-integration': 'blinds',
 
