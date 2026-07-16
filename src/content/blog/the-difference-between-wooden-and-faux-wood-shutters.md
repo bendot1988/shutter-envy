@@ -44,7 +44,7 @@ These shutters resist warping, cracking and moisture damage, making them ideal f
 
 At Shutter Envy, we often recommend [wooden shutters](/our-shutters/) for living rooms, bedrooms and home offices — anywhere you want to highlight elegance, warmth, and a more traditional or luxurious aesthetic.
 
-For kitchens, bathrooms, utility rooms, or any area with higher moisture levels, **faux wood is the practical hero**. You get the same stylish impact with added resistance to humidity and easier cleaning — no need to worry about long-term wear and tear.
+For kitchens, bathrooms, utility rooms, or any area with higher moisture levels, **[faux wood](/faux-wood-shutters/) is the practical hero**. You get the same stylish impact with added resistance to humidity and easier cleaning — no need to worry about long-term wear and tear.
 
 ## Still Unsure? We Can Help
 

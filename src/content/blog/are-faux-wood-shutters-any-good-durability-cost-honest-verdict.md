@@ -12,6 +12,8 @@ author: "Shutter Envy"
 
 The short answer is yes — genuinely. But like any product, they’re better suited to some situations than others. This guide covers everything you need to know: what they’re made of, how long they last, what they cost, and how they stack up against real wood. By the end, you’ll know exactly whether faux wood shutters are the right choice for your home.
 
+Looking for supply and fitting rather than the deep dive? See our [faux wood shutters](/faux-wood-shutters/) page for rooms, prices and how we survey Leicestershire homes.
+
 
 
 

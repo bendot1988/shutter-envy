@@ -41,7 +41,7 @@ If you want the verdict before the full breakdown:
 - **The lifespan gap is bigger than people think.** MDF lasts 8–12 years in a good room. Faux wood lasts 15–20+. Over the lifetime of your house, MDF is often *not* the cheapest option.
 - **The day-one look is identical.** The differences only emerge over time, in moisture, or at the cut edge.
 
-If after reading this you decide MDF is right for you — that's a perfectly legitimate purchase, and we'll quote it. If you decide faux wood is the smarter buy, that's the call most of our customers eventually make. What we won't do is sell MDF into a room that will destroy it.
+If after reading this you decide MDF is right for you — that's a perfectly legitimate purchase, and we'll quote it. If you decide [faux wood](/faux-wood-shutters/) is the smarter buy, that's the call most of our customers eventually make. What we won't do is sell MDF into a room that will destroy it.
 
 ## What MDF Plantation Shutters Actually Are
 
