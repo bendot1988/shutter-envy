@@ -12,7 +12,7 @@ This recent installation shows how bespoke shutters can work beautifully on an a
 
 For this home, the aim was to preserve the character of the arched opening while giving the client practical control over daylight and privacy. The finished shutters follow the shape of the window closely, helping the feature stand out rather than covering it up with a less tailored solution.
 
-Arched window shutters are ideal for homeowners who want to keep unusual glazing as a design feature while still making the room comfortable and usable. If you are planning shutters for shaped or awkward windows, explore our [shutter options](/our-shutters/) or [book a consultation](/contact/) with Shutter Envy.
+Arched window shutters are ideal for homeowners who want to keep unusual glazing as a design feature while still making the room comfortable and usable. For the full commercial guide — templating, costs and style options — see our [arched window shutters](/arched-window-shutters/) page. Or explore all [shutter options](/our-shutters/) and [book a consultation](/contact/) with Shutter Envy.
 
 [![791727650 492010221 1034800252045580 6588738170356077864 n Large](/wp-content/uploads/2025/10/791727650-492010221_1034800252045580_6588738170356077864_n-Large-819x1024.jpeg)](/bespoke-arched-window-shutters-shutter-envy-leicestershire/791727650-492010221_1034800252045580_6588738170356077864_n-large/)
 

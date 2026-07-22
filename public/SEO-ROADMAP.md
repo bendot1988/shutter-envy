@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-07-16 (C2 faux wood shutters hub shipped)
+- **Last updated:** 2026-07-22 (C4, C5, C6, C8, C10, C12 shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -221,15 +221,15 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [x] **C1 — New /cafe-style-shutters/ hub.** status: done · owner: Claude · done: 2026-06-30 · note: `src/content/pages/cafe-style-shutters.md` + `src/pages/cafe-style-shutters/index.astro`; nav in Products mega + footer; 301 from `/shutter-installation/cafe-style-shutters/`; internal links from 7 posts + /our-shutters/ café-style card; hero/room/process images swapped to S-Craft manufacturer photography (removed WP AI/stock assets); pending Mark validation + GSC indexing request for `https://shutter-envy.co.uk/cafe-style-shutters/`
 - [x] **C2 — New /faux-wood-shutters/ hub.** status: done · owner: Claude · done: 2026-07-16 · note: `src/content/pages/faux-wood-shutters.md` + `src/pages/faux-wood-shutters/index.astro`; Service + FAQPage JSON-LD; Products mega + footer + site map; materials CTA on /our-shutters/; internal links from faux-wood verdict, wood-vs-faux, and MDF posts. Uses existing WP install photography. Pending Mark validation + GSC indexing request for `https://shutter-envy.co.uk/faux-wood-shutters/`
 - [ ] **C3 — New /aluminium-plantation-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
-- [ ] **C4 — New /arched-window-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
-- [ ] **C5 — Strengthen /locations/shutters-in-leicester/.** status: pending · owner: _TBD_ · done: — · note: —
-- [ ] **C6 — Strengthen /locations/shutters-market-harborough/ (bay windows).** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **C4 — New /arched-window-shutters/ hub.** status: done · owner: Claude · done: 2026-07-22 · note: `src/content/pages/arched-window-shutters.md` + `src/pages/arched-window-shutters/index.astro`; Service + FAQPage; Products mega + footer + site map; real 2025/10 install photography; blog project links to hub
+- [x] **C5 — Strengthen /locations/shutters-in-leicester/.** status: done · owner: Claude · done: 2026-07-22 · note: LE1–LE7 postcodes, project images, neighbour links, blinds section, refreshed FAQs (FAQPage), internal links to hubs
+- [x] **C6 — Strengthen /locations/shutters-market-harborough/ (bay windows).** status: done · owner: Claude · done: 2026-07-22 · note: dedicated bay section, MH install photos, bay cost guide links, FAQs targeting bay intent
 - [x] **C7 — New /shutters-vs-blinds-…/ blog (or merge existing).** status: done · owner: Claude · done: 2026-07-06 · note: `/shutters-vs-blinds-honest-uk-comparison-2026/` shipped — honest room-by-room comparison, 7 FAQs, cost-over-time section; targets A.11 `shutters vs blinds` cluster. Legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` left live (no 301 until Mark approves merge)
-- [ ] **C8 — Refresh /the-complete-uk-guide-to-plantation-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **C8 — Refresh /the-complete-uk-guide-to-plantation-shutters/.** status: done · owner: Claude · done: 2026-07-22 · note: TL;DR, 2026 cost table, style/material tables with hub links (C1/C2/C4 + aluminium guide), frontmatter FAQs, bumped updatedDate
 - [x] **C9 — Refresh /how-much-do-plantation-shutters-cost-…/.** status: done · owner: Claude · done: 2026-06-02 · note: added "Plantation Shutters Cost — 2026 At a Glance" TL;DR block, new "Bay Window Shutter Costs" subsection (targets `bay window shutters cost 2026` query), 8 FAQs mapped to GSC cost queries (FAQPage JSON-LD now emits), "Last reviewed June 2026" body stamp, and bumped `updatedDate` so sitemap `lastmod` reflects the refresh
-- [ ] **C10 — Refresh /the-difference-between-wooden-and-faux-wood-shutters/.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **C10 — Refresh /the-difference-between-wooden-and-faux-wood-shutters/.** status: done · owner: Claude · done: 2026-07-22 · note: comparison table, 2026 £ ranges, FAQs for any good / better than wood / lifespan / expensive, links to faux-wood hub
 - [ ] **C11 — New /motorised-blinds-bifold-doors-…/ blog.** status: pending · owner: _TBD_ · done: — · note: —
-- [ ] **C12 — New /locations/shutters-derby/ and /locations/shutters-derbyshire/.** status: pending · owner: _TBD_ · done: — · note: coverage approved 2026-05-28
+- [x] **C12 — New /locations/shutters-derby/ and /locations/shutters-derbyshire/.** status: done · owner: Claude · done: 2026-07-22 · note: distinct city vs county pages; nav + site map + HERO_BY_SLUG; FAQs; honest travel-from-Melton framing; no spun doorway clone
 
 ### Phase 3 — Authority, conversion, cadence
 
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-07-22** — **C4, C5, C6, C8, C10, C12 done:** `/arched-window-shutters/` hub; Leicester + Market Harborough location thickeners (postcodes/FAQs/bays); complete UK guide + wood-vs-faux refreshes; `/locations/shutters-derby/` + `/locations/shutters-derbyshire/`. **C3** aluminium hub and **C11** bifold blog still pending. Next up: C3 `/aluminium-plantation-shutters/`.
 - **2026-07-16** — **C2 done:** `/faux-wood-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, /our-shutters/ materials CTA, internal links from three faux-wood/MDF posts. Targets Appendix A.2 `faux wood shutters` (1,760 impr / pos 15.20). Next up: Phase 2 — C3 `/aluminium-plantation-shutters/` hub.
 - **2026-07-06** — **C7 done:** `/shutters-vs-blinds-honest-uk-comparison-2026/` — honest shutters vs blinds comparison for UK homeowners; 7 FAQs, room-by-room Leicestershire table, cost-over-time section; real S-Craft + Shutter Envy install photography (no AI). Targets Appendix A.11 `shutters vs blinds` (689 impr / pos 24.79). Legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` retained pending merge decision.
 - **2026-06-30** — **C1 signed off:** `/cafe-style-shutters/` image pass — replaced WP AI/stock room photos with S-Craft manufacturer photography from `public/wp-content/uploads/2025/02/` (living room, kitchen, bay install, tier-on-tier period room). Mark validation pending before publish/indexing push.

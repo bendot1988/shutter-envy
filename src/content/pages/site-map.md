@@ -14,6 +14,7 @@ A complete index of every page on shutter-envy.co.uk. If you're looking for some
 - [Our Shutters](/our-shutters/)
 - [Café-Style Shutters](/cafe-style-shutters/)
 - [Faux Wood Shutters](/faux-wood-shutters/)
+- [Arched Window Shutters](/arched-window-shutters/)
 - [Colour Swatches](/our-shutters/colour-swatches/)
 - [Portchester® Aluminium Shutters](/portchester-aluminium-shutters-leicester/)
 - [British Made Shutters](/british-made-shutters/)
@@ -39,6 +40,8 @@ A complete index of every page on shutter-envy.co.uk. If you're looking for some
 - [Shutters Birstall](/locations/shutters-birstall/)
 - [Shutters Groby](/locations/shutters-groby/)
 - [Shutters Sileby](/locations/shutters-sileby/)
+- [Shutters Derby](/locations/shutters-derby/)
+- [Shutters Derbyshire](/locations/shutters-derbyshire/)
 
 ## News
 
