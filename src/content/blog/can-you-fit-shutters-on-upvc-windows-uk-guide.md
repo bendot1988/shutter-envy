@@ -75,7 +75,7 @@ That survey is free and no-obligation via our [contact page](/contact/). DIY mea
 | Hardwood | Dry living rooms wanting a premium finish | Avoid steamy bathrooms and wet kitchens |
 | Waterproof ABS | Bathrooms and shower rooms | Different feel to faux wood — sample on survey |
 | MDF | Dry adult bedrooms on a tighter budget | Wrong for moisture — read our [MDF verdict](/are-mdf-shutters-any-good-honest-uk-verdict/) |
-| Aluminium | Conservatories, security openings, intense sun | Premium price — see [aluminium buyers’ guide](/are-aluminium-shutters-worth-it-uk-buyers-guide/) |
+| Aluminium | Conservatories, security openings, intense sun | Premium price — see [aluminium plantation shutters](/aluminium-plantation-shutters/) |
 
 ![Warm-white faux wood plantation shutters on a uPVC kitchen casement above a worktop — a typical moisture-aware choice in Leicestershire homes.](/images/blog/faux-wood-shutters-upvc-kitchen-casement.jpg)
 

@@ -15,6 +15,7 @@ A complete index of every page on shutter-envy.co.uk. If you're looking for some
 - [Café-Style Shutters](/cafe-style-shutters/)
 - [Faux Wood Shutters](/faux-wood-shutters/)
 - [Arched Window Shutters](/arched-window-shutters/)
+- [Aluminium Plantation Shutters](/aluminium-plantation-shutters/)
 - [Colour Swatches](/our-shutters/colour-swatches/)
 - [Portchester® Aluminium Shutters](/portchester-aluminium-shutters-leicester/)
 - [British Made Shutters](/british-made-shutters/)

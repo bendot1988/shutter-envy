@@ -65,7 +65,7 @@ Louvre widths typically run from about **47mm to 114mm** — smaller for privacy
 | Hardwood | Dry living rooms & bedrooms wanting timber | Avoid steamy rooms |
 | MDF | Dry low-traffic rooms on a budget | Wrong in moisture — [MDF verdict](/are-mdf-shutters-any-good-honest-uk-verdict/) |
 | ABS | Bathrooms / wet rooms | Different feel — sample on survey |
-| Aluminium | Heat, conservatories, security openings | Premium — [aluminium guide](/are-aluminium-shutters-worth-it-uk-buyers-guide/) / [Portchester](/portchester-aluminium-shutters-leicester/) |
+| [Aluminium](/aluminium-plantation-shutters/) | Heat, conservatories, security openings | Premium — [buyer's guide](/are-aluminium-shutters-worth-it-uk-buyers-guide/) / [Portchester](/portchester-aluminium-shutters-leicester/) |
 
 ## Plantation Shutters Cost — 2026 UK Guide
 

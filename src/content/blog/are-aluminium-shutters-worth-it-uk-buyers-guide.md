@@ -29,7 +29,7 @@ _Last reviewed: June 2026 by the Shutter Envy survey team._
 
 Aluminium plantation [shutters](/our-shutters/) look like ordinary plantation shutters at first glance. They cost about twice as much. So why do we recommend them more often than you'd think? The answer is that they were built for jobs ordinary plantation shutters were never meant to do — and in the right room they are the only sensible choice. This is the honest UK 2026 buyer's guide.
 
-If you want the full commercial detail on the specific range we fit, our [Portchester aluminium shutters page](/portchester-aluminium-shutters-leicester/) covers the product specification, colours and lock options. This guide is the broader category view — what aluminium shutters are, who they actually suit, who they don't, and what they realistically cost.
+For the commercial category hub — rooms, costs and when aluminium earns its premium — start with [aluminium plantation shutters](/aluminium-plantation-shutters/). For the specific range we fit, our [Portchester aluminium shutters page](/portchester-aluminium-shutters-leicester/) covers product specification, colours and lock options. This guide is the deeper buyer's read.
 
 ## The Short Answer
 

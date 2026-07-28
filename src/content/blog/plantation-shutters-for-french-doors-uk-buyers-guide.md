@@ -68,7 +68,7 @@ If you are unsure which doors you have, a photo on WhatsApp before survey helps 
 |---|---|---|
 | [Faux wood](/faux-wood-shutters/) | Living rooms, kitchens, busy family homes | Painted look only |
 | Hardwood | Dry dining rooms wanting timber warmth | Avoid steamy rooms |
-| Aluminium | Security, south-facing heat, large spans | Premium — [aluminium guide](/are-aluminium-shutters-worth-it-uk-buyers-guide/) |
+| Aluminium | Security, south-facing heat, large spans | Premium — [aluminium plantation shutters](/aluminium-plantation-shutters/) |
 | MDF | Rarely our first pick on doors | Heavier; moisture risk — [MDF verdict](/are-mdf-shutters-any-good-honest-uk-verdict/) |
 
 Ground-floor French doors onto a side return or alley sometimes justify [Portchester aluminium](/portchester-aluminium-shutters-leicester/) for security as well as light control. Most garden-facing pairs in quiet estates are perfectly happy in faux wood.

@@ -13,7 +13,7 @@ cta:
 
 ## Portchester Aluminium Shutters
 
-Shutter Envy supplies and fits Portchester® aluminium shutters for homes across Leicester, Loughborough and surrounding Leicestershire areas. Designed for strength, privacy and style, these durable aluminium shutters are ideal for homeowners who want a secure, made-to-measure window covering without compromising on appearance.
+Shutter Envy supplies and fits Portchester® aluminium shutters for homes across Leicester, Loughborough and surrounding Leicestershire areas. For the broader category — when aluminium is worth it, costs and room-by-room advice — see our [aluminium plantation shutters](/aluminium-plantation-shutters/) hub. Designed for strength, privacy and style, these durable aluminium shutters are ideal for homeowners who want a secure, made-to-measure window covering without compromising on appearance.
 
 - Burglaries are up 21% in the UK
 - Do you spend long periods away?

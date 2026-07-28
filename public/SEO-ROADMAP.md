@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-07-22 (C4, C5, C6, C8, C10, C12 shipped)
+- **Last updated:** 2026-07-28 (C3 aluminium plantation shutters hub shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -37,7 +37,7 @@ Grow non-brand organic visibility for Shutter Envy across Leicestershire and the
 
 ### 3.2 Indexable page inventory (97 ranking URLs, all routes)
 
-- **Marketing & service (18 routes):** `/`, `/about/`, `/awnings/`, `/blind-motorisation/`, `/blindscreen/`, `/british-made-shutters/`, `/cafe-style-shutters/`, `/contact/`, `/faux-wood-shutters/`, `/news/`, `/our-blinds/`, `/our-shutters/`, `/our-shutters/colour-swatches/`, `/portchester-aluminium-shutters-leicester/`, `/privacy/`, `/recent-work/`, `/reviews/`, `/site-map/`, `/terms/`.
+- **Marketing & service (19 routes):** `/`, `/about/`, `/aluminium-plantation-shutters/`, `/awnings/`, `/blind-motorisation/`, `/blindscreen/`, `/british-made-shutters/`, `/cafe-style-shutters/`, `/contact/`, `/faux-wood-shutters/`, `/news/`, `/our-blinds/`, `/our-shutters/`, `/our-shutters/colour-swatches/`, `/portchester-aluminium-shutters-leicester/`, `/privacy/`, `/recent-work/`, `/reviews/`, `/site-map/`, `/terms/`.
 - **Locations (12 + index = 13 routes):** `/locations/` and the 12 location slugs under `src/content/locations/` (slug inconsistency preserved per `CLAUDE.md` §3).
 - **Blog (77 posts, root-level):** every file in `src/content/blog/` rendered by `src/pages/[slug]/index.astro`.
 - **Noindexed:** `/brand/` (`src/pages/brand/index.astro:75`), `/404/`.
@@ -111,7 +111,7 @@ No host plumbing issues. No multi-hop chains. No fix required at this layer.
 
 ### 5.3 P3 — Plant pillars and close topical gaps
 
-**Why:** Cafe-style shutters (3K+ impr / pos 18–32) now have a dedicated hub at `/cafe-style-shutters/` (`C1` shipped 2026-06-30). Remaining gaps: aluminium / plantation aluminium (760 impr / pos 17–20), arched window shutters (558 / pos 13) — still scattered across blog posts. Faux wood now has `/faux-wood-shutters/` (`C2` shipped 2026-07-16); café-style has `/cafe-style-shutters/` (`C1`); shutters vs blinds has `/shutters-vs-blinds-honest-uk-comparison-2026/` (`C7`). Remaining commercial hubs (`/aluminium-plantation-shutters/`, `/arched-window-shutters/`) consolidate intent — approved 2026-05-28. Each must be a real, locally-grounded page, not a doorway.
+**Why:** Cafe-style shutters (3K+ impr / pos 18–32) now have a dedicated hub at `/cafe-style-shutters/` (`C1` shipped 2026-06-30). Faux wood has `/faux-wood-shutters/` (`C2`); arched has `/arched-window-shutters/` (`C4`); aluminium has `/aluminium-plantation-shutters/` (`C3` shipped 2026-07-28) above the product page `/portchester-aluminium-shutters-leicester/`; shutters vs blinds has `/shutters-vs-blinds-honest-uk-comparison-2026/` (`C7`). Phase 2 commercial hubs are complete — remaining Phase 2 item is `C11` (motorised bifold blog).
 
 ---
 
@@ -220,7 +220,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 - [x] **C1 — New /cafe-style-shutters/ hub.** status: done · owner: Claude · done: 2026-06-30 · note: `src/content/pages/cafe-style-shutters.md` + `src/pages/cafe-style-shutters/index.astro`; nav in Products mega + footer; 301 from `/shutter-installation/cafe-style-shutters/`; internal links from 7 posts + /our-shutters/ café-style card; hero/room/process images swapped to S-Craft manufacturer photography (removed WP AI/stock assets); pending Mark validation + GSC indexing request for `https://shutter-envy.co.uk/cafe-style-shutters/`
 - [x] **C2 — New /faux-wood-shutters/ hub.** status: done · owner: Claude · done: 2026-07-16 · note: `src/content/pages/faux-wood-shutters.md` + `src/pages/faux-wood-shutters/index.astro`; Service + FAQPage JSON-LD; Products mega + footer + site map; materials CTA on /our-shutters/; internal links from faux-wood verdict, wood-vs-faux, and MDF posts. Uses existing WP install photography. Pending Mark validation + GSC indexing request for `https://shutter-envy.co.uk/faux-wood-shutters/`
-- [ ] **C3 — New /aluminium-plantation-shutters/ hub.** status: pending · owner: _TBD_ · done: — · note: route approved 2026-05-28
+- [x] **C3 — New /aluminium-plantation-shutters/ hub.** status: done · owner: Claude · done: 2026-07-28 · note: `src/content/pages/aluminium-plantation-shutters.md` + `src/pages/aluminium-plantation-shutters/index.astro`; Service + FAQPage; Products mega + footer + site map; S-Craft/Portchester photography; links from aluminium guide, Portchester page, faux-wood hub, our-shutters, locations sidebar, complete UK guide, French-door + uPVC posts. Category hub sits above product page `/portchester-aluminium-shutters-leicester/`.
 - [x] **C4 — New /arched-window-shutters/ hub.** status: done · owner: Claude · done: 2026-07-22 · note: `src/content/pages/arched-window-shutters.md` + `src/pages/arched-window-shutters/index.astro`; Service + FAQPage; Products mega + footer + site map; real 2025/10 install photography; blog project links to hub
 - [x] **C5 — Strengthen /locations/shutters-in-leicester/.** status: done · owner: Claude · done: 2026-07-22 · note: LE1–LE7 postcodes, project images, neighbour links, blinds section, refreshed FAQs (FAQPage), internal links to hubs
 - [x] **C6 — Strengthen /locations/shutters-market-harborough/ (bay windows).** status: done · owner: Claude · done: 2026-07-22 · note: dedicated bay section, MH install photos, bay cost guide links, FAQs targeting bay intent
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-07-28** — **C3 done:** `/aluminium-plantation-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, internal links from aluminium guide, Portchester product page, faux-wood hub, our-shutters, location sidebar, complete UK guide, French-door + uPVC posts. Uses existing S-Craft/Portchester photography. Targets Appendix A aluminium cluster (~760 impr). **C11** bifold/motorised blog still pending. Next up: C11 (prefer refresh existing slug if one fits).
 - **2026-07-22** — **C4, C5, C6, C8, C10, C12 done:** `/arched-window-shutters/` hub; Leicester + Market Harborough location thickeners (postcodes/FAQs/bays); complete UK guide + wood-vs-faux refreshes; `/locations/shutters-derby/` + `/locations/shutters-derbyshire/`. **C3** aluminium hub and **C11** bifold blog still pending. Next up: C3 `/aluminium-plantation-shutters/`.
 - **2026-07-16** — **C2 done:** `/faux-wood-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, /our-shutters/ materials CTA, internal links from three faux-wood/MDF posts. Targets Appendix A.2 `faux wood shutters` (1,760 impr / pos 15.20). Next up: Phase 2 — C3 `/aluminium-plantation-shutters/` hub.
 - **2026-07-06** — **C7 done:** `/shutters-vs-blinds-honest-uk-comparison-2026/` — honest shutters vs blinds comparison for UK homeowners; 7 FAQs, room-by-room Leicestershire table, cost-over-time section; real S-Craft + Shutter Envy install photography (no AI). Targets Appendix A.11 `shutters vs blinds` (689 impr / pos 24.79). Legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` retained pending merge decision.
@@ -374,7 +375,7 @@ Source: GSC, 90 days ending 2026-05-26. "Current landing" is the page receiving 
 - **A.22 automated blinds** — 489 impr · 0.00% · pos 38.80 → `/automated-blinds-the-smart-way-to-add-comfort-to-your-home/`. **Gap:** consider redirect into `/blind-motorisation/` if the post is thin.
 - **A.23 shutter blinds** — 481 impr · 0.00% · pos 28.58 → `/our-shutters/`. **Gap:** no hybrid product page; consider an FAQ-style section.
 - **A.24 are shutters blackout** — 480 impr · 0.00% · pos 16.81 → `/are-plantation-shutters-blackout-bedroom-shutter-guide/`. **Gap:** newly published, monitor.
-- **A.25 aluminium shutters** — 471 impr · 0.00% · pos 19.74 → `/portchester-aluminium-shutters-leicester/`. **Gap:** product-brand page captures generic intent (`C3`).
+- **A.25 aluminium shutters** — 471 impr · 0.00% · pos 19.74 → `/aluminium-plantation-shutters/` (hub shipped `C3`). **Gap:** monitor rankings/CTR; educational layer `/are-aluminium-shutters-worth-it-uk-buyers-guide/`; product layer `/portchester-aluminium-shutters-leicester/`.
 
 ## Appendix B — Page inventory (route → source file)
 
@@ -384,12 +385,16 @@ Locations slugs are intentionally inconsistent (`CLAUDE.md` §3). Do not normali
 
 - `/` → `src/pages/index.astro` + `src/content/pages/home.md`
 - `/about/` → `src/pages/about/index.astro` + `src/content/pages/about.md`
+- `/aluminium-plantation-shutters/` → `src/pages/aluminium-plantation-shutters/index.astro` + `src/content/pages/aluminium-plantation-shutters.md`
+- `/arched-window-shutters/` → `src/pages/arched-window-shutters/index.astro` + `src/content/pages/arched-window-shutters.md`
 - `/awnings/` → `src/pages/awnings/index.astro` + `src/content/pages/awnings.md`
 - `/blind-motorisation/` → `src/pages/blind-motorisation/index.astro` + `src/content/pages/blind-motorisation.md`
 - `/blindscreen/` → `src/pages/blindscreen/index.astro` + `src/content/pages/blindscreen.md`
 - `/brand/` → `src/pages/brand/index.astro` (noindex)
 - `/british-made-shutters/` → `src/pages/british-made-shutters/index.astro` + `src/content/pages/british-made-shutters.md`
+- `/cafe-style-shutters/` → `src/pages/cafe-style-shutters/index.astro` + `src/content/pages/cafe-style-shutters.md`
 - `/contact/` → `src/pages/contact/index.astro` + `src/content/pages/contact.md`
+- `/faux-wood-shutters/` → `src/pages/faux-wood-shutters/index.astro` + `src/content/pages/faux-wood-shutters.md`
 - `/news/` → `src/pages/news/[...page].astro`
 - `/our-blinds/` → `src/pages/our-blinds/index.astro` + `src/content/pages/our-blinds.md`
 - `/our-shutters/` → `src/pages/our-shutters/index.astro` + `src/content/pages/our-shutters.md`
