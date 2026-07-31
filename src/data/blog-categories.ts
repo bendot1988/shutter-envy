@@ -80,6 +80,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'bespoke-arched-window-shutters-shutter-envy-leicestershire': 'projects',
   'bypass-track-shutter-in-mountsorrel': 'projects',
   'awning-installation-in-mountsorrel': 'projects',
+  'shutter-installation-in-lowdham': 'projects',
   'custom-shutters-for-new-build-home-in-loughborough': 'projects',
   'elegant-bay-window-shutter-installation-in-stamford': 'projects',
   'kitchen-shutter-install-in-woodhouse-leicestershire': 'projects',
