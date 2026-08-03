@@ -108,7 +108,7 @@ Motorisation earns its keep when:
 - scheduled heat and glare control matters;
 - dangling cords would be undesirable around children or pets.
 
-For a small, easily reached spare-room window, manual operation is usually better value. For more on wide openings, see our [motorised blinds for bifold doors guide](/automated-blinds-for-bifold-doors-stylish-smart-practical/).
+For a small, easily reached spare-room window, manual operation is usually better value. For more on wide openings, see our [motorised blinds for bifold doors guide](/motorised-blinds-for-bifold-doors-uk-buyers-guide/).
 
 ## Which Blind Gives the Best Value by Room?
 

@@ -50,4 +50,6 @@ We supply and fit motorised blinds across Leicestershire, including [Loughboroug
 
 Transform your bifold doors with blinds that work for you. Book a free home consultation and let Shutter Envy bring smart design to your doors.
 
+For the fuller 2026 buyer’s guide — costs, BlindScreen® vs motorisation, and what we check on survey — see [motorised blinds for bifold doors](/motorised-blinds-for-bifold-doors-uk-buyers-guide/).
+
 [Contact Us](/contact/) to get started.

@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-07-28 (C3 aluminium plantation shutters hub shipped)
+- **Last updated:** 2026-08-03 (C11 motorised bifold blinds guide shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -111,7 +111,7 @@ No host plumbing issues. No multi-hop chains. No fix required at this layer.
 
 ### 5.3 P3 — Plant pillars and close topical gaps
 
-**Why:** Cafe-style shutters (3K+ impr / pos 18–32) now have a dedicated hub at `/cafe-style-shutters/` (`C1` shipped 2026-06-30). Faux wood has `/faux-wood-shutters/` (`C2`); arched has `/arched-window-shutters/` (`C4`); aluminium has `/aluminium-plantation-shutters/` (`C3` shipped 2026-07-28) above the product page `/portchester-aluminium-shutters-leicester/`; shutters vs blinds has `/shutters-vs-blinds-honest-uk-comparison-2026/` (`C7`). Phase 2 commercial hubs are complete — remaining Phase 2 item is `C11` (motorised bifold blog).
+**Why:** Cafe-style shutters (3K+ impr / pos 18–32) now have a dedicated hub at `/cafe-style-shutters/` (`C1` shipped 2026-06-30). Faux wood has `/faux-wood-shutters/` (`C2`); arched has `/arched-window-shutters/` (`C4`); aluminium has `/aluminium-plantation-shutters/` (`C3` shipped 2026-07-28) above the product page `/portchester-aluminium-shutters-leicester/`; shutters vs blinds has `/shutters-vs-blinds-honest-uk-comparison-2026/` (`C7`); motorised bifold intent has `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` (`C11` shipped 2026-08-03). Phase 2 commercial hubs and the last Phase 2 blog item are complete.
 
 ---
 
@@ -228,7 +228,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [x] **C8 — Refresh /the-complete-uk-guide-to-plantation-shutters/.** status: done · owner: Claude · done: 2026-07-22 · note: TL;DR, 2026 cost table, style/material tables with hub links (C1/C2/C4 + aluminium guide), frontmatter FAQs, bumped updatedDate
 - [x] **C9 — Refresh /how-much-do-plantation-shutters-cost-…/.** status: done · owner: Claude · done: 2026-06-02 · note: added "Plantation Shutters Cost — 2026 At a Glance" TL;DR block, new "Bay Window Shutter Costs" subsection (targets `bay window shutters cost 2026` query), 8 FAQs mapped to GSC cost queries (FAQPage JSON-LD now emits), "Last reviewed June 2026" body stamp, and bumped `updatedDate` so sitemap `lastmod` reflects the refresh
 - [x] **C10 — Refresh /the-difference-between-wooden-and-faux-wood-shutters/.** status: done · owner: Claude · done: 2026-07-22 · note: comparison table, 2026 £ ranges, FAQs for any good / better than wood / lifespan / expensive, links to faux-wood hub
-- [ ] **C11 — New /motorised-blinds-bifold-doors-…/ blog.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **C11 — New /motorised-blinds-for-bifold-doors-…/ blog.** status: done · owner: Claude · done: 2026-08-03 · note: `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` — commercial buyer’s guide for A.21; 7 FAQs; real Loughborough motorised bifold + BlindScreen photography (no AI); links from cost guide + legacy `/automated-blinds-for-bifold-doors-stylish-smart-practical/` (kept live, points to new guide). Distinct from blackout BlindScreen post.
 - [x] **C12 — New /locations/shutters-derby/ and /locations/shutters-derbyshire/.** status: done · owner: Claude · done: 2026-07-22 · note: distinct city vs county pages; nav + site map + HERO_BY_SLUG; FAQs; honest travel-from-Melton framing; no spun doorway clone
 
 ### Phase 3 — Authority, conversion, cadence
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-08-03** — **C11 done:** `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` — motorised bifold blinds buyer’s guide targeting Appendix A.21; differentiates BlindScreen® / rollers / shutters; 2026 costs; 7 FAQs; real install photography. Phase 2 content items complete. Next up: Phase 3 (A1 GBP onwards).
 - **2026-07-28** — **C3 done:** `/aluminium-plantation-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, internal links from aluminium guide, Portchester product page, faux-wood hub, our-shutters, location sidebar, complete UK guide, French-door + uPVC posts. Uses existing S-Craft/Portchester photography. Targets Appendix A aluminium cluster (~760 impr). **C11** bifold/motorised blog still pending. Next up: C11 (prefer refresh existing slug if one fits).
 - **2026-07-22** — **C4, C5, C6, C8, C10, C12 done:** `/arched-window-shutters/` hub; Leicester + Market Harborough location thickeners (postcodes/FAQs/bays); complete UK guide + wood-vs-faux refreshes; `/locations/shutters-derby/` + `/locations/shutters-derbyshire/`. **C3** aluminium hub and **C11** bifold blog still pending. Next up: C3 `/aluminium-plantation-shutters/`.
 - **2026-07-16** — **C2 done:** `/faux-wood-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, /our-shutters/ materials CTA, internal links from three faux-wood/MDF posts. Targets Appendix A.2 `faux wood shutters` (1,760 impr / pos 15.20). Next up: Phase 2 — C3 `/aluminium-plantation-shutters/` hub.
@@ -371,7 +372,7 @@ Source: GSC, 90 days ending 2026-05-26. "Current landing" is the page receiving 
 - **A.18 shutters derby** — 522 impr · 0.19% · pos 57.72 → none. **Gap:** no Derby page (`C12`).
 - **A.19 made to measure blinds in leicester** — 520 impr · 0.00% · pos 16.84 → `/locations/shutters-in-leicester/`. **Gap:** location page lacks blinds detail (`C5`).
 - **A.20 are faux wood shutters expensive** — 510 impr · 0.00% · pos 4.27 → `/are-faux-wood-shutters-any-good-durability-cost-honest-verdict/`. **Gap:** add a "price honesty" section (`C10` + `F1`).
-- **A.21 motorised blinds for bifold doors** — 503 impr · 0.20% · pos 24.03 → `/automated-blinds-for-bifold-doors-stylish-smart-practical/`. **Gap:** title is off-target; new post planned (`C11`).
+- **A.21 motorised blinds for bifold doors** — 503 impr · 0.20% · pos 24.03 → `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` (hub shipped `C11`). **Gap:** monitor rankings/CTR; legacy `/automated-blinds-for-bifold-doors-stylish-smart-practical/` retained and links to new guide.
 - **A.22 automated blinds** — 489 impr · 0.00% · pos 38.80 → `/automated-blinds-the-smart-way-to-add-comfort-to-your-home/`. **Gap:** consider redirect into `/blind-motorisation/` if the post is thin.
 - **A.23 shutter blinds** — 481 impr · 0.00% · pos 28.58 → `/our-shutters/`. **Gap:** no hybrid product page; consider an FAQ-style section.
 - **A.24 are shutters blackout** — 480 impr · 0.00% · pos 16.81 → `/are-plantation-shutters-blackout-bedroom-shutter-guide/`. **Gap:** newly published, monitor.
