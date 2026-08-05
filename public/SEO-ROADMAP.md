@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-08-03 (C11 motorised bifold blinds guide shipped)
+- **Last updated:** 2026-08-05 (A1 Google Business Profile optimisation shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -233,7 +233,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ### Phase 3 — Authority, conversion, cadence
 
-- [ ] **A1 — Google Business Profile optimisation pass.** status: pending · owner: _TBD_ · done: — · note: off-repo
+- [x] **A1 — Google Business Profile optimisation pass.** status: done · owner: team · done: 2026-08-05 · note: off-repo. NAP verified against site.ts; Products catalog added (shutters/blinds/BlindScreen/motorised/awnings) with real site photos; profile photos uploaded; motorised bifold Update scheduled Fri; categories → Primary Blinds shop + Awning supplier (removed Home Automation; Window treatment store unavailable in UI); description rewritten; public Q&A dropped by Google 2025/26 (Ask Maps) — mitigated via services/products/description + site FAQs.
 - [ ] **A2 — Citation parity audit (Yell, Bark, Houzz, Checkatrade, Trustpilot).** status: pending · owner: _TBD_ · done: — · note: off-repo
 - [ ] **A3 — Acquire 3–5 contextual local backlinks.** status: pending · owner: _TBD_ · done: — · note: off-repo
 - [ ] **A4 — ItemList schema on /news/.** status: pending · owner: _TBD_ · done: — · note: —
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-08-05** — **A1 done:** GBP optimisation pass — NAP parity, Products catalog + photos, profile photos, description rewrite, category tidy (Blinds shop primary + Awning supplier; Home Automation removed), motorised-bifold Update scheduled. Q&A seeding dropped (Google removed public Q&A). Next up: **A2** citation parity audit, or in-repo **A4** ItemList on `/news/`.
 - **2026-08-03** — **C11 done:** `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` — motorised bifold blinds buyer’s guide targeting Appendix A.21; differentiates BlindScreen® / rollers / shutters; 2026 costs; 7 FAQs; real install photography. Phase 2 content items complete. Next up: Phase 3 (A1 GBP onwards).
 - **2026-07-28** — **C3 done:** `/aluminium-plantation-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, internal links from aluminium guide, Portchester product page, faux-wood hub, our-shutters, location sidebar, complete UK guide, French-door + uPVC posts. Uses existing S-Craft/Portchester photography. Targets Appendix A aluminium cluster (~760 impr). **C11** bifold/motorised blog still pending. Next up: C11 (prefer refresh existing slug if one fits).
 - **2026-07-22** — **C4, C5, C6, C8, C10, C12 done:** `/arched-window-shutters/` hub; Leicester + Market Harborough location thickeners (postcodes/FAQs/bays); complete UK guide + wood-vs-faux refreshes; `/locations/shutters-derby/` + `/locations/shutters-derbyshire/`. **C3** aluminium hub and **C11** bifold blog still pending. Next up: C3 `/aluminium-plantation-shutters/`.
