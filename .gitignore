@@ -6,3 +6,9 @@ dist
 .DS_Store
 *.log
 scripts/__pycache__/
+
+# Local scratch while reviewing a Facebook sync draft
+drafts/facebook-sync/.scratch/
+# Local copies from `npm run sync:pull-drafts` — keep README tracked only
+drafts/facebook-sync/*/
+!drafts/facebook-sync/README.md

@@ -9,6 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "compress-images": "node scripts/compress-images.mjs",
+    "sync:facebook-rw": "node scripts/facebook-sync/sync.mjs",
+    "sync:pull-drafts": "node scripts/facebook-sync/pull-drafts.mjs",
     "astro": "astro"
   },
   "dependencies": {
