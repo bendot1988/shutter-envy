@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1409212691270999",
+  "createdTime": "2026-08-07T16:01:00+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1409212691270999",
+  "message": "Bifold doors look amazing.\n\nCovering them? That’s the bit that usually goes wrong.\n\nA curtain rail hides the glass you paid for. One wide roller across the whole opening catches on the handles the first time you fold the doors.\n\nWhat does work: made-to-measure blinds on each leaf, often motorised, so the fabric travels with the door. BlindScreen® if you need blackout and a fly screen. Shutters if you want a more permanent finish.\n\nNew UK buyer’s guide: options, 2026 costs, and what we check on survey:\n\nhttps://shutter-envy.co.uk/motorised-blinds-for-bifold-doors-uk-buyers-guide/\n\nBased in Melton Mowbray. Free home survey across Leicestershire.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "blinds-installation-in-melton-mowbray",
+    "location": "Melton Mowbray",
+    "locationTag": "melton-mowbray",
+    "datePublished": "2026-08-07",
+    "blogPath": "src/content/blog/blinds-installation-in-melton-mowbray.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1409212691270999/images/01.jpg"
+  ]
+}
