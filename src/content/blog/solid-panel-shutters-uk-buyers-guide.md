@@ -4,8 +4,8 @@ description: "Considering solid panel shutters? See where they work best, how th
 h1: "Solid Panel Shutters: What UK Homeowners Need to Know"
 pubDate: 2026-08-17
 updatedDate: 2026-08-17
-heroImage: "/images/blog/solid-panel-shutters-uk-hero.jpg"
-heroImageAlt: "White solid panel shutters closed over a tall Victorian sash window in a UK bedroom, with black hinges and ring pulls"
+heroImage: "/images/blog/solid-panel-kitchen-closed.jpg"
+heroImageAlt: "Cream solid panel shutters closed over two kitchen windows, showing recessed panel detailing and discreet knobs"
 excerpt: "Solid panel shutters offer traditional style, strong privacy and near-darkness — but they work differently from louvred plantation shutters. Honest 2026 guide for Leicester and Loughborough homes."
 author: "Shutter Envy"
 faqs:
@@ -44,7 +44,7 @@ They are a strong choice when the priority is **night-time privacy, a period fin
 
 Louvred shutters let you tilt the slats. Solid panels are closer to internal joinery: each leaf is a solid framed panel with decorative inset detailing. Close them at night; fold them back when you want the window open and the room full of daylight.
 
-![White solid panel shutters open on either side of a tall sash window, showing black hinges and traditional panel detailing](/images/blog/solid-panel-shutters-open-sash-window.jpg)
+![Platter-coloured solid panel shutters on a sash window, partially open, with black hinges and ring pulls](/images/blog/solid-panel-burton-overy.jpg)
 
 This is why the style works especially well in a period bedroom or front room. It looks deliberate against sash rails, mouldings and higher ceilings rather than like an afterthought over the glass.
 
@@ -77,7 +77,7 @@ If sun on a screen or a close pavement view is the recurring problem, the simple
 
 Black hinges and ring pulls are part of the look, not an inconvenience. They are worth considering where a modern hidden-tilt plantation panel would feel too sleek.
 
-![Close detail of a painted solid panel shutter with a correctly mounted black butt hinge and ring pull](/images/blog/solid-panel-shutters-detail-hinges.jpg)
+![Close detail of painted solid panel shutters showing recessed panel joinery and a black ring pull](/images/blog/solid-panel-burton-overy-detail.jpg)
 
 ## Materials, Colour and Hardware
 
