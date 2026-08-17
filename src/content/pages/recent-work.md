@@ -4,6 +4,9 @@ description: "Browse recent shutter, blind and awning installations completed by
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 gallery:
+  - src: "/wp-content/uploads/2026/08/shutter-installation-loughborough-after.jpg"
+    alt: "Shutter installation in Loughborough — white tier-on-tier shutters on a bay window"
+    href: "/shutter-installation-in-loughborough/"
   - src: "/wp-content/uploads/2026/08/full-height-shutter-installation-doors.jpg"
     alt: "Full-height shutters on tall glass doors — white panels with mid-rail split tilt"
     href: "/full-height-shutter-installation-tall-glass-doors/"
