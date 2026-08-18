@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1414632717395663",
+  "createdTime": "2026-08-14T04:02:30+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1414632717395663",
+  "message": "Kitchen windows work hard: steam, splash, glare on the worktop, and usually a view of the neighbour’s fence.\n\nShutters can still be a great fit there… if you pick the right material and style.\n\nWe’ve put together a plain 2026 guide covering:\n\n• Why faux wood usually beats timber or MDF by the sink\n• Café-height vs full-height above the tap\n• Rough fitted costs\n• What we check on a Leicestershire survey\n\nRead it here: https://shutter-envy.co.uk/kitchen-shutters-uk-buyers-guide/\n\nFree home visit if you’d rather talk it through in your kitchen.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "cafe-height-kitchen-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-14",
+    "blogPath": "src/content/blog/cafe-height-kitchen-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1414632717395663/images/01.jpg"
+  ]
+}
