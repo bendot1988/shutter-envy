@@ -1,0 +1,31 @@
+{
+  "facebookPostId": "100956542094963_1413501697508765",
+  "createdTime": "2026-08-12T19:07:15+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1413501697508765",
+  "message": "What an amazing evening. Just what the doctor ordered for a quicker recovery, being outside always make you feel so much better. Watching the solar eclipse ( where Georgia did drive miles after work for some glasses), to set up ready to watch the planets aligning and meteor shower.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "album with 4 images"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-12",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1413501697508765/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1413501697508765/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1413501697508765/images/03.jpg",
+    "drafts/facebook-sync/100956542094963_1413501697508765/images/04.jpg"
+  ]
+}
