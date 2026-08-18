@@ -1,0 +1,32 @@
+{
+  "facebookPostId": "100956542094963_1416964773829124",
+  "createdTime": "2026-08-16T18:31:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1416964773829124",
+  "message": "Installing tier-on-tier shutters can be an excellent choice for a listed property because they combine a traditional appearance with practical benefits. Tier-on-tier shutters have a classic design that suits many Georgian, Victorian, Edwardian, and period homes.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "album with 4 images"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "tier-on-tier-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-16",
+    "blogPath": "src/content/blog/tier-on-tier-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1416964773829124/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1416964773829124/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1416964773829124/images/03.jpg",
+    "drafts/facebook-sync/100956542094963_1416964773829124/images/04.jpg"
+  ]
+}
