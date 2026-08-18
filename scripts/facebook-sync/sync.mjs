@@ -804,7 +804,32 @@ async function main() {
 	}
 }
 
-main().catch((err) => {
-	console.error(err.message || err);
+main().catch(async (err) => {
+	const raw = String(err?.message || err);
+	const safe = raw
+		.replace(/access_token=[^&\s]+/gi, 'access_token=REDACTED')
+		.slice(0, 400);
+	console.error(safe);
+	try {
+		loadDotEnv();
+		if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+			await sendTelegram(
+				[
+					'Shutter Envy Facebook sync failed.',
+					'',
+					safe,
+					'',
+					'Usual cause: META_PAGE_ACCESS_TOKEN expired (Graph Explorer tokens last hours).',
+					'Update the GitHub Actions secret with a long-lived Page token, then re-run the workflow.',
+					'https://github.com/bendot1988/shutter-envy/settings/secrets/actions',
+				].join('\n'),
+			);
+		}
+	} catch (notifyErr) {
+		console.error(
+			'Could not send failure Telegram:',
+			notifyErr?.message || notifyErr,
+		);
+	}
 	process.exit(1);
 });

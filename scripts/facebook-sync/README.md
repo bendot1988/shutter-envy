@@ -36,7 +36,7 @@ Hosting is **Netlify static** (`public/_redirects`). There is **no** Telegram re
 | Secret | Value |
 |---|---|
 | `META_PAGE_ID` | Numeric Page ID |
-| `META_PAGE_ACCESS_TOKEN` | **Page** access token (not User token); prefer long-lived |
+| `META_PAGE_ACCESS_TOKEN` | **Long-lived Page** token (not a Graph Explorer token — those expire in hours) |
 | `TELEGRAM_BOT_TOKEN` | BotFather token |
 | `TELEGRAM_CHAT_ID` | Group chat ID (preferred) |
 | `FACEBOOK_SYNC_GITHUB_TOKEN` | Optional PAT (repo + pull requests) if Actions cannot open PRs |
@@ -93,6 +93,16 @@ After seed, commit and push `scripts/facebook-sync/state.json` so Actions uses i
 1. [Meta Graph API Explorer](https://developers.facebook.com/tools/explorer/)
 2. App with Page access → **Get Page Access Token** for Shutter Envy Ltd
 3. Call `GET /me/accounts` → note the Page `id` and `access_token`
-4. Prefer exchanging for a long-lived Page token (tokens from Explorer expire quickly)
+4. Prefer exchanging for a **long-lived Page token** (tokens from Explorer expire in ~1–2 hours). That is why ShutterLuxe stays green and Envy was failing daily.
+
+### Long-lived Page token (do this, not Explorer paste)
+
+1. In Graph Explorer, generate a **User** token for **Shutter Envy Sync** with `pages_show_list`, `pages_read_engagement`, `pages_read_user_content`.
+2. Open [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/), paste that User token, click **Extend Access Token** (~60 days).
+3. With the extended User token, call `GET me/accounts`. Copy the `access_token` for **Shutter Envy Ltd** (`100956542094963`). That Page token should show `expires_at: 0`.
+4. Put it in local `.env` **and** GitHub secret `META_PAGE_ACCESS_TOKEN`.
+5. **Actions → Facebook Recent Work sync → Run workflow** and confirm it is green.
+
+If the token later dies (password change, app revoked, lost Page role), Telegram will now ping the group with the error instead of failing silently.
 
 Never commit tokens. Never echo them in logs or Telegram.
