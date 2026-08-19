@@ -1,16 +1,16 @@
 ---
-title: "Terms - Shutter Envy"
-description: "These terms and conditions outline the rules and regulations for the use of Shutter Envy Ltd's Website, located at www.shutter-envy.co.uk. By accessing this"
+title: "Terms and Conditions | Shutter Envy Leicestershire"
+description: "These terms and conditions outline the rules for using the Shutter Envy Ltd website at shutter-envy.co.uk. By accessing this site, you accept these terms."
 h1: "Terms and Conditions"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 ---
 
-These terms and conditions outline the rules and regulations for the use of Shutter Envy Ltd's Website, located at www.shutter-envy.co.uk. By accessing this website, we assume you accept these terms and conditions. Do not continue to use Shutter Envy Ltd if you do not agree to take all of the terms and conditions stated on this page.
+These terms and conditions outline the rules and regulations for the use of Shutter Envy Ltd's Website, located at [shutter-envy.co.uk](https://shutter-envy.co.uk/). By accessing this website, we assume you accept these terms and conditions. Do not continue to use Shutter Envy Ltd if you do not agree to take all of the terms and conditions stated on this page.
 
 ## Definitions
 
 - **"Company", "We", "Us", or "Our":** Shutter Envy Ltd, a company incorporated in England and Wales with registered number 13139425 whose registered office is at The Granary, Gaddesby Lane, Rotherby, Melton Mowbray LE14 2LL.
-- **"Website":** the website located at www.shutter-envy.co.uk and any sub-domains.
+- **"Website":** the website located at [shutter-envy.co.uk](https://shutter-envy.co.uk/) and any sub-domains.
 - **"User" or "You":** any individual or entity accessing the Website, not employed by Shutter Envy Ltd and not engaged as a consultant or providing services to Shutter Envy Ltd.
 
 ## Use of the Website

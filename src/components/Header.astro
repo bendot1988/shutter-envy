@@ -51,9 +51,9 @@ const isCurrent = (href: string) =>
                     <div class="mega-panel__cols">
                       {item.columns.map((col) => (
                         <div class="mega-col">
-                          <h3>
+                          <p class="mega-col__title">
                             {col.href ? <a href={col.href}>{col.heading}</a> : col.heading}
-                          </h3>
+                          </p>
                           <ul>
                             {col.items.map((it) => (
                               <li>
@@ -69,9 +69,9 @@ const isCurrent = (href: string) =>
                     </div>
                     {item.featured && (
                       <a class="mega-feature" href={item.featured.cta.href} data-track={TRACK.megaMenuFeaturedLocations}>
-                        <img src={item.featured.image} alt="" loading="lazy" />
+                        <img src={item.featured.image} alt="Shutter Envy van — free home survey across Leicestershire" loading="lazy" decoding="async" />
                         <div class="mega-feature__body">
-                          <h4>{item.featured.heading}</h4>
+                          <p class="mega-feature__title">{item.featured.heading}</p>
                           <p>{item.featured.body}</p>
                           <span class="mega-feature__cta">{item.featured.cta.label} →</span>
                         </div>
@@ -98,7 +98,7 @@ const isCurrent = (href: string) =>
                     <header class="locations-panel__head">
                       <div>
                         <span class="locations-panel__eyebrow">Coverage</span>
-                        <h3>Areas we cover across Leicestershire</h3>
+                        <p class="locations-panel__title">Areas we cover across Leicestershire</p>
                       </div>
                       {item.footerCta && (
                         <a class="locations-panel__cta" href={item.footerCta.href} data-track={TRACK.megaMenuFeaturedLocations}>
@@ -114,7 +114,7 @@ const isCurrent = (href: string) =>
                         <li>
                           <a href={loc.href} class="loc-tile">
                             <span class="loc-tile__media">
-                              <img src={loc.image} alt="" loading="lazy" />
+                              <img src={loc.image} alt={`Plantation shutters in ${loc.label}`} loading="lazy" decoding="async" />
                             </span>
                             <span class="loc-tile__body">
                               <span class="loc-tile__label">{loc.label}</span>
@@ -194,7 +194,7 @@ const isCurrent = (href: string) =>
                   <a class="mobile-nav__parent" href={item.href}>View all →</a>
                   {item.type === 'mega' && 'columns' in item && item.columns.map((col) => (
                     <div class="mobile-nav__group">
-                      <h4>{col.heading}</h4>
+                      <p class="mobile-nav__group-title">{col.heading}</p>
                       <ul>
                         {col.items.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
                       </ul>
@@ -519,7 +519,7 @@ const isCurrent = (href: string) =>
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
   }
-  .mega-col h3 {
+  .mega-col__title {
     font-family: var(--font-display);
     font-size: 0.8125rem;
     font-weight: 600;
@@ -530,11 +530,11 @@ const isCurrent = (href: string) =>
     padding-bottom: 0.625rem;
     border-bottom: 1px solid var(--color-line);
   }
-  .mega-col h3 a {
+  .mega-col__title a {
     color: inherit;
     text-decoration: none;
   }
-  .mega-col h3 a:hover { color: var(--color-gold-400); }
+  .mega-col__title a:hover { color: var(--color-gold-400); }
   .mega-col ul { list-style: none; padding: 0; margin: 0; }
   .mega-col li { margin: 0; }
   .mega-col li a {
@@ -583,7 +583,7 @@ const isCurrent = (href: string) =>
     display: block;
   }
   .mega-feature__body { padding: 1rem 1.125rem 1.25rem; }
-  .mega-feature__body h4 {
+  .mega-feature__body .mega-feature__title {
     font-family: var(--font-display);
     font-size: 1.0625rem;
     font-weight: 500;
@@ -646,7 +646,7 @@ const isCurrent = (href: string) =>
     color: var(--color-gold-600);
     margin-bottom: 0.375rem;
   }
-  .locations-panel__head h3 {
+  .locations-panel__head .locations-panel__title {
     font-family: var(--font-display);
     font-size: 1.375rem;
     font-weight: 500;
@@ -1032,7 +1032,7 @@ const isCurrent = (href: string) =>
     font-weight: 600;
   }
   .mobile-nav__group { margin-top: 0.75rem; }
-  .mobile-nav__group h4 {
+  .mobile-nav__group-title {
     font-family: var(--font-display);
     font-size: 0.75rem;
     text-transform: uppercase;

@@ -69,7 +69,7 @@ export const primaryNav: NavItem[] = [
   { label: 'Home', href: '/' },
   {
     label: 'Products',
-    href: '#',
+    href: '/our-shutters/',
     type: 'mega',
     columns: [
       {

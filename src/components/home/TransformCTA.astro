@@ -10,7 +10,7 @@ const { image, heading, body, cta } = Astro.props;
 ---
 <section class="transform-cta">
   <div class="transform-cta__image" data-reveal="left">
-    <img src={image} alt="" loading="lazy" width="1536" height="1024" />
+    <img src={image} alt={heading} loading="lazy" decoding="async" width="1536" height="1024" />
   </div>
   <div class="transform-cta__content" data-reveal="right">
     <div class="transform-cta__icon" aria-hidden="true">

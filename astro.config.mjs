@@ -82,12 +82,8 @@ export default defineConfig({
     sitemap({
       // Mirror what WordPress serves: include every page, every location,
       // every blog post. Excluded:
-      // - /news/page/N/ — paginated crawl entry points, not destinations
-      //   (kept off live in case we resurrect pagination)
-      // - /brand/ — internal design-system reference, also carries a
-      //   `noindex` meta on the page itself
-      filter: (page) =>
-        !/\/news\/page\/\d+\/?$/.test(page) && !/\/brand\/?$/.test(page),
+        // - /news/page/N/ — paginated crawl entry points, not destinations
+      filter: (page) => !/\/news\/page\/\d+\/?$/.test(page),
       serialize(item) {
         const hit = LASTMOD.get(item.url);
         if (hit) item.lastmod = hit.toISOString();

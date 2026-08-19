@@ -386,3 +386,16 @@ main > article > * + * { margin-top: 2rem; }
 }
 .clearline-fallback a { color: var(--color-gold-600); text-decoration: underline; text-underline-offset: 3px; }
 .clearline-fallback a:hover { color: var(--color-gold-400); }
+
+/* Visually hidden text for icon-only links (accessibility audits). */
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

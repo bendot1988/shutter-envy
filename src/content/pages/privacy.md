@@ -1,6 +1,6 @@
 ---
-title: "Privacy - Shutter Envy"
-description: "This privacy policy applies between you, the User of this Website, and Shutter Envy Ltd, the owner and provider of this Website. Shutter Envy Ltd takes the"
+title: "Privacy Policy | Shutter Envy Leicestershire Shutters"
+description: "How Shutter Envy Ltd collects and uses your personal data on shutter-envy.co.uk. Read our privacy policy for cookies, enquiries and your GDPR rights."
 h1: "Privacy Policy"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 ---
@@ -18,7 +18,7 @@ In this privacy policy, the following definitions are used:
 - **GDPR:** the UK General Data Protection Regulation;
 - **Shutter Envy Ltd, we or us:** Shutter Envy Ltd, a company incorporated in England and Wales with registered number 13139425 whose registered office is at The Granary, Gaddesby Lane, Rotherby, Melton Mowbray LE14 2LL;
 - **User or you:** any third party that accesses the Website and is not either (i) employed by Shutter Envy Ltd and acting in the course of their employment or (ii) engaged as a consultant or otherwise providing services to Shutter Envy Ltd and accessing the Website in connection with the provision of such services;
-- **Website:** the website that you are currently using, www.shutter-envy.co.uk, and any sub-domains of this site unless expressly excluded by their own terms and conditions.
+- **Website:** the website that you are currently using, [shutter-envy.co.uk](https://shutter-envy.co.uk/), and any sub-domains of this site unless expressly excluded by their own terms and conditions.
 
 In this privacy policy, unless the context requires a different interpretation:
 

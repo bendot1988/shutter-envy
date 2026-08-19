@@ -28,7 +28,7 @@ const {
             </div>
             {step.image && (
               <div class="process-step__image">
-                <img src={step.image} alt="" loading="lazy" width="1024" height="768" />
+                <img src={step.image} alt={step.title} loading="lazy" decoding="async" width="1024" height="768" />
               </div>
             )}
             <h3 class="process-step__title">{step.title}</h3>

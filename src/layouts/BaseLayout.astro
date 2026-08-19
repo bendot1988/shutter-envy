@@ -1,6 +1,7 @@
 ---
 import SEO from '../components/SEO.astro';
 import Analytics from '../components/Analytics.astro';
+import { normalizeTitle, normalizeDescription } from '../lib/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementBar from '../components/home/AnnouncementBar.astro';
@@ -40,6 +41,9 @@ const {
   noindex = false,
 } = Astro.props;
 
+const seoTitle = normalizeTitle(title);
+const seoDescription = normalizeDescription(description);
+
 // Single switch for staging: PUBLIC_NOINDEX=true blocks all indexing site-wide.
 const siteNoindex = import.meta.env.PUBLIC_NOINDEX === 'true';
 const robotsMeta = noindex || siteNoindex ? 'noindex,nofollow' : 'index,follow';
@@ -57,7 +61,7 @@ const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const allJsonLd: object[] = [
   ...(includeLocalBusiness ? [localBusiness()] : []),
   webSite(),
-  webPage({ url: canonical, name: title, description, isHome }),
+  webPage({ url: canonical, name: seoTitle, description: seoDescription, isHome }),
   ...pageJsonLd,
 ];
 ---
@@ -65,6 +69,7 @@ const allJsonLd: object[] = [
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
+    <title>{seoTitle}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="YyF275U-UHTD4vi0fjv4FCH3snTIyBv2fGjqqTu_sA0" />
     <meta name="robots" content={robotsMeta} />
@@ -80,7 +85,7 @@ const allJsonLd: object[] = [
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#C79A08" />
-    <SEO {title} {description} {ogImage} {ogType} jsonLd={allJsonLd} />
+    <SEO title={seoTitle} description={seoDescription} {ogImage} {ogType} jsonLd={allJsonLd} />
     <Analytics />
   </head>
   <body>

@@ -12,7 +12,7 @@ const { items, id, heading } = Astro.props;
     <ul>
       {items.map((b) => (
         <li>
-          {b.icon && <img src={b.icon} alt="" />}
+          {b.icon && <img src={b.icon} alt={b.heading} loading="lazy" decoding="async" />}
           <h3>{b.heading}</h3>
           <p>{b.body}</p>
         </li>

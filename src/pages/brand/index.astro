@@ -1,8 +1,5 @@
 ---
-// Internal brand / design-system page.
-// noindex = true — never appears in search results.
-// Renders the actual design tokens used across the site so you can see
-// every colour, every font size, every shadow as they really render.
+// Brand / design-system reference page for Shutter Envy.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const colours = [
@@ -70,13 +67,12 @@ const capRules = [
 ];
 ---
 <BaseLayout
-  title="Brand Guidelines · Shutter Envy"
-  description="Internal design system reference for the Shutter Envy website."
-  noindex
+  title="Shutter Envy Brand Guidelines | Design System"
+  description="Shutter Envy brand guidelines: colours, typography, buttons, shadows and animation tokens used across shutter-envy.co.uk. Reference for keeping new pages on-brand."
 >
   <article class="brand-page">
     <header class="brand-hero" data-reveal>
-      <p class="brand-hero__eyebrow">Internal · NOT INDEXED</p>
+      <p class="brand-hero__eyebrow">Design System</p>
       <h1>Shutter Envy <em>Brand</em> Guidelines</h1>
       <p class="brand-hero__sub">Every token, every component, exactly as it renders on the live site. Use this page to keep new pages on-brand.</p>
     </header>
@@ -141,7 +137,7 @@ const capRules = [
     </section>
 
     {/* ─── Buttons ─────────────────────────────────────────── */}
-    <section class="brand-section" data-reveal>
+    <section class="brand-section" id="brand-buttons" data-reveal>
       <div class="brand-section__head">
         <span class="brand-section__num">03</span>
         <h2>Buttons &amp; CTAs</h2>
@@ -149,12 +145,12 @@ const capRules = [
       </div>
       <div class="brand-buttons" data-reveal-children>
         <div class="brand-buttons__row">
-          <a href="#" class="button">Primary Pill</a>
-          <a href="#" class="button-ghost">Ghost Pill</a>
+          <span class="button" role="img" aria-label="Primary pill button example">Primary Pill</span>
+          <span class="button-ghost" role="img" aria-label="Ghost pill button example">Ghost Pill</span>
         </div>
         <div class="brand-buttons__row">
-          <a href="#" class="demo-btn-gold">Gold Gradient</a>
-          <a href="#" class="demo-btn-pill-white">White Pill</a>
+          <span class="demo-btn-gold" role="img" aria-label="Gold gradient button example">Gold Gradient</span>
+          <span class="demo-btn-pill-white" role="img" aria-label="White pill button example">White Pill</span>
         </div>
       </div>
     </section>
@@ -260,11 +256,11 @@ const capRules = [
           <p class="demo-hover-card__desc">220ms · translateY(-3px) · shadow grows from sm → md → lg. Used on every clickable card.</p>
         </div>
         <div class="demo-hover-img">
-          <img src="/images/mark-shutter-envy-van.png" alt="" loading="lazy" />
+          <img src="/images/mark-shutter-envy-van.png" alt="Shutter Envy branded van used for home surveys" loading="lazy" decoding="async" />
           <p class="demo-hover-img__desc">Image tile · scale(1.06) on hover · 600ms · gold gradient overlay fades in</p>
         </div>
         <div class="demo-hover-btn">
-          <a href="#">Hover me</a>
+          <span class="demo-hover-link">Hover me</span>
           <p>Button · translateY(-1px) · background gold-400 → gold-600 · 200ms</p>
         </div>
         <div class="demo-hover-icon">
@@ -567,7 +563,7 @@ const capRules = [
     background: #fff; padding: 1.5rem; border: 1px solid var(--color-line);
     border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 1rem;
   }
-  .demo-hover-btn a {
+  .demo-hover-btn .demo-hover-link {
     display: inline-block; align-self: flex-start;
     padding: 0.875rem 1.75rem; background: var(--color-gold-400); color: #fff;
     border-radius: var(--radius-pill); font-family: var(--font-sans);
@@ -575,7 +571,7 @@ const capRules = [
     text-decoration: none; box-shadow: var(--shadow-sm);
     transition: background 200ms, transform 200ms, box-shadow 200ms;
   }
-  .demo-hover-btn a:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .demo-hover-btn .demo-hover-link:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-1px); box-shadow: var(--shadow-md); }
   .demo-hover-btn p { margin: 0; font-size: var(--text-small-body-15-400); color: var(--color-ink-soft); }
 
   .demo-hover-icon {

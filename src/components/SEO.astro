@@ -10,6 +10,8 @@ interface Props {
   jsonLd?: object | object[];
 }
 
+import { normalizeTitle, normalizeDescription } from '../lib/seo';
+
 const { title, description, ogImage, ogType = 'website', jsonLd } = Astro.props;
 
 const site = Astro.site!.toString().replace(/\/$/, '');
@@ -25,7 +27,6 @@ const ogImageAbs = ogImage
   : undefined;
 const jsonLdArr = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
-<title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 

@@ -107,7 +107,7 @@ const moreNews = allPosts
         {/* Dark mini quote CTA */}
         <div class="post-aside__cta">
           <p class="post-aside__cta-eyebrow">★ Free home survey</p>
-          <h3>Looking for shutters or blinds?</h3>
+          <p class="post-aside__cta-heading">Looking for shutters or blinds?</p>
           <p class="post-aside__cta-body">Book a no-obligation home visit. Mark brings samples and you get a quote on the day.</p>
           <a href="/contact/" class="post-aside__cta-btn">
             Arrange a Home Visit
@@ -128,24 +128,28 @@ const moreNews = allPosts
             <li>
               <a aria-label="Share on Facebook" target="_blank" rel="noopener"
                  href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}`}>
+                <span class="u-sr-only">Share on Facebook</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
               </a>
             </li>
             <li>
               <a aria-label="Share on X (Twitter)" target="_blank" rel="noopener"
                  href={`https://twitter.com/intent/tweet?url=${shareUrlEnc}&text=${shareTitleEnc}`}>
+                <span class="u-sr-only">Share on X</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
             </li>
             <li>
               <a aria-label="Share on LinkedIn" target="_blank" rel="noopener"
                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}`}>
+                <span class="u-sr-only">Share on LinkedIn</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10.21H6.13V17h2.21M7.24 9.31a1.28 1.28 0 1 0 0-2.56 1.28 1.28 0 0 0 0 2.56M18 17v-3.74c0-2-1.06-2.91-2.48-2.91a2.14 2.14 0 0 0-1.95 1.07h-.03V10.2H11.42V17h2.2v-3.36c0-.93.18-1.83 1.33-1.83 1.14 0 1.16 1.06 1.16 1.89V17H18z"/></svg>
               </a>
             </li>
             <li>
               <a aria-label="Email this article"
                  href={`mailto:?subject=${shareTitleEnc}&body=${shareUrlEnc}`}>
+                <span class="u-sr-only">Email this article</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </a>
             </li>
@@ -165,7 +169,7 @@ const moreNews = allPosts
               <a href={`/${p.id}/`}>
                 {p.data.heroImage && (
                   <span class="post-more-news__thumb">
-                    <img src={p.data.heroImage} alt="" loading="lazy" />
+                    <img src={p.data.heroImage} alt={p.data.h1 ?? p.data.title} loading="lazy" decoding="async" />
                   </span>
                 )}
                 <span class="post-more-news__text">
@@ -527,7 +531,7 @@ const moreNews = allPosts
     text-transform: uppercase;
     margin: 0 0 0.75rem;
   }
-  .post-aside__cta h3 {
+  .post-aside__cta-heading {
     font-family: var(--font-display);
     font-size: var(--text-h3-21-500);
     color: #fff;
