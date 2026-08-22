@@ -1,0 +1,29 @@
+{
+  "facebookPostId": "100956542094963_1421012970090971",
+  "createdTime": "2026-08-21T14:03:06+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1421012970090971",
+  "message": "Not every shutter has slats.\n\nSolid panel shutters are timber panels that open and close like internal doors — recessed detailing, visible hinges, ring pulls. When they’re shut, you get a much more complete cover over the glass than a louvred plantation shutter.\n\nThey suit period sash windows, street-facing bedrooms and anyone who wants a darker room at night. The trade-off: you lose that all-day tilt of the louvres. Fold them back when you want the window clear.\n\nWe’ve written a plain 2026 guide covering:\n\n• Solid panels vs louvres (when each wins)\n• Sash windows, bedrooms and home offices\n• Draughts and noise — honest limits\n• What we check on a Leicestershire survey\n\nRead it here: https://shutter-envy.co.uk/solid-panel-shutters-uk-buyers-guide/",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-21",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1421012970090971/images/01.jpg"
+  ]
+}
