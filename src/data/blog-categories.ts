@@ -61,6 +61,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'can-you-fit-shutters-on-upvc-windows-uk-guide': 'guides',
   'plantation-shutters-for-french-doors-uk-buyers-guide': 'guides',
   'kitchen-shutters-uk-buyers-guide': 'guides',
+  'living-room-shutters-uk-buyers-guide': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
