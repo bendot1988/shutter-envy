@@ -1,0 +1,36 @@
+{
+  "facebookPostId": "100956542094963_1425453269646941",
+  "createdTime": "2026-08-26T19:09:02+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1425453269646941",
+  "message": "After 24 years of marriage, Mark and I suddenly realised something rather shocking — we had never had a full week away together, just the two of us, without the children or grandchildren!\n\nSo, for the first time ever, we decided to close the office doors for a whole week and enjoy some much-needed time together.\n\nOf course, with all the beautiful weather we’ve been having, we managed to pick the one week that brought torrential rain and thunderstorms! 😂\n\nWe started off in our lovely, secluded little beach hut in Devon, but after being thoroughly soaked, we decided it was time for a change of scenery. So, we packed up and headed to Bath and Bristol for a couple of nights instead.\n\nIt hasn’t quite gone to plan, but had a wonderful time together — and, after 24 years, we’re certainly not going to let a bit of British weather spoil it! ❤️",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "album with 9 images"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-office-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-26",
+    "blogPath": "src/content/blog/shutter-office-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/03.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/04.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/05.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/06.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/07.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/08.jpg",
+    "drafts/facebook-sync/100956542094963_1425453269646941/images/09.jpg"
+  ]
+}
