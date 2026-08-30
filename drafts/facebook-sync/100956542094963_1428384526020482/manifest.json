@@ -1,0 +1,34 @@
+{
+  "facebookPostId": "100956542094963_1428384526020482",
+  "createdTime": "2026-08-30T07:42:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1428384526020482",
+  "message": "A little update from us ❤️\nMy health is still playing a little havoc with me at present, so this year we decided to switch up our usual wedding anniversary tradition of long countryside walks.\nInstead, we enjoyed a lovely meal at The Ivy — and we would highly recommend it! The service was impeccable, and the fresh, seasonal menu was absolutely delicious.\nSometimes it’s nice to slow down, do things a little differently, and simply enjoy the moment. 🥂❤️",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "album with 7 images"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-30",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/03.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/04.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/05.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/06.jpg",
+    "drafts/facebook-sync/100956542094963_1428384526020482/images/07.jpg"
+  ]
+}
