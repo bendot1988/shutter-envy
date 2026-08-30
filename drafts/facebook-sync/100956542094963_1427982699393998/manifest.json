@@ -1,0 +1,31 @@
+{
+  "facebookPostId": "100956542094963_1427982699393998",
+  "createdTime": "2026-08-29T18:54:02+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1427982699393998",
+  "message": "New shutter installation in Cossington.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "album with 2 images"
+    ],
+    "score": 7
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-08-29",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1427982699393998/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1427982699393998/images/02.jpg"
+  ]
+}
