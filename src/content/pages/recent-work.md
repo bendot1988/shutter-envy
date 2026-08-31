@@ -4,6 +4,9 @@ description: "Browse recent shutter, blind and awning installations completed by
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 gallery:
+  - src: "/wp-content/uploads/2026/08/cossington-kitchen-shutters-after.jpg"
+    alt: "Shutter installation in Leicestershire — white full-height plantation shutters in a Cossington kitchen"
+    href: "/shutter-installation-in-leicestershire/"
   - src: "/wp-content/uploads/2026/08/loughborough-boston-shutters-after.jpg"
     alt: "Boston hardwood shutter installation in Loughborough — Pure White 76mm louvres on a bay"
     href: "/boston-hardwood-shutter-installation-in-loughborough/"

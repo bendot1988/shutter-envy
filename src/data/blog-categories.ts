@@ -95,6 +95,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'boston-hardwood-shutter-installation-in-loughborough': 'projects',
   'tier-on-tier-installation-in-leicestershire': 'projects',
   'bay-shutter-installation-in-leicestershire': 'projects',
+  'shutter-installation-in-leicestershire': 'projects',
   'custom-shutters-for-new-build-home-in-loughborough': 'projects',
   'elegant-bay-window-shutter-installation-in-stamford': 'projects',
   'kitchen-shutter-install-in-woodhouse-leicestershire': 'projects',
