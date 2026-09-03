@@ -3,6 +3,10 @@ import BaseLayout from './BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { business } from '../data/site';
 import InlineCTA from '../components/home/InlineCTA.astro';
+import {
+  BLOG_CATEGORY_BY_SLUG,
+  BLOG_CATEGORY_LABELS,
+} from '../data/blog-categories';
 
 interface Props {
   title: string;
@@ -34,13 +38,30 @@ const shareUrl = `https://shutter-envy.co.uk${Astro.url.pathname}`;
 const shareTitleEnc = encodeURIComponent(h1);
 const shareUrlEnc = encodeURIComponent(shareUrl);
 
-// More news — latest 4 posts, excluding the current one
+// A9 — topical "see also": same category first, then newest elsewhere
+const RELATED_LIMIT = 4;
 const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, '');
+const currentCategory = BLOG_CATEGORY_BY_SLUG[currentSlug];
+const categoryLabel = currentCategory
+  ? BLOG_CATEGORY_LABELS[currentCategory]
+  : undefined;
 const allPosts = await getCollection('blog');
-const moreNews = allPosts
-  .filter((p) => p.id !== currentSlug)
-  .sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate))
-  .slice(0, 4);
+const byDateDesc = (a: (typeof allPosts)[number], b: (typeof allPosts)[number]) =>
+  +new Date(b.data.pubDate) - +new Date(a.data.pubDate);
+
+const others = allPosts.filter((p) => p.id !== currentSlug);
+const siblings = currentCategory
+  ? others
+      .filter((p) => BLOG_CATEGORY_BY_SLUG[p.id] === currentCategory)
+      .sort(byDateDesc)
+  : [];
+const fillers = others
+  .filter((p) => !siblings.some((s) => s.id === p.id))
+  .sort(byDateDesc);
+const seeAlso = [...siblings, ...fillers].slice(0, RELATED_LIMIT);
+const seeAlsoHeading = categoryLabel
+  ? `More in ${categoryLabel}`
+  : 'More from the News';
 ---
 <BaseLayout {title} {description} ogImage={heroImage} ogType="article" {jsonLd}>
   {/* ─── HERO — cream band with featured image bg + heavy overlay ───── */}
@@ -159,12 +180,12 @@ const moreNews = allPosts
     </aside>
   </div>
 
-  {moreNews.length > 0 && (
+  {seeAlso.length > 0 && (
     <section class="post-more-news" aria-labelledby="post-more-news-heading">
       <div class="post-more-news__inner">
-        <h2 id="post-more-news-heading" class="post-more-news__heading">More from the News</h2>
+        <h2 id="post-more-news-heading" class="post-more-news__heading">{seeAlsoHeading}</h2>
         <ul class="post-more-news__list">
-          {moreNews.map((p) => (
+          {seeAlso.map((p) => (
             <li>
               <a href={`/${p.id}/`}>
                 {p.data.heroImage && (

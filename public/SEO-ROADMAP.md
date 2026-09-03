@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-08-05 (A1 Google Business Profile optimisation shipped)
+- **Last updated:** 2026-09-03 (A9 topical see-also block shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -57,7 +57,7 @@ Grow non-brand organic visibility for Shutter Envy across Leicestershire and the
 - `Service` schema not emitted on product pages — see `src/pages/our-shutters/index.astro:16-22`, `src/pages/our-blinds/index.astro:14-20`, `src/pages/awnings/index.astro:13-19` (gap: `F2`).
 - `AggregateRating` not emitted on `/reviews/` or `/` despite visible review widget — `src/pages/reviews/index.astro:10-15` (gap: `F4`).
 - Location pages render no cross-links to service pages — `src/pages/locations/[slug]/index.astro:165-169` (gap: `F7`).
-- Related-posts logic is purely chronological — `src/layouts/ArticleLayout.astro:37-43` (gap: `A9`).
+- Related-posts logic is category-aware via `blog-categories.ts` — `src/layouts/ArticleLayout.astro` (`A9` done).
 - Charnwood h1 typo carried from live: `Made-to-Measure Shutters in Shutters in Charnwood` — `src/content/locations/shutters-in-charnwood.md` (gap: `F5`).
 - 21 dead `/locations/shutters-in-X/` links in blog bodies — listed at `PARITY-REPORT.md:71-85` (gap: `F11`).
 - Dead code: `src/layouts/LocationLayout.astro` is not imported anywhere (gap: `F8`).
@@ -241,13 +241,14 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
 - [x] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: done · owner: Claude · done: 2026-06-30 · note: 6 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` (A.23). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` (A.7). Post 3 (2026-06-09, team): `/best-blackout-blind-for-bifold-doors-leicestershire/` (A.21). Post 4 (2026-06-16): `/are-aluminium-shutters-worth-it-uk-buyers-guide/` (A.25). Post 5 (2026-06-17): `/bay-window-shutters-cost-uk-2026-guide/`. Post 6 (2026-06-30): `/do-shutters-reduce-noise-uk-honest-guide/` — honest noise-dampening guide; cottage window shutters topic withdrawn as too specialist.
-- [ ] **A9 — Topical "see also" block in ArticleLayout.** status: pending · owner: _TBD_ · done: — · note: use src/data/blog-categories.ts
+- [x] **A9 — Topical "see also" block in ArticleLayout.** status: done · owner: Claude · done: 2026-09-03 · note: same-category siblings from `BLOG_CATEGORY_BY_SLUG` first (newest), fill remaining slots with newest other posts; heading becomes `More in {category label}`
 - [ ] **A10 — Lighthouse + CWV pass on top-10 commercial pages.** status: pending · owner: _TBD_ · done: — · note: file follow-ups as new IDs if needed
 - [ ] **A11 — Set up rank tracking for Appendix A queries.** status: pending · owner: _TBD_ · done: — · note: tool TBC
 - [ ] **A12 — Q3 review (archive this file, open Days 90–180).** status: pending · owner: _TBD_ · done: — · note: do not delete this file, rename to `SEO-ROADMAP-Q2.md`
 
 ## 10. Changelog
 
+- **2026-09-03** — **A9 done:** topical "see also" on blog posts — `ArticleLayout` prefers same-category siblings via `blog-categories.ts`, then fills with newest elsewhere; heading `More in {category}`. Next up: **A4** ItemList on `/news/`, or off-repo **A2** citation parity.
 - **2026-08-05** — **A1 done:** GBP optimisation pass — NAP parity, Products catalog + photos, profile photos, description rewrite, category tidy (Blinds shop primary + Awning supplier; Home Automation removed), motorised-bifold Update scheduled. Q&A seeding dropped (Google removed public Q&A). Next up: **A2** citation parity audit, or in-repo **A4** ItemList on `/news/`.
 - **2026-08-03** — **C11 done:** `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` — motorised bifold blinds buyer’s guide targeting Appendix A.21; differentiates BlindScreen® / rollers / shutters; 2026 costs; 7 FAQs; real install photography. Phase 2 content items complete. Next up: Phase 3 (A1 GBP onwards).
 - **2026-07-28** — **C3 done:** `/aluminium-plantation-shutters/` commercial hub — page content, route, Service + FAQPage JSON-LD, Products mega + footer + site map, internal links from aluminium guide, Portchester product page, faux-wood hub, our-shutters, location sidebar, complete UK guide, French-door + uPVC posts. Uses existing S-Craft/Portchester photography. Targets Appendix A aluminium cluster (~760 impr). **C11** bifold/motorised blog still pending. Next up: C11 (prefer refresh existing slug if one fits).
