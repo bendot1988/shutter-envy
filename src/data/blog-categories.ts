@@ -97,6 +97,8 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'tier-on-tier-installation-in-leicestershire': 'projects',
   'bay-shutter-installation-in-leicestershire': 'projects',
   'shutter-installation-in-leicestershire': 'projects',
+  'shutter-installation-in-charnwood': 'projects',
+  'shutter-lounge-in-leicestershire': 'projects',
   'custom-shutters-for-new-build-home-in-loughborough': 'projects',
   'elegant-bay-window-shutter-installation-in-stamford': 'projects',
   'kitchen-shutter-install-in-woodhouse-leicestershire': 'projects',

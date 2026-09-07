@@ -4,6 +4,12 @@ description: "Browse recent shutter, blind and awning installations completed by
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 gallery:
+  - src: "/wp-content/uploads/2026/09/langham-boston-living-room-shutters.jpg"
+    alt: "Living room shutter installation in Leicestershire — Pure White Boston shutters in Langham"
+    href: "/shutter-lounge-in-leicestershire/"
+  - src: "/wp-content/uploads/2026/09/shaped-shutter-installation-syston.jpg"
+    alt: "Shutter installation in Charnwood — shaped white plantation shutters on an arched window and dormer in Syston"
+    href: "/shutter-installation-in-charnwood/"
   - src: "/wp-content/uploads/2026/08/cossington-kitchen-shutters-after.jpg"
     alt: "Shutter installation in Leicestershire — white full-height plantation shutters in a Cossington kitchen"
     href: "/shutter-installation-in-leicestershire/"
