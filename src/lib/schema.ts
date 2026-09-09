@@ -215,3 +215,31 @@ export function breadcrumbList(crumbs: { name: string; url: string }[]) {
     })),
   };
 }
+
+// ItemList for archive / listing pages (e.g. /news/). Emits a ordered list of
+// URLs Google can use for carousel / collection understanding. Keep names and
+// URLs aligned with what is actually rendered on the page.
+export function itemList(opts: {
+  name: string;
+  description?: string;
+  url?: string;
+  items: { name: string; url: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: opts.name,
+    ...(opts.description ? { description: opts.description } : {}),
+    ...(opts.url
+      ? { url: opts.url.startsWith('http') ? opts.url : `${SITE}${opts.url}` }
+      : {}),
+    numberOfItems: opts.items.length,
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    itemListElement: opts.items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      url: item.url.startsWith('http') ? item.url : `${SITE}${item.url}`,
+    })),
+  };
+}

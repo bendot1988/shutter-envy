@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { breadcrumbList } from '../../lib/schema';
+import { breadcrumbList, itemList } from '../../lib/schema';
 import { plainTextExcerpt } from '../../lib/text';
 import {
   BLOG_CATEGORY_BY_SLUG,
@@ -67,19 +67,32 @@ const visibleCategories = BLOG_CATEGORY_ORDER.filter((id) => categoryCounts[id] 
 
 const [featured, ...rest] = enriched;
 
+const newsTitle = 'News – Latest on Blinds and Wooden Shutters UK';
+const newsDescription =
+  'Stay updated with the latest news on bespoke blinds, wooden shutters, and home design trends from Shutter Envy. Tips, updates, and inspiration.';
+
 const jsonLd = [
   breadcrumbList([
     { name: 'Home', url: '/' },
     { name: 'News', url: '/news/' },
   ]),
+  itemList({
+    name: 'Shutter Envy News',
+    description: newsDescription,
+    url: '/news/',
+    items: enriched.map((p) => ({
+      name: p.data.h1 ?? p.data.title,
+      url: `/${p.id}/`,
+    })),
+  }),
 ];
 
 const fmtDate = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <BaseLayout
-  title="News – Latest on Blinds and Wooden Shutters UK"
-  description="Stay updated with the latest news on bespoke blinds, wooden shutters, and home design trends from Shutter Envy. Tips, updates, and inspiration."
+  title={newsTitle}
+  description={newsDescription}
   jsonLd={jsonLd}
 >
   {/* ─── Hero ───────────────────────────────────────────── */}

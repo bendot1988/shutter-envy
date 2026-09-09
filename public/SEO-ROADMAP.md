@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-09-03 (A9 topical see-also block shipped)
+- **Last updated:** 2026-09-09 (A4 ItemList schema on /news/ shipped)
 - **90-day window:** 2026-05-28 → 2026-08-26
 - **Canonical site:** https://shutter-envy.co.uk/
 - **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
@@ -30,7 +30,7 @@ Grow non-brand organic visibility for Shutter Envy across Leicestershire and the
 - Sitemap via `@astrojs/sitemap` 3.2, excludes paginated news + `/brand/` — `astro.config.mjs:25-36`. **`lastmod` not configured** (gap: `F10`).
 - SEO contract emits title/description/canonical/OG/Twitter/JSON-LD — `src/components/SEO.astro:17-46`.
 - Per-request graph (`LocalBusiness + WebSite + WebPage`) wired in `src/layouts/BaseLayout.astro:53-62`. `PUBLIC_NOINDEX` env switch at `:43-45`.
-- Schema builders in `src/lib/schema.ts`: `localBusiness`, `webSite`, `webPage`, `faqPage`, `blogPosting`, `breadcrumbList`. **No `Service`, `Review`, `AggregateRating`, or `ItemList` builders yet** (gaps: `F2`, `F4`, `A4`).
+- Schema builders in `src/lib/schema.ts`: `localBusiness`, `webSite`, `webPage`, `faqPage`, `blogPosting`, `breadcrumbList`, `service`, `aggregateRating`, `itemList`.
 - Analytics live: GA4 `G-CDBPY9EJBB`, Meta Pixel `1214905783001306`, Dotwall Stats cookieless — `src/components/Analytics.astro`.
 - Robots emitter at `src/pages/robots.txt.ts:14-27`; advertises `/sitemap-index.xml`.
 - Redirects in `public/_redirects` and documented in `REDIRECTS.md`.
@@ -236,7 +236,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [x] **A1 — Google Business Profile optimisation pass.** status: done · owner: team · done: 2026-08-05 · note: off-repo. NAP verified against site.ts; Products catalog added (shutters/blinds/BlindScreen/motorised/awnings) with real site photos; profile photos uploaded; motorised bifold Update scheduled Fri; categories → Primary Blinds shop + Awning supplier (removed Home Automation; Window treatment store unavailable in UI); description rewritten; public Q&A dropped by Google 2025/26 (Ask Maps) — mitigated via services/products/description + site FAQs.
 - [ ] **A2 — Citation parity audit (Yell, Bark, Houzz, Checkatrade, Trustpilot).** status: pending · owner: _TBD_ · done: — · note: off-repo
 - [ ] **A3 — Acquire 3–5 contextual local backlinks.** status: pending · owner: _TBD_ · done: — · note: off-repo
-- [ ] **A4 — ItemList schema on /news/.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **A4 — ItemList schema on /news/.** status: done · owner: Claude · done: 2026-09-09 · note: `itemList()` builder in `src/lib/schema.ts`; wired on `/news/` with newest-first list of all blog posts (name + URL) alongside BreadcrumbList
 - [ ] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: pending · owner: _TBD_ · done: — · note: candidate-only, no blanket rollout
 - [ ] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: pending · owner: _TBD_ · done: — · note: —
 - [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-09-09** — **A4 done:** `ItemList` JSON-LD on `/news/` — new `itemList()` builder; newest-first list of all posts (name + URL) with BreadcrumbList. Next up: off-repo **A2** citation parity, or **A12** Q3 review with a fresh GSC export.
 - **2026-09-03** — **A9 done:** topical "see also" on blog posts — `ArticleLayout` prefers same-category siblings via `blog-categories.ts`, then fills with newest elsewhere; heading `More in {category}`. Next up: **A4** ItemList on `/news/`, or off-repo **A2** citation parity.
 - **2026-08-05** — **A1 done:** GBP optimisation pass — NAP parity, Products catalog + photos, profile photos, description rewrite, category tidy (Blinds shop primary + Awning supplier; Home Automation removed), motorised-bifold Update scheduled. Q&A seeding dropped (Google removed public Q&A). Next up: **A2** citation parity audit, or in-repo **A4** ItemList on `/news/`.
 - **2026-08-03** — **C11 done:** `/motorised-blinds-for-bifold-doors-uk-buyers-guide/` — motorised bifold blinds buyer’s guide targeting Appendix A.21; differentiates BlindScreen® / rollers / shutters; 2026 costs; 7 FAQs; real install photography. Phase 2 content items complete. Next up: Phase 3 (A1 GBP onwards).
