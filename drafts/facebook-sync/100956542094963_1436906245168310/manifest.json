@@ -1,0 +1,32 @@
+{
+  "facebookPostId": "100956542094963_1436906245168310",
+  "createdTime": "2026-09-09T10:32:02+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1436906245168310",
+  "message": "Returning customer - New shutter installation in Market Harborough.\nSeamist shutter to bedroom bay window, 76mm louvres and midrail.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(returning customer|returning customers)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 9
+  },
+  "suggested": {
+    "slug": "bay-shutter-bedroom-in-market-harborough",
+    "location": "Market Harborough",
+    "locationTag": "market-harborough",
+    "datePublished": "2026-09-09",
+    "blogPath": "src/content/blog/bay-shutter-bedroom-in-market-harborough.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1436906245168310/images/01.jpg"
+  ]
+}
