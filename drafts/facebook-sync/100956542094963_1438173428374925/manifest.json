@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1438173428374925",
+  "createdTime": "2026-09-10T19:20:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1438173428374925",
+  "message": "Returning Customer in Barwell - Oak Hardwood shutter, 76mm louvres, with silent split tilt and Bright Brass furniture to Landing window. ❤\n\n #shutterenvy",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(returning customer|returning customers)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-09-10",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1438173428374925/images/01.jpg"
+  ]
+}
