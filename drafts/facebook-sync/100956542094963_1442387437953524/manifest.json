@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1442387437953524",
+  "createdTime": "2026-09-15T18:40:02+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1442387437953524",
+  "message": "New installation in Wymondham -  Solid panel shutter to Landing window in Crisp Linen.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-09-15",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1442387437953524/images/01.jpg"
+  ]
+}
