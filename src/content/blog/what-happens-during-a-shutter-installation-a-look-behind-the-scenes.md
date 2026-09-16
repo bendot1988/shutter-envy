@@ -7,6 +7,23 @@ updatedDate: 2025-08-19
 heroImage: "/wp-content/uploads/2025/08/DSCF3121.webp"
 excerpt: "Not everyone loves surprises. Especially when it comes to tradespeople in the house. If you’ve booked your shutter installation with us, here’s exactly what to expect on the day. No faff, no noise complaints, no muddy boots."
 author: "Shutter Envy"
+howTo:
+  name: "What happens during a shutter installation"
+  description: "What to expect on the day Shutter Envy fit your made-to-measure shutters — from arrival to tidy-up and a quick how-to."
+  image: "/wp-content/uploads/2025/08/DSCF3121.webp"
+  steps:
+    - name: "We arrive on time"
+      text: "You’ll see our Shutter Envy van pull up at the agreed time. We work to a real schedule and stick to it — no vague all-day windows."
+    - name: "We come prepared"
+      text: "Every installer arrives with the tools, panels, fixings and fittings needed for your exact job. Measuring is already done, so it is time to fit."
+    - name: "Panels go in, neatly"
+      text: "The shutters are carefully unpacked and installed. Floors are protected, furniture is respected, and there is no radio blaring in the background."
+    - name: "Adjustments are made"
+      text: "We check every louvre, hinge and magnet so the shutters work smoothly, and adjust for windows that are slightly out of square."
+    - name: "We tidy everything"
+      text: "All packaging, dust and offcuts are cleared away. We leave your room exactly as we found it."
+    - name: "You get a quick run-through"
+      text: "We show you how to open, tilt, clean and maintain your new shutters. If they are motorised, we pair remotes or walk you through app or voice controls."
 ---
 Not everyone loves surprises. Especially when it comes to tradespeople in the house. If you’ve booked your shutter installation with us, here’s exactly what to expect on the day. No faff, no noise complaints, no muddy boots.
 

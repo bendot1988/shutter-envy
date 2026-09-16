@@ -243,3 +243,61 @@ export function itemList(opts: {
     })),
   };
 }
+
+// HowTo — only for posts that genuinely teach a step sequence (A5).
+// Steps must match visible on-page headings / copy. Do not invent steps.
+export function howTo(opts: {
+  name: string;
+  description?: string;
+  totalTime?: string;
+  image?: string;
+  steps: { name: string; text: string; url?: string; image?: string }[];
+}) {
+  const abs = (src?: string) =>
+    !src ? undefined : src.startsWith('http') ? src : `${SITE}${src}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: opts.name,
+    ...(opts.description ? { description: opts.description } : {}),
+    ...(opts.totalTime ? { totalTime: opts.totalTime } : {}),
+    ...(abs(opts.image) ? { image: abs(opts.image) } : {}),
+    step: opts.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.url
+        ? { url: s.url.startsWith('http') ? s.url : `${SITE}${s.url}` }
+        : {}),
+      ...(abs(s.image) ? { image: abs(s.image) } : {}),
+    })),
+  };
+}
+
+// VideoObject — only when the page embeds a real video file or stream (A5).
+export function videoObject(opts: {
+  name: string;
+  description: string;
+  contentUrl: string;
+  thumbnailUrl: string;
+  uploadDate: Date | string;
+  duration?: string;
+}) {
+  const abs = (src: string) =>
+    src.startsWith('http') ? src : `${SITE}${src}`;
+  const upload =
+    opts.uploadDate instanceof Date
+      ? opts.uploadDate.toISOString()
+      : opts.uploadDate;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: opts.name,
+    description: opts.description,
+    contentUrl: abs(opts.contentUrl),
+    thumbnailUrl: abs(opts.thumbnailUrl),
+    uploadDate: upload,
+    ...(opts.duration ? { duration: opts.duration } : {}),
+  };
+}

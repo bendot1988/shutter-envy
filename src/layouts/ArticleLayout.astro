@@ -109,6 +109,25 @@ const seeAlsoHeading = categoryLabel
   */}
   <div class="post-grid">
     <div class="post-body">
+      {/* A6 — mobile phone-tap CTA; script moves it after the first H2 */}
+      <aside
+        class="post-inline-phone"
+        id="post-inline-phone"
+        aria-label="Call Shutter Envy"
+        data-phone-cta
+      >
+        <a href={`tel:${business.phoneTel}`} class="post-inline-phone__link">
+          <span class="post-inline-phone__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.01A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/>
+            </svg>
+          </span>
+          <span class="post-inline-phone__copy">
+            <span class="post-inline-phone__label">Prefer to talk it through?</span>
+            <span class="post-inline-phone__number">Call {business.phoneDisplay}</span>
+          </span>
+        </a>
+      </aside>
       <slot />
       {showHeroAtEnd && heroImage && (
         <figure class="post-body__end-image">
@@ -221,6 +240,18 @@ const seeAlsoHeading = categoryLabel
     tone="gold"
   />
 </BaseLayout>
+
+{/* A6 — place phone CTA after the first article H2 (mobile conversion path) */}
+<script is:inline>
+  (() => {
+    const cta = document.getElementById('post-inline-phone');
+    const body = document.querySelector('.post-body');
+    if (!cta || !body) return;
+    const firstH2 = body.querySelector('h2');
+    if (firstH2) firstH2.insertAdjacentElement('afterend', cta);
+    cta.setAttribute('data-placed', 'true');
+  })();
+</script>
 
 <style>
   /* ─── HERO (image bg + heavy cream overlay, centred stack) ─── */
@@ -354,6 +385,65 @@ const seeAlsoHeading = categoryLabel
   .post-feature-image:hover img { transform: scale(1.03); }
   @media (min-width: 960px) {
     .post-feature-image img { aspect-ratio: 3/2; }
+  }
+
+  /* ─── A6 mobile phone-tap CTA (after first H2) ─────────── */
+  .post-inline-phone {
+    display: none;
+    margin: 0 0 1.75rem;
+  }
+  @media (max-width: 959px) {
+    .post-inline-phone[data-placed='true'] {
+      display: block;
+    }
+  }
+  .post-inline-phone__link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    background: linear-gradient(135deg, #1f1a0a, #2a2208);
+    color: #fff;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    transition: transform 200ms, box-shadow 200ms;
+  }
+  .post-inline-phone__link:hover {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+  .post-inline-phone__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(199, 154, 8, 0.22);
+    color: var(--color-gold-400);
+    flex-shrink: 0;
+  }
+  .post-inline-phone__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+  }
+  .post-inline-phone__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .post-inline-phone__number {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: #fff;
   }
 
   /* ─── BODY TYPOGRAPHY ────────────────────────────────── */

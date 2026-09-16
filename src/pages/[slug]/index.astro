@@ -2,7 +2,13 @@
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import FAQ from '../../components/FAQ.astro';
-import { blogPosting, breadcrumbList, faqPage } from '../../lib/schema';
+import {
+  blogPosting,
+  breadcrumbList,
+  faqPage,
+  howTo,
+  videoObject,
+} from '../../lib/schema';
 
 // Root-level blog posts (CLAUDE.md §2): /<slug>/, NOT /blog/<slug>/.
 // Static .astro routes (e.g. /our-shutters/, /about/) take precedence over this
@@ -46,6 +52,29 @@ const jsonLd = [
   ]),
 ];
 if (post.data.faqs.length) jsonLd.push(faqPage(post.data.faqs));
+if (post.data.howTo) {
+  jsonLd.push(
+    howTo({
+      name: post.data.howTo.name,
+      description: post.data.howTo.description,
+      totalTime: post.data.howTo.totalTime,
+      image: post.data.howTo.image ?? post.data.heroImage,
+      steps: post.data.howTo.steps,
+    }),
+  );
+}
+if (post.data.videoObject) {
+  jsonLd.push(
+    videoObject({
+      name: post.data.videoObject.name,
+      description: post.data.videoObject.description,
+      contentUrl: post.data.videoObject.contentUrl,
+      thumbnailUrl: post.data.videoObject.thumbnailUrl,
+      uploadDate: post.data.videoObject.uploadDate,
+      duration: post.data.videoObject.duration,
+    }),
+  );
+}
 ---
 <ArticleLayout
   title={post.data.title}

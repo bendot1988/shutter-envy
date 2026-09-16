@@ -7,6 +7,12 @@ updatedDate: 2025-06-17
 heroImage: "/wp-content/uploads/2025/04/automised-blinds-ben-in-loughboough.jpeg"
 excerpt: "Life is busy. From juggling work and family to trying to find time to relax, the last thing anyone wants is to run around the house adjusting blinds all day. That’s where automated blinds come in — a simple change that brings real comfort, convenience and control into your home."
 author: "Shutter Envy"
+videoObject:
+  name: "Automated blinds in a Leicestershire home"
+  description: "See how motorised blinds bring hands-free comfort and smart-home control to a real home — from Shutter Envy."
+  contentUrl: "https://shutter-envy.co.uk/wp-content/uploads/2024/09/file.mp4"
+  thumbnailUrl: "/wp-content/uploads/2025/04/automised-blinds-ben-in-loughboough.jpeg"
+  uploadDate: 2024-09-01
 ---
 Life is busy. From juggling work and family to trying to find time to relax, the last thing anyone wants is to run around the house adjusting blinds all day. That’s where automated blinds come in — a simple change that brings real comfort, convenience and control into your home.
 

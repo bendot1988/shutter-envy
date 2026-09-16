@@ -30,7 +30,7 @@ Grow non-brand organic visibility for Shutter Envy across Leicestershire and the
 - Sitemap via `@astrojs/sitemap` 3.2, excludes paginated news + `/brand/` — `astro.config.mjs:25-36`. **`lastmod` not configured** (gap: `F10`).
 - SEO contract emits title/description/canonical/OG/Twitter/JSON-LD — `src/components/SEO.astro:17-46`.
 - Per-request graph (`LocalBusiness + WebSite + WebPage`) wired in `src/layouts/BaseLayout.astro:53-62`. `PUBLIC_NOINDEX` env switch at `:43-45`.
-- Schema builders in `src/lib/schema.ts`: `localBusiness`, `webSite`, `webPage`, `faqPage`, `blogPosting`, `breadcrumbList`, `service`, `aggregateRating`, `itemList`.
+- Schema builders in `src/lib/schema.ts`: `localBusiness`, `webSite`, `webPage`, `faqPage`, `blogPosting`, `breadcrumbList`, `service`, `aggregateRating`, `itemList`, `howTo`, `videoObject`.
 - Analytics live: GA4 `G-CDBPY9EJBB`, Meta Pixel `1214905783001306`, Dotwall Stats cookieless — `src/components/Analytics.astro`.
 - Robots emitter at `src/pages/robots.txt.ts:14-27`; advertises `/sitemap-index.xml`.
 - Redirects in `public/_redirects` and documented in `REDIRECTS.md`.
@@ -237,8 +237,8 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 - [ ] **A2 — Citation parity audit (Yell, Bark, Houzz, Checkatrade, Trustpilot).** status: pending · owner: _TBD_ · done: — · note: off-repo
 - [ ] **A3 — Acquire 3–5 contextual local backlinks.** status: pending · owner: _TBD_ · done: — · note: off-repo
 - [x] **A4 — ItemList schema on /news/.** status: done · owner: Claude · done: 2026-09-09 · note: `itemList()` builder in `src/lib/schema.ts`; wired on `/news/` with newest-first list of all blog posts (name + URL) alongside BreadcrumbList
-- [ ] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: pending · owner: _TBD_ · done: — · note: candidate-only, no blanket rollout
-- [ ] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: pending · owner: _TBD_ · done: — · note: —
+- [x] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: done · owner: Claude · done: 2026-09-16 · note: `howTo()` + `videoObject()` builders; optional blog frontmatter in `content.config.ts`; HowTo on `/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/` and `/the-shutter-envy-process-from-survey-to-installation/`; VideoObject on `/automated-blinds-the-smart-way-to-add-comfort-to-your-home/` (embedded mp4). No blanket rollout.
+- [x] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: done · owner: Claude · done: 2026-09-16 · note: mobile-only (`max-width: 959px`) tap bar in `ArticleLayout`; script places it after the first article `h2`; uses `business.phoneTel` / `phoneDisplay`. Desktop keeps sticky sidebar CTA.
 - [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
 - [x] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: done · owner: Claude · done: 2026-06-30 · note: 6 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` (A.23). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` (A.7). Post 3 (2026-06-09, team): `/best-blackout-blind-for-bifold-doors-leicestershire/` (A.21). Post 4 (2026-06-16): `/are-aluminium-shutters-worth-it-uk-buyers-guide/` (A.25). Post 5 (2026-06-17): `/bay-window-shutters-cost-uk-2026-guide/`. Post 6 (2026-06-30): `/do-shutters-reduce-noise-uk-honest-guide/` — honest noise-dampening guide; cottage window shutters topic withdrawn as too specialist.
 - [x] **A9 — Topical "see also" block in ArticleLayout.** status: done · owner: Claude · done: 2026-09-03 · note: same-category siblings from `BLOG_CATEGORY_BY_SLUG` first (newest), fill remaining slots with newest other posts; heading becomes `More in {category label}`
@@ -248,6 +248,7 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-09-16** — **A5 + A6 done:** HowTo / VideoObject schema on three qualifying posts only (install day, survey-to-install process, automated-blinds video); mobile phone-tap CTA after first blog H2. Next up: off-repo **A2** citation parity, or **A12** Q3 review.
 - **2026-09-09** — **A4 done:** `ItemList` JSON-LD on `/news/` — new `itemList()` builder; newest-first list of all posts (name + URL) with BreadcrumbList. Next up: off-repo **A2** citation parity, or **A12** Q3 review with a fresh GSC export.
 - **2026-09-03** — **A9 done:** topical "see also" on blog posts — `ArticleLayout` prefers same-category siblings via `blog-categories.ts`, then fills with newest elsewhere; heading `More in {category}`. Next up: **A4** ItemList on `/news/`, or off-repo **A2** citation parity.
 - **2026-08-05** — **A1 done:** GBP optimisation pass — NAP parity, Products catalog + photos, profile photos, description rewrite, category tidy (Blinds shop primary + Awning supplier; Home Automation removed), motorised-bifold Update scheduled. Q&A seeding dropped (Google removed public Q&A). Next up: **A2** citation parity audit, or in-repo **A4** ItemList on `/news/`.

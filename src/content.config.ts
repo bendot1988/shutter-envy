@@ -213,6 +213,36 @@ const locations = defineCollection({
   }),
 });
 
+const howTo = z
+  .object({
+    name: z.string(),
+    description: z.string().optional(),
+    totalTime: z.string().optional(),
+    image: z.string().optional(),
+    steps: z
+      .array(
+        z.object({
+          name: z.string(),
+          text: z.string(),
+          url: z.string().optional(),
+          image: z.string().optional(),
+        }),
+      )
+      .min(2),
+  })
+  .optional();
+
+const videoObject = z
+  .object({
+    name: z.string(),
+    description: z.string(),
+    contentUrl: z.string(),
+    thumbnailUrl: z.string(),
+    uploadDate: z.coerce.date(),
+    duration: z.string().optional(),
+  })
+  .optional();
+
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   // Blog posts live at root level (/<slug>/), NOT under /blog/ or /news/<slug>/.
@@ -225,6 +255,9 @@ const blog = defineCollection({
     excerpt: z.string().optional(),
     author: z.string().default('Shutter Envy'),
     faqs,
+    // A5 — only when the body genuinely matches (step sequence / embedded video)
+    howTo,
+    videoObject,
   }),
 });
 

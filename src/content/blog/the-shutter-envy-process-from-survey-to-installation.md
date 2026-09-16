@@ -7,6 +7,23 @@ updatedDate: 2025-05-21
 heroImage: "/wp-content/uploads/2025/05/shutters-in-loughborough-shutter-envy-1.jpg"
 excerpt: "At Shutter Envy, we believe the journey to transforming your windows should be simple, stress-free, and transparent. Whether you’re after bespoke shutters for your bay window or fully motorised blinds for a smart home set-up, our process is designed to give you full peace of m..."
 author: "Shutter Envy"
+howTo:
+  name: "The Shutter Envy process from survey to installation"
+  description: "How Shutter Envy takes you from a free home visit to professional fitting of made-to-measure shutters or blinds across Leicestershire."
+  image: "/wp-content/uploads/2025/05/shutters-in-loughborough-shutter-envy-1.jpg"
+  steps:
+    - name: "Book your free home visit"
+      text: "We start with a free home consultation across Charnwood, Leicester and surrounding villages. We listen to what you want, advise on styles and materials, and show real samples."
+    - name: "Survey and quote onsite"
+      text: "During the visit we survey your windows precisely and give you a price for your chosen shutters or blinds — no pressure. A clear written quote follows by email with no hidden costs."
+    - name: "Secure your order with a deposit"
+      text: "When you are ready, a 50% deposit lets us place your made-to-measure order with our factory using high-quality suppliers."
+    - name: "Delivery and schedule installation"
+      text: "We confirm an estimated delivery date, pencil in fitting, and keep you updated. Once stock arrives at our warehouse we confirm the final installation date."
+    - name: "Professional installation"
+      text: "Our fitting team completes a tidy install, removes packaging and waste, and leaves your space clean with the new shutters or blinds in place."
+    - name: "Aftercare and support"
+      text: "We walk you through use and maintenance, explain the warranty, answer questions, and — if you are happy — invite a Google review to help other local homeowners."
 ---
 ## Your local shutter and blind experts, covering Charnwood, Leicester and beyond
 
