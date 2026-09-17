@@ -58,7 +58,7 @@ They are still a panel system with moving parts. Gaps remain so the louvres can 
 
 ## What BlindScreen® adds
 
-BlindScreen® is a slim, made-to-measure cassette with honeycomb blackout fabric. Pulled down, it covers the glass as a continuous surface rather than a stack of louvres — so edge bleed drops dramatically compared with shutters alone.
+BlindScreen® is a slim, made-to-measure cassette with honeycomb blackout fabric. Pulled across, it covers the glass as a continuous surface rather than a stack of louvres — so edge bleed drops dramatically compared with shutters alone.
 
 On bifolds and patio doors the same system can carry an **insect mesh** in a dual track — blackout when you need darkness, mesh when you want the doors open in summer. More on that in our [blackout blinds for bifold doors](/best-blackout-blind-for-bifold-doors-leicestershire/) guide and on the main [BlindScreen® page](/blindscreen/).
 
