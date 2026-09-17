@@ -20,4 +20,6 @@ faqs:
     answer: "BlindScreen® is independently proven to reduce heat loss by up to 49%. The unique honeycombed cellular structure of the blackout fabric creates an air barrier that traps heat in winter and helps keep rooms cooler in summer — far more effective than many traditional roller or venetian blinds."
   - question: "Will it fit my specific type of home?"
     answer: "Yes. BlindScreen® is versatile. It is a favourite for large bifold and sliding patio doors as a fly screen, and equally effective on standard bedroom windows for total blackout. Slimline frames ensure a discreet fit on almost any window or door type."
+  - question: "Can BlindScreen® work with plantation shutters?"
+    answer: "Yes. Many Leicestershire bedrooms keep shutters for daytime privacy and style, then use BlindScreen® when they need true blackout — closed louvres alone still let light through. Mark’s short demo is on https://shutter-envy.co.uk/blindscreen-vs-shutter-louvres-blackout-demo/."
 ---

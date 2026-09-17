@@ -29,6 +29,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'motorised-blinds-for-bifold-doors-uk-buyers-guide': 'blinds',
   'automated-blinds-the-smart-way-to-add-comfort-to-your-home': 'blinds',
   'best-blackout-blind-for-bifold-doors-leicestershire': 'blinds',
+  'blindscreen-vs-shutter-louvres-blackout-demo': 'blinds',
   'how-much-do-made-to-measure-blinds-cost-uk-2026': 'blinds',
   'motorised-blinds-a-smarter-way-to-control-your-home': 'blinds',
   'the-benefits-of-motorised-blinds-convenience-style-and-smart-home-integration': 'blinds',

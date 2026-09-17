@@ -533,6 +533,17 @@ const seeAlsoHeading = categoryLabel
     margin: 2rem 0;
     box-shadow: var(--shadow-md);
   }
+  .post-body :global(video),
+  .post-body :global(.post-demo-video) {
+    display: block;
+    width: 100%;
+    max-width: 22rem;
+    margin: 1.5rem auto 2rem;
+    border-radius: var(--radius-md);
+    background: #111;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 9 / 16;
+  }
   .post-body :global(img[src*="s.w.org/images/core/emoji"]) {
     width: 1em;
     height: 1em;
