@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1444720134386921",
+  "createdTime": "2026-09-18T14:03:30+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1444720134386921",
+  "message": "Cottage windows rarely behave like a standard new-build casement.\n\nThey can be short and wide, deep in stone, slightly out of square, or a mix of old timber and newer uPVC in the same house.\n\nCurtains often eat the sill. Stock shutters rarely fit.\n\nWe’ve written a practical guide on what actually works: café-style for privacy with daylight above, full-height when the room is overlooked, materials for damp vs dry rooms, and honest 2026 cost ranges for a typical small opening.\n\nRead it here → https://shutter-envy.co.uk/cottage-window-shutters-uk-buyers-guide/\n\nBased in Melton Mowbray. Free home survey across Leicestershire.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "full-height-installation-in-melton-mowbray",
+    "location": "Melton Mowbray",
+    "locationTag": "melton-mowbray",
+    "datePublished": "2026-09-18",
+    "blogPath": "src/content/blog/full-height-installation-in-melton-mowbray.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1444720134386921/images/01.jpg"
+  ]
+}
