@@ -1,7 +1,7 @@
 ---
 title: "Shutters, Blinds and Awnings Leicester | Shutter Envy"
 description: "Transform your home with made-to-measure shutters, blinds, awnings and motorised solutions from Shutter Envy. Serving Leicester, Loughborough and Leicestershire."
-h1: "Award-Winning Shutters & Blinds — 3 Years Running"
+h1: "Award-Winning Shutters & Blinds — 4 Years Running"
 ogImage: "/wp-content/uploads/2024/10/dotwall-Web-Design2024-10-07-at-14.05.55.jpeg"
 announcement: "Happy 2026! Embrace 2026 with Stunning Shutters!"
 heroEyebrow: "Shutters, Blinds and Awnings in <strong>Leicester</strong> and <strong>Leicestershire</strong>"
@@ -11,14 +11,15 @@ heroPrimaryCta:
   label: "Our shutters"
   href: "/our-shutters/"
 heroAwardImages:
-  - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-300x78.png"
-  - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png"
-  - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png"
+  - "/images/awards/ie100-winner-2023.png"
+  - "/images/awards/ie100-winner-2024.png"
+  - "/images/awards/ie100-winner-2025.png"
+  - "/images/awards/ie100-winner-2026.png"
 featureChecklist:
   heading: "Blinds, Shutters and Awnings"
   body: "Transform your home with our award-winning blinds, shutters, and awnings. Designed for elegance and functionality, our products offer the perfect balance of style and practicality, ensuring your space remains comfortable and beautiful."
   items:
-    - heading: "IE 100 Awards Winner 2023 & 2024"
+    - heading: "IE 100 Awards Winner 2023–2026"
       body: "Recognised internationally for excellence in blinds and shutters."
     - heading: "5-Star Rated on Google"
       body: "Trusted by hundreds of satisfied customers for exceptional service and quality."
@@ -85,9 +86,10 @@ awardsCTA:
   heading: "Have You Experienced Shutter Envy?"
   body: "Discover the difference that award-winning craftsmanship and personalised service can make. At Shutter Envy, we don't just offer products; we create elegant, functional spaces that elevate your home's style and comfort. Join the hundreds of satisfied customers who have transformed their living spaces with our premium blinds, shutters, and awnings."
   awardImages:
-    - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-300x78.png"
-    - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png"
-    - "/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png"
+    - "/images/awards/ie100-winner-2023.png"
+    - "/images/awards/ie100-winner-2024.png"
+    - "/images/awards/ie100-winner-2025.png"
+    - "/images/awards/ie100-winner-2026.png"
   awardsCaption: "Blind and Shutter Specialists of the Year"
   ctaNote: "Get started today with a no-obligation, personalised consultation."
   cta:
@@ -103,7 +105,7 @@ team:
 faqsIntro: "At Shutter Envy, we offer premium shutters and blinds, personalised service, and high-quality products. With over 14 years of experience, we can help you find the perfect fit for your home."
 trustStrip:
   - { icon: "star", label: "<strong>5.0</strong> · Google Reviews" }
-  - { icon: "award", label: "IE 100 Award Winner <strong>2023, 2024 & 2025</strong>" }
+  - { icon: "award", label: "IE 100 Award Winner <strong>2023–2026</strong>" }
   - { icon: "home", label: "<strong>600+</strong> homes transformed" }
   - { icon: "check", label: "Family-run, fully guaranteed" }
 reviewsRow:
@@ -169,7 +171,7 @@ transformCTA:
     label: "Arrange a Home Visit"
     href: "/contact/"
 hero:
-  eyebrow: "Award winning Shutters & Blinds - 3 Years Running!"
+  eyebrow: "Award winning Shutters & Blinds - 4 Years Running!"
   heading: "Shutters, Blinds and Awnings in Leicester and Leicestershire"
   subheading: "Award-winning, family-run specialists in made-to-measure shutters, blinds, awnings and motorised blind solutions across Leicester, Loughborough, Melton Mowbray and surrounding Leicestershire areas."
   cta:
@@ -217,7 +219,7 @@ cta:
 
 Transform your home with our award-winning blinds, shutters, and awnings. Designed for elegance and functionality, our products offer the perfect balance of style and practicality, ensuring your space remains comfortable and beautiful.
 
-- **IE 100 Awards Winner 2023 & 2024** — Recognised internationally for excellence in blinds and shutters.
+- **IE 100 Awards Winner 2023–2026** — Recognised internationally for excellence in blinds and shutters.
 - **5-Star Rated on Google** — Trusted by hundreds of satisfied customers for exceptional service and quality.
 - **Premium quality materials** — Durable, sustainable, and stylish options for any room.
 - **Customisable to fit any space** — Tailored to your exact specifications, ensuring a perfect fit.

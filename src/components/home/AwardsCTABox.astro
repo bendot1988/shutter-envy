@@ -33,7 +33,7 @@ const words = heading.trim().split(/\s+/);
 const last = words.pop() ?? '';
 const lead = words.join(' ');
 
-const awardYears = ['2023', '2024', '2025'];
+const awardYears = ['2023', '2024', '2025', '2026'];
 ---
 <section class="awards-cta">
   <div class="awards-cta__box" data-reveal="scale">
@@ -265,8 +265,8 @@ const awardYears = ['2023', '2024', '2025'];
   .awards-cta__badge-frame {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(199,154,8,0.35);
-    border-radius: var(--radius-md);
-    padding: 0.625rem 0.875rem;
+    border-radius: 50%;
+    padding: 0.35rem;
     backdrop-filter: blur(8px);
     box-shadow:
       inset 0 1px 0 rgba(255,255,255,0.1),
@@ -284,7 +284,7 @@ const awardYears = ['2023', '2024', '2025'];
   }
   .awards-cta__badge-frame img {
     display: block;
-    height: 36px;
+    height: clamp(6.5rem, 16vw, 8.5rem);
     width: auto;
     max-width: 100%;
   }

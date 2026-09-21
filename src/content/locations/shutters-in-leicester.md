@@ -18,7 +18,7 @@ faqs:
     answer: "Use our contact page to arrange a free home visit. Mark measures every opening, brings samples and leaves a fitted quote with a clear breakdown."
 ---
 
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We supply and fit plantation shutters in Leicester for homeowners who want a cleaner finish, stronger privacy and better light control in busy city homes. Shutters are especially well suited to Leicester properties with bay windows, front-facing rooms and spaces where curtains or standard blinds do not quite give the right balance of style and practicality.
 

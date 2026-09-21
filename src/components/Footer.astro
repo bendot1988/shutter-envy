@@ -1,13 +1,9 @@
 ---
-import { business, social, footerNav, legalNav } from '../data/site';
+import { business, social, footerNav, legalNav, ie100AwardBadges } from '../data/site';
 import { TRACK } from '../data/tracking';
 const year = new Date().getFullYear();
 const whatsappLink = `https://wa.me/${business.phoneTel.replace(/[^\d]/g, '')}?text=${encodeURIComponent("Hi Shutter Envy, I'd like a free quote for shutters.")}`;
-const awardBadges = [
-  { src: '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-300x78.png', year: '2023' },
-  { src: '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-3-300x78.png', year: '2024' },
-  { src: '/wp-content/uploads/2025/11/Shutter-Envy-Shutter-and-Blind-Company-of-the-Year-Award-winner-Leicestershire.-Shutters.-Blinds-1-300x78.png', year: '2025' },
-];
+const awardBadges = ie100AwardBadges;
 const bbsaPostHref = '/bbsa-accredited-specialist-shutter-envy/';
 ---
 {/* ─── TRUST BADGES STRIP ─────────────────────────────── */}
@@ -216,7 +212,7 @@ const bbsaPostHref = '/bbsa-accredited-specialist-shutter-envy/';
     gap: 1.25rem 2rem;
   }
   .trust-strip__badge img {
-    height: 48px;
+    height: clamp(5.5rem, 14vw, 7rem);
     width: auto;
     transition: transform 200ms;
   }

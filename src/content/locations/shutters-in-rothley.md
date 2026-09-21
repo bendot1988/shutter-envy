@@ -6,7 +6,7 @@ area: "Rothley"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Rothley&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We supply and fit plantation shutters in Rothley for homeowners who want a premium window finish that balances style, privacy and practicality. Shutters suit Rothley homes particularly well because they bring a neat, tailored look to the room while still giving flexible control over natural light throughout the day.
 

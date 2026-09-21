@@ -6,7 +6,7 @@ area: "Syston"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Syston&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We supply and fit shutters in Syston for homeowners who want a more elegant and practical way to manage privacy and natural light. Plantation shutters are ideal for front-facing rooms, bedrooms and family spaces, giving you flexible control throughout the day while creating a clean, fitted look that suits the home.
 

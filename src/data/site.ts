@@ -30,6 +30,14 @@ export const business = {
   openingHours: ['Mo-Th 08:30-17:00', 'Fr 08:30-16:00'] as string[],
 } as const;
 
+/** IE100 Awards winner badges — Blind & Shutter Specialists of the Year (Leicestershire). */
+export const ie100AwardBadges = [
+  { year: '2023', src: '/images/awards/ie100-winner-2023.png' },
+  { year: '2024', src: '/images/awards/ie100-winner-2024.png' },
+  { year: '2025', src: '/images/awards/ie100-winner-2025.png' },
+  { year: '2026', src: '/images/awards/ie100-winner-2026.png' },
+] as const;
+
 export const social = {
   facebook: 'https://www.facebook.com/Shutter.Envy.Ltd/',
   instagram: 'https://www.instagram.com/shutter.envy/',

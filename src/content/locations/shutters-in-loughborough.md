@@ -6,7 +6,7 @@ area: "Loughborough"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Loughborough&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 If you are looking for plantation shutters in Loughborough, we provide a made-to-measure service designed around the room, the window shape and the finish you want to achieve. Plantation shutters are a popular choice for Loughborough homes because they combine style and practicality so well, giving you privacy, light control and a more fitted look than many standard alternatives. They work beautifully in bay windows, front rooms, bedrooms and wider openings, and they suit both older properties and newer homes. With the right layout and finish, shutters can make a room feel calmer, brighter and more put together while still being easy to live with every day. At Shutter Envy, we start with a home consultation so we can advise on the most suitable options for your windows and give you a clear plan for measuring and fitting. If you would like to explore styles, materials and finishes in more detail, you can also view our made-to-measure shutter options here.
 

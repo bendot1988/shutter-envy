@@ -6,7 +6,7 @@ area: "Birstall"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Birstall&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We provide made-to-measure shutters in Birstall for homeowners who want a smarter, more practical finish for their windows. Plantation shutters are a strong option for front rooms, bay windows and bedrooms, especially where privacy matters but you still want to keep the room bright and welcoming.
 

@@ -6,7 +6,7 @@ area: "Charnwood"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Charnwood&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 At Shutter Envy, we specialise in installing bespoke shutters in Charnwood. Whether you’re looking to elevate your home’s aesthetic or add practical light control, we offer a wide range of shutters, including bay window, café-style, and tier-on-tier options. All of our shutters are made to measure, ensuring a perfect fit for your home. We also provide blackout shutters, ideal for bedrooms, and fully motorised blinds for modern convenience. With over 15 years of experience, our team ensures high-quality installation and service. Get in touch today for a free consultation, and let us help you transform your space.
 

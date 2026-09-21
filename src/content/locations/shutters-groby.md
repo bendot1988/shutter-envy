@@ -6,7 +6,7 @@ area: "Groby"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Groby&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We provide made-to-measure shutters in Groby for homeowners who want a premium finish, stronger privacy and more control over the way light moves through the room. Plantation shutters are a particularly good fit for family homes and larger living spaces, where a clean fitted look can make a real difference to the overall feel of the interior.
 

@@ -6,7 +6,7 @@ area: "Barrow upon Soar"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Barrow%20upon%20Soar&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We supply and fit shutters in Barrow upon Soar for homeowners who want a window solution that feels elegant, practical and built around the room. Plantation shutters are a popular choice for village homes because they offer excellent privacy and light control while still keeping the space bright, tidy and refined.
 

@@ -10,7 +10,7 @@ const { images, caption = 'Blind & Shutter Specialists of the Year' } = Astro.pr
     <div class="container">
       <ul data-reveal-children>
         {images.map((src) => (
-          <li><img src={src} alt="IE 100 Awards Winner" loading="lazy" width="300" height="78" /></li>
+          <li><img src={src} alt="IE 100 Awards Winner" loading="lazy" width="160" height="160" /></li>
         ))}
       </ul>
       {caption && <p>{caption}</p>}
@@ -32,11 +32,11 @@ const { images, caption = 'Blind & Shutter Specialists of the Year' } = Astro.pr
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem 2.5rem;
+    gap: 1.25rem 1.75rem;
   }
   .awards-band li { margin: 0; }
   .awards-band img {
-    height: 64px;
+    height: clamp(7.5rem, 18vw, 10rem);
     width: auto;
     opacity: 0.95;
     transition: opacity 200ms, transform 200ms;

@@ -6,7 +6,7 @@ area: "Sileby"
 postcodePrefixes: []
 mapEmbedUrl: "https://maps.google.com/maps?q=Sileby&t=m&z=12&output=embed&iwloc=near"
 ---
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 We supply and fit shutters in Sileby for homeowners who want a practical window solution that also looks smart and long lasting. Plantation shutters are ideal when you want better privacy, more flexible light control and a finish that feels more built-in than standard blinds or curtains.
 

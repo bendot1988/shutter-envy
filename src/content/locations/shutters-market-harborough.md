@@ -16,7 +16,7 @@ faqs:
     answer: "Yes. We survey Market Harborough (LE16) and nearby Leicestershire villages within a practical drive of our Melton Mowbray base. If you are unsure, ask when you book."
 ---
 
-## Award winning Shutters & Blinds - 3 Years Running!
+## Award winning Shutters & Blinds - 4 Years Running!
 
 Looking for shutters in Market Harborough? We supply and fit made-to-measure plantation shutters for homes across Market Harborough and the surrounding area, helping homeowners improve privacy, light control and insulation without compromising on style.
 
