@@ -1,0 +1,29 @@
+{
+  "facebookPostId": "100956542094963_1448674413991493",
+  "createdTime": "2026-09-23T07:15:04+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1448674413991493",
+  "message": "Office Closure – Staff Training\nOur office will be closed on Wednesday 23rd and Thursday 24th of September due to staff training.\nIf you need to contact us during this time, please feel free to:\nText or WhatsApp: 07729 572277\nEmail: sales@shutter-envy.co.uk\nWe will respond to all enquiries as soon as possible when we return to the office.\nThank you for your patience and understanding.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-office-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-09-23",
+    "blogPath": "src/content/blog/shutter-office-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1448674413991493/images/01.jpg"
+  ]
+}
