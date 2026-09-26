@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1450911683767766",
+  "createdTime": "2026-09-25T16:02:41+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1450911683767766",
+  "message": "Conservatories are one of the hardest rooms to dress.\n\nGlass on the walls and roof means winter chill, summer bake, condensation and glare, and the wrong covering fails quickly.\n\nThe short version from our new guide:\n\n• Shutters often work on side panels and French / bifold doors\n• They don’t cover the roof — that needs blinds or other shade\n• Aluminium is usually the safest material for heat and humidity\n• Wood and MDF are a poor default in a baking conservatory\n• Many homes end up with shutters on the sides and blinds on the roof, and that’s often the right answer\n\nHonest 2026 costs, materials and survey checks here: https://shutter-envy.co.uk/conservatory-shutters-uk-buyers-guide/\n\nBased in Melton Mowbray. Free home survey across Leicestershire.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "blinds-conservatory-in-melton-mowbray",
+    "location": "Melton Mowbray",
+    "locationTag": "melton-mowbray",
+    "datePublished": "2026-09-25",
+    "blogPath": "src/content/blog/blinds-conservatory-in-melton-mowbray.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1450911683767766/images/01.jpg"
+  ]
+}
