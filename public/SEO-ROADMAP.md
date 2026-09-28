@@ -1,10 +1,11 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-09-09 (A4 ItemList schema on /news/ shipped)
-- **90-day window:** 2026-05-28 → 2026-08-26
+- **Last updated:** 2026-09-23 (A12 Q3 review closed; Phase 4 Days 90–180 backlog opened)
+- **90-day window (Q2):** 2026-05-28 → 2026-08-26 — **closed via A12**
+- **Current window (Q3 / Days 90–180):** 2026-08-27 → 2026-11-25 — see §6.4 Phase 4
 - **Canonical site:** https://shutter-envy.co.uk/
-- **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note.
+- **GSC property in use:** URL-prefix `https://shutter-envy.co.uk/` (canonical HTTPS apex). Domain property declined — see F9 note. Do not reopen.
 
 ---
 
@@ -162,7 +163,21 @@ Phase boundaries are guides, not gates. An item can ship earlier if a PR opens e
 - **A9 — Topical "see also" block on blog posts.** Replace the chronological logic in `src/layouts/ArticleLayout.astro:37-43` with a category-aware sibling-post query using `src/data/blog-categories.ts`. Outcome: stronger internal link relevance signals.
 - **A10 — Lighthouse and Core Web Vitals pass on top-10 commercial pages.** Off-repo measurement; any fixes that emerge become their own IDs at Day 60–90. Outcome: ranking insurance.
 - **A11 — Set up rank tracking for the top-25 opportunity queries.** Off-repo. Tool TBC (Sistrix UK, AccuRanker, or similar). Outcome: weekly visibility on the Appendix A list.
-- **A12 — Q3 review.** Archive this file as `SEO-ROADMAP-Q2.md` (frozen) and open `SEO-ROADMAP.md` for Days 90–180 with carried-over IDs marked `rolled-over`. Outcome: continuity into the next quarter.
+- **A12 — Q3 review.** Prefer **append Phase 4** in this file (do not delete; rename to `SEO-ROADMAP-Q2.md` only if the team wants a freeze). Outcome: continuity into Days 90–180.
+
+### 6.4 Phase 4 — Days 90–180 — CTR on earned impressions + leftover authority
+
+Evidence base: GSC Web export `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-09-09.xlsx` (window **2026-06-07 → 2026-09-06**; parsed 2026-09-09). Site clicks **1,898** / impr **356,288** / CTR **0.53%** vs May baseline 674 / 145,189 / 0.46%. Cost + bay guides won; commercial hubs and Leicester still waste impressions.
+
+- **Q3-1 — Leicester location CTR pass.** `/locations/shutters-in-leicester/` showed **992 impr · 0 clicks · pos ~47** in the Sep-9 Pages sheet. Second-pass local relevance (pack signals, internal links, FAQ/snippet clarity) — **not** a URL change. Outcome: turn near-zero CTR into calls from the strongest town brand.
+- **Q3-2 — Commercial hub CTR / indexing reinforcement.** `/cafe-style-shutters/`, `/faux-wood-shutters/`, `/aluminium-plantation-shutters/`, `/arched-window-shutters/` still ~pos 28–50 with early impressions. Internal links, GSC URL inspection, social/GBP — **no title/meta rewrite batch** unless a later export proves CTR collapse after pos ≤15. Outcome: hubs absorb commercial intent from blogs.
+- **Q3-3 — High-impr blog snippet polish (selective).** Cost guide (520 clicks / 122K impr / pos 8.9) and other huge-impr posts still leave desktop CTR low site-wide (**0.30%**). Only rewrite titles/descriptions where CTR stays weak *after* strong position — one URL at a time. Outcome: reclaim desktop SERP waste.
+- **Q3-4 — Keep room-guide + editorial cadence.** Kitchen / living / bathroom / bedroom guides had early impressions and almost no clicks in Sep-9; continue fortnightly posts + GBP/social when each ships. Outcome: topical depth without new hubs.
+- **A2 — Citation parity (rolled-over).** Yell, Bark, Houzz, Checkatrade, Trustpilot, FreeIndex, Cylex — NAP vs `src/data/site.ts`. Outcome: local authority.
+- **A3 — 3–5 contextual local backlinks (rolled-over).** Off-repo. Outcome: domain authority.
+- **A7 — ClearLine deep-link (rolled-over, blocked).** Only if ClearLine confirms `?area=` (or equivalent) URL params. Outcome: better attribution on location CTAs.
+- **A10 — Lighthouse + CWV on top-10 commercial pages (rolled-over).** Outcome: ranking insurance.
+- **A11 — Rank tracking for Appendix A (rolled-over).** Tool TBC. Outcome: weekly visibility without re-opening Domain GSC.
 
 ---
 
@@ -176,6 +191,15 @@ Four metrics. Add new ones cautiously.
 - **K4 Business — ClearLine form submissions per calendar month.** Source: ClearLine dashboard + sales inbox. Baseline TBC on first refresh.
 
 ### Metrics log
+
+- **2026-09-23 (A12 Q3 close) — 92-day window 2026-06-07 → 2026-09-06.** Source: `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-09-09.xlsx` (parsed 2026-09-09; file not on disk at close-out — re-export before next K1 brand split).
+  - K1: 92-day **total** clicks = **1,898** (≈2.8× May baseline 674). Brand / non-brand split **not re-run** at close-out (Queries sheet not re-accessible); trailing **28-day all-query clicks = 691** (vs baseline non-brand 28-day equiv ≈ 186).
+  - K1 supporting: impressions **356,288** (≈2.5×) · CTR **0.53%** (+0.07pp) · Mobile 1,246 / Desktop 544 (**desktop CTR 0.30%**) / Tablet 108 · UK 1,713 / 312,720.
+  - Headline pages: cost guide 520 clk / 122K impr / pos **8.9**; bay cost guide **163** clk / 27K / pos 9.8; aluminium guide 54 clk · MDF guide 37 clk · shutters-vs-blinds 28 clk (all ~pos 8–9).
+  - Headline gaps: `/locations/shutters-in-leicester/` **992 impr / 0 clicks / pos ~47**; C1–C4 hubs early impr at pos ~28–50.
+  - K2: still TBC until `A11`.
+  - K3: unchanged target 0 / 0 / 0 (not re-audited this pass).
+  - K4: still TBC — do not invent enquiry numbers.
 
 - **2026-05-28 (baseline) — 90-day window 2026-02-27 → 2026-05-26.**
   - K1: 90-day total clicks = 674; brand = 75; **non-brand 90-day = 599**; **non-brand 28-day equivalent ≈ 186**.
@@ -234,20 +258,28 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 ### Phase 3 — Authority, conversion, cadence
 
 - [x] **A1 — Google Business Profile optimisation pass.** status: done · owner: team · done: 2026-08-05 · note: off-repo. NAP verified against site.ts; Products catalog added (shutters/blinds/BlindScreen/motorised/awnings) with real site photos; profile photos uploaded; motorised bifold Update scheduled Fri; categories → Primary Blinds shop + Awning supplier (removed Home Automation; Window treatment store unavailable in UI); description rewritten; public Q&A dropped by Google 2025/26 (Ask Maps) — mitigated via services/products/description + site FAQs.
-- [ ] **A2 — Citation parity audit (Yell, Bark, Houzz, Checkatrade, Trustpilot).** status: pending · owner: _TBD_ · done: — · note: off-repo
-- [ ] **A3 — Acquire 3–5 contextual local backlinks.** status: pending · owner: _TBD_ · done: — · note: off-repo
+- [ ] **A2 — Citation parity audit (Yell, Bark, Houzz, Checkatrade, Trustpilot).** status: pending · owner: _TBD_ · done: — · note: off-repo · **rolled-over → Phase 4**
+- [ ] **A3 — Acquire 3–5 contextual local backlinks.** status: pending · owner: _TBD_ · done: — · note: off-repo · **rolled-over → Phase 4**
 - [x] **A4 — ItemList schema on /news/.** status: done · owner: Claude · done: 2026-09-09 · note: `itemList()` builder in `src/lib/schema.ts`; wired on `/news/` with newest-first list of all blog posts (name + URL) alongside BreadcrumbList
 - [x] **A5 — HowTo / VideoObject schema where genuinely applicable.** status: done · owner: Claude · done: 2026-09-16 · note: `howTo()` + `videoObject()` builders; optional blog frontmatter in `content.config.ts`; HowTo on `/what-happens-during-a-shutter-installation-a-look-behind-the-scenes/` and `/the-shutter-envy-process-from-survey-to-installation/`; VideoObject on `/automated-blinds-the-smart-way-to-add-comfort-to-your-home/` (embedded mp4). No blanket rollout.
 - [x] **A6 — Inline phone-tap CTA after first H2 on blog posts.** status: done · owner: Claude · done: 2026-09-16 · note: mobile-only (`max-width: 959px`) tap bar in `ArticleLayout`; script places it after the first article `h2`; uses `business.phoneTel` / `phoneDisplay`. Desktop keeps sticky sidebar CTA.
-- [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first
+- [ ] **A7 — Per-location quote-form deep-link.** status: pending · owner: _TBD_ · done: — · note: verify ClearLine URL-param support first · **rolled-over → Phase 4**
 - [x] **A8 — Editorial cadence: 1 post per fortnight (6 topics seeded).** status: done · owner: Claude · done: 2026-06-30 · note: 6 of 6 shipped. Post 1 (2026-06-04): `/shutter-blinds-explained-uk-guide/` (A.23). Post 2 (2026-06-09): `/are-mdf-shutters-any-good-honest-uk-verdict/` (A.7). Post 3 (2026-06-09, team): `/best-blackout-blind-for-bifold-doors-leicestershire/` (A.21). Post 4 (2026-06-16): `/are-aluminium-shutters-worth-it-uk-buyers-guide/` (A.25). Post 5 (2026-06-17): `/bay-window-shutters-cost-uk-2026-guide/`. Post 6 (2026-06-30): `/do-shutters-reduce-noise-uk-honest-guide/` — honest noise-dampening guide; cottage window shutters topic withdrawn as too specialist.
 - [x] **A9 — Topical "see also" block in ArticleLayout.** status: done · owner: Claude · done: 2026-09-03 · note: same-category siblings from `BLOG_CATEGORY_BY_SLUG` first (newest), fill remaining slots with newest other posts; heading becomes `More in {category label}`
-- [ ] **A10 — Lighthouse + CWV pass on top-10 commercial pages.** status: pending · owner: _TBD_ · done: — · note: file follow-ups as new IDs if needed
-- [ ] **A11 — Set up rank tracking for Appendix A queries.** status: pending · owner: _TBD_ · done: — · note: tool TBC
-- [ ] **A12 — Q3 review (archive this file, open Days 90–180).** status: pending · owner: _TBD_ · done: — · note: do not delete this file, rename to `SEO-ROADMAP-Q2.md`
+- [ ] **A10 — Lighthouse + CWV pass on top-10 commercial pages.** status: pending · owner: _TBD_ · done: — · note: file follow-ups as new IDs if needed · **rolled-over → Phase 4**
+- [ ] **A11 — Set up rank tracking for Appendix A queries.** status: pending · owner: _TBD_ · done: — · note: tool TBC · **rolled-over → Phase 4**
+- [x] **A12 — Q3 review (append Phase 4 Days 90–180).** status: done · owner: Claude · done: 2026-09-23 · note: `https___shutter-envy.co.uk_-Performance-on-Search-2026-09-09.xlsx` — clicks 1,898 / impr 356,288 / CTR 0.53% (~2.8× / ~2.5× vs May); Leicester location 992 impr / 0 clicks. File kept live; §6.4 Phase 4 added (no rename).
+
+### Phase 4 — Days 90–180 (opened 2026-09-23)
+
+- [ ] **Q3-1 — Leicester location CTR pass.** status: pending · owner: _TBD_ · done: — · note: Sep-9 Pages: `/locations/shutters-in-leicester/` 992 impr / 0 clicks / pos ~47
+- [ ] **Q3-2 — Commercial hub CTR / indexing reinforcement (C1–C4).** status: pending · owner: _TBD_ · done: — · note: hubs ~pos 28–50 with early impressions; no blanket title/meta rewrite
+- [ ] **Q3-3 — Selective high-impr blog snippet polish.** status: pending · owner: _TBD_ · done: — · note: desktop CTR 0.30%; cost guide still largest impr pool
+- [ ] **Q3-4 — Room-guide + editorial cadence continue.** status: pending · owner: _TBD_ · done: — · note: early room-guide impr, near-zero clicks in Sep-9
 
 ## 10. Changelog
 
+- **2026-09-23** — **A12 done:** Q3 GSC close from Sep-9 export (clicks 1,898 / impr 356,288 / CTR 0.53%); Metrics log row appended; Phase 4 §6.4 + todos `Q3-1`…`Q3-4` opened; A2/A3/A7/A10/A11 marked rolled-over. Next Act: **Q3-1** Leicester CTR pass.
 - **2026-09-16** — **A5 + A6 done:** HowTo / VideoObject schema on three qualifying posts only (install day, survey-to-install process, automated-blinds video); mobile phone-tap CTA after first blog H2. Next up: off-repo **A2** citation parity, or **A12** Q3 review.
 - **2026-09-09** — **A4 done:** `ItemList` JSON-LD on `/news/` — new `itemList()` builder; newest-first list of all posts (name + URL) with BreadcrumbList. Next up: off-repo **A2** citation parity, or **A12** Q3 review with a fresh GSC export.
 - **2026-09-03** — **A9 done:** topical "see also" on blog posts — `ArticleLayout` prefers same-category siblings via `blog-categories.ts`, then fills with newest elsewhere; heading `More in {category}`. Next up: **A4** ItemList on `/news/`, or off-repo **A2** citation parity.
@@ -448,6 +480,7 @@ Remaining 67 posts are listed at `src/content/blog/` (filenames are slugs verbat
 
 GSC exports live in `~/Downloads/` on the maintainer's machine and are **never committed** to the repository.
 
+- 2026-09-09 export (A12 Q3 close / Metrics log 2026-09-23): `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-09-09.xlsx` (Web · 2026-06-07 → 2026-09-06). Parsed 2026-09-09; **re-download before next brand/non-brand K1** if the local file is gone. Do **not** use other-domain exports (e.g. shutterlab.uk).
 - 2026-05-28 export (used to seed §3.5 and Appendix A): `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-05-28.xlsx`. Sheets present: Chart, Queries, Pages, Countries, Devices, Search appearance, Filters.
 - 2026-05-19 export (earlier reference): `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-05-19.xlsx`.
 

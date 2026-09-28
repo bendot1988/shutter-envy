@@ -67,6 +67,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'bedroom-shutters-uk-buyers-guide': 'guides',
   'cottage-window-shutters-uk-buyers-guide': 'guides',
   'conservatory-shutters-uk-buyers-guide': 'guides',
+  'tracked-shutters-bifold-patio-doors-uk-buyers-guide': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
