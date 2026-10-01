@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1455832146609053",
+  "createdTime": "2026-09-30T18:44:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1455832146609053",
+  "message": "New shutter installation in Radcliffe On Trent -  Boston shutters ( Hardwood). 76mm louvres, Pure white, split and hidden tilt with matching hinges. #shutterenvy",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-09-30",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1455832146609053/images/01.jpg"
+  ]
+}
