@@ -1,0 +1,30 @@
+{
+  "facebookPostId": "100956542094963_1457295473129387",
+  "createdTime": "2026-10-02T07:30:25+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1457295473129387",
+  "message": "Bifold doors are brilliant for light and garden access.\n\nThey're also one of the hardest things in the house to dress.\n\nCurtains bunch up. Vertical blinds rattle. And a normal hinged shutter would swing straight into the kitchen table.\n\nTracked shutters fix that. The panels hang from an overhead track, then:\n\n• Bifold tracks fold the panels back into a neat stack at the side, so the whole opening is clear\n\n• Bypass tracks slide the panels behind each other, which suits sliding patio doors and tighter rooms\n\nOur new guide covers how each one works, how much wall space the folded panels need, 2026 prices, and when a door-mounted blind is honestly the better call.\n\nhttps://shutter-envy.co.uk/tracked-shutters-bifold-patio-doors-uk-buyers-guide/\n\nThe photo is one of our recent tracked installs on a Leicestershire kitchen extension.\n\nBased in Melton Mowbray. Free home survey across Leicestershire.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 5
+  },
+  "suggested": {
+    "slug": "blinds-kitchen-in-melton-mowbray",
+    "location": "Melton Mowbray",
+    "locationTag": "melton-mowbray",
+    "datePublished": "2026-10-02",
+    "blogPath": "src/content/blog/blinds-kitchen-in-melton-mowbray.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1457295473129387/images/01.jpg"
+  ]
+}
