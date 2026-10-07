@@ -1,7 +1,7 @@
 ---
-title: "Window Shutters Leicester | 2026 Cost & Installation Guide"
-description: "Discover the real cost of shutters in Leicester. Our 2026 guide covers pricing factors, bay windows, material choices, and timelines for local homeowners."
-h1: "Shutters in Leicester: Real-World Price Factors, Timelines & What Your Quote Should Include (2026)"
+title: "Shutter Prices in Leicester 2026: Costs & Quote Checklist"
+description: "What shutters really cost in Leicester in 2026: price factors by window type, bay windows, materials, survey-to-fitting timelines and a quote checklist."
+h1: "Shutter Prices in Leicester (2026): Costs, Timelines & Quote Checklist"
 pubDate: 2026-05-07
 updatedDate: 2026-05-07
 heroImage: "/wp-content/uploads/2026/05/01-shutter-envy.jpeg"

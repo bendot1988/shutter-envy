@@ -1,7 +1,7 @@
 ---
-title: "Portchester® Aluminium Shutters in Leicester | Shutter Envy"
-description: "Secure your home with Portchester® aluminium shutters in Leicester, Loughborough and Leicestershire. Stylish, durable shutters measured and fitted by Shutter Envy."
-h1: "Portchester® Aluminium Shutters in Leicester and Leicestershire"
+title: "Portchester® Aluminium Shutters – Leicester | Shutter Envy"
+description: "Portchester® aluminium security shutters with the plantation look, measured and fitted by a certified partner across Leicester, Loughborough and Leicestershire."
+h1: "Portchester® Aluminium Shutters"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2025/02/S-CRAFT-Aluminium-Shutters-Kitchen-4-Satin-White-1024x681.jpg"
 cta:
   heading: "Ready for beautiful shutters and blinds?"

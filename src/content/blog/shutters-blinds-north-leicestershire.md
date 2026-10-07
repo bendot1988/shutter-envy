@@ -1,7 +1,7 @@
 ---
-title: "Bespoke Shutters & Blinds for Leicester & North Leicestershire"
-description: "Shutter Envy supplies and fits custom shutters and blinds across Leicester, Loughborough and local villages. Quality products, expert service, free survey."
-h1: "Transforming North Leicestershire Homes with Bespoke Shutters and Blinds"
+title: "North Leicestershire Shutters & Blinds | Quorn & Rothley"
+description: "Bespoke shutters and blinds for North Leicestershire villages — Quorn, Rothley, Barrow upon Soar, Anstey, Woodhouse Eaves and more. Book a free home survey."
+h1: "North Leicestershire Shutters and Blinds: Quorn, Rothley, Anstey and Beyond"
 pubDate: 2025-05-01
 updatedDate: 2025-05-09
 heroImage: "/wp-content/uploads/2025/05/shutter-envy-mark-supports-man-u-1.jpeg"
@@ -11,6 +11,8 @@ author: "Shutter Envy"
 ## Why Leicester Is the Heart of Our Business
 
 There’s something special about Leicester. Maybe it’s the proud history, the cobbled lanes, the King in the car park, or the way the city balances heritage with a fresh energy. But what we love most about being based just outside Leicester isn’t just the city—it’s the villages.
+
+Live in the city itself? Our dedicated page covers [shutters in Leicester](/locations/shutters-in-leicester/) — postcodes, local housing styles and how to book a free survey. This post is about the villages to the north.
 
 ## Beautiful Homes Deserve Beautiful Shutters
 

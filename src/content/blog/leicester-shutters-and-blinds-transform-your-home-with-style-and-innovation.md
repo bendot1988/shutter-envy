@@ -10,7 +10,7 @@ author: "Shutter Envy"
 ---
 When it comes to shutters, the choices are endless. Online retailers promise low prices and quick delivery, but is that really what you want for your home? At Shutter Envy, we believe there’s no substitute for local expertise, personal service, and professional installation.
 
-Here’s why choosing a local business like us is the better choice.
+Here’s why choosing a local business like us is the better choice. If you are in the city, our page on [window shutters in Leicester](/locations/shutters-in-leicester/) covers the postcodes we fit and how our free home survey works.
 
 
 

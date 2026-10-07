@@ -1,7 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-09-23 (A12 Q3 review closed; Phase 4 Days 90–180 backlog opened)
+- **Last updated:** 2026-09-28 (Q3-1 Leicester location CTR pass done)
 - **90-day window (Q2):** 2026-05-28 → 2026-08-26 — **closed via A12**
 - **Current window (Q3 / Days 90–180):** 2026-08-27 → 2026-11-25 — see §6.4 Phase 4
 - **Canonical site:** https://shutter-envy.co.uk/
@@ -272,13 +272,14 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ### Phase 4 — Days 90–180 (opened 2026-09-23)
 
-- [ ] **Q3-1 — Leicester location CTR pass.** status: pending · owner: _TBD_ · done: — · note: Sep-9 Pages: `/locations/shutters-in-leicester/` 992 impr / 0 clicks / pos ~47
+- [x] **Q3-1 — Leicester location CTR pass.** status: done · owner: Claude · done: 2026-09-28 · note: Sep-9 Pages: `/locations/shutters-in-leicester/` 992 impr / 0 clicks / pos ~47. Location title "Plantation Shutters in Leicester | Shutter Envy" → "Window Shutters in Leicester | Free Survey | Shutter Envy"; H1 → "Made-to-Measure Window Shutters in Leicester"; new meta; body adds Leicester housing types (LE2 terraces, 1930s semis, city-fringe new builds), bay/street-facing section, style links (café, full height / tier-on-tier, faux wood, aluminium, arched) and cost section (cost guide, bay cost guide, Leicester price checklist); 5 FAQs refreshed (FAQPage auto-syncs). De-cannibalised (title/meta/H1 only, **no URL change**): prices post → "Shutter Prices in Leicester 2026: Costs & Quote Checklist"; North Leics post → "North Leicestershire Shutters & Blinds | Quorn & Rothley"; Portchester → "Portchester® Aluminium Shutters – Leicester | Shutter Envy". New descriptive links into the location page from `/our-shutters/` intro ("shutters in Leicester"), Portchester specs intro ("window shutters in Leicester"), North Leics post ("shutters in Leicester"), local-business post ("window shutters in Leicester"); prices post already linked. Homepage links only via nav tile ("Leicester · Shutters in Leicester") — untouched. **Merge candidates for Mark (not actioned):** `/leicester-shutters-and-blinds-transform-your-home-with-style-and-innovation/` (Leicester slug, local-vs-online topic), `/shutters-blinds-north-leicestershire/` (thin village list, legacy `/our-shutters/` links), legacy `/window-blinds-vs-shutters-which-is-right-for-your-home/` → C7. Re-check Leicester impr/CTR/pos in the next GSC export (~4–6 weeks).
 - [ ] **Q3-2 — Commercial hub CTR / indexing reinforcement (C1–C4).** status: pending · owner: _TBD_ · done: — · note: hubs ~pos 28–50 with early impressions; no blanket title/meta rewrite
 - [ ] **Q3-3 — Selective high-impr blog snippet polish.** status: pending · owner: _TBD_ · done: — · note: desktop CTR 0.30%; cost guide still largest impr pool
 - [ ] **Q3-4 — Room-guide + editorial cadence continue.** status: pending · owner: _TBD_ · done: — · note: early room-guide impr, near-zero clicks in Sep-9
 
 ## 10. Changelog
 
+- **2026-09-28** — **Q3-1 done:** `/locations/shutters-in-leicester/` made the single target for "shutters (in) Leicester" / "window shutters Leicester" — new title/meta/H1, stronger local body, 5 refreshed FAQs; prices post, North Leics post and Portchester page retitled away from the head term (no URL changes); 4 new descriptive-anchor links into the location page. Merge candidates logged for Mark. Next Act: **Q3-2** hub reinforcement.
 - **2026-09-23** — **A12 done:** Q3 GSC close from Sep-9 export (clicks 1,898 / impr 356,288 / CTR 0.53%); Metrics log row appended; Phase 4 §6.4 + todos `Q3-1`…`Q3-4` opened; A2/A3/A7/A10/A11 marked rolled-over. Next Act: **Q3-1** Leicester CTR pass.
 - **2026-09-16** — **A5 + A6 done:** HowTo / VideoObject schema on three qualifying posts only (install day, survey-to-install process, automated-blinds video); mobile phone-tap CTA after first blog H2. Next up: off-repo **A2** citation parity, or **A12** Q3 review.
 - **2026-09-09** — **A4 done:** `ItemList` JSON-LD on `/news/` — new `itemList()` builder; newest-first list of all posts (name + URL) with BreadcrumbList. Next up: off-repo **A2** citation parity, or **A12** Q3 review with a fresh GSC export.
