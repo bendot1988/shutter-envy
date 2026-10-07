@@ -1,0 +1,31 @@
+{
+  "facebookPostId": "100956542094963_1461426429382958",
+  "createdTime": "2026-10-06T18:53:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1461426429382958",
+  "message": "New installation in Anstey - A beautifully shaped bespoke shutter, stunningly installed to complement the unique architecture of this elegant room.\n #shutterenvy #leicestershire #windowshutters #meltonmowbray #WindowTreatments #shutters #homedecor #interiors",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "single photo"
+    ],
+    "score": 7
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-10-06",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1461426429382958/images/01.jpg"
+  ]
+}
