@@ -1,0 +1,32 @@
+{
+  "facebookPostId": "100956542094963_1463119855880282",
+  "createdTime": "2026-10-08T17:12:04+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1463119855880282",
+  "message": "Shutter installation in Lowdham.\nSilk white shutters, 76mm louvres with silent tilt.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "town signal",
+      "album with 2 images"
+    ],
+    "score": 9
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-lowdham",
+    "location": "Lowdham",
+    "locationTag": "lowdham",
+    "datePublished": "2026-10-08",
+    "blogPath": "src/content/blog/shutter-installation-in-lowdham.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1463119855880282/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1463119855880282/images/02.jpg"
+  ]
+}
