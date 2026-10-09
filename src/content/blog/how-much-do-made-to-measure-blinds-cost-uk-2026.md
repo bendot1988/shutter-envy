@@ -1,7 +1,7 @@
 ---
-title: "How Much Do Made-to-Measure Blinds Cost? UK 2026 Guide"
-description: "Made-to-measure blinds typically cost £100–£300 per window fitted in the UK. Compare 2026 prices for roller, Venetian, honeycomb, duo and motorised blinds."
-h1: "How Much Do Made-to-Measure Blinds Cost in the UK?"
+title: "How Much Do Blinds Cost? UK Prices Per Window (2026)"
+description: "Blinds cost about £100–£300 per window fitted in the UK. Compare 2026 made-to-measure prices for roller, Venetian, honeycomb, duo and motorised blinds."
+h1: "How Much Do Blinds Cost in the UK? Made-to-Measure Prices Per Window"
 pubDate: 2026-07-15
 updatedDate: 2026-07-15
 heroImage: "/images/blog/made-to-measure-blinds-cost-uk-hero.jpg"
