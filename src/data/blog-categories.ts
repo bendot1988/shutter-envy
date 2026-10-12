@@ -88,6 +88,13 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'wood-vs-pvc-shutters-which-is-best-for-winter-warmth-in-loughborough-and-leicester-homes': 'guides',
 
   // ─── Recent projects (install stories & local showcases) ───
+  'bay-window-shutter-installation-in-whitwick': 'projects',
+  'bedroom-bay-shutter-installation-in-market-harborough': 'projects',
+  'oak-hardwood-landing-shutter-in-barwell': 'projects',
+  'solid-panel-landing-shutter-in-wymondham': 'projects',
+  'boston-shutter-installation-in-radcliffe-on-trent': 'projects',
+  'shaped-bathroom-shutter-in-anstey': 'projects',
+  'bay-window-shutter-installation-in-lowdham': 'projects',
   'bay-window-shutters-installed': 'projects',
   'bespoke-arched-window-shutters-shutter-envy-leicestershire': 'projects',
   'bypass-track-shutter-in-mountsorrel': 'projects',
