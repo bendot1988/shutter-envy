@@ -31,6 +31,10 @@ Two white shutter sets in the same room:
 
 ![White shaped plantation shutters on an arched window and dormer window seat in a Syston loft room](/wp-content/uploads/2026/09/shaped-shutter-installation-syston.jpg)
 
+With the arched panels opened back, the shutters frame the window and echo its curve — and reveal the homeowner's stained-glass design.
+
+![Arched white plantation shutters opened back to frame a stained-glass arched window in the Syston loft room](/wp-content/uploads/2026/09/syston-arched-shutters-stained-glass.jpg)
+
 Key details from this job:
 
 - **White plantation shutters** made to each opening

@@ -1,6 +1,6 @@
 ---
 title: "Bespoke Shaped Bathroom Shutter in Anstey | Shutter Envy"
-description: "See a recent shaped shutter installation in Anstey — a bespoke white shutter made to follow a pointed-top bathroom window, with louvres for privacy and light."
+description: "See a recent shaped shutter installation in Anstey — a bespoke white Montana hardwood shutter made to follow a pointed-top bathroom window above the bath."
 h1: "Shaped Bathroom Shutter Installation in Anstey"
 pubDate: 2026-10-06
 updatedDate: 2026-10-06
@@ -10,13 +10,13 @@ excerpt: "We recently fitted a bespoke shaped shutter in Anstey — made to foll
 author: "Shutter Envy"
 ---
 
-We recently completed a **shaped shutter installation in Anstey** — a bespoke white shutter made to follow the **pointed top** of a **bathroom window** above a freestanding bath.
+We recently completed a **shaped shutter installation in Anstey** — a bespoke white shutter from our **Montana hardwood range**, made to follow the **pointed top** of a **bathroom window** above a freestanding bath.
 
 ## The spec
 
 Shaped windows are where off-the-shelf coverings fall down. A blind would cut straight across the top and hide the shape; a curtain would cover it altogether. A **bespoke shaped shutter** is templated to the exact outline of the frame, so the angled top stays visible and the panel sits neatly inside the reveal.
 
-Louvres let the room stay private at bath height while still letting daylight in. Our [arched and shaped window shutters](/arched-window-shutters/) page covers how we template and make these.
+We used our **Montana** range — premium hardwood panels and frame, and one of the ranges we offer in special shapes. Louvres let the room stay private at bath height while still letting daylight in. Our [arched and shaped window shutters](/arched-window-shutters/) page covers how we template and make these, and you can compare ranges on [our shutters](/our-shutters/) page.
 
 ## The install
 
@@ -24,6 +24,7 @@ Louvres let the room stay private at bath height while still letting daylight in
 
 Key details from this job:
 
+- **Montana hardwood** range
 - **Bespoke shaped shutter** following a **pointed-top** window
 - Fitted in a **bathroom** above a freestanding bath
 - **White** finish to match the room

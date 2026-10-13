@@ -33,7 +33,7 @@ You can browse more finishes on our [colour swatches](/our-shutters/colour-swatc
 
 ## Wymondham and the Melton area
 
-We survey and fit across [Melton Mowbray](/locations/shutters-melton-mowbray/), [Leicester](/locations/shutters-in-leicester/), [Loughborough](/locations/shutters-in-loughborough/) and the surrounding villages. Browse more completed jobs on [Recent Work](/recent-work/).
+Wymondham is a village in the Melton borough, about 20 minutes from our base. We survey and fit across [Melton Mowbray](/locations/shutters-melton-mowbray/), [Leicester](/locations/shutters-in-leicester/), [Loughborough](/locations/shutters-in-loughborough/) and the surrounding villages. Browse more completed jobs on [Recent Work](/recent-work/).
 
 ## Thinking about solid panel shutters?
 
