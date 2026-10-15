@@ -1,0 +1,29 @@
+{
+  "facebookPostId": "100956542094963_1469307451928189",
+  "createdTime": "2026-10-15T09:28:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1469307451928189",
+  "message": "Warning ❗Distressing content - Customer complaint - \nI have a slight complaint regarding a product that was sold to me by your company. The black out Blind Screen is too good I cant get out of bed in the mornings. ( See response below ) 👇🏻\nBlind screen  #shutterenvy",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "single photo"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "blinds-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-10-15",
+    "blogPath": "src/content/blog/blinds-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1469307451928189/images/01.jpg"
+  ]
+}
