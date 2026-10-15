@@ -1,5 +1,6 @@
 ---
 title: "Minimalist? Traditional? Coastal? Shutters for Every Vibe - Shutter Envy"
+seoTitle: "Shutters for Every Style: Minimalist, Traditional, Coastal"
 description: "Whatever your home’s personality — sleek and modern, warm and classic, or relaxed and beachy — there’s a shutter style that fits like a glove. Let’s match"
 h1: "Minimalist? Traditional? Coastal? Shutters for Every Vibe"
 pubDate: 2025-07-21

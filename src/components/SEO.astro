@@ -10,8 +10,6 @@ interface Props {
   jsonLd?: object | object[];
 }
 
-import { normalizeTitle, normalizeDescription } from '../lib/seo';
-
 const { title, description, ogImage, ogType = 'website', jsonLd } = Astro.props;
 
 const site = Astro.site!.toString().replace(/\/$/, '');

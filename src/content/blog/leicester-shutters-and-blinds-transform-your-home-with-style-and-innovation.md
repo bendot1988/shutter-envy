@@ -1,5 +1,6 @@
 ---
 title: "Why Choose a Local Business Like Shutter Envy Over Big Online Retailers? - Shutter Envy"
+seoTitle: "Why Choose a Local Business Over Big Online Retailers?"
 description: "When it comes to shutters, the choices are endless. Online retailers promise low prices and quick delivery, but is that really what you want for your home? At"
 h1: "Why Choose a Local Business Like Shutter Envy Over Big Online Retailers?"
 pubDate: 2025-06-05

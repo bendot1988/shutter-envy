@@ -10,6 +10,8 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  // Overrides `title` for <title>, og:title and twitter:title only.
+  seoTitle?: string;
   description: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
@@ -30,6 +32,7 @@ interface Props {
 
 const {
   title,
+  seoTitle: seoTitleOverride,
   description,
   ogImage,
   ogType,
@@ -41,8 +44,8 @@ const {
   noindex = false,
 } = Astro.props;
 
-const seoTitle = normalizeTitle(title);
-const seoDescription = normalizeDescription(description);
+const seoTitle = normalizeTitle(seoTitleOverride ?? title, Astro.url.pathname);
+const seoDescription = normalizeDescription(description, Astro.url.pathname);
 
 // Single switch for staging: PUBLIC_NOINDEX=true blocks all indexing site-wide.
 const siteNoindex = import.meta.env.PUBLIC_NOINDEX === 'true';

@@ -1,5 +1,6 @@
 ---
 title: "Are Window Shutters Still in Style? Timeless Elegance in Loughborough & Leicester - Shutter Envy"
+seoTitle: "Are Window Shutters Still in Style? Loughborough & Leicester"
 description: "Discover why window shutters are still in style. Stylish, practical and timeless, Shutter Envy transforms homes across Loughborough, Leicester and Charnwood"
 h1: "Are Window Shutters Still in Style? Timeless Elegance in Loughborough & Leicester"
 pubDate: 2025-09-25

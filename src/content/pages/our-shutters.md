@@ -1,5 +1,6 @@
 ---
 title: "Plantation Shutters in Leicester, Loughborough & Leicestershire | Shutter Envy"
+seoTitle: "Plantation Shutters in Leicester & Loughborough | Shutter Envy"
 description: "Discover made-to-measure plantation shutters for homes across Leicester, Loughborough and Leicestershire. Expert measuring, design advice and professional fitting from Shutter Envy."
 h1: "Plantation Shutters in Leicester, Loughborough and Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/09/431555826_2629833587193609_4928996973115882659_n.jpg"

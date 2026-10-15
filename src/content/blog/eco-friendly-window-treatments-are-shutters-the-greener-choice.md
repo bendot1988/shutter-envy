@@ -1,5 +1,6 @@
 ---
 title: "Eco-Friendly Window Treatments: Are Shutters the Greener Choice? - Shutter Envy"
+seoTitle: "Eco-Friendly Window Treatments: Are Shutters Greener?"
 description: "Looking for sustainable ways to style your home? Shutters might be the eco-conscious upgrade you didn’t know you needed. Let’s explore how they compare to"
 h1: "Eco-Friendly Window Treatments: Are Shutters the Greener Choice?"
 pubDate: 2025-07-01

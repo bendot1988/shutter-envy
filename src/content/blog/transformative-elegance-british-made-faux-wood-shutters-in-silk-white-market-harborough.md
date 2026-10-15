@@ -1,5 +1,6 @@
 ---
 title: "Transformative Elegance: British-Made Faux Wood Shutters in Silk White, Market Harborough - Shutter Envy"
+seoTitle: "British-Made Faux Wood Shutters in Market Harborough"
 description: "Step inside this stunning Market Harborough home and prepare to fall in love. The living room has been completely reborn with our premium British-made faux"
 h1: "Transformative Elegance: British-Made Faux Wood Shutters in Silk White, Market Harborough"
 pubDate: 2025-11-26

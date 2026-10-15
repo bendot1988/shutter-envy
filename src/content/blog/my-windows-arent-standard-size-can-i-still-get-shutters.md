@@ -1,5 +1,6 @@
 ---
 title: "My Windows Aren’t Standard Size. Can I Still Get Shutters? - Shutter Envy"
+seoTitle: "My Windows Aren’t Standard Size. Can I Get Shutters?"
 description: "If you’ve ever tried measuring your own windows and ended up with a headache and a tape measure jammed behind a radiator, welcome to the club. Unusual window"
 h1: "My Windows Aren’t Standard Size. Can I Still Get Shutters?"
 pubDate: 2025-08-19

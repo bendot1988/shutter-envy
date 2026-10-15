@@ -1,5 +1,6 @@
 ---
 title: "Recent Shutter, Blind and Awning Installations in Leicestershire | Shutter Envy"
+seoTitle: "Recent Shutter, Blind & Awning Installs in Leicestershire"
 description: "Browse recent shutter, blind and awning installations completed by Shutter Envy across Leicester, Loughborough and Leicestershire."
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"

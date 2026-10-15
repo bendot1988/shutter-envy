@@ -1,5 +1,6 @@
 ---
 title: "Choosing Timeless Shutters as a Christmas Gift to Your Home - Shutter Envy"
+seoTitle: "Shutters as a Christmas Gift to Your Home"
 description: "Christmas brings thoughts of gifts that last. While toys and gadgets fade, why not give your home something enduring? Quality plantation shutters offer"
 h1: "Choosing Timeless Shutters as a Christmas Gift to Your Home"
 pubDate: 2025-12-17

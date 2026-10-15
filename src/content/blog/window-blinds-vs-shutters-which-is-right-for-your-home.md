@@ -1,5 +1,6 @@
 ---
 title: "Window Blinds vs Shutters: Which Is Right for Your Home? - Shutter Envy"
+seoTitle: "Window Blinds vs Shutters: Which Is Right for You?"
 description: "When choosing window coverings, it can be tricky deciding between blinds and shutters. Both offer style, privacy, and functionality, but each has its"
 h1: "Window Blinds vs Shutters: Which Is Right for Your Home?"
 pubDate: 2025-03-26

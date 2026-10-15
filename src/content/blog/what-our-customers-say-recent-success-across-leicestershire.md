@@ -1,5 +1,6 @@
 ---
 title: "What Our Customers Say: Recent Success Across Leicestershire - Shutter Envy"
+seoTitle: "What Our Customers Say Across Leicestershire"
 description: "At Shutter Envy, we believe our work speaks for itself, but nothing beats hearing directly from our clients. As a local, family-run business serving"
 h1: "What Our Customers Say: Recent Success Across Leicestershire"
 pubDate: 2026-03-26

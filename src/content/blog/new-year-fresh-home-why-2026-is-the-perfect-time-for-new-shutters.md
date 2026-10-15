@@ -1,5 +1,6 @@
 ---
 title: "New Year, Fresh Home – Why 2026 Is the Perfect Time for New Shutters - Shutter Envy"
+seoTitle: "Why 2026 Is the Perfect Time for New Shutters"
 description: "As we step into 2026, many of us feel the urge to start afresh. The Christmas decorations are down, the days are slowly lengthening, and spring feels just"
 h1: "New Year, Fresh Home – Why 2026 Is the Perfect Time for New Shutters"
 pubDate: 2026-01-06

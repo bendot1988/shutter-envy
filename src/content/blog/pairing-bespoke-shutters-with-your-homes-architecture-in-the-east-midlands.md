@@ -1,5 +1,6 @@
 ---
 title: "Pairing Bespoke Shutters with Your Home’s Architecture in the East Midlands | Shutter Envy"
+seoTitle: "Pairing Bespoke Shutters with East Midlands Architecture"
 description: "Learn how to match bespoke shutters to different property styles across the East Midlands, from period homes to modern new builds."
 h1: "Pairing Bespoke Shutters with Your Home’s Architecture in the East Midlands"
 pubDate: 2025-10-22

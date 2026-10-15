@@ -10,6 +10,7 @@ import {
 
 interface Props {
   title: string;
+  seoTitle?: string;
   description: string;
   h1: string;
   pubDate: Date;
@@ -22,7 +23,7 @@ interface Props {
   showHeroAtEnd?: boolean;
 }
 const {
-  title, description, h1, pubDate, updatedDate,
+  title, seoTitle, description, h1, pubDate, updatedDate,
   heroImage, heroImageAlt, author, jsonLd, readingTime = 4,
   showHeroAtEnd = false,
 } = Astro.props;
@@ -63,7 +64,7 @@ const seeAlsoHeading = categoryLabel
   ? `More in ${categoryLabel}`
   : 'More from the News';
 ---
-<BaseLayout {title} {description} ogImage={heroImage} ogType="article" {jsonLd}>
+<BaseLayout {title} {seoTitle} {description} ogImage={heroImage} ogType="article" {jsonLd}>
   {/* ─── HERO — cream band with featured image bg + heavy overlay ───── */}
   <section class="post-hero" style={heroImage ? `background-image: url('${heroImage}')` : undefined}>
     {heroImage && <div class="post-hero__overlay" aria-hidden="true"></div>}

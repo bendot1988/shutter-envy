@@ -1,5 +1,6 @@
 ---
 title: "What happens during a shutter installation? A look behind the scenes - Shutter Envy"
+seoTitle: "What Happens During a Shutter Installation?"
 description: "Not everyone loves surprises. Especially when it comes to tradespeople in the house. If you’ve booked your shutter installation with us, here’s exactly what"
 h1: "What happens during a shutter installation? A look behind the scenes"
 pubDate: 2025-08-19

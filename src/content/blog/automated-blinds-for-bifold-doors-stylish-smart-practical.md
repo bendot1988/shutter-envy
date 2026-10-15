@@ -1,5 +1,6 @@
 ---
 title: "Automated Blinds for Bifold Doors: Stylish, Smart & Practical - Shutter Envy"
+seoTitle: "Automated Blinds for Bifold Doors"
 description: "Bifold doors are a stunning feature in many modern homes, but finding the right window covering can be tricky. At Shutter Envy, we offer a perfect solution:"
 h1: "Automated Blinds for Bifold Doors: Stylish, Smart & Practical"
 pubDate: 2025-07-30

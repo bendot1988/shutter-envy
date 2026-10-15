@@ -1,5 +1,6 @@
 ---
 title: "Automated Blinds: The Smart Way to Add Comfort to Your Home - Shutter Envy"
+seoTitle: "Automated Blinds: The Smart Way to Add Comfort"
 description: "Life is busy. From juggling work and family to trying to find time to relax, the last thing anyone wants is to run around the house adjusting blinds all day."
 h1: "Automated Blinds: The Smart Way to Add Comfort to Your Home"
 pubDate: 2025-06-12

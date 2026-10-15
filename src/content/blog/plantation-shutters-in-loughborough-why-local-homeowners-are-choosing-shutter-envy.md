@@ -1,5 +1,6 @@
 ---
 title: "Plantation Shutters in Loughborough: Why Local Homeowners Are Choosing Shutter Envy"
+seoTitle: "Plantation Shutters in Loughborough: Why Locals Choose Us"
 description: "Plantation shutters in Loughborough are growing in popularity. Discover why local homeowners choose Shutter Envy for style, privacy and lasting value."
 h1: "Plantation Shutters in Loughborough: Why Local Homeowners Are Choosing Shutter Envy"
 pubDate: 2026-04-23

@@ -8,6 +8,7 @@ import { business } from '../data/site';
 
 interface Props {
   title: string;
+  seoTitle?: string;
   description: string;
   h1: string;
   eyebrow?: string;            // optional uppercase pill above the H1
@@ -28,6 +29,7 @@ interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   h1,
   eyebrow,
@@ -40,7 +42,7 @@ const {
   isHome,
 } = Astro.props;
 ---
-<BaseLayout {title} {description} {ogImage} {jsonLd} {isHome}>
+<BaseLayout {title} {seoTitle} {description} {ogImage} {jsonLd} {isHome}>
   {/* ─── Hero block — every standard page gets one ────────── */}
   <section class="page-hero" data-reveal>
     <div class="page-hero__inner">

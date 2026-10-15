@@ -1,5 +1,6 @@
 ---
 title: "Transform Your Home with Shutter Envy: Real Reviews, Real Results - Shutter Envy"
+seoTitle: "Real Reviews, Real Results | Shutter Envy"
 description: "At Shutter Envy Ltd., we believe your windows deserve the best. We’re a family-run business located at The Granary, Gaddesby Ln, Rotherby, Melton Mowbray LE14"
 h1: "Transform Your Home with Shutter Envy: Real Reviews, Real Results"
 pubDate: 2025-03-17

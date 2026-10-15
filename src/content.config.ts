@@ -8,6 +8,9 @@ import { glob } from 'astro/loaders';
 
 const seo = z.object({
   title: z.string(),
+  // Optional hand-written <title> for when `title` is too long or reads
+  // badly in search results. Never affects the visible H1 or cards.
+  seoTitle: z.string().optional(),
   description: z.string(),
   ogImage: z.string().optional(),
 });

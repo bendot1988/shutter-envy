@@ -1,5 +1,6 @@
 ---
 title: "DIY vs. Professional Shutter Installation: What's Right for You? - Shutter Envy"
+seoTitle: "DIY vs Professional Shutter Installation"
 description: "Hey Mark here from Shutter Envy, and I wanted to give you a rundown on a question we get asked a lot: DIY or professional shutter installation? Choosing the"
 h1: "DIY vs. Professional Shutter Installation: What’s Right for You?"
 pubDate: 2025-02-10

@@ -1,5 +1,6 @@
 ---
 title: "Don't Get Shutter-Struck: Your Essential Guide to Buying Shutters - Shutter Envy"
+seoTitle: "Don’t Get Shutter-Struck: Your Guide to Buying Shutters"
 description: "With over 15 years in the business, we've seen it all when it comes to shutters – the good, the bad, and the downright ugly. At Shutter Envy, we believe in"
 h1: "Don’t Get Shutter-Struck: Your Essential Guide to Buying Shutters"
 pubDate: 2025-10-01

@@ -1,44 +1,35 @@
-/** Clamp titles and meta descriptions to audit-friendly lengths at render time. */
+/**
+ * Normalise titles and meta descriptions at render time.
+ * Never clip: over-length values render in full and warn at build so they
+ * can be fixed at source (or given a hand-written `seoTitle`).
+ */
 
-const TITLE_MIN = 50;
 const TITLE_MAX = 60;
 const DESC_MIN = 150;
 const DESC_MAX = 160;
 
+const BRAND = 'Shutter Envy';
 const BRAND_SUFFIX = ' | Shutter Envy';
 const DESC_PAD =
   ' Free home survey across Leicester, Loughborough and Leicestershire.';
 
-function truncateAtWord(text: string, max: number): string {
-  if (text.length <= max) return text;
-  // Hyphen at the end of the class — unescaped mid-class it becomes a range.
-  let cut = text.slice(0, max - 1);
-  const lastSpace = cut.lastIndexOf(' ');
-  if (lastSpace > max - 30) cut = cut.slice(0, lastSpace);
-  cut = cut.replace(/[\s,.;:!–—-]+$/u, '').trimEnd();
-  if (!cut) return text.slice(0, max - 1).trimEnd() + '…';
-  return cut + '…';
+function warn(kind: string, path: string | undefined, value: string, max: number) {
+  console.warn(`[seo] ${kind} over ${max} chars (${value.length}) on ${path ?? '(unknown path)'}: "${value}"`);
 }
 
-export function normalizeTitle(raw: string): string {
+export function normalizeTitle(raw: string, path?: string): string {
   let title = raw.trim();
   if (!title) return 'Shutters & Blinds Leicester | Shutter Envy';
 
-  if (title.length < TITLE_MIN) {
-    if (!title.includes('Shutter Envy') && title.length + BRAND_SUFFIX.length <= TITLE_MAX) {
-      title += BRAND_SUFFIX;
-    }
-    for (const pad of [' Leicestershire', ' Shutters']) {
-      if (title.length >= TITLE_MIN) break;
-      if (title.length + pad.length <= TITLE_MAX) title += pad;
-    }
+  if (!title.includes(BRAND) && title.length + BRAND_SUFFIX.length <= TITLE_MAX) {
+    title += BRAND_SUFFIX;
   }
 
-  if (title.length > TITLE_MAX) title = truncateAtWord(title, TITLE_MAX);
+  if (title.length > TITLE_MAX) warn('Title', path, title, TITLE_MAX);
   return title;
 }
 
-export function normalizeDescription(raw: string): string {
+export function normalizeDescription(raw: string, path?: string): string {
   let desc = raw.trim();
   if (!desc) {
     desc =
@@ -47,11 +38,10 @@ export function normalizeDescription(raw: string): string {
 
   if (desc.length < DESC_MIN) {
     const padded = (desc + DESC_PAD).trim();
-    desc = padded.length <= DESC_MAX ? padded : desc;
+    if (padded.length <= DESC_MAX) desc = padded;
+    else if (!/[.!?…]$/u.test(desc)) desc += '.';
   }
 
-  if (desc.length > DESC_MAX) desc = truncateAtWord(desc, DESC_MAX);
-
-  if (desc.length < DESC_MIN && desc.length + 1 <= DESC_MAX) desc += '.';
+  if (desc.length > DESC_MAX) warn('Description', path, desc, DESC_MAX);
   return desc;
 }

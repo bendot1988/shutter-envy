@@ -1,5 +1,6 @@
 ---
 title: "Portchester Aluminium Shutters – The Ultimate Security & Style Solution for Your Home - Shutter Envy"
+seoTitle: "Portchester Aluminium Shutters: Security & Style"
 description: "Secure your home in style with Portchester aluminium shutters. Elegant, durable, and lockable—perfect for privacy, light control, and added security."
 h1: "Portchester Aluminium Shutters – The Ultimate Security & Style Solution for Your Home"
 pubDate: 2025-02-25

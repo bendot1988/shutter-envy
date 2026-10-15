@@ -1,5 +1,6 @@
 ---
 title: "The Benefits of Motorised Blinds: Convenience, Style, and Smart Home Integration - Shutter Envy"
+seoTitle: "The Benefits of Motorised Blinds"
 description: "Motorised blinds offer a perfect blend of practicality and sophistication, enhancing any home. The key advantage is convenience; with just a click of a"
 h1: "The Benefits of Motorised Blinds: Convenience, Style, and Smart Home Integration"
 pubDate: 2024-09-02

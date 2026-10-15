@@ -1,5 +1,6 @@
 ---
 title: "7 Signs It’s Time to Replace Your Old Blinds with Shutters - Shutter Envy"
+seoTitle: "7 Signs It’s Time to Replace Your Blinds with Shutters"
 description: "Blinds don’t last forever — especially in sunny rooms or high-traffic areas. If your blinds have slats that bend, refuse to sit straight, or have lost their"
 h1: "7 Signs It’s Time to Replace Your Old Blinds with Shutters"
 pubDate: 2025-06-27
