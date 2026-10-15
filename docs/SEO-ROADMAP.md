@@ -1,5 +1,7 @@
 # SEO Roadmap — Shutter Envy
 
+> **Internal only.** This file lives at `docs/SEO-ROADMAP.md` in the private repo. Never put it, or any audit, report or export, in `public/`: everything there is published on the live site. It was publicly readable at `/SEO-ROADMAP.md` until 15 October 2026; that URL now returns 410.
+
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
 - **Last updated:** 2026-10-08 (Q3-3a blinds cost guide snippet polish; Q3-1 date corrected)
 - **90-day window (Q2):** 2026-05-28 → 2026-08-26 — **closed via A12**

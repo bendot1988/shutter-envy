@@ -21,7 +21,6 @@ export const GET: APIRoute = ({ site }) => {
         'Disallow: /wp-admin/',
         'Allow: /wp-admin/admin-ajax.php',
         'Disallow: /wp-content/uploads/wpo/wpo-plugins-tables-list.json',
-        'Disallow: /SEO-ROADMAP.md',
         '',
         `Sitemap: ${origin}/sitemap-index.xml`,
         '',
