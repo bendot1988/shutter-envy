@@ -5,6 +5,12 @@ description: "Browse recent shutter, blind and awning installations completed by
 h1: "Recent Shutter, Blind and Awning Installations in Leicestershire"
 ogImage: "https://shutter-envy.co.uk/wp-content/uploads/2024/08/e0fee7_03210890ab994f92b0c0041f639aea66mv2.jpg"
 gallery:
+  - src: "/wp-content/uploads/2026/10/leicester-bedroom-shutters.jpg"
+    alt: "Bedroom shutter installation in Leicester — Pure White shutters with 76mm louvres, hidden and split tilt"
+    href: "/bedroom-shutter-installation-in-leicester/"
+  - src: "/wp-content/uploads/2026/10/kirby-muxloe-splay-bay-shutters.jpg"
+    alt: "Bay window shutter installation in Kirby Muxloe — white plantation shutters on a splay bay"
+    href: "/bay-window-shutter-installation-in-kirby-muxloe/"
   - src: "/wp-content/uploads/2026/10/lowdham-bay-shutters-after.jpg"
     alt: "Bay window shutter installation in Lowdham — Silk White shutters with 76mm louvres on a box bay"
     href: "/bay-window-shutter-installation-in-lowdham/"

@@ -70,6 +70,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'tracked-shutters-bifold-patio-doors-uk-buyers-guide': 'guides',
   'child-safe-blinds-and-shutters-uk-guide': 'guides',
   'shutter-louvre-sizes-uk-guide': 'guides',
+  'sash-window-shutters-uk-buyers-guide': 'guides',
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
@@ -88,6 +89,8 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'wood-vs-pvc-shutters-which-is-best-for-winter-warmth-in-loughborough-and-leicester-homes': 'guides',
 
   // ─── Recent projects (install stories & local showcases) ───
+  'bedroom-shutter-installation-in-leicester': 'projects',
+  'bay-window-shutter-installation-in-kirby-muxloe': 'projects',
   'bay-window-shutter-installation-in-whitwick': 'projects',
   'bedroom-bay-shutter-installation-in-market-harborough': 'projects',
   'oak-hardwood-landing-shutter-in-barwell': 'projects',
