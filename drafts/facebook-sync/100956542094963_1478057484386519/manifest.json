@@ -1,0 +1,32 @@
+{
+  "facebookPostId": "100956542094963_1478057484386519",
+  "createdTime": "2026-10-24T17:51:05+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1478057484386519",
+  "message": "New shutter installation in Houghton-On-The-Hill . Leicestershire.\nHardwood shutters, 76mm louvres, Pure white with silent tilt.",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "install signal: \\b(finished|fitted|install(?:ed|ation)?|done (today|in|at)|new install)\\b",
+      "install signal: \\b(shutters?|blinds?|awning|plantation|tier[\\s-]?on[\\s-]?tier|full[\\s-]?height|café|cafe[\\s-]?height|cafe style|bifold|bay window|french doors?)\\b",
+      "album with 3 images"
+    ],
+    "score": 7
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-10-24",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1478057484386519/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1478057484386519/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1478057484386519/images/03.jpg"
+  ]
+}
