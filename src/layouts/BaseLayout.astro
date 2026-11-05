@@ -104,25 +104,55 @@ const allJsonLd: object[] = [
         Respects prefers-reduced-motion. */}
     <script>
       (() => {
+        const selector = '[data-reveal], [data-reveal-children]';
+        const reveal = (el) => el.classList.add('is-revealed');
+
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           // CSS already handles the reduced-motion case
           return;
         }
         if (!('IntersectionObserver' in window)) {
-          document.querySelectorAll('[data-reveal], [data-reveal-children]')
-            .forEach((el) => el.classList.add('is-revealed'));
+          document.querySelectorAll(selector).forEach(reveal);
           return;
         }
+
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
+              reveal(entry.target);
               io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('[data-reveal], [data-reveal-children]')
-          .forEach((el) => io.observe(el));
+        }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+        document.querySelectorAll(selector).forEach((el) => io.observe(el));
+
+        // Jump-scrolls / full-page captures can skip IO callbacks for
+        // sections the user has already passed. Reveal anything that is
+        // currently in view or above the fold.
+        const revealPassed = () => {
+          const cutoff = window.innerHeight * 0.94;
+          document.querySelectorAll(`${selector}:not(.is-revealed)`).forEach((el) => {
+            if (el.getBoundingClientRect().top < cutoff) {
+              reveal(el);
+              io.unobserve(el);
+            }
+          });
+        };
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            ticking = false;
+            revealPassed();
+          });
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('load', revealPassed);
+        revealPassed();
       })();
     </script>
   </body>

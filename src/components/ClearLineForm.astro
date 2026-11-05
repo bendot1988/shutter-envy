@@ -52,6 +52,9 @@ const { showIntro = true, dataTrack } = Astro.props;
 <script is:inline>
   (() => {
     const SCRIPT_SRC = 'https://link.clearlineconnect.io/js/form_embed.js';
+    // Safety net: mid-page embeds must not stay empty if IO never fires
+    // (jump-scroll, full-page capture, or odd viewport).
+    const FALLBACK_MS = 4000;
 
     function loadClearLine() {
       if (window.__seClearLineLoaded) return;
@@ -81,6 +84,9 @@ const { showIntro = true, dataTrack } = Astro.props;
         setTimeout(loadClearLine, 1500);
       }
     };
+
+    // Always schedule a fallback so conversion embeds cannot stay blank.
+    setTimeout(loadClearLine, FALLBACK_MS);
 
     // If any form is already on screen (hero), still defer briefly for LCP.
     const visible = [...roots].some((el) => {
