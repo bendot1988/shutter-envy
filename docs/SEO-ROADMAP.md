@@ -3,7 +3,7 @@
 > **Internal only.** This file lives at `docs/SEO-ROADMAP.md` in the private repo. Never put it, or any audit, report or export, in `public/`: everything there is published on the live site. It was publicly readable at `/SEO-ROADMAP.md` until 15 October 2026; that URL now returns 410.
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-10-28 (style-hub readout; no title changes)
+- **Last updated: 2026-11-05 (Leicester + blinds Monitors recorded; Helpful content imported)
 - **90-day window (Q2):** 2026-05-28 → 2026-08-26 — **closed via A12**
 - **Current window (Q3 / Days 90–180):** 2026-08-27 → 2026-11-25 — see §6.4 Phase 4
 - **Canonical site:** https://shutter-envy.co.uk/
@@ -285,6 +285,9 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
 
 ## 10. Changelog
 
+- **2026-11-05** — **Helpful content check imported.** Mission Control run score **60/100** (5 Nov 2026, 12:36). 12 pages reviewed; UI counts **1** Helpful / **9** Needs work / **2** Not helpful (`/`, `/our-blinds/`). Site-wide: thin content on 7 pages; long sentences on 2. Full findings in **Appendix D**. Proposed HC1–HC5 backlog only — not recorded as decisions. Style hubs, Leicester and blinds cost guide were not in this sample. Evidence: Downloads `envy-pages.html`, `envy-sitewide.html` (not committed).
+- **2026-11-05** — Leicester + blinds cost readout (export `https___shutter-envy.co.uk_-Performance-on-Search-2026-11-05.xlsx`, Web, last 28 days vs previous 28; not committed). UK clicks **646** vs 596; UK impressions **129,760** vs 114,712; UK position **10.8** vs 10.8. **Leicester (Q3-1):** `/locations/shutters-in-leicester/` still **0** clicks, 217 vs 265 impressions, position **44** vs 41.2 — not yet the top URL and not inside position 20. Query `shutters leicester` **0** clicks, 91 vs 172 impressions, position **12.1** vs 18.3 (site-level position improved; location page still weak). Prices checklist post 0 clicks, 373 vs 725 impressions, position 11.6 vs 18.1. **Proposed Monitor (review 25 Nov) with the style hubs — not recorded.** Do not rewrite the Leicester title before then. Mark's merge of the three older posts is still open. **Blinds cost guide (Q3-3):** `/how-much-do-made-to-measure-blinds-cost-uk-2026/` **29** vs 33 clicks, 11,545 vs 9,448 impressions, position **7.0** vs 6.6, CTR ~0.25% vs ~0.35% (still below the 0.7% stretch target). Position held (well inside the >2 drop rule); do not revert the title. **Proposed Monitor (review 3 Dec) — not recorded.** Style hubs stay on Monitor to **25 Nov** (already recorded 28 Oct). Tracked bifold guide **55** vs 7 clicks. **Leads (ClearLine sheet snapshot uploaded 30 Oct, counts only; not a Monitor CSV):** 8 Oct–29 Oct, excluding 1 test and repeat rows: **22** unique enquiries — 15 Direct traffic, 5 Organic Search, 1 Social, 1 Referral (sources: ~13 Direct, 4 Google, 2 ChatGPT, 1 Facebook, 1 Other search, 1 Bing). Most landed on `/contact/` or `/`. Snapshot has no Nov 1–5 rows.
+
 - **2026-10-28** — Hub readout (export `https___shutter-envy.co.uk_-Performance-on-Search-2026-10-28.xlsx`, Web, last 28 days vs previous 28). UK clicks **646** (was 621), impressions **125,435** (was 120,734), position **10.6** (was 10.8). The four hubs are still not the pages Google shows for the main searches, and none are inside the top 15, so titles stay as they are (the 15 Oct un-clip was a bug fix, not a wording change). Café hub 0 clicks, 217 impressions, position 32.1 (was 37.1). Faux wood 0 clicks, 937 impressions, position 27.1 (was 26.1). Arched 2 clicks (was 3), position 19.5. Aluminium 2 clicks, 706 impressions (was 368), position **23.9** (was 10.2). The older posts still hold `cafe style shutters` (position 10.8, 1 click) and `faux wood shutters` (position 12.6, 1 click). Tracked bifold guide 50 clicks and the conservatory guide 14 clicks. **Monitor recorded** (review 25 Nov) on the style hubs. Do not rewrite the hub titles. Leicester stays 4 Nov (page position 50.2, was 37.5, 0 clicks). Blinds cost guide stays 5 Nov: 28 clicks (was 40), CTR 0.26% (was 0.39%), position 6.8 (was 6.7) — position held, clicks down; do not revert the title before 5 Nov. No leads export. Mark's merge of the three older posts is still open.
 - **2026-10-22** — **Light check** (GSC export 22 Oct, last 28 days vs previous 28; no site change). Clicks 650 vs 711, impressions 151,396 vs 162,614; clicks on non-brand searches flat. The four style hubs still earn about 1 click each (aluminium hub impressions 11 → 933 at position 17.6; faux wood 843 at 26.6; arched 620 at 19.3; café 178 at 30.9). Growth comes from two newer posts: the tracked bifold shutters guide (0 → 36 clicks, 3,479 impressions) and the conservatory shutters guide (0 → 10). Only about 4 days of data since the 15 Oct title fix, so no CTR read yet. Review dates unchanged: hubs 28 Oct, Leicester 4 Nov, blinds cost guide 5 Nov. Logged retrospectively: 20 Oct (`f950cce`) sash window buyer's guide and two October install case studies.
 - **2026-10-15** — **Q3-5 done:** titles and descriptions no longer clipped with "…" (50 of 158 pages affected since 19 Aug, `2cba188`). `normalizeTitle()` / `normalizeDescription()` output in full and warn at build when over 60 / 160 chars; filler title padding removed; optional `seoTitle` frontmatter added and used on 23 pages with titles > 70 chars. Review-locked pages (4 hubs, Leicester location, blinds cost guide) not reworded — hubs only lose the "…". Note for the 28 Oct hub readout: hub titles un-clipped 15 Oct (bug fix, wording unchanged).
@@ -497,3 +500,53 @@ GSC exports live in `~/Downloads/` on the maintainer's machine and are **never c
 - 2026-05-19 export (earlier reference): `~/Downloads/https___shutter-envy.co.uk_-Performance-on-Search-2026-05-19.xlsx`.
 
 Future monthly exports follow the same naming pattern. When refreshing K1 in the Metrics log, drop the new file into `~/Downloads/`, run the analysis, and append a new dated row.
+
+## Appendix D — Helpful content check (2026-11-05)
+
+Imported from Mission Control Helpful content for Shutter Envy. Overall score **60 /100** (Score · 5 Nov 2026, 12:36). Pages reviewed: **12** (1 blog-like). UI verdicts: **1** Helpful · **9** Needs work · **2** Not helpful. AI reviews: on.
+
+Finding titles and Fix lines come from the run. The **AI fix prompt** button text is not stored in the saved HTML. Evidence (Downloads, not committed): `envy-pages.html`, `envy-sitewide.html`.
+
+**Not in this sample:** style hubs (café / faux wood / arched / aluminium), `/locations/shutters-in-leicester/`, or the blinds cost guide — those stay on their recorded Monitors (**25 Nov** hubs + Leicester; **3 Dec** blinds).
+
+### Site-wide patterns (2)
+
+- **Medium — Thin content** (7 pages): Add more useful detail: what the service includes, who it is for, prices or price ranges, process, area covered, and FAQs.
+- **Low — Long sentences** (2 pages): Aim for 15 to 20 words a sentence so it reads easily on a phone.
+
+### Site-wide themes (from per-page High/Medium findings)
+
+1. **Homepage is too thin** — `/` scored Not helpful (~48 words); needs clear offer, coverage, proof and CTA without fighting the commercial posts that already earn clicks.
+2. **Product/hub shells are light** — `/our-blinds/`, `/news/`, `/locations/`, `/recent-work/` and `/site-map/` need more who-for / what-you-get detail or should lean harder into linking out to deep guides.
+3. **Stronger service pages exist** — BlindScreen and awnings Need work but have real length; `/brand/` scored Helpful (treat cautiously given short extract).
+4. **Reviews and contact are mid** — usable length, still room for clearer next steps and first-hand proof.
+
+### Pages reviewed
+
+| Score | Path | Words | Verdict | Top High fixes |
+|------:|------|------:|---------|----------------|
+| 33 | `/` | 48 | Not helpful | Main content covers only shutters, not blinds or awnings — Add short sections for blinds and awnings to match the title. Each should have two or three sentences and a link to its page, so t; No first-hand experience or local proof — Add real fitted jobs in Leicester and nearby towns, with photos, room types and named areas. Include two or three customer reviews; No information on who runs the business or why to trust them — Add a short 'About us' block. Cover the owner's name, years fitting shutters, whether they are local and independent, warranties o |
+| 38 | `/news/` | 56 | Needs work | Main content is almost empty for a news hub — List every recent article with a title, a one-line summary, the date and the category, so visitors can scan the full archive on th; Featured post dated 2 November 2026 looks wrong — Check the publish date. If it is a typo or a future date, correct it, because a wrong date undermines trust and freshness signals |
+| 41 | `/our-blinds/` | 83 | Not helpful | Page promises a full blinds range but shows only roller blinds — Add a short section for each blind type sold (vertical, Venetian, Roman, pleated, Perfect Fit, day and night). For each, give what; No pricing or cost guidance — Add typical price ranges, for example 'roller blinds from £X per window, motorised from £Y'. Explain what affects cost and say tha; No first-hand proof of local work — Add captioned photos of real installs with the town named (e.g. 'Motorised blackout rollers, Market Harborough kitchen'), plus two |
+| 57 | `/recent-work/` | 161 | Needs work | Photos lack captions or project details — Add a short caption to each project: town, room, window type, product (e.g. full-height tier-on-tier shutters), material, colour a; Real detail pushed off to the News page — Group the photos into project cards with a two- or three-line summary on this page, and link each card to its News write-up. Visit |
+| 58 | `/about/` | 544 | Needs work | Stat counters show 0+ Happy Customers, 0+ 5-Star Reviews and 0 Years — Fix the counter script so the real numbers show in the HTML without JavaScript, e.g. '15+ years', 'X happy customers', 'X five-sta; No proof or first-hand evidence — Add two or three short case studies with real photos of Loughborough-area installs (e.g. 'Tier-on-tier shutters for a Victorian te |
+| 60 | `/locations/` | 121 | Needs work | No clear service radius or boundary — Add one plain sentence such as 'We cover roughly 30 miles from Melton Mowbray, including Rutland, south Nottinghamshire and east D |
+| 66 | `/reviews/` | 677 | Needs work | Review snippets are cut to a single vague line — Show two or three sentences of each review in full, especially ones that mention the room, shutter type, timescale or town. For ex |
+| 67 | `/site-map/` | 113 | Needs work | — |
+| 69 | `/awnings/` | 730 | Needs work | Six benefit headings have no supporting text — Add two or three sentences under each heading. Examples: what sizes you can make, the fabric brands you use, how the Somfy wind se; No price guidance — Add a 'How much does an awning cost?' section. Give typical fitted price ranges for each model at common widths, say what changes  |
+| 71 | `/contact/` | 435 | Needs work | Quote form may not load, and the fallback is weak — Make sure the form renders without a 'Click here' fallback. If a fallback is needed, link straight to a working form page or a mai |
+| 73 | `/blindscreen/` | 1364 | Needs work | No price guidance at all — Add typical price ranges, e.g. 'a standard bedroom window usually costs £X–£Y and a 3-panel bifold £X–£Y'. Use real recent jobs an; Energy claims are inconsistent and weakly sourced — The FAQ says 'independently proven' but the table says 'industry sources including the BBSA'. Name the actual test or report, link |
+| 92 | `/brand/` | 29 | Helpful | No findings listed |
+
+### Proposed backlog (not started — decide; do not treat as recorded decisions)
+
+| ID | Action | Priority |
+|----|--------|----------|
+| HC1 | Homepage: short commercial block — who for, what you fit, area, trust line, survey CTA (do not dilute ranking cost/guide posts) | High |
+| HC2 | `/our-blinds/` — real product paths, price guidance links, and when blinds beat shutters | High |
+| HC3 | `/news/` and `/recent-work/` indexes — stronger intros + distinctive card copy (not empty shells) | Medium |
+| HC4 | `/locations/` index — coverage summary and clear path into Leicester / Harborough / Derby pages | Medium |
+| HC5 | `/about/` — named people, years trading, and two proof jobs (photos) | Medium |
+
+**Hold:** no title rewrites on style hubs, Leicester location, or blinds cost guide before their Monitor dates. Mark's three-post merge decision is still open and separate from HC1–HC5.
+

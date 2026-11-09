@@ -32,6 +32,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'blindscreen-vs-shutter-louvres-blackout-demo': 'blinds',
   'how-much-do-made-to-measure-blinds-cost-uk-2026': 'blinds',
   'honeycomb-blinds-uk-buyers-guide': 'blinds',
+  'venetian-blinds-uk-buyers-guide': 'blinds',
   'motorised-blinds-a-smarter-way-to-control-your-home': 'blinds',
   'the-benefits-of-motorised-blinds-convenience-style-and-smart-home-integration': 'blinds',
 
