@@ -137,6 +137,7 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'new-website-for-shutter-envy': 'news',
   'new-year-fresh-home-why-2026-is-the-perfect-time-for-new-shutters': 'news',
   'shutter-envy-named-blind-shutter-specialists-of-the-year-for-third-year-running': 'news',
+  'shutter-envy-wins-2027-award-of-excellence': 'news',
   'shutter-envy-wins-2026-award-of-excellence': 'news',
   'shutter-envy-wins-prestigious-award-of-excellence-2025': 'news',
   'bbsa-accredited-specialist-shutter-envy': 'news',

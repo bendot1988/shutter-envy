@@ -33,7 +33,13 @@ const words = heading.trim().split(/\s+/);
 const last = words.pop() ?? '';
 const lead = words.join(' ');
 
-const awardYears = ['2023', '2024', '2025', '2026'];
+const altFor = (src: string, index: number) => {
+  if (src.includes('e2-award-of-excellence-2027')) {
+    return 'E2 Award of Excellence Official Winner 2027';
+  }
+  const year = src.match(/(\d{4})\.png$/)?.[1] ?? ['2023', '2024', '2025', '2026'][index] ?? '';
+  return year ? `IE 100 Awards Winner ${year}` : 'Award winner badge';
+};
 ---
 <section class="awards-cta">
   <div class="awards-cta__box" data-reveal="scale">
@@ -79,7 +85,7 @@ const awardYears = ['2023', '2024', '2025', '2026'];
             {awardImages.map((src, i) => (
               <li class="awards-cta__badge" style={`--i: ${i};`}>
                 <div class="awards-cta__badge-frame">
-                  <img src={src} alt={`IE 100 Awards Winner ${awardYears[i] ?? ''}`} loading="lazy" />
+                  <img src={src} alt={altFor(src, i)} loading="lazy" />
                 </div>
               </li>
             ))}
@@ -251,7 +257,9 @@ const awardYears = ['2023', '2024', '2025', '2026'];
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.65rem 0.75rem;
+    max-width: 40rem;
+    margin-inline: auto;
   }
   .awards-cta__badge {
     margin: 0;
@@ -284,9 +292,19 @@ const awardYears = ['2023', '2024', '2025', '2026'];
   }
   .awards-cta__badge-frame img {
     display: block;
-    height: clamp(6.5rem, 16vw, 8.5rem);
+    height: clamp(5.25rem, 14vw, 7.75rem);
     width: auto;
-    max-width: 100%;
+    max-width: min(28vw, 7.75rem);
+    object-fit: contain;
+  }
+  @media (max-width: 479px) {
+    .awards-cta__badge-frame {
+      padding: 0.25rem;
+    }
+    .awards-cta__badge-frame img {
+      height: clamp(4.5rem, 20vw, 6rem);
+      max-width: min(38vw, 6rem);
+    }
   }
 
   /* Caption with decorative rules */

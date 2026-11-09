@@ -13,7 +13,7 @@ const bbsaPostHref = '/bbsa-accredited-specialist-shutter-envy/';
     <div class="trust-strip__row">
       {awardBadges.map((badge) => (
         <div class="trust-strip__badge">
-          <img src={badge.src} alt={`IE 100 Awards Winner ${badge.year}`} loading="lazy" />
+          <img src={badge.src} alt={badge.alt ?? `IE 100 Awards Winner ${badge.year}`} loading="lazy" />
         </div>
       ))}
       <a href={social.googleMaps} target="_blank" rel="noopener" class="trust-strip__chip" data-track={TRACK.footerGoogleReviews}>
@@ -209,12 +209,21 @@ const bbsaPostHref = '/bbsa-accredited-specialist-shutter-envy/';
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem 2rem;
+    gap: 1rem 1.5rem;
   }
   .trust-strip__badge img {
-    height: clamp(5.5rem, 14vw, 7rem);
+    height: clamp(4.75rem, 12vw, 6.5rem);
     width: auto;
+    max-width: min(28vw, 6.5rem);
+    object-fit: contain;
     transition: transform 200ms;
+  }
+  @media (max-width: 479px) {
+    .trust-strip__row { gap: 0.75rem 1rem; }
+    .trust-strip__badge img {
+      height: clamp(4.25rem, 20vw, 5.5rem);
+      max-width: min(38vw, 5.5rem);
+    }
   }
   .trust-strip__badge:hover img { transform: translateY(-2px); }
 

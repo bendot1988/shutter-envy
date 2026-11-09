@@ -15,12 +15,13 @@ heroAwardImages:
   - "/images/awards/ie100-winner-2024.png"
   - "/images/awards/ie100-winner-2025.png"
   - "/images/awards/ie100-winner-2026.png"
+  - "/images/awards/e2-award-of-excellence-2027.png"
 featureChecklist:
   heading: "Blinds, Shutters and Awnings"
   body: "Transform your home with our award-winning blinds, shutters, and awnings. Designed for elegance and functionality, our products offer the perfect balance of style and practicality, ensuring your space remains comfortable and beautiful."
   items:
-    - heading: "IE 100 Awards Winner 2023–2026"
-      body: "Recognised internationally for excellence in blinds and shutters."
+    - heading: "Award-Winning Specialists"
+      body: "IE 100 Awards Winner 2023–2026 and E2 Award of Excellence 2027."
     - heading: "5-Star Rated on Google"
       body: "Trusted by hundreds of satisfied customers for exceptional service and quality."
     - heading: "Premium Quality Materials"
@@ -90,7 +91,8 @@ awardsCTA:
     - "/images/awards/ie100-winner-2024.png"
     - "/images/awards/ie100-winner-2025.png"
     - "/images/awards/ie100-winner-2026.png"
-  awardsCaption: "Blind and Shutter Specialists of the Year"
+    - "/images/awards/e2-award-of-excellence-2027.png"
+  awardsCaption: "Award-winning shutters, blinds and awnings"
   ctaNote: "Get started today with a no-obligation, personalised consultation."
   cta:
     label: "Arrange a Home Visit"
@@ -105,7 +107,7 @@ team:
 faqsIntro: "At Shutter Envy, we offer premium shutters and blinds, personalised service, and high-quality products. With over 14 years of experience, we can help you find the perfect fit for your home."
 trustStrip:
   - { icon: "star", label: "<strong>5.0</strong> · Google Reviews" }
-  - { icon: "award", label: "IE 100 Award Winner <strong>2023–2026</strong>" }
+  - { icon: "award", label: "Award Winner <strong>2023–2027</strong>" }
   - { icon: "home", label: "<strong>600+</strong> homes transformed" }
   - { icon: "check", label: "Family-run, fully guaranteed" }
 reviewsRow:

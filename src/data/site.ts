@@ -32,10 +32,15 @@ export const business = {
 
 /** IE100 Awards winner badges — Blind & Shutter Specialists of the Year (Leicestershire). */
 export const ie100AwardBadges = [
-  { year: '2023', src: '/images/awards/ie100-winner-2023.png' },
-  { year: '2024', src: '/images/awards/ie100-winner-2024.png' },
-  { year: '2025', src: '/images/awards/ie100-winner-2025.png' },
-  { year: '2026', src: '/images/awards/ie100-winner-2026.png' },
+  { year: '2023', src: '/images/awards/ie100-winner-2023.png', alt: 'IE 100 Awards Winner 2023' },
+  { year: '2024', src: '/images/awards/ie100-winner-2024.png', alt: 'IE 100 Awards Winner 2024' },
+  { year: '2025', src: '/images/awards/ie100-winner-2025.png', alt: 'IE 100 Awards Winner 2025' },
+  { year: '2026', src: '/images/awards/ie100-winner-2026.png', alt: 'IE 100 Awards Winner 2026' },
+  {
+    year: '2027',
+    src: '/images/awards/e2-award-of-excellence-2027.png',
+    alt: 'E2 Award of Excellence Official Winner 2027',
+  },
 ] as const;
 
 export const social = {
