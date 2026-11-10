@@ -1,0 +1,32 @@
+{
+  "facebookPostId": "100956542094963_1492997459559188",
+  "createdTime": "2026-11-08T19:34:03+0000",
+  "permalinkUrl": "https://www.facebook.com/1409150384610563/posts/1492997459559188",
+  "message": "A lovely evening spent networking, connecting and making memories with the family (our amazing staff). Such a pleasure sharing the evening together, building relationships and celebrating the wonderful team behind everything we do. ❤️ #shutterenvy",
+  "classification": {
+    "verdict": "candidate",
+    "reasons": [
+      "album with 5 images"
+    ],
+    "score": 3
+  },
+  "suggested": {
+    "slug": "shutter-installation-in-leicestershire",
+    "location": null,
+    "locationTag": null,
+    "datePublished": "2026-11-08",
+    "blogPath": "src/content/blog/shutter-installation-in-leicestershire.md",
+    "publishChecklist": [
+      "blog markdown",
+      "blog-categories.ts projects map",
+      "recent-work.md gallery tile"
+    ]
+  },
+  "images": [
+    "drafts/facebook-sync/100956542094963_1492997459559188/images/01.jpg",
+    "drafts/facebook-sync/100956542094963_1492997459559188/images/02.jpg",
+    "drafts/facebook-sync/100956542094963_1492997459559188/images/03.jpg",
+    "drafts/facebook-sync/100956542094963_1492997459559188/images/04.jpg",
+    "drafts/facebook-sync/100956542094963_1492997459559188/images/05.jpg"
+  ]
+}
