@@ -165,6 +165,44 @@ midPageCta:
     label: "Call 07729 572277"
     href: "tel:+447729572277"
   tone: "gold"
+intro:
+  heading: "Made-to-Measure Shutters, Blinds and Awnings for Leicestershire Homes"
+  lead: "Shutter Envy is a <strong>family-run business in Melton Mowbray</strong>. We supply and fit made-to-measure shutters, blinds and awnings across Leicester and Leicestershire."
+  cards:
+    - title: "What we fit"
+      links:
+        - { label: "Plantation shutters", href: "/our-shutters/" }
+        - { label: "Café-style", href: "/cafe-style-shutters/" }
+        - { label: "Aluminium shutters", href: "/aluminium-plantation-shutters/" }
+        - { label: "Blinds", href: "/our-blinds/" }
+        - { label: "BlindScreen®", href: "/blindscreen/" }
+        - { label: "Motorised blinds", href: "/blind-motorisation/" }
+        - { label: "Awnings", href: "/awnings/" }
+    - title: "How it works"
+      steps:
+        - "Free home survey: Mark brings samples, measures up and quotes on the day."
+        - "Made to your exact measurements. Fitting usually follows in 10 to 12 weeks."
+        - "Fitted by our team, with a 5-year warranty on shutters."
+    - title: "Where we work"
+      links:
+        - { label: "Leicester", href: "/locations/shutters-in-leicester/" }
+        - { label: "Loughborough", href: "/locations/shutters-in-loughborough/" }
+        - { label: "Melton Mowbray", href: "/locations/shutters-melton-mowbray/" }
+        - { label: "Market Harborough", href: "/locations/shutters-market-harborough/" }
+        - { label: "Charnwood", href: "/locations/shutters-in-charnwood/" }
+        - { label: "Derby", href: "/locations/shutters-derby/" }
+        - { label: "All areas", href: "/locations/" }
+    - title: "Prices and proof"
+      text: "Want a feel for cost first? Read the guides, then see our work."
+      links:
+        - { label: "Shutter cost guide", href: "/how-much-do-plantation-shutters-cost-a-complete-uk-price-guide/" }
+        - { label: "Blinds cost guide", href: "/how-much-do-made-to-measure-blinds-cost-uk-2026/" }
+        - { label: "Recent installations", href: "/recent-work/" }
+        - { label: "Customer reviews", href: "/reviews/" }
+  cta:
+    label: "Arrange a Home Visit"
+    href: "/contact/"
+  ctaNote: "Free survey. No obligation. Call Mark on 07729 572277."
 transformCTA:
   image: "/wp-content/uploads/2026/04/ChatGPT-Image-Apr-23-2026-04_37_13-PM.jpeg"
   heading: "Transform Your Home Today with Shutter Envy"

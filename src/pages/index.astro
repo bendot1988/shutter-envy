@@ -3,6 +3,7 @@ import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeHero from '../components/home/HomeHero.astro';
 import AwardsBand from '../components/home/AwardsBand.astro';
+import HomeIntro from '../components/home/HomeIntro.astro';
 import FeatureChecklist from '../components/home/FeatureChecklist.astro';
 import StatsRow from '../components/home/StatsRow.astro';
 import ReviewsRow from '../components/home/ReviewsRow.astro';
@@ -56,6 +57,9 @@ const sectionBg = '/images/mark-shutter-envy-van.png';
   {entry.data.heroAwardImages.length > 0 && (
     <AwardsBand images={entry.data.heroAwardImages} />
   )}
+
+  {/* HC1 — plain-text commercial intro: who it's for, what we fit, where, trust, CTA */}
+  {entry.data.intro && <HomeIntro {...entry.data.intro} />}
 
   {/* FEATURE CHECKLIST — shutter image bg with cream overlay */}
   {entry.data.featureChecklist && (

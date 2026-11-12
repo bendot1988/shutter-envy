@@ -1,0 +1,203 @@
+---
+interface Card {
+  title: string;
+  text?: string;
+  steps: string[];
+  links: { label: string; href: string }[];
+}
+interface Props {
+  heading: string;
+  lead: string;
+  cards: Card[];
+  cta?: { label: string; href: string };
+  ctaNote?: string;
+}
+const { heading, lead, cards, cta, ctaNote } = Astro.props;
+---
+<section class="home-intro">
+  <div class="home-intro__inner container">
+    <header class="home-intro__head">
+      <h2>{heading}</h2>
+      <p class="home-intro__lead" set:html={lead} />
+    </header>
+
+    <div class="home-intro__grid">
+      {cards.map((c) => (
+        <article class="home-intro__card">
+          <h3>{c.title}</h3>
+          {c.text && <p>{c.text}</p>}
+          {c.steps.length > 0 && (
+            <ol class="home-intro__steps">
+              {c.steps.map((s) => <li>{s}</li>)}
+            </ol>
+          )}
+          {c.links.length > 0 && (
+            <ul class="home-intro__chips">
+              {c.links.map((l) => (
+                <li><a href={l.href}>{l.label}</a></li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+
+    {(cta || ctaNote) && (
+      <div class="home-intro__cta">
+        {cta && <a href={cta.href} class="button-pill">{cta.label} <span aria-hidden="true">→</span></a>}
+        {ctaNote && <p class="home-intro__note">{ctaNote}</p>}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .home-intro {
+    background: #fff;
+    padding: 4rem 1.25rem 3.5rem;
+  }
+  .home-intro__inner { max-width: 70rem; }
+  .home-intro__head { text-align: center; margin-bottom: 2.25rem; }
+  .home-intro h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 auto 1rem;
+    max-width: 42rem;
+  }
+  .home-intro__lead {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.7;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  .home-intro__lead :global(strong) { color: var(--color-ink); font-weight: 600; }
+
+  .home-intro__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 720px) {
+    .home-intro__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .home-intro__card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.5rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 200ms, box-shadow 200ms;
+  }
+  .home-intro__card:hover {
+    border-color: var(--color-gold-400);
+    box-shadow: var(--shadow-md);
+  }
+  .home-intro__card h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+    margin: 0 0 0.6rem;
+  }
+  .home-intro__card p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.7;
+    margin: 0 0 0.9rem;
+  }
+
+  /* Steps — numbered gold dots */
+  .home-intro__steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0 0 0.25rem;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .home-intro__steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 1.75rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .home-intro__steps li::before {
+    content: counter(step);
+    display: grid;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--color-gold-400);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  /* Link chips */
+  .home-intro__chips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .home-intro__chips li { margin: 0; }
+  .home-intro__chips a {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-ink);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.4;
+    text-decoration: none;
+    transition: border-color 200ms, background 200ms, color 200ms;
+  }
+  .home-intro__chips a:hover,
+  .home-intro__chips a:focus-visible {
+    border-color: var(--color-gold-400);
+    background: var(--color-gold-400);
+    color: #fff;
+  }
+
+  .home-intro__cta { text-align: center; margin-top: 2rem; }
+  .home-intro p.home-intro__note {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    margin: 0.75rem 0 0;
+  }
+
+  /* Same pill as FeatureChecklist / ProductShowcase (their styles are component-scoped) */
+  .button-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-gold-400);
+    color: #fff;
+    padding: 0.875rem 2rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--text-button-14-500);
+    line-height: 1.715;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 200ms, transform 200ms;
+  }
+  .button-pill:hover { background: var(--color-gold-600); color: #fff; transform: translateY(-1px); }
+</style>

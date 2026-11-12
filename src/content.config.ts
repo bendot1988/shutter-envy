@@ -187,6 +187,28 @@ const pages = defineCollection({
         tone: z.enum(['cream', 'gold', 'dark']).optional(),
       })
       .optional(),
+    // Plain-text commercial intro rendered straight after the awards band
+    // (HC1). Paragraphs may contain inline <a>/<strong> markup.
+    intro: z
+      .object({
+        heading: z.string(),
+        lead: z.string(),
+        cards: z
+          .array(
+            z.object({
+              title: z.string(),
+              text: z.string().optional(),
+              steps: z.array(z.string()).default([]),
+              links: z
+                .array(z.object({ label: z.string(), href: z.string() }))
+                .default([]),
+            }),
+          )
+          .default([]),
+        cta: z.object({ label: z.string(), href: z.string() }).optional(),
+        ctaNote: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 
