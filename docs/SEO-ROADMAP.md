@@ -3,7 +3,7 @@
 > **Internal only.** This file lives at `docs/SEO-ROADMAP.md` in the private repo. Never put it, or any audit, report or export, in `public/`: everything there is published on the live site. It was publicly readable at `/SEO-ROADMAP.md` until 15 October 2026; that URL now returns 410.
 
 - **Owner:** _TBD (Ben / Mark / Laura — set on first PR)_
-- **Last updated:** 2026-11-12 (light check; hubs/Leicester to 25 Nov, blinds to 3 Dec)
+- **Last updated:** 2026-11-19 (light check; hubs/Leicester to 25 Nov, blinds to 3 Dec)
 - **90-day window (Q2):** 2026-05-28 → 2026-08-26 — **closed via A12**
 - **Current window (Q3 / Days 90–180):** 2026-08-27 → 2026-11-25 — see §6.4 Phase 4
 - **Canonical site:** https://shutter-envy.co.uk/
@@ -285,10 +285,13 @@ Update `status` / `owner` / `done` / `note` on the same PR that closes the item.
   - [x] **Q3-4c — Fortnightly post: `/duo-roller-blinds-uk-buyers-guide/`.** status: done · owner: Claude · done: 2026-11-16 · note: day-and-night / duo roller buyers guide; continues blinds series after Venetian (9 Nov) + honeycomb (2 Nov); 7 FAQs; £180–£300 from blinds cost guide; 3 images under `public/images/blog/`; category `blinds`. Gap filled: product sold on `/our-blinds/` with no dedicated guide. Not overlapping Venetian/honeycomb/motorised-bifold.
 - [x] **Q3-5 — Stop clipping titles/descriptions with "…".** status: done · owner: Claude · done: 2026-10-15 · note: live crawl 15 Oct found 50 of 158 sitemap URLs with `<title>` ending "…" (bug live since `2cba188`, 19 Aug). `src/lib/seo.ts` now never truncates: titles/descriptions render in full and the build `console.warn`s with path + length when a title is > 60 or a description > 160. ` | Shutter Envy` still appended when it fits in 60; filler padding (" Leicestershire", " Shutters") removed; stray ".." / "…." / "!." description endings fixed. New optional frontmatter `seoTitle` (all three collections) overrides `<title>` / og:title / twitter:title only — H1, cards and BlogPosting headline unchanged. `seoTitle` added on 23 pages whose full title was > 70 chars (21 legacy blog posts, `/recent-work/`, `/our-shutters/`). Not reworded (review locks): 4 hubs (Monitor to 28 Oct), `/locations/shutters-in-leicester/` (review 4 Nov), blinds cost guide (review 5 Nov). 79 `<title>`s changed (50 un-clipped, 28 padding removed, 404); 28 titles still 61–73 chars render in full with a build warning; 35 descriptions > 160 render in full with a warning. Rendering fix only — not a CTR rewrite.
 
-- [x] **HC1 — Homepage commercial intro (from Appendix D).** status: done · owner: Claude · done: 2026-11-12 · note: new `intro` frontmatter on `src/content/pages/home.md` + `src/components/home/HomeIntro.astro`, rendered straight after the awards band (about 135 words of plain server-rendered text laid out as a short lead plus four scannable cards (What we fit / How it works / Where we work / Prices and proof) with link chips; one H2, h3 card titles, no new H1). Covers who runs it (family-run, Melton Mowbray, Mark/survey), what is fitted (shutters by material, blinds, BlindScreen®, motorisation, awnings), how it works (free survey, 10–12 weeks, 5-year shutter warranty), where (links to Leicester, Loughborough, Melton, Market Harborough, Charnwood, Derby, `/locations/`), plus links to both cost guides, `/recent-work/` and `/reviews/`. Title, description, H1, canonical and every URL unchanged. All facts taken from existing site copy. HC2–HC5 remain proposed only. Re-run the Mission Control helpful-content check after deploy to see whether `/` moves off "Not helpful".
+- [x] **HC1 — Homepage commercial intro (from Appendix D).** status: done · owner: Claude · done: 2026-11-12 · note: new `intro` frontmatter on `src/content/pages/home.md` + `src/components/home/HomeIntro.astro`, rendered straight after the awards band (about 135 words of plain server-rendered text laid out as a short lead plus four scannable cards (What we fit / How it works / Where we work / Prices and proof) with link chips; one H2, h3 card titles, no new H1). Covers who runs it (family-run, Melton Mowbray, Mark/survey), what is fitted (shutters by material, blinds, BlindScreen®, motorisation, awnings), how it works (free survey, 10–12 weeks, 5-year shutter warranty), where (links to Leicester, Loughborough, Melton, Market Harborough, Charnwood, Derby, `/locations/`), plus links to both cost guides, `/recent-work/` and `/reviews/`. Title, description, H1, canonical and every URL unchanged. All facts taken from existing site copy. Re-run the Mission Control helpful-content check after deploy to see whether `/` moves off "Not helpful".
+- [x] **HC2 — `/our-blinds/` product paths, prices, blinds-vs-shutters.** status: done · owner: Claude · done: 2026-11-19 · note: each of the six existing type cards now shows a planning price + link (Venetian/honeycomb/duo guides, motorisation page, cost guide for roller/vertical). New pricing table (£100–£300 manual / £300–£600 motorised from the blinds cost guide) and "When blinds are the better buy" vs shutters section with links to comparison, `/our-shutters/`, BlindScreen® and bifold guide. Did **not** invent Roman / Perfect Fit / pleated — those are not on the sold range. Title, description, H1, canonical and URL unchanged. Built page ~1,340 words in `<main>` (checker had read ~83). HC3–HC5 remain proposed only.
 
 ## 10. Changelog
 
+- **2026-11-19** — **HC2 done:** `/our-blinds/` thickened with per-type price chips + guide links, 2026 planning price table, and blinds-vs-shutters decision block. No URL/title/H1 change. Next proposed: **HC3** (`/news/` + `/recent-work/` indexes).
+- **2026-11-19** — Light check under hubs/Leicester Monitor to **25 Nov** and blinds cost to **3 Dec**, no commercial title rewrites. GSC Web, last 28 vs previous 28 (`https___shutter-envy.co.uk_-Performance-on-Search-2026-11-19.xlsx`, not committed). UK clicks **662** vs 597; impressions **137,129** vs 120,284; position **11.6** vs 10.4. Tracked bifold guide **52** vs 36 clicks. Blinds cost **30** vs 31 at position **7.5** — hold, do not revert. Aluminium buyers guide **19** vs 8. Café hub still **0** clicks; query `cafe style shutters` **0** clicks at position **10.5** (1,346 impressions). Leicester location still **0** clicks / 250 impressions at position **37**. ClearLine sheet: **8** form rows since 12 Nov (sheet Channel mostly Direct; one ChatGPT Where From 18 Nov). Mark three-post merge still open.
 - **2026-11-16** — **Q3-4c done:** `/duo-roller-blinds-uk-buyers-guide/` — day-and-night / duo roller buyers guide (commercial blinds series after Venetian + honeycomb). 7 FAQs; £180–£300 from blinds cost guide; 3 images in `public/images/blog/`; category `blinds`. Next editorial candidate still open under Q3-4 (e.g. vertical blinds guide, or plain roller if volume warrants).
 - **2026-11-12** — **HC1 done:** homepage plain-text commercial intro (see §9). Built page shows 1 H1, same title and canonical, all 19 links in the block resolve. Note: the Nov 5 check read `/` as ~48 words, but the built page carries ~1,900 words in `<main>`, so the checker probably read only the hero. Intro still closes the real gaps it flagged (blinds/awnings coverage, who runs the business, area). HC2–HC5 still proposed.
 
@@ -546,15 +549,15 @@ Finding titles and Fix lines come from the run. The **AI fix prompt** button tex
 | 73 | `/blindscreen/` | 1364 | Needs work | No price guidance at all — Add typical price ranges, e.g. 'a standard bedroom window usually costs £X–£Y and a 3-panel bifold £X–£Y'. Use real recent jobs an; Energy claims are inconsistent and weakly sourced — The FAQ says 'independently proven' but the table says 'industry sources including the BBSA'. Name the actual test or report, link |
 | 92 | `/brand/` | 29 | Helpful | No findings listed |
 
-### Proposed backlog (not started — decide; do not treat as recorded decisions)
+### Proposed backlog
 
-| ID | Action | Priority |
-|----|--------|----------|
-| HC1 | Homepage: short commercial block — who for, what you fit, area, trust line, survey CTA (do not dilute ranking cost/guide posts) | High |
-| HC2 | `/our-blinds/` — real product paths, price guidance links, and when blinds beat shutters | High |
-| HC3 | `/news/` and `/recent-work/` indexes — stronger intros + distinctive card copy (not empty shells) | Medium |
-| HC4 | `/locations/` index — coverage summary and clear path into Leicester / Harborough / Derby pages | Medium |
-| HC5 | `/about/` — named people, years trading, and two proof jobs (photos) | Medium |
+| ID | Action | Priority | Status |
+|----|--------|----------|--------|
+| HC1 | Homepage: short commercial block — who for, what you fit, area, trust line, survey CTA (do not dilute ranking cost/guide posts) | High | Done 2026-11-12 (§9) |
+| HC2 | `/our-blinds/` — real product paths, price guidance links, and when blinds beat shutters | High | Done 2026-11-19 (§9) |
+| HC3 | `/news/` and `/recent-work/` indexes — stronger intros + distinctive card copy (not empty shells) | Medium | Proposed |
+| HC4 | `/locations/` index — coverage summary and clear path into Leicester / Harborough / Derby pages | Medium | Proposed |
+| HC5 | `/about/` — named people, years trading, and two proof jobs (photos) | Medium | Proposed |
 
 **Hold:** no title rewrites on style hubs, Leicester location, or blinds cost guide before their Monitor dates. Mark's three-post merge decision is still open and separate from HC1–HC5.
 

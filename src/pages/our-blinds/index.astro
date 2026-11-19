@@ -76,36 +76,85 @@ const intro = {
 };
 
 // Blind types — VERBATIM body copy from the live ranking page.
+// HC2: href points to a dedicated buyers guide or product page where one exists.
 const types = [
   {
     name: 'Roller Blinds',
     body: 'Our premium range of roller blinds helps to give your home a crisp and fresh finish. We have a wide range of beautiful fabric designs and colour pathways available. Add some sophistication to your roller by upgrading to one of our matching or contrasting fabric cassettes, which finish the blind beautifully. We have motorisation options available, from integral rechargeable, battery motors or hard-wired Somfy motors. All have the option to be voice activated and added to a home automation system.',
     image: '/images/blinds/roller.png',
+    price: 'From about £100–£180 fitted',
+    href: '/how-much-do-made-to-measure-blinds-cost-uk-2026/',
+    linkLabel: 'See blinds prices',
   },
   {
     name: 'Venetian Blinds',
     body: 'Venetian Blinds are a stylish, simple way to customise your windows, with the natural stains and painted finishes available in our Real Wood ranges to the clean cut and finish of our Faux Wood alternatives. Venetian blinds are a great way to control both light and privacy, by simply tilting the slats to the desired angle. We have the option of a Privacy slat to close out the outside world when you wish, or the ability to add your own style, with either a matching or contrasting tape finish. Motorisation is available to venetian products, which can work with remote, phone app, or even voice activation for ultimate convenience and control.',
     image: '/images/blinds/venetian.png',
+    price: 'From about £130–£220 fitted',
+    href: '/venetian-blinds-uk-buyers-guide/',
+    linkLabel: 'Venetian blinds guide',
   },
   {
     name: 'Honeycomb Blinds',
     body: 'Honeycomb blinds are available in a wide range of fabrics and colours. The unique design of our honeycomb blinds help to control light and privacy, and even the temperature of your room. Added benefits of honeycomb blinds are the availability of blackout options, with our SmartFrame option offering you near-perfect light-blocking characteristics. Honeycomb blinds allow you so many options in terms of operation, from a standard bottom-down to the versatile top-down, bottom-up for total control. Honeycomb blinds can be operated via motorisation including Remote, Hub and Voice activation.',
     image: '/wp-content/uploads/2025/04/Galaxy-Honey-Comb-Blind-2.webp',
+    price: 'From about £150–£300 fitted',
+    href: '/honeycomb-blinds-uk-buyers-guide/',
+    linkLabel: 'Honeycomb blinds guide',
   },
   {
     name: 'Duo Roller Blinds',
     body: 'Duo Rollers are a horizontally-striped, stylish fabric, which allows you to control light and privacy. As the double-layered fabrics move relative to each other, you can move from opaque to translucent to full visibility with ease. With a range of fabric colours and types, all available with matching cassettes and an easy wipe clean fabric, Duo Rollers add a contemporary finish to any room. These can be motorised with either remote functionality or connected via a home hub for app and voice control.',
     image: '/images/blinds/duo-roller.png',
+    price: 'From about £180–£300 fitted',
+    href: '/duo-roller-blinds-uk-buyers-guide/',
+    linkLabel: 'Duo / day-and-night guide',
   },
   {
     name: 'Vertical Blinds',
     body: 'Vertical blinds are an elegant way to control light and privacy in your home. All of our vertical headrails are built using the Vogue headrail system, which is available in different colours, to match with your fabric or internal decor.',
     image: '/images/blinds/vertical.png',
+    price: 'From about £110–£180 fitted',
+    href: '/how-much-do-made-to-measure-blinds-cost-uk-2026/',
+    linkLabel: 'See blinds prices',
   },
   {
     name: 'Motorised Blinds',
     body: "Add convenience and a touch of luxury with motorised blinds — operated via remote, phone app, voice assistant or as part of your home automation system. Available across most of our blind ranges, including roller, Venetian, honeycomb and duo roller. Perfect for hard-to-reach windows, large openings and that effortless 'wake-up to natural light' moment.",
     image: '/wp-content/uploads/2025/07/motor-blinds.webp',
+    price: 'From about £300–£600 fitted',
+    href: '/blind-motorisation/',
+    linkLabel: 'Blind motorisation',
+  },
+];
+
+// HC2 — planning ranges from the blinds cost guide (standard window).
+const priceRows = [
+  { type: 'Roller blind', range: '£100–£180', note: 'Bedrooms, kitchens, offices' },
+  { type: 'Vertical blind', range: '£110–£180', note: 'Patio doors and wide windows' },
+  { type: 'Venetian (wood / faux wood)', range: '£130–£220', note: 'Living rooms, studies, kitchens' },
+  { type: 'Honeycomb blind', range: '£150–£300', note: 'Bedrooms, insulation, privacy' },
+  { type: 'Duo roller / day-and-night', range: '£180–£300', note: 'Living rooms and modern interiors' },
+  { type: 'Motorised roller', range: '£300–£600', note: 'Hard-to-reach or frequently used windows' },
+];
+
+const blindsVsShutters = [
+  {
+    heading: 'Choose blinds when',
+    points: [
+      'You want a softer fabric look, or a lower budget than shutters on every window.',
+      'A rectangular window needs a simple, wipe-clean or motorised solution.',
+      'You need blackout fabric, honeycomb cells, or day-and-night stripe control.',
+      'A bifold or patio opening needs BlindScreen® or a motorised blind that clears the doors.',
+    ],
+  },
+  {
+    heading: 'Choose shutters when',
+    points: [
+      'The window is a street-facing bay or a period front you want to keep for years.',
+      'You want hinged panels with no fabric to replace, and a finish that reads from the pavement.',
+      'Café-style, tier-on-tier or shaped openings matter more than a fabric drop.',
+    ],
   },
 ];
 
@@ -198,12 +247,94 @@ const processSteps = [
               </div>
               <div class="obl-type-card__body">
                 <h3>{t.name}</h3>
+                {t.price && <p class="obl-type-card__price">{t.price}</p>}
                 <p>{t.body}</p>
+                {t.href && (
+                  <a href={t.href} class="obl-type-card__link">
+                    {t.linkLabel ?? 'Learn more'}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                )}
               </div>
             </article>
           </li>
         ))}
       </ul>
+      <p class="obl-types__related">
+        For bifold doors that need insect control and blackout, see
+        <a href="/blindscreen/"> BlindScreen®</a>.
+        For patio and bifold motorised options, read our
+        <a href="/motorised-blinds-for-bifold-doors-uk-buyers-guide/"> bifold blinds buyers guide</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* ─── HC2: PRICE GUIDANCE ─────────────────────────────── */}
+  <section class="obl-prices" data-reveal>
+    <div class="obl-prices__inner container">
+      <header>
+        <span class="obl-eyebrow">2026 planning prices</span>
+        <h2>How Much Do Made-to-Measure Blinds Cost?</h2>
+        <p>
+          Allow roughly <strong>£100–£300</strong> per standard window for a manual blind, professionally measured and fitted.
+          Motorised blinds commonly start around <strong>£300–£600</strong>. These are planning ranges from our
+          <a href="/how-much-do-made-to-measure-blinds-cost-uk-2026/"> blinds cost guide</a> — not a fixed quote.
+        </p>
+      </header>
+      <div class="obl-prices__table-wrap">
+        <table class="obl-prices__table">
+          <thead>
+            <tr>
+              <th scope="col">Blind type</th>
+              <th scope="col">Typical fitted price</th>
+              <th scope="col">Best suited to</th>
+            </tr>
+          </thead>
+          <tbody>
+            {priceRows.map((row) => (
+              <tr>
+                <td>{row.type}</td>
+                <td>{row.range}</td>
+                <td>{row.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="obl-prices__foot">
+        Width, fabric, cassettes, side channels and motorisation all move the figure.
+        <a href="/how-much-do-made-to-measure-blinds-cost-uk-2026/"> Read the full blinds cost guide</a>,
+        or <a href="/contact/">book a free home survey</a> for a fitted quote.
+      </p>
+    </div>
+  </section>
+
+  {/* ─── HC2: WHEN BLINDS BEAT SHUTTERS ──────────────────── */}
+  <section class="obl-compare" data-reveal>
+    <div class="obl-compare__inner container">
+      <header>
+        <span class="obl-eyebrow">Blinds or shutters?</span>
+        <h2>When Blinds Are the Better Buy</h2>
+        <p>
+          Shutters and blinds solve different jobs. We fit both across Leicestershire, and we will say plainly which suits the window.
+          For a full room-by-room take, see our
+          <a href="/shutters-vs-blinds-honest-uk-comparison-2026/"> shutters vs blinds comparison</a>.
+        </p>
+      </header>
+      <div class="obl-compare__grid">
+        {blindsVsShutters.map((col) => (
+          <article class="obl-compare__card">
+            <h3>{col.heading}</h3>
+            <ul>
+              {col.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <p class="obl-compare__foot">
+        Exploring shutters for a bay or the front of the house?
+        <a href="/our-shutters/"> See our shutters range</a>.
+      </p>
     </div>
   </section>
 
@@ -435,7 +566,12 @@ const processSteps = [
     transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
   }
   .obl-type-card:hover .obl-type-card__image img { transform: scale(1.05); }
-  .obl-type-card__body { padding: 1.5rem 1.75rem 1.75rem; flex: 1; }
+  .obl-type-card__body {
+    padding: 1.5rem 1.75rem 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
   .obl-type-card h3 {
     font-family: var(--font-display);
     color: var(--color-gold-600);
@@ -443,13 +579,193 @@ const processSteps = [
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.027em;
-    margin: 0 0 0.625rem;
+    margin: 0 0 0.5rem;
+  }
+  .obl-type-card__price {
+    margin: 0 0 0.75rem !important;
+    color: var(--color-ink) !important;
+    font-size: var(--text-small-body-15-400) !important;
+    font-weight: 600;
   }
   .obl-type-card p {
     color: var(--color-ink-soft);
     font-size: var(--text-small-body-15-400);
     line-height: 1.65;
     margin: 0;
+  }
+  .obl-type-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--color-gold-600);
+    font-size: var(--text-small-body-15-400);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .obl-type-card__link:hover { text-decoration: underline; text-underline-offset: 2px; }
+  .obl-types__related {
+    text-align: center;
+    max-width: 40rem;
+    margin: 2.5rem auto 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.65;
+  }
+  .obl-types__related a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ─── HC2 PRICES ─────────────────────────────────────── */
+  .obl-prices {
+    padding: 5rem 1.25rem;
+    background: var(--color-cream);
+  }
+  .obl-prices__inner { max-width: 56rem; margin: 0 auto; }
+  .obl-prices header { text-align: center; margin: 0 auto 2.25rem; max-width: 44rem; }
+  .obl-prices h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+  .obl-prices header p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .obl-prices header a,
+  .obl-prices__foot a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .obl-prices__table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+  .obl-prices__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-small-body-15-400);
+  }
+  .obl-prices__table th,
+  .obl-prices__table td {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-line);
+    vertical-align: top;
+  }
+  .obl-prices__table th {
+    background: rgba(199,154,8,0.08);
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .obl-prices__table tr:last-child td { border-bottom: 0; }
+  .obl-prices__table td:nth-child(2) {
+    font-weight: 600;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+  .obl-prices__foot {
+    text-align: center;
+    margin: 1.5rem 0 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
+    line-height: 1.65;
+  }
+
+  /* ─── HC2 COMPARE ────────────────────────────────────── */
+  .obl-compare {
+    padding: 5rem 1.25rem;
+    background: #fff;
+  }
+  .obl-compare__inner { max-width: 64rem; margin: 0 auto; }
+  .obl-compare header { text-align: center; margin: 0 auto 2.25rem; max-width: 44rem; }
+  .obl-compare h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+  .obl-compare header p {
+    color: var(--color-ink-soft);
+    font-size: var(--text-large-body-19-400);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .obl-compare header a,
+  .obl-compare__foot a {
+    color: var(--color-gold-600);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .obl-compare__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 720px) {
+    .obl-compare__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .obl-compare__card {
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.5rem 1.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .obl-compare__card h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    margin: 0 0 0.875rem;
+    color: var(--color-ink);
+  }
+  .obl-compare__card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .obl-compare__card li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .obl-compare__card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-gold-400);
+  }
+  .obl-compare__foot {
+    text-align: center;
+    margin: 1.75rem 0 0;
+    color: var(--color-ink-soft);
+    font-size: var(--text-body-16-400);
   }
 
   /* ─── WHERE WE INSTALL BLINDS ────────────────────────── */
