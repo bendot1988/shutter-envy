@@ -38,6 +38,16 @@ https://www.shutter-envy.co.uk/*  https://shutter-envy.co.uk/:splat  301!
 /shutter-installation/cafe-style-shutters           /cafe-style-shutters/  301
 /shutter-installation/cafe-style-shutters/          /cafe-style-shutters/  301
 
+# ─── Q3-1 three-post merge (Mark approved 2026-11-19) ───
+# Local-vs-online Leicester slug + thin North Leics village list → Leicester location.
+# Legacy blinds-vs-shutters comparison → C7 honest comparison.
+/leicester-shutters-and-blinds-transform-your-home-with-style-and-innovation            /locations/shutters-in-leicester/  301
+/leicester-shutters-and-blinds-transform-your-home-with-style-and-innovation/           /locations/shutters-in-leicester/  301
+/shutters-blinds-north-leicestershire                                                   /locations/shutters-in-leicester/  301
+/shutters-blinds-north-leicestershire/                                                  /locations/shutters-in-leicester/  301
+/window-blinds-vs-shutters-which-is-right-for-your-home                                 /shutters-vs-blinds-honest-uk-comparison-2026/  301
+/window-blinds-vs-shutters-which-is-right-for-your-home/                                /shutters-vs-blinds-honest-uk-comparison-2026/  301
+
 # ─── WordPress attachment pages → parent post ───
 # WP renders /<post-slug>/<image-slug>/ for some media. Catch-all fallback to
 # /our-shutters/ for the 7 we identified during the crawl, rather than a

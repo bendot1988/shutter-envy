@@ -78,10 +78,8 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'how-to-choose-a-shutter-specialist-in-leicester-what-to-look-for': 'guides',
   'how-to-choose-the-right-colour-shutter-for-your-room': 'guides',
   'just-moved-in-lets-talk-shutters-for-your-new-build': 'guides',
-  'leicester-shutters-and-blinds-transform-your-home-with-style-and-innovation': 'guides',
   'overcoming-common-shutter-challenges-in-new-build-homes': 'guides',
   'plantation-shutters-in-loughborough-why-local-homeowners-are-choosing-shutter-envy': 'guides',
-  'shutters-blinds-north-leicestershire': 'guides',
   'shutters-in-leicester-prices-timelines-quote-checklist': 'guides',
   'shutters-vs-blackout-blinds-for-noise-which-is-best-for-your-sleep': 'guides',
   'shutters-vs-curtains-which-is-right-for-your-home': 'guides',
@@ -89,8 +87,8 @@ export const BLOG_CATEGORY_BY_SLUG: Record<string, BlogCategoryId> = {
   'the-shutter-envy-process-from-survey-to-installation': 'guides',
   'what-happens-during-a-shutter-installation-a-look-behind-the-scenes': 'guides',
   'why-measuring-yourself-can-be-a-costly-mistake': 'guides',
-  'window-blinds-vs-shutters-which-is-right-for-your-home': 'guides',
   'wood-vs-pvc-shutters-which-is-best-for-winter-warmth-in-loughborough-and-leicester-homes': 'guides',
+  // Merged 2026-11-19 (Mark approved): leicester-shutters-and-blinds-…, shutters-blinds-north-leicestershire → /locations/shutters-in-leicester/; window-blinds-vs-shutters-… → /shutters-vs-blinds-honest-uk-comparison-2026/
 
   // ─── Recent projects (install stories & local showcases) ───
   'bedroom-shutter-installation-in-leicester': 'projects',

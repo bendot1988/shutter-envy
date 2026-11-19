@@ -17,6 +17,9 @@ These 301s already exist on shutter-envy.co.uk and were detected during the craw
 
 - `/privacy-2/` → `/privacy/`  (301, orphan duplicate stub — `/privacy/` is the canonical privacy page with full nav and 18 internal links; `/privacy-2/` has only 1 internal link and was effectively unreachable. Approved by Ben, 2026-05-15)
 - `/shutter-installation/cafe-style-shutters/` → `/cafe-style-shutters/`  (301, legacy WordPress product URL; new commercial hub approved in SEO roadmap C1. Preserves F11 internal links and any external equity. 2026-06-30)
+- `/leicester-shutters-and-blinds-transform-your-home-with-style-and-innovation/` → `/locations/shutters-in-leicester/`  (301, Q3-1 merge — local-vs-online post cannibalising Leicester location; Mark approved 2026-11-19. Unique local-vs-online points folded into Leicester page.)
+- `/shutters-blinds-north-leicestershire/` → `/locations/shutters-in-leicester/`  (301, Q3-1 merge — thin village list; villages already covered via Leicester “where we work” + dedicated location pages; Mark approved 2026-11-19.)
+- `/window-blinds-vs-shutters-which-is-right-for-your-home/` → `/shutters-vs-blinds-honest-uk-comparison-2026/`  (301, C7 merge — legacy comparison superseded by honest 2026 guide; Mark approved 2026-11-19.)
 
 ## Sitemap URL preservation
 

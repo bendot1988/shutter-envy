@@ -84,9 +84,12 @@ As well as the city itself, we regularly visit neighbouring areas:
 - [Syston](/locations/shutters-in-syston/)
 - [Rothley](/locations/shutters-in-rothley/)
 - [Quorn](/locations/shutters-in-quorn/)
+- [Barrow upon Soar](/locations/shutters-in-barrow-upon-soar/)
 - [Groby](/locations/shutters-groby/)
 - [Sileby](/locations/shutters-sileby/)
 - [Charnwood](/locations/shutters-in-charnwood/)
+
+We also regularly survey north Leicestershire villages such as Anstey, Woodhouse Eaves, Newtown Linford, Glenfield and Cropston from the same Melton Mowbray base.
 
 Looking further west? We also cover [Derby](/locations/shutters-derby/) and [Derbyshire](/locations/shutters-derbyshire/).
 
@@ -97,6 +100,10 @@ Searching for blinds as well as shutters? We supply and fit [made-to-measure bli
 ## Shutter fitting in Leicester and nearby areas
 
 We cover Leicester and nearby areas, providing home consultations, precise measuring and professional shutter fitting for local homeowners. If you are based in Leicester and want a made-to-measure solution for bay windows, bedrooms, living rooms or wider openings, we can arrange a visit and guide you through the best options for your property.
+
+## Why choose a local fitter over online shutters?
+
+Online retailers often look cheaper until you factor in measuring risk, returns and DIY fitting. A few millimetres out and the panels will not sit square — and once they are made, they cannot be adjusted. With Shutter Envy you get a full professional survey, made-to-measure panels and trained installers who level, secure and tidy up after themselves. You deal with real people based near Leicester, not an order number and a call centre. If anything needs aftercare, we are local.
 
 ## Why homeowners in Leicester choose Shutter Envy
 
