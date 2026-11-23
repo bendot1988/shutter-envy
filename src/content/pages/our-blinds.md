@@ -19,7 +19,7 @@ Shutter Envy supplies and fits made-to-measure blinds for homes across Leicester
 - [Venetian Blinds](/venetian-blinds-uk-buyers-guide/) — from about £130–£220 fitted
 - [Honeycomb Blinds](/honeycomb-blinds-uk-buyers-guide/) — from about £150–£300 fitted
 - [Duo Roller Blinds](/duo-roller-blinds-uk-buyers-guide/) — from about £180–£300 fitted
-- [Vertical Blinds](/how-much-do-made-to-measure-blinds-cost-uk-2026/) — from about £110–£180 fitted
+- [Vertical Blinds](/vertical-blinds-uk-buyers-guide/) — from about £110–£180 fitted
 - [Motorised Blinds](/blind-motorisation/) — from about £300–£600 fitted
 
 Also see [BlindScreen®](/blindscreen/) for bifold doors and our [motorised bifold blinds guide](/motorised-blinds-for-bifold-doors-uk-buyers-guide/).
