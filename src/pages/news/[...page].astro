@@ -87,6 +87,41 @@ const jsonLd = [
   }),
 ];
 
+// HC3: curated entry points for first-time visitors. Guarded against slugs
+// that no longer exist so a deleted post can never produce a dead link.
+const startHere = [
+  {
+    slug: 'the-complete-uk-guide-to-plantation-shutters',
+    kicker: 'New to shutters?',
+    title: 'The complete UK guide',
+    text: 'Styles, materials, realistic costs and how to choose for each room.',
+  },
+  {
+    slug: 'how-much-do-plantation-shutters-cost-a-complete-uk-price-guide',
+    kicker: 'Shutter prices',
+    title: 'What shutters cost per window',
+    text: 'A UK price guide to read before you ask for quotes.',
+  },
+  {
+    slug: 'how-much-do-made-to-measure-blinds-cost-uk-2026',
+    kicker: 'Blind prices',
+    title: 'What blinds cost per window',
+    text: 'Fitted ranges by blind type, and what changes the quote.',
+  },
+  {
+    slug: 'shutters-vs-blinds-honest-uk-comparison-2026',
+    kicker: 'Deciding',
+    title: 'Shutters vs blinds',
+    text: 'Cost, lifespan, cleaning and room fit compared honestly.',
+  },
+  {
+    slug: 'shutters-in-leicester-prices-timelines-quote-checklist',
+    kicker: 'Local',
+    title: 'Shutter prices in Leicester',
+    text: 'Costs, timelines and a checklist for comparing quotes.',
+  },
+].filter((g) => enriched.some((p) => p.id === g.slug));
+
 const fmtDate = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
@@ -99,8 +134,26 @@ const fmtDate = (d: Date) =>
   <header class="news-hero" data-reveal>
     <span class="news-hero__eyebrow">News & Updates</span>
     <h1>Shutter Envy News</h1>
-    <p>Real projects, plain-English advice, and updates from across Leicester&nbsp;&amp;&nbsp;Leicestershire.</p>
+    <p>Buying guides, price breakdowns and real installations from across Leicester, Loughborough and Leicestershire. Browse {enriched.length} articles by topic, or start with the guides below.</p>
   </header>
+
+  {/* ─── Start here (HC3) ───────────────────────────────── */}
+  {startHere.length > 0 && (
+    <section class="news-start" aria-labelledby="news-start-title" data-reveal>
+      <h2 id="news-start-title" class="news-start__title">Start Here</h2>
+      <ul class="news-start__list">
+        {startHere.map((g) => (
+          <li>
+            <a href={`/${g.slug}/`} class="news-start__card">
+              <span class="news-start__kicker">{g.kicker}</span>
+              <span class="news-start__name">{g.title}</span>
+              <span class="news-start__text">{g.text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   {/* ─── Two-column layout: sidebar + grid ─────────────── */}
   <div class="news-layout">
@@ -345,6 +398,68 @@ const fmtDate = (d: Date) =>
     margin: 0 auto;
     max-width: 36rem;
     text-wrap: balance;
+  }
+
+  /* ─── Start here (HC3) ─────────────────────────────────── */
+  .news-start {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem 2.5rem;
+  }
+  .news-start__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .news-start__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 640px) {
+    .news-start__list { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1100px) {
+    .news-start__list { grid-template-columns: repeat(5, 1fr); }
+  }
+  .news-start__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    height: 100%;
+    padding: 1.125rem 1.25rem;
+    background: var(--color-cream, #faf6ee);
+    border: 1px solid rgba(199,154,8,0.22);
+    border-radius: var(--radius-lg, 1rem);
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .news-start__card:hover { border-color: var(--color-gold-600); transform: translateY(-2px); }
+  .news-start__kicker {
+    color: var(--color-gold-600);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .news-start__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h5-20-500);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+  .news-start__text {
+    color: var(--color-ink-soft);
+    font-size: var(--text-small-body-15-400);
+    line-height: 1.5;
   }
 
   /* ─── Two-column layout ────────────────────────────────── */

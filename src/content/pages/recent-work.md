@@ -122,6 +122,19 @@ cta:
 
 ## Latest Projects
 
-Browse recent shutter, blind and awning installations completed by Shutter Envy across Leicester, Loughborough, Melton Mowbray and surrounding Leicestershire areas. These real projects show the styles, finishes and window types we work with, from bay windows and bi-fold doors to shaped windows and full-room shutter installations. If you are comparing options for your own home, this page is a good place to see how our made-to-measure products look in real properties.
+These are real Shutter Envy installations across Leicester, Loughborough, Market Harborough and nearby Leicestershire villages. Each project above gives the town, the room and the product, and links to a write-up with the finish and louvre size where we have them. If you are comparing options for your own home, this page shows how our made-to-measure products look in real properties.
+
+## What These Projects Show
+
+- **Bay windows.** Splay, box and five-section bays in Lowdham, Whitwick, Kirby Muxloe and Market Harborough. See [bay window shutter costs](/bay-window-shutters-cost-uk-2026-guide/), [café-style shutters](/cafe-style-shutters/) and [tier-on-tier shutters](/choosing-the-perfect-style-full-height-vs-tier-on-tier-shutters/).
+- **Shaped and arched windows.** Bespoke shutters on a pointed-top bathroom window in Anstey and on an arched window and dormer in Syston. See [arched window shutters](/arched-window-shutters/).
+- **Bedrooms, bathrooms, kitchens and landings.** Guides for [bedrooms](/bedroom-shutters-uk-buyers-guide/), [bathrooms](/bathroom-shutters-uk-buyers-guide/), [kitchens](/kitchen-shutters-uk-buyers-guide/) and [landing windows](/landing-window-shutters-uk-buyers-guide/).
+- **Louvre sizes.** Many of the jobs above use 76mm louvres. Our [louvre size guide](/shutter-louvre-sizes-uk-guide/) explains 47mm to 114mm.
+- **Track, bypass and tall glass doors.** A bypass track shutter in Mountsorrel and full-height shutters on tall glass doors. See the [tracked shutters guide](/tracked-shutters-bifold-patio-doors-uk-buyers-guide/).
+- **Awnings and blinds.** A retractable patio awning in Mountsorrel. See [awnings](/awnings/) and [our blinds](/our-blinds/).
+
+## Want This in Your Home?
+
+Every installation starts with a free, no-obligation home survey. Mark measures up, brings samples and gives you a quote on the day. [Arrange a home visit](/contact/) or read what customers say on our [reviews page](/reviews/).
 
 For more behind-the-scenes detail on each installation, head over to our [News](/news/) page where every project has its own write-up.
